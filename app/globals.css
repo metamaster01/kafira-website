@@ -1,0 +1,116 @@
+/* @import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+} */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,700&family=Outfit:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap');
+@import "tailwindcss";
+
+:root {
+  --gold: #c9a84c;
+  --gold-light: #e8d5a3;
+  --gold-dark: #8b6914;
+  --cream: #f5f0e8;
+  --bg: #0c0a08;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+  overflow-x: hidden;
+  background: var(--bg);
+  color: var(--cream);
+  font-family: 'Outfit', sans-serif;
+  scroll-behavior: auto;
+}
+
+::selection { background: var(--gold); color: var(--bg); }
+
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
+
+.font-display { font-family: 'Playfair Display', serif; }
+.font-accent  { font-family: 'Cormorant Garamond', serif; }
+
+.gold-text {
+  background: linear-gradient(135deg, #c9a84c 0%, #e8d5a3 55%, #c9a84c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.nav-glass {
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  background: rgba(10, 8, 6, 0.82);
+  border-bottom: 1px solid rgba(201,168,76,0.15);
+}
+
+.underline-hover {
+  position: relative;
+}
+.underline-hover::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 0; height: 1px;
+  background: var(--gold);
+  transition: width 0.35s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+.underline-hover:hover::after { width: 100%; }
+
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(28px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity:0; }
+  to   { opacity:1; }
+}
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
+}
+@keyframes scrollDot {
+  0%   { transform: translateY(0); opacity:1; }
+  80%  { transform: translateY(14px); opacity:0; }
+  100% { transform: translateY(0); opacity:0; }
+}
+
+/* ── Journey Section responsive ── */
+@media (max-width: 768px) {
+  .bento-grid-planning {
+    grid-template-columns: 1fr !important;
+  }
+  .bento-grid-memories {
+    grid-template-columns: 1fr !important;
+  }
+  .exp-card {
+    width: 280px !important;
+  }
+}

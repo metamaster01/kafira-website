@@ -1,0 +1,758 @@
+// 'use client';
+// import { useEffect, useRef, useState } from 'react';
+// import { gsap } from 'gsap';
+// import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+// gsap.registerPlugin(ScrollTrigger);
+
+// const FAQS = [
+//   {
+//     category: 'Booking & Payment',
+//     items: [
+//       {
+//         q: 'How do I book a trip with Kafira?',
+//         a: 'Simply click "Plan a Trip" or WhatsApp us directly. Share your destination, dates, and group size — our travel expert will respond within 2 hours with a personalised itinerary and quote. No commitment needed at enquiry stage.',
+//       },
+//       {
+//         q: 'What payment methods do you accept?',
+//         a: 'We accept UPI (GPay, PhonePe, Paytm), net banking, all major credit/debit cards, and EMI options via select banks. International payments via wire transfer are also available for overseas travelers.',
+//       },
+//       {
+//         q: 'How much advance payment is required to confirm a booking?',
+//         a: 'A 25% advance secures your booking. The remaining balance is due 15 days before departure for domestic trips and 30 days for international ones. For group bookings of 10+, flexible payment schedules are available.',
+//       },
+//       {
+//         q: 'Is there a price-match guarantee?',
+//         a: 'Yes. If you find an identical itinerary at a lower price from a verified travel operator within 24 hours of booking, we will match or beat it. Our average saving versus self-booking is ₹4,200 per trip.',
+//       },
+//     ],
+//   },
+//   {
+//     category: 'Trips & Itineraries',
+//     items: [
+//       {
+//         q: 'Can I customise my itinerary?',
+//         a: 'Absolutely — every Kafira trip is built from scratch around your preferences. You choose the destination, pace, accommodation style, activities, and budget. We handle all logistics. No off-the-shelf packages here.',
+//       },
+//       {
+//         q: 'Do you organise solo travel and solo-female travel?',
+//         a: 'Yes. We have dedicated solo travel experts and a robust network of verified, safe accommodations. Our solo-female travel packages include vetted stays, women-led guide options, and a 24/7 emergency helpline.',
+//       },
+//       {
+//         q: 'What is the minimum and maximum group size you handle?',
+//         a: 'We handle solo trips (1 person) all the way up to large corporate groups of 200+. Group tours (6–20 people) get special shared pricing. We also specialise in family trips, honeymoons, and college group getaways.',
+//       },
+//       {
+//         q: 'Do you cover international destinations?',
+//         a: 'Yes. We operate tours across Southeast Asia (Bali, Thailand, Vietnam), Europe, Central Asia, and the Middle East. Our international packages include visa guidance, travel insurance advice, and 24/7 in-country support.',
+//       },
+//     ],
+//   },
+//   {
+//     category: 'Cancellation & Refunds',
+//     items: [
+//       {
+//         q: 'What is your cancellation policy?',
+//         a: 'Cancellations made 30+ days before departure receive a 90% refund. 15–29 days: 60% refund. 7–14 days: 30% refund. Less than 7 days: no refund. We strongly recommend travel insurance for all bookings.',
+//       },
+//       {
+//         q: 'What happens if Kafira cancels my trip?',
+//         a: 'In the rare event we cancel (e.g., natural disaster, government advisory), you receive a 100% refund or a free reschedule to any future date. We also cover any non-refundable costs incurred on your behalf.',
+//       },
+//       {
+//         q: 'Can I reschedule instead of cancelling?',
+//         a: 'Yes — rescheduling is always preferred. You can reschedule up to 10 days before departure at no extra charge (subject to availability). After that, a ₹500 rescheduling fee applies per person.',
+//       },
+//     ],
+//   },
+//   {
+//     category: 'During the Trip',
+//     items: [
+//       {
+//         q: 'Is there support available during the trip?',
+//         a: 'Every Kafira trip comes with a dedicated trip manager reachable via WhatsApp and phone 24/7. For group tours, a Kafira representative accompanies you on the ground. Our emergency line never goes unanswered.',
+//       },
+//       {
+//         q: 'Are meals included in your packages?',
+//         a: 'Meal inclusion depends on the package — clearly stated in your itinerary. Most packages include daily breakfast. Full-board (breakfast, lunch, dinner) is available as an add-on or standard in premium packages.',
+//       },
+//       {
+//         q: 'Do I need travel insurance? Do you provide it?',
+//         a: 'We strongly recommend travel insurance for all trips. While we don\'t sell insurance directly, we partner with trusted providers like HDFC ERGO and ICICI Lombard and can guide you to the right policy for your trip type.',
+//       },
+//     ],
+//   },
+// ];
+
+// // ── Single accordion item ─────────────────────────────
+// function FAQItem({ q, a, index, catIndex }: { q: string; a: string; index: number; catIndex: number }) {
+//   const [open, setOpen] = useState(false);
+//   const bodyRef   = useRef<HTMLDivElement>(null);
+//   const itemRef   = useRef<HTMLDivElement>(null);
+//   const contentH  = useRef(0);
+
+//   // measure content height on mount
+//   useEffect(() => {
+//     const el = bodyRef.current;
+//     if (!el) return;
+//     el.style.height = 'auto';
+//     contentH.current = el.scrollHeight;
+//     el.style.height = '0px';
+//   }, [a]);
+
+//   // animate open/close
+//   useEffect(() => {
+//     const el = bodyRef.current;
+//     if (!el) return;
+//     gsap.to(el, {
+//       height: open ? contentH.current : 0,
+//       duration: 0.42,
+//       ease: open ? 'power3.out' : 'power3.inOut',
+//     });
+//   }, [open]);
+
+//   // scroll reveal
+//   useEffect(() => {
+//     const el = itemRef.current; if (!el) return;
+//     gsap.set(el, { opacity: 0, y: 20 });
+//     gsap.to(el, {
+//       opacity: 1, y: 0,
+//       duration: 0.65,
+//       delay: catIndex * 0.05 + index * 0.07,
+//       ease: 'power3.out',
+//       scrollTrigger: { trigger: el, start: 'top 90%', once: true },
+//     });
+//   }, [index, catIndex]);
+
+//   return (
+//     <div
+//       ref={itemRef}
+//       style={{ opacity: 0, borderBottom: '1px solid rgba(201,168,76,0.08)' }}
+//     >
+//       <button
+//         onClick={() => setOpen(o => !o)}
+//         style={{
+//           width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+//           padding: '18px 0', background: 'none', border: 'none', cursor: 'pointer',
+//           textAlign: 'left', gap: 16,
+//         }}
+//       >
+//         <span style={{
+//           fontFamily: 'Outfit,sans-serif', fontWeight: 600, fontSize: 15,
+//           color: open ? '#f5f0e8' : 'rgba(245,240,232,0.78)',
+//           lineHeight: 1.4, flex: 1,
+//           transition: 'color 0.25s',
+//         }}>{q}</span>
+
+//         {/* animated +/× icon */}
+//         <div style={{
+//           width: 28, height: 28, borderRadius: 8, flexShrink: 0,
+//           background: open ? 'linear-gradient(135deg,#c9a84c,#8b6914)' : 'rgba(201,168,76,0.1)',
+//           border: `1px solid ${open ? 'transparent' : 'rgba(201,168,76,0.2)'}`,
+//           display: 'flex', alignItems: 'center', justifyContent: 'center',
+//           transition: 'all 0.3s ease',
+//         }}>
+//           <svg
+//             width="12" height="12" viewBox="0 0 12 12"
+//             fill="none"
+//             style={{ transition: 'transform 0.35s cubic-bezier(0.4,0,0.2,1)', transform: open ? 'rotate(45deg)' : 'rotate(0deg)' }}
+//           >
+//             <line x1="6" y1="0" x2="6" y2="12" stroke={open ? '#0c0a08' : '#c9a84c'} strokeWidth="1.8" strokeLinecap="round"/>
+//             <line x1="0" y1="6" x2="12" y2="6" stroke={open ? '#0c0a08' : '#c9a84c'} strokeWidth="1.8" strokeLinecap="round"/>
+//           </svg>
+//         </div>
+//       </button>
+
+//       {/* answer body — height animated by GSAP */}
+//       <div ref={bodyRef} style={{ height: 0, overflow: 'hidden' }}>
+//         <div style={{ paddingBottom: 18 }}>
+//           <p style={{
+//             fontFamily: 'Outfit,sans-serif', fontSize: 14,
+//             color: 'rgba(245,240,232,0.52)', lineHeight: 1.75,
+//             borderLeft: '2px solid rgba(201,168,76,0.3)',
+//             paddingLeft: 16, margin: 0,
+//           }}>{a}</p>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
+
+// // ── Category tab ──────────────────────────────────────
+// function CategoryTab({ label, active, onClick }: { label: string; active: boolean; onClick: () => void }) {
+//   return (
+//     <button
+//       onClick={onClick}
+//       style={{
+//         padding: '8px 18px', borderRadius: 999,
+//         cursor: 'pointer', fontFamily: 'Outfit,sans-serif', fontSize: 12, fontWeight: 600,
+//         letterSpacing: '0.04em',
+//         background: active ? 'linear-gradient(135deg,#c9a84c,#8b6914)' : 'rgba(255,255,255,0.05)',
+//         color: active ? '#0c0a08' : 'rgba(245,240,232,0.55)',
+//         outline: 'none',
+//         boxShadow: active ? 'none' : 'inset 0 0 0 1px rgba(255,255,255,0.08)',
+//         transition: 'all 0.28s ease',
+//         transform: active ? 'scale(1.04)' : 'scale(1)',
+//       }}
+//       onMouseEnter={e => { if (!active) (e.currentTarget as HTMLButtonElement).style.background = 'rgba(255,255,255,0.09)'; }}
+//       onMouseLeave={e => { if (!active) (e.currentTarget as HTMLButtonElement).style.background = 'rgba(255,255,255,0.05)'; }}
+//     >
+//       {label}
+//     </button>
+//   );
+// }
+
+// // ── Main ──────────────────────────────────────────────
+// export default function FAQSection() {
+//   const [activeCat, setActiveCat] = useState(0);
+//   const headRef    = useRef<HTMLDivElement>(null);
+//   const tabsRef    = useRef<HTMLDivElement>(null);
+//   const ctaRef     = useRef<HTMLDivElement>(null);
+//   const contentRef = useRef<HTMLDivElement>(null);
+
+//   useEffect(() => {
+//     [headRef, tabsRef, ctaRef].forEach((r, i) => {
+//       const el = r.current; if (!el) return;
+//       gsap.set(el, { opacity: 0, y: 28 });
+//       gsap.to(el, {
+//         opacity: 1, y: 0, duration: 0.85, delay: i * 0.12,
+//         ease: 'power3.out',
+//         scrollTrigger: { trigger: el, start: 'top 88%', once: true },
+//       });
+//     });
+//   }, []);
+
+//   // animate content panel on tab change
+//   const prevCat = useRef(activeCat);
+//   useEffect(() => {
+//     const el = contentRef.current; if (!el) return;
+//     if (prevCat.current === activeCat) return;
+//     prevCat.current = activeCat;
+//     gsap.fromTo(el,
+//       { opacity: 0, y: 16 },
+//       { opacity: 1, y: 0, duration: 0.45, ease: 'power3.out' }
+//     );
+//   }, [activeCat]);
+
+//   const active = FAQS[activeCat];
+
+//   return (
+//     <section
+//       id="faq"
+//       style={{ background: '#faf7f2', padding: '96px 0 80px', overflow: 'hidden' }}
+//     >
+//       <div style={{ maxWidth: 860, margin: '0 auto', padding: '0 32px' }}>
+
+//         {/* heading */}
+//         <div ref={headRef} style={{ opacity: 0, textAlign: 'center', marginBottom: 40 }}>
+//           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10, marginBottom: 14 }}>
+//             <div style={{ height: 1, width: 26, background: 'linear-gradient(to right,transparent,#c9a84c)' }}/>
+//             <span style={{ fontFamily: 'Outfit,sans-serif', fontSize: 10, fontWeight: 700, color: '#c9a84c', letterSpacing: '0.22em', textTransform: 'uppercase' }}>
+//               FAQ
+//             </span>
+//             <div style={{ height: 1, width: 26, background: 'linear-gradient(to left,transparent,#c9a84c)' }}/>
+//           </div>
+//           <h2 style={{
+//             fontFamily: 'Playfair Display,serif', fontWeight: 800,
+//             fontSize: 'clamp(28px,3.5vw,50px)', lineHeight: 1.1,
+//             color: '#1a1510', marginBottom: 14,
+//           }}>
+//             Questions? We've got<br/>
+//             <span style={{ fontStyle: 'italic', color: '#c9a84c' }}>answers.</span>
+//           </h2>
+//           <p style={{
+//             fontFamily: 'Outfit,sans-serif', fontSize: 16,
+//             color: '#6b5e4e', lineHeight: 1.7, maxWidth: 520, margin: '0 auto',
+//           }}>
+//             Everything you need to know about booking, traveling, and experiencing India with Kafira.
+//           </p>
+//         </div>
+
+//         {/* category tabs */}
+//         <div ref={tabsRef} style={{ opacity: 0, display: 'flex', gap: 8, flexWrap: 'wrap', justifyContent: 'center', marginBottom: 36 }}>
+//           {FAQS.map((cat, i) => (
+//             <CategoryTab
+//               key={cat.category}
+//               label={cat.category}
+//               active={activeCat === i}
+//               onClick={() => setActiveCat(i)}
+//             />
+//           ))}
+//         </div>
+
+//         {/* faq list */}
+//         <div
+//           ref={contentRef}
+//           style={{
+//             background: '#fff',
+//             border: '1px solid rgba(0,0,0,0.07)',
+//             borderRadius: 20,
+//             padding: '4px 28px',
+//             boxShadow: '0 4px 28px rgba(0,0,0,0.06)',
+//           }}
+//         >
+//           {/* active category label */}
+//           <div style={{
+//             display: 'flex', alignItems: 'center', gap: 10,
+//             padding: '18px 0 4px',
+//             borderBottom: '1px solid rgba(201,168,76,0.1)',
+//             marginBottom: 4,
+//           }}>
+//             <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#c9a84c', flexShrink: 0 }}/>
+//             <span style={{ fontFamily: 'Outfit,sans-serif', fontSize: 11, fontWeight: 700, color: '#c9a84c', letterSpacing: '0.18em', textTransform: 'uppercase' }}>
+//               {active.category}
+//             </span>
+//             <span style={{ fontFamily: 'Outfit,sans-serif', fontSize: 11, color: 'rgba(107,94,78,0.5)', marginLeft: 'auto' }}>
+//               {active.items.length} questions
+//             </span>
+//           </div>
+
+//           {active.items.map((item, i) => (
+//             <FAQItem
+//               key={`${activeCat}-${i}`}
+//               q={item.q}
+//               a={item.a}
+//               index={i}
+//               catIndex={activeCat}
+//             />
+//           ))}
+//         </div>
+
+//         {/* still have questions CTA */}
+//         <div ref={ctaRef} style={{
+//           opacity: 0,
+//           marginTop: 36,
+//           background: 'linear-gradient(135deg,rgba(201,168,76,0.08),rgba(139,105,20,0.05))',
+//           border: '1px solid rgba(201,168,76,0.14)',
+//           borderRadius: 18, padding: '24px 28px',
+//           display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+//           flexWrap: 'wrap', gap: 16,
+//         }}>
+//           <div>
+//             <div style={{ fontFamily: 'Playfair Display,serif', fontWeight: 700, fontSize: 18, color: '#1a1510', marginBottom: 5 }}>
+//               Still have questions?
+//             </div>
+//             <div style={{ fontFamily: 'Outfit,sans-serif', fontSize: 13, color: '#6b5e4e', lineHeight: 1.5 }}>
+//               Our travel experts typically respond in under 2 hours — WhatsApp or email us directly.
+//             </div>
+//           </div>
+//           <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
+//             <a href="https://wa.me/919999999999" target="_blank" rel="noopener noreferrer" style={{
+//               padding: '10px 20px', borderRadius: 999,
+//               background: 'rgba(37,211,102,0.12)',
+//               border: '1px solid rgba(37,211,102,0.28)',
+//               color: '#25d366', fontFamily: 'Outfit,sans-serif', fontSize: 13, fontWeight: 600,
+//               textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 6,
+//               transition: 'all 0.25s',
+//             }}
+//               onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = 'rgba(37,211,102,0.2)'; el.style.transform = 'translateY(-2px)'; }}
+//               onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = 'rgba(37,211,102,0.12)'; el.style.transform = 'none'; }}
+//             >
+//               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+//               WhatsApp Us
+//             </a>
+//             <a href="mailto:hello@kafira.in" style={{
+//               padding: '10px 20px', borderRadius: 999,
+//               background: 'rgba(26,21,16,0.06)',
+//               border: '1px solid rgba(26,21,16,0.12)',
+//               color: '#1a1510', fontFamily: 'Outfit,sans-serif', fontSize: 13, fontWeight: 600,
+//               textDecoration: 'none', transition: 'all 0.25s',
+//             }}
+//               onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = 'rgba(26,21,16,0.1)'; el.style.transform = 'translateY(-2px)'; }}
+//               onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = 'rgba(26,21,16,0.06)'; el.style.transform = 'none'; }}
+//             >Email Us</a>
+//           </div>
+//         </div>
+//       </div>
+
+//       {/* responsive */}
+//       <style>{`
+//         @media (max-width: 600px) {
+//           #faq > div > div:nth-child(3) > div { padding: 4px 16px !important; }
+//           #faq > div > div:nth-child(4) { flex-direction: column !important; align-items: flex-start !important; }
+//         }
+//       `}</style>
+//     </section>
+//   );
+// }
+
+
+
+
+
+
+
+'use client';
+import { useEffect, useRef, useState } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
+
+const FAQS = [
+  {
+    category: 'Booking & Payment',
+    items: [
+      {
+        q: 'How do I book a trip with Kafira?',
+        a: 'Simply click "Plan a Trip" or WhatsApp us directly. Share your destination, dates, and group size — our travel expert will respond within 2 hours with a personalised itinerary and quote. No commitment needed at enquiry stage.',
+      },
+      {
+        q: 'What payment methods do you accept?',
+        a: 'We accept UPI (GPay, PhonePe, Paytm), net banking, all major credit/debit cards, and EMI options via select banks. International payments via wire transfer are also available for overseas travelers.',
+      },
+      {
+        q: 'How much advance payment is required to confirm a booking?',
+        a: 'A 25% advance secures your booking. The remaining balance is due 15 days before departure for domestic trips and 30 days for international ones. For group bookings of 10+, flexible payment schedules are available.',
+      },
+      {
+        q: 'Is there a price-match guarantee?',
+        a: 'Yes. If you find an identical itinerary at a lower price from a verified travel operator within 24 hours of booking, we will match or beat it. Our average saving versus self-booking is ₹4,200 per trip.',
+      },
+    ],
+  },
+  {
+    category: 'Trips & Itineraries',
+    items: [
+      {
+        q: 'Can I customise my itinerary?',
+        a: 'Absolutely — every Kafira trip is built from scratch around your preferences. You choose the destination, pace, accommodation style, activities, and budget. We handle all logistics. No off-the-shelf packages here.',
+      },
+      {
+        q: 'Do you organise solo travel and solo-female travel?',
+        a: 'Yes. We have dedicated solo travel experts and a robust network of verified, safe accommodations. Our solo-female travel packages include vetted stays, women-led guide options, and a 24/7 emergency helpline.',
+      },
+      {
+        q: 'What is the minimum and maximum group size you handle?',
+        a: 'We handle solo trips (1 person) all the way up to large corporate groups of 200+. Group tours (6–20 people) get special shared pricing. We also specialise in family trips, honeymoons, and college group getaways.',
+      },
+      {
+        q: 'Do you cover international destinations?',
+        a: 'Yes. We operate tours across Southeast Asia (Bali, Thailand, Vietnam), Europe, Central Asia, and the Middle East. Our international packages include visa guidance, travel insurance advice, and 24/7 in-country support.',
+      },
+    ],
+  },
+  {
+    category: 'Cancellation & Refunds',
+    items: [
+      {
+        q: 'What is your cancellation policy?',
+        a: 'Cancellations made 30+ days before departure receive a 90% refund. 15–29 days: 60% refund. 7–14 days: 30% refund. Less than 7 days: no refund. We strongly recommend travel insurance for all bookings.',
+      },
+      {
+        q: 'What happens if Kafira cancels my trip?',
+        a: 'In the rare event we cancel (e.g., natural disaster, government advisory), you receive a 100% refund or a free reschedule to any future date. We also cover any non-refundable costs incurred on your behalf.',
+      },
+      {
+        q: 'Can I reschedule instead of cancelling?',
+        a: 'Yes — rescheduling is always preferred. You can reschedule up to 10 days before departure at no extra charge (subject to availability). After that, a ₹500 rescheduling fee applies per person.',
+      },
+    ],
+  },
+  {
+    category: 'During the Trip',
+    items: [
+      {
+        q: 'Is there support available during the trip?',
+        a: 'Every Kafira trip comes with a dedicated trip manager reachable via WhatsApp and phone 24/7. For group tours, a Kafira representative accompanies you on the ground. Our emergency line never goes unanswered.',
+      },
+      {
+        q: 'Are meals included in your packages?',
+        a: 'Meal inclusion depends on the package — clearly stated in your itinerary. Most packages include daily breakfast. Full-board (breakfast, lunch, dinner) is available as an add-on or standard in premium packages.',
+      },
+      {
+        q: 'Do I need travel insurance? Do you provide it?',
+        a: 'We strongly recommend travel insurance for all trips. While we don\'t sell insurance directly, we partner with trusted providers like HDFC ERGO and ICICI Lombard and can guide you to the right policy for your trip type.',
+      },
+    ],
+  },
+];
+
+// ── Single accordion item ─────────────────────────────
+function FAQItem({ q, a, index, catIndex }: { q: string; a: string; index: number; catIndex: number }) {
+  const [open, setOpen] = useState(false);
+  const bodyRef   = useRef<HTMLDivElement>(null);
+  const itemRef   = useRef<HTMLDivElement>(null);
+  const contentH  = useRef(0);
+
+  useEffect(() => {
+    const el = bodyRef.current;
+    if (!el) return;
+    el.style.height = 'auto';
+    contentH.current = el.scrollHeight;
+    el.style.height = '0px';
+  }, [a]);
+
+  useEffect(() => {
+    const el = bodyRef.current;
+    if (!el) return;
+    gsap.to(el, {
+      height: open ? contentH.current : 0,
+      duration: 0.42,
+      ease: open ? 'power3.out' : 'power3.inOut',
+    });
+  }, [open]);
+
+  useEffect(() => {
+    const el = itemRef.current; if (!el) return;
+    gsap.set(el, { opacity: 0, y: 20 });
+    gsap.to(el, {
+      opacity: 1, y: 0,
+      duration: 0.65,
+      delay: catIndex * 0.05 + index * 0.07,
+      ease: 'power3.out',
+      scrollTrigger: { trigger: el, start: 'top 90%', once: true },
+    });
+  }, [index, catIndex]);
+
+  return (
+    <div
+      ref={itemRef}
+      style={{ opacity: 0, borderBottom: '1px solid rgba(185,138,46,0.12)' }}
+    >
+      <button
+        onClick={() => setOpen(o => !o)}
+        style={{
+          width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+          padding: '20px 0', background: 'none', border: 'none', cursor: 'pointer',
+          textAlign: 'left', gap: 16,
+        }}
+      >
+        <span style={{
+          fontFamily: 'Outfit,sans-serif', fontWeight: 600, fontSize: 15.5,
+          color: open ? '#1a1510' : '#3d3020',
+          lineHeight: 1.4, flex: 1,
+          transition: 'color 0.25s',
+        }}>{q}</span>
+
+        {/* animated +/× icon */}
+        <div style={{
+          width: 30, height: 30, borderRadius: 8, flexShrink: 0,
+          background: open ? 'linear-gradient(135deg,#c9a84c,#8b6914)' : 'rgba(185,138,46,0.09)',
+          border: `1px solid ${open ? 'transparent' : 'rgba(185,138,46,0.25)'}`,
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          transition: 'all 0.3s ease',
+        }}>
+          <svg
+            width="12" height="12" viewBox="0 0 12 12"
+            fill="none"
+            style={{ transition: 'transform 0.35s cubic-bezier(0.4,0,0.2,1)', transform: open ? 'rotate(45deg)' : 'rotate(0deg)' }}
+          >
+            <line x1="6" y1="0" x2="6" y2="12" stroke={open ? '#fff' : '#b8892e'} strokeWidth="1.8" strokeLinecap="round"/>
+            <line x1="0" y1="6" x2="12" y2="6" stroke={open ? '#fff' : '#b8892e'} strokeWidth="1.8" strokeLinecap="round"/>
+          </svg>
+        </div>
+      </button>
+
+      {/* answer body */}
+      <div ref={bodyRef} style={{ height: 0, overflow: 'hidden' }}>
+        <div style={{ paddingBottom: 20 }}>
+          <p style={{
+            fontFamily: 'Outfit,sans-serif', fontSize: 14.5,
+            color: '#5c4e3a', lineHeight: 1.78,
+            borderLeft: '2px solid rgba(185,138,46,0.35)',
+            paddingLeft: 18, margin: 0,
+          }}>{a}</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ── Category tab ──────────────────────────────────────
+function CategoryTab({ label, active, onClick }: { label: string; active: boolean; onClick: () => void }) {
+  return (
+    <button
+      onClick={onClick}
+      style={{
+        padding: '9px 20px', borderRadius: 999,
+        cursor: 'pointer', fontFamily: 'Outfit,sans-serif', fontSize: 13, fontWeight: 600,
+        letterSpacing: '0.02em',
+        background: active ? 'linear-gradient(135deg,#c9a84c,#8b6914)' : 'rgba(26,21,16,0.05)',
+        color: active ? '#fff' : '#5c4e3a',
+        border: active ? 'none' : '1px solid rgba(26,21,16,0.1)',
+        outline: 'none',
+        transition: 'all 0.28s ease',
+        transform: active ? 'scale(1.04)' : 'scale(1)',
+        boxShadow: active ? '0 4px 16px rgba(185,138,46,0.28)' : 'none',
+      }}
+      onMouseEnter={e => { if (!active) { (e.currentTarget as HTMLButtonElement).style.background = 'rgba(26,21,16,0.09)'; (e.currentTarget as HTMLButtonElement).style.color = '#1a1510'; } }}
+      onMouseLeave={e => { if (!active) { (e.currentTarget as HTMLButtonElement).style.background = 'rgba(26,21,16,0.05)'; (e.currentTarget as HTMLButtonElement).style.color = '#5c4e3a'; } }}
+    >
+      {label}
+    </button>
+  );
+}
+
+// ── Main ──────────────────────────────────────────────
+export default function FAQSection() {
+  const [activeCat, setActiveCat] = useState(0);
+  const headRef    = useRef<HTMLDivElement>(null);
+  const tabsRef    = useRef<HTMLDivElement>(null);
+  const ctaRef     = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    [headRef, tabsRef, ctaRef].forEach((r, i) => {
+      const el = r.current; if (!el) return;
+      gsap.set(el, { opacity: 0, y: 28 });
+      gsap.to(el, {
+        opacity: 1, y: 0, duration: 0.85, delay: i * 0.12,
+        ease: 'power3.out',
+        scrollTrigger: { trigger: el, start: 'top 88%', once: true },
+      });
+    });
+  }, []);
+
+  const prevCat = useRef(activeCat);
+  useEffect(() => {
+    const el = contentRef.current; if (!el) return;
+    if (prevCat.current === activeCat) return;
+    prevCat.current = activeCat;
+    gsap.fromTo(el,
+      { opacity: 0, y: 16 },
+      { opacity: 1, y: 0, duration: 0.45, ease: 'power3.out' }
+    );
+  }, [activeCat]);
+
+  const active = FAQS[activeCat];
+
+  return (
+    <section
+      id="faq"
+      style={{ background: '#faf7f2', padding: '96px 0 80px', overflow: 'hidden' }}
+    >
+      <div style={{ maxWidth: 1000, margin: '0 auto', padding: '0 32px' }}>
+
+        {/* heading */}
+        <div ref={headRef} style={{ opacity: 0, textAlign: 'center', marginBottom: 40 }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10, marginBottom: 14 }}>
+            <div style={{ height: 1, width: 26, background: 'linear-gradient(to right,transparent,#c9a84c)' }}/>
+            <span style={{ fontFamily: 'Outfit,sans-serif', fontSize: 10, fontWeight: 700, color: '#b8892e', letterSpacing: '0.22em', textTransform: 'uppercase' }}>
+              FAQ
+            </span>
+            <div style={{ height: 1, width: 26, background: 'linear-gradient(to left,transparent,#c9a84c)' }}/>
+          </div>
+          <h2 style={{
+            fontFamily: 'Playfair Display,serif', fontWeight: 800,
+            fontSize: 'clamp(28px,3.5vw,50px)', lineHeight: 1.1,
+            color: '#1a1510', marginBottom: 14,
+          }}>
+            Questions? We've got<br/>
+            <span style={{ fontStyle: 'italic', color: '#b8892e' }}>answers.</span>
+          </h2>
+          <p style={{
+            fontFamily: 'Outfit,sans-serif', fontSize: 16,
+            color: '#6b5e4e', lineHeight: 1.7, maxWidth: 540, margin: '0 auto',
+          }}>
+            Everything you need to know about booking, traveling, and experiencing India with Kafira.
+          </p>
+        </div>
+
+        {/* category tabs */}
+        <div ref={tabsRef} style={{ opacity: 0, display: 'flex', gap: 8, flexWrap: 'wrap', justifyContent: 'center', marginBottom: 36 }}>
+          {FAQS.map((cat, i) => (
+            <CategoryTab
+              key={cat.category}
+              label={cat.category}
+              active={activeCat === i}
+              onClick={() => setActiveCat(i)}
+            />
+          ))}
+        </div>
+
+        {/* faq list */}
+        <div
+          ref={contentRef}
+          style={{
+            background: '#fff',
+            border: '1px solid rgba(185,138,46,0.14)',
+            borderRadius: 20,
+            padding: '6px 36px',
+            boxShadow: '0 4px 32px rgba(0,0,0,0.07)',
+          }}
+        >
+          {/* active category label */}
+          <div style={{
+            display: 'flex', alignItems: 'center', gap: 10,
+            padding: '20px 0 6px',
+            borderBottom: '1px solid rgba(185,138,46,0.12)',
+            marginBottom: 4,
+          }}>
+            <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#c9a84c', flexShrink: 0 }}/>
+            <span style={{ fontFamily: 'Outfit,sans-serif', fontSize: 11, fontWeight: 700, color: '#b8892e', letterSpacing: '0.18em', textTransform: 'uppercase' }}>
+              {active.category}
+            </span>
+            <span style={{ fontFamily: 'Outfit,sans-serif', fontSize: 11, color: '#a08060', marginLeft: 'auto' }}>
+              {active.items.length} questions
+            </span>
+          </div>
+
+          {active.items.map((item, i) => (
+            <FAQItem
+              key={`${activeCat}-${i}`}
+              q={item.q}
+              a={item.a}
+              index={i}
+              catIndex={activeCat}
+            />
+          ))}
+        </div>
+
+        {/* still have questions CTA */}
+        <div ref={ctaRef} style={{
+          opacity: 0,
+          marginTop: 36,
+          background: 'linear-gradient(135deg,rgba(185,138,46,0.07),rgba(139,105,20,0.04))',
+          border: '1px solid rgba(185,138,46,0.18)',
+          borderRadius: 18, padding: '26px 32px',
+          display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+          flexWrap: 'wrap', gap: 16,
+        }}>
+          <div>
+            <div style={{ fontFamily: 'Playfair Display,serif', fontWeight: 700, fontSize: 19, color: '#1a1510', marginBottom: 5 }}>
+              Still have questions?
+            </div>
+            <div style={{ fontFamily: 'Outfit,sans-serif', fontSize: 14, color: '#6b5e4e', lineHeight: 1.55 }}>
+              Our travel experts typically respond in under 2 hours — WhatsApp or email us directly.
+            </div>
+          </div>
+          <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
+            <a href="https://wa.me/919999999999" target="_blank" rel="noopener noreferrer" style={{
+              padding: '11px 22px', borderRadius: 999,
+              background: 'rgba(37,211,102,0.1)',
+              border: '1px solid rgba(37,211,102,0.3)',
+              color: '#1a9e52', fontFamily: 'Outfit,sans-serif', fontSize: 13, fontWeight: 600,
+              textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 6,
+              transition: 'all 0.25s',
+            }}
+              onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = 'rgba(37,211,102,0.18)'; el.style.transform = 'translateY(-2px)'; }}
+              onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = 'rgba(37,211,102,0.1)'; el.style.transform = 'none'; }}
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp Us
+            </a>
+            <a href="mailto:hello@kafira.in" style={{
+              padding: '11px 22px', borderRadius: 999,
+              background: 'rgba(26,21,16,0.05)',
+              border: '1px solid rgba(26,21,16,0.14)',
+              color: '#1a1510', fontFamily: 'Outfit,sans-serif', fontSize: 13, fontWeight: 600,
+              textDecoration: 'none', transition: 'all 0.25s',
+            }}
+              onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = 'rgba(26,21,16,0.1)'; el.style.transform = 'translateY(-2px)'; }}
+              onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = 'rgba(26,21,16,0.05)'; el.style.transform = 'none'; }}
+            >Email Us</a>
+          </div>
+        </div>
+      </div>
+
+      {/* responsive */}
+      <style>{`
+        @media (max-width: 600px) {
+          #faq > div > div:nth-child(3) > div { padding: 4px 18px !important; }
+          #faq > div > div:nth-child(4) { flex-direction: column !important; align-items: flex-start !important; }
+        }
+      `}</style>
+    </section>
+  );
+}
