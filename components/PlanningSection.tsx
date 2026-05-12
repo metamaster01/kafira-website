@@ -84,7 +84,7 @@ function TCard({ t }: { t: typeof T[0] }) {
     }}>
       <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between' }}>
         <div style={{ display:'flex', alignItems:'center', gap:5 }}>
-          <div style={{ width:22,height:22,borderRadius:'50%',background:'linear-gradient(135deg,#c9a84c,#8b6914)',display:'flex',alignItems:'center',justifyContent:'center',fontFamily:'Outfit,sans-serif',fontWeight:700,fontSize:9,color:'#fff',flexShrink:0 }}>
+          <div style={{ width:22,height:22,borderRadius:'50%',background:'linear-gradient(135deg,#1a6b58,#2d8f7b)',display:'flex',alignItems:'center',justifyContent:'center',fontFamily:'Outfit,sans-serif',fontWeight:700,fontSize:9,color:'#fff',flexShrink:0 }}>
             {t.name[1].toUpperCase()}
           </div>
           <span style={{ fontFamily:'Outfit,sans-serif',fontSize:9,fontWeight:600,color:'#1a1510',overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap',maxWidth:80 }}>
@@ -143,7 +143,7 @@ function PlannerCard({ exp }: { exp: boolean }) {
 
       {/* label + heading — always shown */}
       <div style={{flexShrink:0}}>
-        <div style={{fontFamily:'Outfit,sans-serif',fontSize:8,fontWeight:700,color:'#4aad6a',letterSpacing:'0.2em',textTransform:'uppercase',marginBottom:6}}>
+        <div style={{fontFamily:'Outfit,sans-serif',fontSize:8,fontWeight:700,color:'#2d8f7b',letterSpacing:'0.2em',textTransform:'uppercase',marginBottom:6}}>
           Route Planner
         </div>
         <h3 style={{fontFamily:'Playfair Display,serif',fontWeight:700,fontSize:exp?19:17,color:'#f5f0e8',lineHeight:1.2,marginBottom:6,transition:'font-size 0.35s ease'}}>
@@ -199,7 +199,7 @@ function DestCard({ compact }: { compact: boolean }) {
     }}>
       <div style={{position:'absolute',inset:0,background:'radial-gradient(circle at 85% 15%,rgba(201,168,76,0.1) 0%,transparent 60%)',pointerEvents:'none'}}/>
       <div style={{flexShrink:0}}>
-        <div style={{fontFamily:'Outfit,sans-serif',fontSize:8,fontWeight:700,color:'#c9a84c',letterSpacing:'0.2em',textTransform:'uppercase',marginBottom:5}}>120+ destinations</div>
+        <div style={{fontFamily:'Outfit,sans-serif',fontSize:8,fontWeight:700,color:'#2d8f7b',letterSpacing:'0.2em',textTransform:'uppercase',marginBottom:5}}>120+ destinations</div>
         <h3 style={{fontFamily:'Playfair Display,serif',fontWeight:700,fontSize:compact?14:17,color:'#f5f0e8',lineHeight:1.2,transition:'font-size 0.35s ease'}}>
           Handpicked just for you
         </h3>
@@ -208,7 +208,7 @@ function DestCard({ compact }: { compact: boolean }) {
         {(compact ? DESTS.slice(0,3) : DESTS).map((d,i)=>(
           <div key={i} style={{
             padding:'4px 9px',borderRadius:999,
-            background:i===0?'linear-gradient(135deg,#c9a84c,#8b6914)':'rgba(255,255,255,0.08)',
+            background:i===0?'linear-gradient(135deg,#1a6b58,#2d8f7b)':'rgba(255,255,255,0.08)',
             color:i===0?'#fff':'rgba(245,240,232,0.6)',
             fontFamily:'Outfit,sans-serif',fontSize:10,fontWeight:500,
             border:i===0?'none':'1px solid rgba(255,255,255,0.1)',
@@ -295,7 +295,7 @@ function SavingsCard({ compact }: { compact: boolean }) {
     }}>
       <div style={{position:'absolute',inset:0,background:'radial-gradient(circle at 80% 20%,rgba(120,80,200,0.12) 0%,transparent 60%)',pointerEvents:'none'}}/>
       <div>
-        <div style={{fontFamily:'Outfit,sans-serif',fontSize:8,fontWeight:700,color:'#9b7fe8',letterSpacing:'0.2em',textTransform:'uppercase',marginBottom:6}}>Avg. savings</div>
+        <div style={{fontFamily:'Outfit,sans-serif',fontSize:8,fontWeight:700,color:'#2d8f7b',letterSpacing:'0.2em',textTransform:'uppercase',marginBottom:6}}>Avg. savings</div>
         <div style={{fontFamily:'Playfair Display,serif',fontWeight:900,fontSize:compact?28:42,color:'#f5f0e8',lineHeight:0.95,transition:'font-size 0.35s ease'}}>₹4,200</div>
         {!compact && <div style={{fontFamily:'Outfit,sans-serif',fontSize:10,color:'rgba(245,240,232,0.48)',marginTop:7,lineHeight:1.4}}>per trip vs. booking independently</div>}
       </div>
@@ -326,7 +326,7 @@ function ReviewsCard({ exp }: { exp: boolean }) {
       {/* header */}
       <div style={{display:'flex',alignItems:'flex-start',justifyContent:'space-between',gap:6,flexShrink:0}}>
         <div>
-          <div style={{fontFamily:'Outfit,sans-serif',fontSize:8,fontWeight:700,color:'#c9a84c',letterSpacing:'0.2em',textTransform:'uppercase',marginBottom:4}}>Real reviews</div>
+          <div style={{fontFamily:'Outfit,sans-serif',fontSize:8,fontWeight:700,color:'#2d8f7b',letterSpacing:'0.2em',textTransform:'uppercase',marginBottom:4}}>Real reviews</div>
           <h3 style={{fontFamily:'Playfair Display,serif',fontWeight:700,fontSize:exp?18:15,color:'#1a1510',lineHeight:1.15,transition:'font-size 0.35s ease'}}>
             Trusted by<br/>50,000+ travelers
           </h3>
@@ -343,7 +343,7 @@ function ReviewsCard({ exp }: { exp: boolean }) {
       {/* avatars */}
       <div style={{display:'flex',alignItems:'center',flexShrink:0}}>
         {['P','R','M','A','S'].map((l,i)=>(
-          <div key={i} style={{width:22,height:22,borderRadius:'50%',background:'linear-gradient(135deg,#c9a84c,#8b6914)',border:'2px solid #fff',marginLeft:i?-6:0,display:'flex',alignItems:'center',justifyContent:'center',fontFamily:'Outfit,sans-serif',fontSize:7,fontWeight:700,color:'#fff',zIndex:5-i,flexShrink:0}}>
+          <div key={i} style={{width:22,height:22,borderRadius:'50%',background:'linear-gradient(135deg,#1a6b58,#2d8f7b)',border:'2px solid #fff',marginLeft:i?-6:0,display:'flex',alignItems:'center',justifyContent:'center',fontFamily:'Outfit,sans-serif',fontSize:7,fontWeight:700,color:'#fff',zIndex:5-i,flexShrink:0}}>
             {l}
           </div>
         ))}
@@ -402,11 +402,11 @@ function SectionHeading() {
     <div ref={ref} style={{textAlign:'center',maxWidth:520,margin:'0 auto 44px'}}>
       <div style={{display:'flex',alignItems:'center',justifyContent:'center',gap:10,marginBottom:12}}>
         <div style={{height:1,width:22,background:'linear-gradient(to right,transparent,#c9a84c)'}}/>
-        <span style={{fontFamily:'Outfit,sans-serif',fontSize:10,fontWeight:700,color:'#c9a84c',letterSpacing:'0.22em',textTransform:'uppercase'}}>Step 01 — Planning</span>
+        <span style={{fontFamily:'Outfit,sans-serif',fontSize:10,fontWeight:700,color:'#2d8f7b',letterSpacing:'0.22em',textTransform:'uppercase'}}>Step 01 — Planning</span>
         <div style={{height:1,width:22,background:'linear-gradient(to left,transparent,#c9a84c)'}}/>
       </div>
       <h2 style={{fontFamily:'Playfair Display,serif',fontWeight:800,fontSize:'clamp(26px,3vw,46px)',lineHeight:1.1,color:'#1a1510',marginBottom:12}}>
-        Your journey starts with<br/><span style={{fontStyle:'italic',color:'#c9a84c'}}>a single tap</span>
+        Your journey starts with<br/><span style={{fontStyle:'italic',color:'#2d8f7b'}}>a single tap</span>
       </h2>
       <p style={{fontFamily:'Outfit,sans-serif',fontSize:15,color:'#6b5e4e',lineHeight:1.65}}>
         Browse, plan, book — Kafira handles everything so you just show up and explore.

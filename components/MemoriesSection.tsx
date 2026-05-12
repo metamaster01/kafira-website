@@ -98,7 +98,7 @@ function FeatureCard() {
       <h3 style={{fontFamily:'Playfair Display,serif',fontWeight:700,fontSize:22,color:'#f5f0e8',lineHeight:1.15,marginBottom:8,flexShrink:0}}>
         Every photo. Every moment.
       </h3>
-      <p style={{fontFamily:'Outfit,sans-serif',fontSize:12,color:'rgba(245,240,232,0.52)',lineHeight:1.6,marginBottom:14,flexShrink:0}}>
+      <p style={{fontFamily:'Outfit,sans-serif',fontSize:12,color:'#2d8f7b',lineHeight:1.6,marginBottom:14,flexShrink:0}}>
         Kafira auto-curates your travel gallery — sorted by trip, destination, and mood.
       </p>
 
@@ -151,11 +151,11 @@ function SectionHeading() {
     <div ref={ref} style={{textAlign:'center',maxWidth:560,margin:'0 auto 32px'}}>
       <div style={{display:'flex',alignItems:'center',justifyContent:'center',gap:10,marginBottom:12}}>
         <div style={{height:1,width:26,background:'linear-gradient(to right,transparent,#c9a84c)'}}/>
-        <span style={{fontFamily:'Outfit,sans-serif',fontSize:10,fontWeight:700,color:'#c9a84c',letterSpacing:'0.22em',textTransform:'uppercase'}}>Step 03 — Memories</span>
+        <span style={{fontFamily:'Outfit,sans-serif',fontSize:10,fontWeight:700,color:'#2d8f7b',letterSpacing:'0.22em',textTransform:'uppercase'}}>Step 03 — Memories</span>
         <div style={{height:1,width:26,background:'linear-gradient(to left,transparent,#c9a84c)'}}/>
       </div>
       <h2 style={{fontFamily:'Playfair Display,serif',fontWeight:800,fontSize:'clamp(26px,3.2vw,46px)',lineHeight:1.1,color:'#1a1510',marginBottom:12}}>
-        Every trip becomes<br/><span style={{fontStyle:'italic',color:'#c9a84c'}}>a story worth telling</span>
+        Every trip becomes<br/><span style={{fontStyle:'italic',color:'#2d8f7b'}}>a story worth telling</span>
       </h2>
       <p style={{fontFamily:'Outfit,sans-serif',fontSize:15,color:'#6b5e4e',lineHeight:1.65}}>
         From summit sunrises to backwater sunsets — your Kafira gallery keeps every frame.
@@ -174,7 +174,7 @@ function CTAStrip() {
   },[]);
   return (
     <div ref={ref} style={{
-      background:'linear-gradient(135deg,#c9a84c,#8b6914)',
+      background:'linear-gradient(135deg,#0d2821,#1a6b58)',
       borderRadius:20, padding:'22px 28px',
       display:'flex', alignItems:'center', justifyContent:'space-between',
       flexWrap:'wrap', gap:16, marginTop:14,
@@ -188,7 +188,7 @@ function CTAStrip() {
           onMouseEnter={e=>{const el=e.currentTarget as HTMLAnchorElement;el.style.transform='translateY(-2px)';el.style.boxShadow='0 8px 20px rgba(0,0,0,0.12)';}}
           onMouseLeave={e=>{const el=e.currentTarget as HTMLAnchorElement;el.style.transform='none';el.style.boxShadow='none';}}
         >Plan My Trip</a>
-        <a href="https://wa.me/919999999999" target="_blank" rel="noopener noreferrer"
+        <a href="https://wa.me/919253289347" target="_blank" rel="noopener noreferrer"
           style={{padding:'10px 22px',borderRadius:999,background:'rgba(255,255,255,0.15)',color:'#fff',fontFamily:'Outfit,sans-serif',fontSize:13,fontWeight:600,textDecoration:'none',border:'1px solid rgba(255,255,255,0.35)',transition:'all 0.25s',whiteSpace:'nowrap'}}
           onMouseEnter={e=>{(e.currentTarget as HTMLAnchorElement).style.background='rgba(255,255,255,0.25)';}}
           onMouseLeave={e=>{(e.currentTarget as HTMLAnchorElement).style.background='rgba(255,255,255,0.15)';}}

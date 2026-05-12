@@ -19,7 +19,7 @@ import PlanningSection from '@/components/PlanningSection';
 import MemoriesSection from '@/components/MemoriesSection';
 import ExploreSection from '@/components/ExploreSection';
 import Footer from '@/components/Footer';
-import FooterSection from '@/components/FooterSection';
+// import FooterSection from '@/components/FooterSection';
 import WhyKafira from '@/components/WhyKafira';
 import FAQSection from '@/components/FAQSection';
 import UpcomingTrips from '@/components/UpcomingTrips';

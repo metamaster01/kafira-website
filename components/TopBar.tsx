@@ -45,14 +45,14 @@ export default function TopBar() {
     >
       {/* Left: Phone */}
       <a
-        href="tel:+919999999999"
+        href="tel:+919253289347"
         className="flex items-center gap-2 transition-colors duration-300"
         style={{ color: 'rgba(245,240,232,0.6)' }}
         onMouseEnter={e => (e.currentTarget.style.color = '#c9a84c')}
         onMouseLeave={e => (e.currentTarget.style.color = 'rgba(245,240,232,0.6)')}
       >
         <Phone size={12} />
-        <span className="font-body">+91 99999 99999</span>
+        <span className="font-body">+91 92532 89347</span>
       </a>
 
       {/* Center */}
