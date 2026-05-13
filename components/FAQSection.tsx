@@ -1323,7 +1323,7 @@ export default function FAQSection() {
 
             {/* Email button */}
             <a
-              href="mailto:hello@kafira.in"
+              href="mailto:support@kafira.in"
               style={{
                 padding: '12px 24px',
                 borderRadius: 999,
