@@ -224,7 +224,7 @@ export default function UpcomingTrips() {
     <>
       <section
         id="upcoming-trips"
-        style={{ background: C.bg, padding: '96px 0 80px', overflow: 'hidden' }}
+        style={{ background: C.bg, padding: '96px 0 80px', overflow: 'hidden', paddingLeft: 16, paddingRight: 16 }}
       >
         <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 32px' }}>
 

@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -104,18 +104,18 @@ function TCard({ t }: { t: typeof T[0] }) {
 }
 
 // Marquee: overflow:hidden at wrapper — NEVER leaks horizontally
-let mqId = 0;
 function Marquee({ items, rev }: { items: typeof T; rev: boolean }) {
-  const id = useRef(`mq${++mqId}`).current;
+  const id = useId();
+  const safeId = `mq-${id.replace(/[^a-zA-Z0-9_-]/g, '')}`;
   const doubled = [...items, ...items];
   return (
     <div style={{ overflow:'hidden', width:'100%', flexShrink:0 }}>
       <style>{`
-        @keyframes ${id}{from{transform:translateX(${rev?'-50%':'0%'})}to{transform:translateX(${rev?'0%':'-50%'})}}
-        .${id}{animation:${id} 26s linear infinite;}
-        .${id}:hover{animation-play-state:paused;}
+        @keyframes ${safeId}{from{transform:translateX(${rev?'-50%':'0%'})}to{transform:translateX(${rev?'0%':'-50%'})}}
+        .${safeId}{animation:${safeId} 26s linear infinite;}
+        .${safeId}:hover{animation-play-state:paused;}
       `}</style>
-      <div className={id} style={{ display:'flex', gap:8, width:'max-content' }}>
+      <div className={safeId} style={{ display:'flex', gap:8, width:'max-content' }}>
         {doubled.map((t,i) => <TCard key={i} t={t}/>)}
       </div>
     </div>

@@ -24,6 +24,7 @@ import WhyKafira from '@/components/WhyKafira';
 import FAQSection from '@/components/FAQSection';
 import UpcomingTrips from '@/components/UpcomingTrips';
 import AllTrips from '@/components/AllTrips';
+import InternationalTrips from '@/components/InternationalTrips';
 
 export default function Home() {
   return (
@@ -34,8 +35,9 @@ export default function Home() {
       <UpcomingTrips />
     
       <PlanningSection />
-      <ExploreSection />
+      <InternationalTrips />
       <AllTrips />
+      <ExploreSection />
       <WhyKafira />
       <MemoriesSection />
 
