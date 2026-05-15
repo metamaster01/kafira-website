@@ -42,7 +42,7 @@ body {
 
 html, body {
   height: 100%;
-  overflow-x: hidden;
+  overflow-x: clip;
   background: var(--bg);
   color: var(--cream);
   font-family: 'Outfit', sans-serif;
