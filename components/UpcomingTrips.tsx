@@ -231,7 +231,7 @@ export default function UpcomingTrips() {
           {/* ── heading row ── */}
           <div
             ref={headRef}
-            style={{ opacity: 0, display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16, marginBottom: 28 }}
+            style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16, marginBottom: 28 }}
           >
             <div>
               {/* eyebrow */}

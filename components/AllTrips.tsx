@@ -28,8 +28,7 @@ function TripCard({ trip, onClick }: { trip: Trip; onClick: () => void }) {
 
   useEffect(() => {
     const el = ref.current; if (!el) return;
-    gsap.set(el, { opacity: 0, y: 24, scale: 0.97 });
-    gsap.to(el, { opacity: 1, y: 0, scale: 1, duration: 0.7, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 92%', once: true } });
+    gsap.fromTo(el, { opacity: 0, y: 24, scale: 0.97 }, { opacity: 1, y: 0, scale: 1, duration: 0.7, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 92%', once: true } });
   }, []);
 
   return (
@@ -49,7 +48,7 @@ function TripCard({ trip, onClick }: { trip: Trip; onClick: () => void }) {
         boxShadow: hover
           ? `0 20px 48px rgba(45,143,123,0.14), 0 0 0 1px ${C.seaBd}`
           : '0 3px 12px rgba(0,0,0,0.05)',
-        opacity: 0,
+      
       }}
     >
       {/* image */}
@@ -146,8 +145,7 @@ export default function AllTrips() {
 
   useEffect(() => {
     const el = headRef.current; if (!el) return;
-    gsap.set(el, { opacity: 0, y: 28 });
-    gsap.to(el, { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 85%', once: true } });
+    gsap.fromTo(el, { opacity: 0, y: 28 }, { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 85%', once: true } });
   }, []);
 
   return (
@@ -156,7 +154,7 @@ export default function AllTrips() {
         <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 32px' }}>
 
           {/* heading */}
-          <div ref={headRef} style={{ opacity: 0, marginBottom: 48 }}>
+          <div ref={headRef} style={{ marginBottom: 48 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12 }}>
               <div style={{ height: 1, width: 24, background: `linear-gradient(to right,transparent,${C.sea})` }}/>
               <span style={{ fontFamily: 'Outfit,sans-serif', fontSize: 10, fontWeight: 700, color: C.sea, letterSpacing: '0.22em', textTransform: 'uppercase' }}>All Trips & Packages</span>

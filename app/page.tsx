@@ -1,16 +1,3 @@
-// import HeroSection from "@/components/HeroSection";
-// import Navbar from "@/components/Navbar";
-
-
-// export default function page () {
-//   return (
-//     <div className="bg-white overflow-x-hidden min-h-screen">
-//       <HeroSection />
-//       <Navbar />
-//     </div>
-//   )
-// }
-
 
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
@@ -28,7 +15,7 @@ import InternationalTrips from '@/components/InternationalTrips';
 
 export default function Home() {
   return (
-    <main style={{ position: 'relative', background: '#0c0a08' , overflowX: 'clip' }}>
+    <main style={{ position: 'relative', background: '#0c0a08'  }}>
       <Navbar />
       <HeroSection />
       {/* <JourneySection /> */}

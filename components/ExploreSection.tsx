@@ -165,17 +165,20 @@ function PlaceCard({
 
     // Staggered appear: odd rows from left, even from right
     const fromX = index % 2 === 0 ? -30 : 30;
-    gsap.set(el, { opacity: 0, y: 40, x: fromX, scale: 0.94 });
-    gsap.to(el, {
-      opacity: 1,
-      y: 0,
-      x: 0,
-      scale: 1,
-      duration: 0.85,
-      delay: 0.08 * index,
-      ease: "power3.out",
-      scrollTrigger: { trigger: el, start: "top 88%", once: true },
-    });
+    gsap.fromTo(
+      el,
+      { opacity: 0, y: 40, x: fromX, scale: 0.94 },
+      {
+        opacity: 1,
+        y: 0,
+        x: 0,
+        scale: 1,
+        duration: 0.85,
+        delay: 0.08 * index,
+        ease: "power3.out",
+        scrollTrigger: { trigger: el, start: "top 88%", once: true },
+      }
+    );
   }, [index]);
 
   return (
@@ -328,14 +331,17 @@ function SectionHeading() {
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    gsap.set(el, { opacity: 0, y: 32 });
-    gsap.to(el, {
-      opacity: 1,
-      y: 0,
-      duration: 1,
-      ease: "power3.out",
-      scrollTrigger: { trigger: el, start: "top 85%", once: true },
-    });
+    gsap.fromTo(
+      el,
+      { opacity: 0, y: 32 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power3.out",
+        scrollTrigger: { trigger: el, start: "top 85%", once: true },
+      }
+    );
   }, []);
 
   return (
@@ -421,8 +427,7 @@ function CounterStrip() {
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    gsap.set(el, { opacity: 0, y: 20 });
-    gsap.to(el, {
+    gsap.fromTo(el, { opacity: 0, y: 20 }, {
       opacity: 1,
       y: 0,
       duration: 0.8,
