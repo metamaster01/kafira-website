@@ -548,7 +548,7 @@ const NAV_ITEMS = [
 const SocialIcons = ({ size = 14, col = 'rgba(245,240,232,0.45)' }: { size?: number; col?: string }) => (
   <div style={{ display:'flex', alignItems:'center', gap:14 }}>
     {/* Instagram */}
-    <a href="#" aria-label="Instagram"
+    <a href="https://www.instagram.com/kafira.travels/" aria-label="Instagram"
       style={{ color:col, transition:'color 0.2s,transform 0.2s', display:'flex' }}
       onMouseEnter={e=>{(e.currentTarget as HTMLAnchorElement).style.color=SG.sg;(e.currentTarget as HTMLAnchorElement).style.transform='translateY(-2px)';}}
       onMouseLeave={e=>{(e.currentTarget as HTMLAnchorElement).style.color=col;(e.currentTarget as HTMLAnchorElement).style.transform='none';}}>
@@ -557,7 +557,7 @@ const SocialIcons = ({ size = 14, col = 'rgba(245,240,232,0.45)' }: { size?: num
       </svg>
     </a>
     {/* Facebook */}
-    <a href="#" aria-label="Facebook"
+    <a href="https://www.facebook.com/profile.php?id=61572079204139" aria-label="Facebook"
       style={{ color:col, transition:'color 0.2s,transform 0.2s', display:'flex' }}
       onMouseEnter={e=>{(e.currentTarget as HTMLAnchorElement).style.color=SG.sg;(e.currentTarget as HTMLAnchorElement).style.transform='translateY(-2px)';}}
       onMouseLeave={e=>{(e.currentTarget as HTMLAnchorElement).style.color=col;(e.currentTarget as HTMLAnchorElement).style.transform='none';}}>

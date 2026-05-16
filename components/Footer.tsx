@@ -60,34 +60,34 @@ const COLS = [
   {
     title: 'Experience',
     links: [
-      { label: 'Group Tours',         href: '#trips' },
-      { label: 'Private Journeys',    href: '#' },
-      { label: 'Luxury Getaways',     href: '#' },
-      { label: 'Adventure Trips',     href: '#' },
-      { label: 'Honeymoon Packages',  href: '#' },
-      { label: 'Corporate Tours',     href: '#' },
+      { label: 'Group Tours',         href: '#upcoming-trips' },
+      { label: 'Private Journeys',    href: '#international-trips' },
+      { label: 'Luxury Getaways',     href: '#international-trips' },
+      { label: 'Adventure Trips',     href: '#upcoming-trips' },
+      { label: 'Honeymoon Packages',  href: '#international-trips' },
+      { label: 'Corporate Tours',     href: '#upcoming-trips' },
     ],
   },
   {
     title: 'Support',
     links: [
-      { label: 'Contact Us',          href: '#' },
+      // { label: 'Contact Us',          href: '#' },
       { label: 'FAQs',                href: '#faq' },
-      { label: 'Booking Policy',      href: '#' },
-      { label: 'Cancellation Policy', href: '#' },
-      { label: 'Privacy Policy',      href: '#' },
-      { label: 'Terms & Conditions',  href: '#' },
+      { label: 'Booking Policy',      href: '/privacy-policy/#booking' },
+      { label: 'Cancellation Policy', href: '/privacy-policy/#cancellation' },
+      { label: 'Privacy Policy',      href: '/privacy-policy/' },
+      { label: 'Terms & Conditions',  href: '/terms-of-use/' },
     ],
   },
 ];
 
 const SOCIALS = [
   {
-    label: 'Instagram', href: '#',
+    label: 'Instagram', href: 'https://www.instagram.com/kafira.travels/',
     icon: <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/></svg>,
   },
   {
-    label: 'Facebook', href: '#',
+    label: 'Facebook', href: 'https://www.facebook.com/profile.php?id=61572079204139',
     icon: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>,
   },
   {
@@ -310,7 +310,7 @@ export default function Footer() {
           <div style={{ display: 'flex', gap: 18, flexWrap: 'wrap' }}>
             {['Privacy Policy', 'Terms & Conditions', 'Cookie Policy', 'Sitemap'].map(l => (
               <a
-                key={l} href="#"
+                key={l} href="privacty-policy" target="_blank" rel="noopener noreferrer"
                 style={{ fontFamily: '"Montserrat",sans-serif', fontSize: 11, fontWeight: 400, color: C.textLo, textDecoration: 'none', transition: 'color 0.2s' }}
                 onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.color = C.textAct; }}
                 onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.color = C.textLo; }}

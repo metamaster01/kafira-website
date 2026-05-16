@@ -15,7 +15,7 @@ import InternationalTrips from '@/components/InternationalTrips';
 
 export default function Home() {
   return (
-    <main style={{ position: 'relative', background: '#0c0a08'  }}>
+    <main style={{ position: 'relative', background: '#fff'  }}>
       <Navbar />
       <HeroSection />
       {/* <JourneySection /> */}

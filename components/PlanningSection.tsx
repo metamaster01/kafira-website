@@ -2,6 +2,7 @@
 import { useEffect, useId, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Lottie from 'lottie-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -188,6 +189,7 @@ function PlannerCard({ exp }: { exp: boolean }) {
 }
 
 function DestCard({ compact }: { compact: boolean }) {
+  const [hovered, setHovered] = useState(false);
   const DESTS = ['🏔 Leh','🌊 Kerala','🏜 Rajasthan','🌴 Goa','⛩ Jaipur','🗻 Manali'];
   return (
     <div style={{
@@ -196,7 +198,10 @@ function DestCard({ compact }: { compact: boolean }) {
       borderRadius:18, padding:'16px 18px',
       display:'flex', flexDirection:'column', gap:8,
       position:'relative', overflow:'hidden',
-    }}>
+    }}
+    onMouseEnter={() => setHovered(true)}
+    onMouseLeave={() => setHovered(false)}
+    >
       <div style={{position:'absolute',inset:0,background:'radial-gradient(circle at 85% 15%,rgba(201,168,76,0.1) 0%,transparent 60%)',pointerEvents:'none'}}/>
       <div style={{flexShrink:0}}>
         <div style={{fontFamily:'Outfit,sans-serif',fontSize:8,fontWeight:700,color:'#2d8f7b',letterSpacing:'0.2em',textTransform:'uppercase',marginBottom:5}}>120+ destinations</div>
@@ -215,6 +220,21 @@ function DestCard({ compact }: { compact: boolean }) {
           }}>{d}</div>
         ))}
       </div>
+      {hovered && (
+        <img
+          src="/tour.json"
+          alt="Tour GIF"
+          style={{
+            position: 'absolute',
+            inset: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            borderRadius: 18,
+            pointerEvents: 'none'
+          }}
+        />
+      )}
     </div>
   );
 }
@@ -285,18 +305,32 @@ function CentreImage() {
 // ════════════════════════════════════════════════
 
 function SavingsCard({ compact }: { compact: boolean }) {
+  const [hovering, setHovering] = useState(false);
+  const savingLottie = require('@/public/saving.json');
+
   return (
-    <div style={{
-      width:'100%', height:'100%',
-      background:'linear-gradient(145deg,#1c1c2e,#2d2d44)',
-      borderRadius:18, padding:'18px',
-      display:'flex', flexDirection:'column', justifyContent:'space-between',
-      position:'relative', overflow:'hidden',
-    }}>
+    <div
+      style={{
+        width:'100%', height:'100%',
+        background:'linear-gradient(145deg,#1c1c2e,#2d2d44)',
+        borderRadius:18, padding:'18px',
+        display:'flex', flexDirection:'column', justifyContent:'space-between',
+        position:'relative', overflow:'hidden',
+      }}
+      onMouseEnter={() => setHovering(true)}
+      onMouseLeave={() => setHovering(false)}
+    >
       <div style={{position:'absolute',inset:0,background:'radial-gradient(circle at 80% 20%,rgba(120,80,200,0.12) 0%,transparent 60%)',pointerEvents:'none'}}/>
       <div>
         <div style={{fontFamily:'Outfit,sans-serif',fontSize:8,fontWeight:700,color:'#2d8f7b',letterSpacing:'0.2em',textTransform:'uppercase',marginBottom:6}}>Avg. savings</div>
-        <div style={{fontFamily:'Playfair Display,serif',fontWeight:900,fontSize:compact?28:42,color:'#f5f0e8',lineHeight:0.95,transition:'font-size 0.35s ease'}}>₹4,200</div>
+        <div style={{display:'flex',alignItems:'center',gap:8}}>
+          <div style={{fontFamily:'Playfair Display,serif',fontWeight:900,fontSize:compact?28:42,color:'#f5f0e8',lineHeight:0.95,transition:'font-size 0.35s ease'}}>₹4,200</div>
+          {hovering && (
+            <div style={{width:32,height:32,flexShrink:0}}>
+              <Lottie animationData={savingLottie} loop={true} autoplay={true}/>
+            </div>
+          )}
+        </div>
         {!compact && <div style={{fontFamily:'Outfit,sans-serif',fontSize:10,color:'rgba(245,240,232,0.48)',marginTop:7,lineHeight:1.4}}>per trip vs. booking independently</div>}
       </div>
       {!compact && (
@@ -305,6 +339,9 @@ function SavingsCard({ compact }: { compact: boolean }) {
           <span style={{fontFamily:'Outfit,sans-serif',fontSize:8,color:'rgba(245,240,232,0.4)'}}>5,000+ trips · Price-match guarantee</span>
         </div>
       )}
+
+
+      
     </div>
   );
 }
