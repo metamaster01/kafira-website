@@ -282,7 +282,7 @@ export default function HeroSection() {
             autoPlay muted loop playsInline preload="auto" poster="/hero-poster.jpg"
             style={{ zIndex: 2, filter: "brightness(1.15) contrast(1.05) saturate(1.05)", opacity: ready ? 1 : 0, transition: "opacity 1.4s ease" }}
           >
-            <source src="/final-video.mp4" type="video/mp4"/>
+            <source src="/new-video-2.mp4" type="video/mp4"/>
           </video>
         </div>
 
@@ -481,7 +481,7 @@ export default function HeroSection() {
             {/* view all — desktop */}
             {!isMobile && (
               <div style={{ marginTop: 26, opacity: ready ? 1 : 0, transition: "opacity 0.85s ease 0.6s" }}>
-                <a href="#tours" style={{ display: "inline-flex", alignItems: "center", gap: 6, fontFamily: '"Montserrat",sans-serif', fontSize: 13, fontWeight: 500, color: "rgba(180,230,220,0.48)", textDecoration: "none", transition: "color 0.25s" }}
+                <a href="#all-trips" style={{ display: "inline-flex", alignItems: "center", gap: 6, fontFamily: '"Montserrat",sans-serif', fontSize: 13, fontWeight: 500, color: "rgba(180,230,220,0.48)", textDecoration: "none", transition: "color 0.25s" }}
                   onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.color = SEA_LT; }}
                   onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.color = "rgba(180,230,220,0.48)"; }}
                 >

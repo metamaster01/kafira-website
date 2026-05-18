@@ -2,7 +2,11 @@
 import { useEffect, useId, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Lottie from 'lottie-react';
+// import Lottie from 'lottie-react';
+
+// ── Add this import at the top of the file ──
+import Lottie, { LottieRefCurrentProps } from 'lottie-react';
+// import { useRef } from 'react'; // if not already imported
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -188,31 +192,118 @@ function PlannerCard({ exp }: { exp: boolean }) {
   );
 }
 
+// function DestCard({ compact }: { compact: boolean }) {
+//   const [hovered, setHovered] = useState(false);
+//   const DESTS = ['🏔 Leh','🌊 Kerala','🏜 Rajasthan','🌴 Goa','⛩ Jaipur','🗻 Manali'];
+//   return (
+//     <div style={{
+//       width:'100%', height:'100%',
+//       background:'linear-gradient(145deg,#1a3a5c,#0d2038)',
+//       borderRadius:18, padding:'16px 18px',
+//       display:'flex', flexDirection:'column', gap:8,
+//       position:'relative', overflow:'hidden',
+//     }}
+//     onMouseEnter={() => setHovered(true)}
+//     onMouseLeave={() => setHovered(false)}
+//     >
+//       <div style={{position:'absolute',inset:0,background:'radial-gradient(circle at 85% 15%,rgba(201,168,76,0.1) 0%,transparent 60%)',pointerEvents:'none'}}/>
+//       <div style={{flexShrink:0}}>
+//         <div style={{fontFamily:'Outfit,sans-serif',fontSize:8,fontWeight:700,color:'#2d8f7b',letterSpacing:'0.2em',textTransform:'uppercase',marginBottom:5}}>120+ destinations</div>
+//         <h3 style={{fontFamily:'Playfair Display,serif',fontWeight:700,fontSize:compact?14:17,color:'#f5f0e8',lineHeight:1.2,transition:'font-size 0.35s ease'}}>
+//           Handpicked just for you
+//         </h3>
+//       </div>
+//       <div style={{display:'flex',flexWrap:'wrap',gap:5,overflow:'hidden'}}>
+//         {(compact ? DESTS.slice(0,3) : DESTS).map((d,i)=>(
+//           <div key={i} style={{
+//             padding:'4px 9px',borderRadius:999,
+//             background:i===0?'linear-gradient(135deg,#1a6b58,#2d8f7b)':'rgba(255,255,255,0.08)',
+//             color:i===0?'#fff':'rgba(245,240,232,0.6)',
+//             fontFamily:'Outfit,sans-serif',fontSize:10,fontWeight:500,
+//             border:i===0?'none':'1px solid rgba(255,255,255,0.1)',
+//           }}>{d}</div>
+//         ))}
+//       </div>
+//       {hovered && (
+//         <img
+//           src="/tour.json"
+//           alt="Tour GIF"
+//           style={{
+//             position: 'absolute',
+//             inset: 0,
+//             width: '100%',
+//             height: '100%',
+//             objectFit: 'cover',
+//             borderRadius: 18,
+//             pointerEvents: 'none'
+//           }}
+//         />
+//       )}
+//     </div>
+//   );
+// }
+
+
+
+
+
 function DestCard({ compact }: { compact: boolean }) {
   const [hovered, setHovered] = useState(false);
+  const [tourData, setTourData] = useState<object | null>(null);
+  const lottieRef = useRef<LottieRefCurrentProps>(null);
+
+  useEffect(() => {
+    import('@/public/tour.json').then((mod) => setTourData(mod.default ?? mod));
+  }, []);
+
+  useEffect(() => {
+    if (!lottieRef.current) return;
+    if (hovered) {
+      lottieRef.current.goToAndPlay(0, true);
+    } else {
+      lottieRef.current.stop();
+    }
+  }, [hovered]);
+
   const DESTS = ['🏔 Leh','🌊 Kerala','🏜 Rajasthan','🌴 Goa','⛩ Jaipur','🗻 Manali'];
+
   return (
-    <div style={{
-      width:'100%', height:'100%',
-      background:'linear-gradient(145deg,#1a3a5c,#0d2038)',
-      borderRadius:18, padding:'16px 18px',
-      display:'flex', flexDirection:'column', gap:8,
-      position:'relative', overflow:'hidden',
-    }}
-    onMouseEnter={() => setHovered(true)}
-    onMouseLeave={() => setHovered(false)}
+    <div
+      style={{
+        width:'100%', height:'100%',
+        background:'linear-gradient(145deg,#1a3a5c,#0d2038)',
+        borderRadius:18, padding:'16px 18px',
+        display:'flex', flexDirection:'column', gap:8,
+        position:'relative', overflow:'hidden',
+      }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
     >
       <div style={{position:'absolute',inset:0,background:'radial-gradient(circle at 85% 15%,rgba(201,168,76,0.1) 0%,transparent 60%)',pointerEvents:'none'}}/>
+
+      {/* Title — always visible */}
       <div style={{flexShrink:0}}>
-        <div style={{fontFamily:'Outfit,sans-serif',fontSize:8,fontWeight:700,color:'#2d8f7b',letterSpacing:'0.2em',textTransform:'uppercase',marginBottom:5}}>120+ destinations</div>
+        <div style={{fontFamily:'Outfit,sans-serif',fontSize:8,fontWeight:700,color:'#2d8f7b',letterSpacing:'0.2em',textTransform:'uppercase',marginBottom:5}}>
+          120+ destinations
+        </div>
         <h3 style={{fontFamily:'Playfair Display,serif',fontWeight:700,fontSize:compact?14:17,color:'#f5f0e8',lineHeight:1.2,transition:'font-size 0.35s ease'}}>
           Handpicked just for you
         </h3>
       </div>
-      <div style={{display:'flex',flexWrap:'wrap',gap:5,overflow:'hidden'}}>
+
+      {/* Pills — fade + slide out on hover */}
+      <div style={{
+        display:'flex', flexWrap:'wrap', gap:5,
+        flexShrink:0,
+        overflow:'hidden',
+        opacity: hovered ? 0 : 1,
+        transform: hovered ? 'translateY(-8px)' : 'translateY(0px)',
+        transition:'opacity 0.3s ease, transform 0.3s ease',
+        maxHeight: hovered ? 0 : 80,
+      }}>
         {(compact ? DESTS.slice(0,3) : DESTS).map((d,i)=>(
           <div key={i} style={{
-            padding:'4px 9px',borderRadius:999,
+            padding:'4px 9px', borderRadius:999,
             background:i===0?'linear-gradient(135deg,#1a6b58,#2d8f7b)':'rgba(255,255,255,0.08)',
             color:i===0?'#fff':'rgba(245,240,232,0.6)',
             fontFamily:'Outfit,sans-serif',fontSize:10,fontWeight:500,
@@ -220,21 +311,26 @@ function DestCard({ compact }: { compact: boolean }) {
           }}>{d}</div>
         ))}
       </div>
-      {hovered && (
-        <img
-          src="/tour.json"
-          alt="Tour GIF"
-          style={{
-            position: 'absolute',
-            inset: 0,
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            borderRadius: 18,
-            pointerEvents: 'none'
-          }}
-        />
-      )}
+
+      {/* Lottie — grows into space freed by pills */}
+      <div style={{
+        flex:1, minHeight:0,
+        display:'flex', alignItems:'center', justifyContent:'center',
+        opacity: hovered ? 1 : 0,
+        transform: hovered ? 'scale(1)' : 'scale(0.85)',
+        transition:'opacity 0.35s ease, transform 0.35s ease',
+        pointerEvents:'none',
+      }}>
+        {tourData && (
+          <Lottie
+            lottieRef={lottieRef}
+            animationData={tourData}
+            autoplay={false}
+            loop={true}
+            style={{width:'100%', height:'100%', maxHeight:240}}
+          />
+        )}
+      </div>
     </div>
   );
 }
@@ -273,7 +369,7 @@ function CentreImage() {
     <div ref={ref} style={{ width:COL_C, height:BENTO_H, position:'relative', flexShrink:0 }}>
       <div style={{ width:'100%',height:'100%',borderRadius:20,overflow:'hidden',boxShadow:'0 16px 48px rgba(0,0,0,0.15)' }}>
         <img
-          src="/image-2.png" alt="Route planner"
+          src="/image-4.png" alt="Route planner"
           style={{width:'100%',height:'100%',objectFit:'cover',display:'block'}}
           onError={e=>{(e.currentTarget as HTMLImageElement).style.opacity='0';}}
         />
@@ -304,9 +400,67 @@ function CentreImage() {
 // BOT  = ReviewsCard — expands (flex 2) on hover
 // ════════════════════════════════════════════════
 
+// function SavingsCard({ compact }: { compact: boolean }) {
+//   const [hovering, setHovering] = useState(false);
+//   const savingLottie = require('@/public/saving.json');
+
+//   return (
+//     <div
+//       style={{
+//         width:'100%', height:'100%',
+//         background:'linear-gradient(145deg,#1c1c2e,#2d2d44)',
+//         borderRadius:18, padding:'18px',
+//         display:'flex', flexDirection:'column', justifyContent:'space-between',
+//         position:'relative', overflow:'hidden',
+//       }}
+//       onMouseEnter={() => setHovering(true)}
+//       onMouseLeave={() => setHovering(false)}
+//     >
+//       <div style={{position:'absolute',inset:0,background:'radial-gradient(circle at 80% 20%,rgba(120,80,200,0.12) 0%,transparent 60%)',pointerEvents:'none'}}/>
+//       <div>
+//         <div style={{fontFamily:'Outfit,sans-serif',fontSize:8,fontWeight:700,color:'#2d8f7b',letterSpacing:'0.2em',textTransform:'uppercase',marginBottom:6}}>Avg. savings</div>
+//         <div style={{display:'flex',alignItems:'center',gap:8}}>
+//           <div style={{fontFamily:'Playfair Display,serif',fontWeight:900,fontSize:compact?28:42,color:'#f5f0e8',lineHeight:0.95,transition:'font-size 0.35s ease'}}>₹4,200</div>
+//           {hovering && (
+//             <div style={{width:32,height:32,flexShrink:0}}>
+//               <Lottie animationData={savingLottie} loop={true} autoplay={true}/>
+//             </div>
+//           )}
+//         </div>
+//         {!compact && <div style={{fontFamily:'Outfit,sans-serif',fontSize:10,color:'rgba(245,240,232,0.48)',marginTop:7,lineHeight:1.4}}>per trip vs. booking independently</div>}
+//       </div>
+//       {!compact && (
+//         <div style={{display:'flex',alignItems:'center',gap:5,paddingTop:10,borderTop:'1px solid rgba(255,255,255,0.07)'}}>
+//           <div style={{width:5,height:5,borderRadius:'50%',background:'#9b7fe8',flexShrink:0}}/>
+//           <span style={{fontFamily:'Outfit,sans-serif',fontSize:8,color:'rgba(245,240,232,0.4)'}}>5,000+ trips · Price-match guarantee</span>
+//         </div>
+//       )}
+
+
+      
+//     </div>
+//   );
+// }
+
+
+
 function SavingsCard({ compact }: { compact: boolean }) {
   const [hovering, setHovering] = useState(false);
-  const savingLottie = require('@/public/saving.json');
+  const [savingData, setSavingData] = useState<object | null>(null);
+  const lottieRef = useRef<LottieRefCurrentProps>(null);
+
+  useEffect(() => {
+    import('@/public/saving.json').then((mod) => setSavingData(mod.default ?? mod));
+  }, []);
+
+  useEffect(() => {
+    if (!lottieRef.current) return;
+    if (hovering) {
+      lottieRef.current.goToAndPlay(0, true);
+    } else {
+      lottieRef.current.stop();
+    }
+  }, [hovering]);
 
   return (
     <div
@@ -314,37 +468,82 @@ function SavingsCard({ compact }: { compact: boolean }) {
         width:'100%', height:'100%',
         background:'linear-gradient(145deg,#1c1c2e,#2d2d44)',
         borderRadius:18, padding:'18px',
-        display:'flex', flexDirection:'column', justifyContent:'space-between',
+        display:'flex', flexDirection:'column',
         position:'relative', overflow:'hidden',
       }}
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
     >
       <div style={{position:'absolute',inset:0,background:'radial-gradient(circle at 80% 20%,rgba(120,80,200,0.12) 0%,transparent 60%)',pointerEvents:'none'}}/>
-      <div>
-        <div style={{fontFamily:'Outfit,sans-serif',fontSize:8,fontWeight:700,color:'#2d8f7b',letterSpacing:'0.2em',textTransform:'uppercase',marginBottom:6}}>Avg. savings</div>
-        <div style={{display:'flex',alignItems:'center',gap:8}}>
-          <div style={{fontFamily:'Playfair Display,serif',fontWeight:900,fontSize:compact?28:42,color:'#f5f0e8',lineHeight:0.95,transition:'font-size 0.35s ease'}}>₹4,200</div>
-          {hovering && (
-            <div style={{width:32,height:32,flexShrink:0}}>
-              <Lottie animationData={savingLottie} loop={true} autoplay={true}/>
-            </div>
-          )}
+
+      {/* Label — always visible */}
+      <div style={{flexShrink:0}}>
+        <div style={{fontFamily:'Outfit,sans-serif',fontSize:8,fontWeight:700,color:'#2d8f7b',letterSpacing:'0.2em',textTransform:'uppercase',marginBottom:6}}>
+          Avg. savings
         </div>
-        {!compact && <div style={{fontFamily:'Outfit,sans-serif',fontSize:10,color:'rgba(245,240,232,0.48)',marginTop:7,lineHeight:1.4}}>per trip vs. booking independently</div>}
+        <div style={{fontFamily:'Playfair Display,serif',fontWeight:900,fontSize:compact?28:42,color:'#f5f0e8',lineHeight:0.95,transition:'font-size 0.35s ease'}}>
+          ₹4,200
+        </div>
       </div>
+
+      {/* Subtitle — fades out on hover to free space */}
+      <div style={{
+        flexShrink:0,
+        opacity: hovering ? 0 : 1,
+        transform: hovering ? 'translateY(-6px)' : 'translateY(0px)',
+        maxHeight: hovering ? 0 : 40,
+        overflow:'hidden',
+        transition:'opacity 0.3s ease, transform 0.3s ease, max-height 0.3s ease',
+        marginTop: hovering ? 0 : 7,
+      }}>
+        {!compact && (
+          <div style={{fontFamily:'Outfit,sans-serif',fontSize:10,color:'rgba(245,240,232,0.48)',lineHeight:1.4}}>
+            per trip vs. booking independently
+          </div>
+        )}
+      </div>
+
+      {/* Lottie — bigger now */}
+      <div style={{
+        flex:1, minHeight:0,
+        display:'flex', alignItems:'center', justifyContent:'center',
+        opacity: hovering ? 1 : 0,
+        transform: hovering ? 'scale(1)' : 'scale(0.85)',
+        transition:'opacity 0.35s ease, transform 0.35s ease',
+        pointerEvents:'none',
+      }}>
+        {savingData && (
+          <Lottie
+            lottieRef={lottieRef}
+            animationData={savingData}
+            autoplay={false}
+            loop={true}
+            style={{width:'100%', height:'100%', maxHeight:200}}
+          />
+        )}
+      </div>
+
+      {/* Footer — fades out on hover */}
       {!compact && (
-        <div style={{display:'flex',alignItems:'center',gap:5,paddingTop:10,borderTop:'1px solid rgba(255,255,255,0.07)'}}>
+        <div style={{
+          display:'flex', alignItems:'center', gap:5,
+          paddingTop:10, borderTop:'1px solid rgba(255,255,255,0.07)',
+          flexShrink:0,
+          opacity: hovering ? 0 : 1,
+          maxHeight: hovering ? 0 : 30,
+          overflow:'hidden',
+          transition:'opacity 0.25s ease, max-height 0.3s ease',
+        }}>
           <div style={{width:5,height:5,borderRadius:'50%',background:'#9b7fe8',flexShrink:0}}/>
-          <span style={{fontFamily:'Outfit,sans-serif',fontSize:8,color:'rgba(245,240,232,0.4)'}}>5,000+ trips · Price-match guarantee</span>
+          <span style={{fontFamily:'Outfit,sans-serif',fontSize:8,color:'rgba(245,240,232,0.4)'}}>
+            5,000+ trips · Price-match guarantee
+          </span>
         </div>
       )}
-
-
-      
     </div>
   );
 }
+
 
 function ReviewsCard({ exp }: { exp: boolean }) {
   const R1 = T.slice(0,4);
