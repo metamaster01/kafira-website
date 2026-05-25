@@ -540,8 +540,9 @@ const SG = {
 const NAV_ITEMS = [
   { label: 'About',        href: '#about'        },
   { label: 'Destinations', href: '#upcoming-trips'},
-  { label: 'Tours',        href: '#all-trips'    },
+  { label: 'Tours',        href: '/tours'    },
   { label: 'FAQ',          href: '#faq'          },
+  {label : 'Contact',       href: '/contact'      },
 ];
 
 // ── Social icons ──────────────────────────────────────
@@ -644,7 +645,7 @@ export default function Navbar() {
         <div
           className="hidden md:block"
           style={{
-            maxHeight: scrolled ? 0 : 36,
+            maxHeight: scrolled ? 0 : 46,
             opacity: scrolled ? 0 : 1,
             overflow: 'hidden',
             transition: 'max-height 0.4s ease, opacity 0.3s ease',
@@ -653,7 +654,7 @@ export default function Navbar() {
         >
           <div style={{
             display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-            padding: '0 40px', height: 36,
+            padding: '0 40px', height: 46,
           }}>
             <a href="tel:+919253289347" style={{
               display:'flex', alignItems:'center', gap:5,
@@ -690,7 +691,7 @@ export default function Navbar() {
         {/* ══ MAIN NAV ══ */}
         <div style={{
           display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-          padding: scrolled ? '10px 40px' : '16px 40px',
+          padding: scrolled ? '18px 40px' : '16px 40px',
           transition: 'padding 0.4s ease',
         }}>
 
@@ -699,8 +700,8 @@ export default function Navbar() {
             <Image
               src="/logo.png"
               alt="Kafira"
-              width={scrolled ? 90 : 110}
-              height={scrolled ? 90 : 110}
+              width={scrolled ? 120 : 110}
+              height={scrolled ? 120 : 110}
               style={{ objectFit:'contain', display:'block', transition:'width 0.4s ease, height 0.4s ease' }}
             />
           </a>
@@ -766,7 +767,7 @@ export default function Navbar() {
             </a>
 
             <a
-              href="#upcoming-trips"
+              href="/contact"
               style={{
                 padding:'9px 22px', borderRadius:999,
                 background: SG.sgGrad,
