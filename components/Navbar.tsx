@@ -539,7 +539,7 @@ const SG = {
 
 const NAV_ITEMS = [
   { label: 'About',        href: '/about'        },
-  { label: 'Destinations', href: '/#upcoming-trips'},
+  { label: 'Destinations', href: '/destinations'},
   { label: 'Tours',        href: '/tours'    },
   { label: 'FAQ',          href: '/#faq'          },
   {label : 'Contact',       href: '/contact'      },
