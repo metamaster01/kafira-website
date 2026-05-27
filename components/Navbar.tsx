@@ -538,10 +538,10 @@ const SG = {
 };
 
 const NAV_ITEMS = [
-  { label: 'About',        href: '#about'        },
-  { label: 'Destinations', href: '#upcoming-trips'},
+  { label: 'About',        href: '/about'        },
+  { label: 'Destinations', href: '/#upcoming-trips'},
   { label: 'Tours',        href: '/tours'    },
-  { label: 'FAQ',          href: '#faq'          },
+  { label: 'FAQ',          href: '/#faq'          },
   {label : 'Contact',       href: '/contact'      },
 ];
 
