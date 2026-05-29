@@ -564,9 +564,9 @@ export default function ContactPage() {
           marginTop:40, display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:16,
         }}>
           {[
-            { icon:<MapPin size={18}/>, title:'Our Office', val:'Kafira Travel Pvt. Ltd.\nMumbai, Maharashtra' },
-            { icon:<Phone size={18}/>,  title:'Call / WhatsApp', val:'+91 99999 99999' },
-            { icon:<Mail size={18}/>,   title:'Email Us', val:'hello@kafira.in' },
+            { icon:<MapPin size={18}/>, title:'Our Office', val:'Kafira Travels' },
+            { icon:<Phone size={18}/>,  title:'Call / WhatsApp', val:'+91 92532 89347' },
+            { icon:<Mail size={18}/>,   title:'Email Us', val:'support@kafira.in' },
           ].map((item,i) => (
             <div key={i} style={{
               background:C.white, border:`1.5px solid ${C.border}`, borderRadius:16,
