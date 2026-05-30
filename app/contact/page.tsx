@@ -564,7 +564,7 @@ export default function ContactPage() {
           marginTop:40, display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:16,
         }}>
           {[
-            { icon:<MapPin size={18}/>, title:'Our Office', val:'Kafira Travels' },
+            { icon:<MapPin size={18}/>, title:'Our Office', val:'Kafira Travels - Panipat, Haryana' },
             { icon:<Phone size={18}/>,  title:'Call / WhatsApp', val:'+91 92532 89347' },
             { icon:<Mail size={18}/>,   title:'Email Us', val:'support@kafira.in' },
           ].map((item,i) => (

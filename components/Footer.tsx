@@ -213,7 +213,7 @@ export default function Footer() {
             {/* contact lines */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 24 }}>
               {[
-                { icon: <MapPin size={12}/>, text: 'Kafira Travels' },
+                { icon: <MapPin size={12}/>, text: 'Panipat, Haryana' },
                 { icon: <Phone size={12}/>,  text: '+91 92532 89347', href: 'tel:+919253289347' },
                 { icon: <Mail size={12}/>,   text: 'support@kafira.in',  href: 'mailto:support@kafira.in' },
               ].map(({ icon, text, href }, i) =>
