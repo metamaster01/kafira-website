@@ -903,7 +903,7 @@ import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
 import DESTINATIONS, { getDestinationsByRegion } from '../data/destinations';
 import TRIPS from '../data/trips';
-import { sizeInBytes } from 'pdf-lib';
+// import { sizeInBytes } from 'pdf-lib';
 
 // ── Palette ────────────────────────────────────────────
 const SEA    = '#2d8f7b';
