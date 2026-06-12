@@ -1,17 +1,17 @@
 
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
-import JourneySection from '@/components/JourneySection';
-import PlanningSection from '@/components/PlanningSection';
-import MemoriesSection from '@/components/MemoriesSection';
-import ExploreSection from '@/components/ExploreSection';
+// import JourneySection from '@/components/JourneySection';
+// import PlanningSection from '@/components/PlanningSection';
+// import MemoriesSection from '@/components/MemoriesSection';
+// import ExploreSection from '@/components/ExploreSection';
 import Footer from '@/components/Footer';
 // import FooterSection from '@/components/FooterSection';
 import WhyKafira from '@/components/WhyKafira';
 import FAQSection from '@/components/FAQSection';
-import UpcomingTrips from '@/components/UpcomingTrips';
-import AllTrips from '@/components/AllTrips';
-import InternationalTrips from '@/components/InternationalTrips';
+// import UpcomingTrips from '@/components/UpcomingTrips';
+// import AllTrips from '@/components/AllTrips';
+// import InternationalTrips from '@/components/InternationalTrips';
 import AllDestinations from '@/components/AllDestinations';
 import IndianDestinations from '@/components/IndianDestinations';
 import InternationalDestinations from '@/components/InternationalDestinations';

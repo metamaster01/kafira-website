@@ -5,7 +5,7 @@
 //   TrendingUp, ArrowRight, X,
 // } from "lucide-react";
 // import TRIPS from "../data/upcomingTrips";
-// import type { Trip } from "../data/upcomingTrips";
+// import type { Trip } from "../data/types";
 // import TripModal from "./TripModal";
 
 // // ── Palette (matches site-wide seagreen) ──────────────
@@ -602,7 +602,7 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import { motion, useAnimation, AnimatePresence } from "framer-motion";
 import { Search, MapPin, X, TrendingUp } from "lucide-react";
 import TRIPS from "../data/upcomingTrips";
-import type { Trip } from "../data/upcomingTrips";
+import type { Trip } from "../data/types";
 import TripModal from "./TripModal";
 
 // ── Palette ────────────────────────────────────────────
@@ -613,6 +613,7 @@ const SEA_BG = "rgba(45,143,123,0.12)";
 const SEA_BD = "rgba(45,143,123,0.30)";
 
 const TRENDING = ["Rajasthan", "Manali", "Kerala", "Bali", "Leh"];
+const TRIPS_DATA: Trip[] = TRIPS as unknown as Trip[];
 
 // ── Responsive hook ────────────────────────────────────
 function useIsMobile(bp = 768) {
@@ -762,7 +763,7 @@ export default function HeroSection() {
       t.state.toLowerCase().includes(q) ||
       t.tags.some(tag => tag.toLowerCase().includes(q))
     ).slice(0, 5);
-    setResults(found);
+  
     setShowDrop(true);
   }, []);
 
