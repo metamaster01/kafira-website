@@ -1790,7 +1790,7 @@ export default function HeroSection() {
               }}
             >
               <TrendingUp size={10} style={{ color: SEA_LT }} />
-              <span style={{ fontSize: 10, fontFamily: '"Outfit",sans-serif', fontWeight: 500, color: "rgba(180,230,220,0.38)" }}>
+              <span style={{ fontSize: 14, fontFamily: '"Outfit",sans-serif', fontWeight: 500, color: "rgba(180,230,220,0.38)" }}>
                 Trending:
               </span>
               {(isMobile ? TRENDING.slice(0, 4) : TRENDING).map((t, i) => (
@@ -1803,8 +1803,8 @@ export default function HeroSection() {
                   whileTap={{ scale: 0.97 }}
                   onClick={() => handleSearch(t)}
                   style={{
-                    padding: "3px 11px", borderRadius: 999,
-                    fontSize: 10, fontFamily: '"Outfit",sans-serif', fontWeight: 500,
+                    padding: "4px 12px", borderRadius: 999,
+                    fontSize: 14, fontFamily: '"Outfit",sans-serif', fontWeight: 500,
                     cursor: "pointer", background: SEA_BG,
                     color: "rgba(61,184,158,0.72)", border: `1px solid ${SEA_BD}`,
                     transition: "background 0.2s, color 0.2s",
