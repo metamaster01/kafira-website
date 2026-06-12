@@ -17,9 +17,9 @@ export async function POST(req: NextRequest) {
       name, email, phone,
       destination,
       adults, children,
-      travelTypes,
-      accommodations,
-      budget,
+      // travelTypes,
+      // accommodations,
+      // budget,
       message,
     } = body;
 
@@ -97,31 +97,10 @@ export async function POST(req: NextRequest) {
           ${children > 0 ? `<span class="pill">🧒 ${children} Child${children !== 1 ? 'ren' : ''}</span>` : ''}
         </span>
       </div>
-      <div class="row">
-        <span class="label">Travel Type</span>
-        <span class="value">
-          ${(travelTypes as string[]).map(t => `<span class="pill">${t}</span>`).join('')}
-        </span>
-      </div>
-      <div class="row">
-        <span class="label">Accommodation</span>
-        <span class="value">
-          ${(accommodations as string[]).length > 0
-            ? (accommodations as string[]).map(a => `<span class="pill">${a}</span>`).join('')
-            : '<span style="color:#6b9e94">No preference</span>'
-          }
-        </span>
-      </div>
+      
     </div>
 
-    <!-- Budget -->
-    <div class="section">
-      <div class="section-title">Budget per Person</div>
-      <div class="highlight">
-        <div class="value">${BUDGET_LABELS[budget as number] ?? 'Not specified'}</div>
-      </div>
-    </div>
-
+    
     ${message?.trim() ? `
     <!-- Message -->
     <div class="section">

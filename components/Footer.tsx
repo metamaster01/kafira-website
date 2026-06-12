@@ -39,33 +39,33 @@ const COLS = [
   {
     title: 'Company',
     links: [
-      { label: 'About Us',            href: '/about' },
-      { label: 'Our Story',           href: '/#about' },
-      { label: 'Destinations',             href: '/destinations' },
-      { label: 'Tours',       href: '/tours' },
-      { label: 'Contact Us',     href: '/contact' },
+      { label: 'Home',           href: '/' },
+      { label: 'About Us',            href: '/about-us' },
+      { label: 'Blogs',             href: '/blogs' },
+      { label: 'Contact Us',     href: '/contact-us' },
+      { label: 'Payments',       href: '/payments' },
     ],
   },
   {
     title: 'Explore',
     links: [
-      { label: 'All Destinations',    href: '/destinations' },
-      { label: 'Rajasthan',           href: '/destinations/rajasthan/trips' },
-      { label: 'Kerala Backwaters',   href: '/destinations/kerala/trips' },
-      { label: 'Himalayan Escapes',   href: '/destinations/himalayas/trips' },
+      { label: 'India',    href: '/destinations/india' },
+      { label: 'International',           href: '/destinations/international' },
+      { label: 'Kerala Backwaters',   href: '/destinations/india/kerala' },
+      { label: 'Himalayan Escapes',   href: '/destinations/india/himalayas' },
       // { label: 'Goa & Beaches',       href: '/destinations/goa-beaches' },
-      { label: 'International',       href: '/destinations/international/trips' },
+      { label: 'Meghalaya',       href: '/destinations/india/meghalaya' },
     ],
   },
   {
     title: 'Experience',
     links: [
-      { label: 'Group Tours',         href: '/tours' },
-      { label: 'Private Journeys',    href: '/contact' },
-      { label: 'Luxury Getaways',     href: '/contact' },
-      { label: 'Adventure Trips',     href: '/tours' },
-      { label: 'Honeymoon Packages',  href: '/contact' },
-      { label: 'Corporate Tours',     href: '/contact' },
+      { label: 'Group Tours',         href: '/group-tour' },
+      { label: 'Weekend Getaways',    href: '/weekend-getaways' },
+      { label: 'indian tours',     href: '/destinations/india' },
+      { label: 'Adventure Trips',     href: '/contact' },
+      // { label: 'Honeymoon Packages',  href: '/contact' },
+      // { label: 'Corporate Tours',     href: '/contact' },
     ],
   },
   {
@@ -149,13 +149,13 @@ export default function Footer() {
       </div>
 
       {/* ── TOP CTA BAND ── */}
-      <div style={{
+      {/* <div style={{
         background: `linear-gradient(135deg,rgba(45,143,123,0.12),rgba(26,107,88,0.08))`,
         borderBottom: `1px solid ${C.seaBdLt}`,
         padding: '26px 40px',
         position: 'relative', zIndex: 1,
       }}>
-        {/* top glow line */}
+      
         <div style={{ position: 'absolute', top: 0, left: '8%', right: '8%', height: 1, background: `linear-gradient(to right,transparent,${C.sea},transparent)` }}/>
         <div style={{ maxWidth: 1280, margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 16 }}>
           <div>
@@ -183,10 +183,10 @@ export default function Footer() {
               onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.background = 'rgba(37,211,102,0.1)'; el.style.transform = 'none'; }}
             >
               <MessageCircle size={14}/> WhatsApp Us
-            </a> */}
+            </a> 
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* ── BODY ── */}
       <div style={{ maxWidth: 1280, margin: '0 auto', padding: '56px 40px 44px', position: 'relative', zIndex: 1 }}>
@@ -275,10 +275,10 @@ export default function Footer() {
         </div>
 
         {/* ── DIVIDER ── */}
-        <div ref={lineRef} style={{ height: 1, background: C.seaBdLt, margin: '48px 0 40px' }}/>
+        {/* <div ref={lineRef} style={{ height: 1, background: C.seaBdLt, margin: '48px 0 40px' }}/> */}
 
         {/* ── TRUST BADGES ROW ── */}
-        <div ref={badgeRef} style={{  display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: 14 }}>
+        {/* <div ref={badgeRef} style={{  display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: 14 }}>
           {[
             { icon: '🏆', label: 'Best Travel Agency', sub: 'India Travel Awards 2024' },
             { icon: '⭐', label: '4.9 / 5 Rating',     sub: '12,400+ verified reviews' },
@@ -297,8 +297,8 @@ export default function Footer() {
               </div>
             </div>
           ))}
-        </div>
-      </div>
+        </div> */}
+      </div> 
 
       {/* ── BOTTOM BAR ── */}
       <div ref={line2Ref} style={{ height: 1, background: C.seaBdLt, position: 'relative', zIndex: 1 }}/>

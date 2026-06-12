@@ -12,6 +12,13 @@ import FAQSection from '@/components/FAQSection';
 import UpcomingTrips from '@/components/UpcomingTrips';
 import AllTrips from '@/components/AllTrips';
 import InternationalTrips from '@/components/InternationalTrips';
+import AllDestinations from '@/components/AllDestinations';
+import IndianDestinations from '@/components/IndianDestinations';
+import InternationalDestinations from '@/components/InternationalDestinations';
+import TakeABreak from '@/components/TakeABreak';
+import CTABanner from '@/components/CTABanner';
+import WhyChooseUs from '@/components/WhyChooseUs';
+import JourneyInFrames from '@/components/JourneyInFrames';
 
 export default function Home() {
   return (
@@ -19,14 +26,19 @@ export default function Home() {
       <Navbar />
       <HeroSection />
       {/* <JourneySection /> */}
-      <UpcomingTrips />
+      {/* <UpcomingTrips /> */}
     
-      <PlanningSection />
-      <InternationalTrips />
-      <AllTrips />
-      <ExploreSection />
+      {/* <PlanningSection /> */}
+      {/* <InternationalTrips /> */}
+      {/* <AllTrips /> */}
+      {/* <ExploreSection /> */}
+      <AllDestinations />
+      <IndianDestinations />
+      <InternationalDestinations />
       <WhyKafira />
-      <MemoriesSection />
+      <WhyChooseUs />
+      <JourneyInFrames />
+      {/* <MemoriesSection /> */}
 
       {/* Placeholder for upcoming sections */}
       {/* <section id="about" style={{ minHeight: '100vh', background: '#0e0c0a', display:'flex', alignItems:'center', justifyContent:'center' }}>
@@ -35,6 +47,8 @@ export default function Home() {
         </p>
       </section> */}
       <FAQSection />
+      <TakeABreak />
+      <CTABanner />
       <Footer />
     </main>
   );

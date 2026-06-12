@@ -104,7 +104,7 @@ html, body {
 }
 
 /* ── Journey Section responsive ── */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .bento-grid-planning {
     grid-template-columns: 1fr !important;
   }
@@ -114,4 +114,4 @@ html, body {
   .exp-card {
     width: 280px !important;
   }
-}
+} */
