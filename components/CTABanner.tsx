@@ -160,7 +160,7 @@ export default function CTABanner() {
             }}
           >
             <img
-              src="/cta-traveller.png"
+              src="/cta-traveller-2.png"
               alt="Traveller with backpack"
               style={{
                 height: 'clamp(140px,17vw,215px)',
