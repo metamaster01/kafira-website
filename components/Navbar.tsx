@@ -1339,7 +1339,7 @@ export default function Navbar() {
 
   const handleSelectResult = (r: SearchResult) => {
     if (r.kind === 'destination') router.push(`/destinations/${r.region}/${r.slug}`);
-    else router.push(`/destinations/${r.region}/${r.destinationSlug}/${r.id}`);
+    else router.push(`/destinations/${r.region}/${r.destinationSlug}`);
     setSearchQuery(''); setShowSearch(false);
   };
 

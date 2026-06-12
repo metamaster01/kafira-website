@@ -37,7 +37,7 @@ export default function TripsGrid({
             marginBottom: "clamp(24px,3.5vw,40px)",
           }}
         >
-          <h2
+          {/* <h2
             style={{
               fontFamily: '"Outfit", sans-serif',
               fontWeight: 800,
@@ -48,18 +48,20 @@ export default function TripsGrid({
             }}
           >
             Trips in {destinationName}
-          </h2>
-          <p
+          </h2> */}
+          <h2
             style={{
-              fontFamily: '"Outfit",sans-serif',
-              fontSize: 13,
-              color: "rgba(15,39,32,0.45)",
-              margin: 0,
+              fontFamily: '"Outfit", sans-serif',
+              fontWeight: 800,
+              fontSize: "clamp(20px,2.8vw,32px)",
+              color: "#0f2720",
+              margin: "0 0 8px",
+              letterSpacing: "-0.01em",
             }}
           >
             {trips.length} curated {trips.length === 1 ? "package" : "packages"}{" "}
             to choose from
-          </p>
+          </h2>
         </div>
 
         {/* grid — 4 cols desktop, 2 cols mobile */}
