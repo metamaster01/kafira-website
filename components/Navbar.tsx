@@ -1364,7 +1364,7 @@ export default function Navbar() {
           {/* LOGO */}
           <Link href="/" style={{ flexShrink: 0, textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
             <img
-              src="/logo-3.png"
+              src="/kafira-logo.png"
               alt="Kafira Travels"
               style={{ width: isMobile ? 80 : 94, height: isMobile ? 36 : 44, objectFit: 'cover', borderRadius: 8 }}
             />
@@ -1571,7 +1571,7 @@ export default function Navbar() {
                 flexShrink: 0,
               }}>
                 <Link href="/" onClick={() => setMobileOpen(false)} style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
-                  <img src="/logo-3.png" alt="Kafira Travels" style={{ height: 32, width: 'auto', objectFit: 'contain' }}/>
+                  <img src="/kafira-logo.png" alt="Kafira Travels" style={{ height: 32, width: 'auto', objectFit: 'contain' }}/>
                 </Link>
                 <button
                   onClick={() => setMobileOpen(false)}
