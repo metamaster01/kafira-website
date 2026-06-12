@@ -136,7 +136,7 @@ function TeamCard({ member, index }: { member: TeamMember; index: number }) {
       <h3 className="text-[17px] font-bold text-gray-900 mb-0.5">{member.name}</h3>
 
       {/* Role */}
-      <p className="text-sm italic text-gray-500 mb-3">{member.role}</p>
+      <p className="text-sm  text-gray-500 mb-3">{member.role}</p>
 
       {/* Social icons */}
       <div className="flex items-center justify-center gap-2 mb-4">

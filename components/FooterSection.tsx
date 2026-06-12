@@ -198,7 +198,7 @@ const FooterSection = () => {
                 </li>
                 <li>
                   <a
-                    href="/about"
+                    href="/about-us"
                     className="text-white/80 hover:text-white hover:translate-x-1 inline-block transition-all duration-300 text-sm"
                   >
                     About us
@@ -222,7 +222,7 @@ const FooterSection = () => {
                 </li> */}
                 <li>
                   <a
-                    href="/contact"
+                    href="/contact-us"
                     className="text-white/80 hover:text-white hover:translate-x-1 inline-block transition-all duration-300 text-sm"
                   >
                     Contact
@@ -448,7 +448,7 @@ const FooterSection = () => {
               </li>
               <li>
                 <a
-                  href="/about"
+                  href="/about-us"
                   className="text-white/80 hover:text-white hover:translate-x-1 inline-block transition-all duration-300"
                 >
                   About us
@@ -472,7 +472,7 @@ const FooterSection = () => {
               </li> */}
               <li>
                 <a
-                  href="/contact"
+                  href="/contact-us"
                   className="text-white/80 hover:text-white hover:translate-x-1 inline-block transition-all duration-300"
                 >
                   Contact

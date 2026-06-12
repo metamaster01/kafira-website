@@ -360,7 +360,7 @@ export default function FAQSection() {
             letterSpacing: '-0.01em',
           }}>
             Questions? We've got<br/>
-            <span style={{ fontStyle: 'italic', color: C.sea }}>answers.</span>
+            <span style={{  color: C.sea }}>answers.</span>
           </h2>
 
           <p style={{

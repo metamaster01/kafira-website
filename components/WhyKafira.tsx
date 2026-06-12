@@ -148,7 +148,7 @@ export default function WhyKafira() {
               <div style={{
                 position:'absolute', bottom:20, left:18, right:18,
                 fontFamily:'"DM Serif Display",serif',
-                fontStyle:'italic', fontSize:'clamp(14px,1.4vw,18px)',
+                 fontSize:'clamp(14px,1.4vw,18px)',
                 color:'rgba(236,255,252,0.90)', lineHeight:1.5,
               }}>
                 "Every journey we craft is a story only you can tell."
@@ -177,7 +177,7 @@ export default function WhyKafira() {
               letterSpacing:'-0.01em',
             }}>
               We don't sell trips.<br/>
-              <span style={{ fontStyle:'italic', color:C.sea }}>We craft journeys.</span>
+              <span style={{  color:C.sea }}>We craft journeys.</span>
             </h2>
 
             {/* body */}

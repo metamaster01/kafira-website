@@ -108,7 +108,7 @@ export default function CTABanner() {
             transition={{ duration: 0.55, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}
           >
             <Link
-              href="/contact"
+              href="/contact-us"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',

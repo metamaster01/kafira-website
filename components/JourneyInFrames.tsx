@@ -398,7 +398,7 @@ export default function JourneyInFrames({
   const STAGE_H = CENTER_H + 60; // extra room for shadow
 
   return (
-    <section style={{ background: '#fff', padding: 'clamp(48px,6vw,72px) 0' }}>
+    <section style={{ background: '#fff', padding: 'clamp(24px,6vw,48px) 0' }}>
 
       {/* ── header ── */}
       <motion.div
@@ -406,7 +406,7 @@ export default function JourneyInFrames({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-40px' }}
         transition={{ duration: 0.60, ease: [0.22, 1, 0.36, 1] }}
-        style={{ textAlign: 'center', marginBottom: 'clamp(32px,4vw,52px)' }}
+        style={{ textAlign: 'center', marginBottom: 'clamp(14px,2vw,34px)' }}
       >
         <h2 style={{
           fontFamily: '"Outfit",sans-serif',
@@ -417,14 +417,14 @@ export default function JourneyInFrames({
           letterSpacing: '0.06em',
           textTransform: 'uppercase',
         }}>
-          Journey in Frames
+          Journey in <span style={{ color: '#2d8f7b' }}>Frames</span>
         </h2>
         <p style={{
           fontFamily: '"Outfit",sans-serif',
           fontSize: 'clamp(13px,1.2vw,16px)',
-          color: 'rgba(0,0,0,0.45)',
           margin: 0,
           fontWeight: 400,
+          color: '#1a6b58',
         }}>
           Pictures Perfect Moments
         </p>

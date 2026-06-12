@@ -757,7 +757,7 @@ function DestCard({ dest, index }: { dest: Destination; index: number }) {
           {/* BIG destination name — same style as EUROPE/VIETNAM/BALI in design */}
           <div style={{
             fontFamily: '"DM Serif Display",serif',
-            fontStyle: 'italic',
+            
             fontSize: 'clamp(32px,4.5vw,44px)',
             fontWeight: 400,
             lineHeight: 0.95,
@@ -849,7 +849,7 @@ function PageHero() {
         <h1 style={{
           fontFamily: '"DM Serif Display",serif',
           fontWeight: 400,
-          fontStyle: 'italic',
+          
           fontSize: 'clamp(36px,6vw,76px)',
           lineHeight: 1.04,
           color: '#e8f7f4',
@@ -926,7 +926,7 @@ export default function DestinationsPage() {
             </div>
             <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12 }}>
               <h2 style={{ fontFamily: '"DM Serif Display",serif', fontWeight: 400, fontSize: 'clamp(24px,3vw,40px)', color: C.text, lineHeight: 1.1, letterSpacing: '-0.01em' }}>
-                Pick your <span style={{ fontStyle: 'italic', color: C.sea }}>destination</span>
+                Pick your <span style={{ color: C.sea }}>destination</span>
               </h2>
               <div style={{ fontFamily: '"Montserrat",sans-serif', fontSize: 12, color: C.muted, background: C.white, border: `1px solid ${C.border}`, borderRadius: 10, padding: '7px 14px' }}>
                 {DESTINATIONS.length} destinations available

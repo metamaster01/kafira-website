@@ -267,7 +267,7 @@ export default function ContactPage() {
             letterSpacing:'-0.01em',
           }}>
             Plan Your Dream Trip<br/>
-            <span style={{ fontStyle:'italic', color:C.seaLt }}>With Ease</span>
+            <span style={{ color:C.seaLt }}>With Ease</span>
           </h1>
 
           <p style={{

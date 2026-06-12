@@ -163,7 +163,7 @@ export default function AboutWhyUs() {
             <div style={{ height: 1, width: 28, background: `linear-gradient(to left,transparent,${C.sea})` }}/>
           </div>
           <h2 style={{ fontFamily: '"Playfair Display",serif', fontWeight: 800, fontSize: 'clamp(28px,3.8vw,52px)', color: C.text, lineHeight: 1.1, marginBottom: 12, letterSpacing: '-0.01em' }}>
-            Six reasons travelers <span style={{ fontStyle: 'italic', color: C.sea }}>choose us</span>
+            Six reasons travelers <span style={{  color: C.sea }}>choose us</span>
           </h2>
           <p style={{ fontFamily: '"Montserrat",sans-serif', fontWeight: 400, fontSize: 15, color: C.muted, maxWidth: 480, margin: '0 auto' }}>
             Over 50,000 happy travelers can't be wrong. Here's what sets Kafira apart.

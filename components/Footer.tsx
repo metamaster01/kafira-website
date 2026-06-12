@@ -63,7 +63,7 @@ const COLS = [
       { label: 'Group Tours',         href: '/group-tour' },
       { label: 'Weekend Getaways',    href: '/weekend-getaways' },
       { label: 'indian tours',     href: '/destinations/india' },
-      { label: 'Adventure Trips',     href: '/contact' },
+      { label: 'Adventure Trips',     href: '/contact-us' },
       // { label: 'Honeymoon Packages',  href: '/contact' },
       // { label: 'Corporate Tours',     href: '/contact' },
     ],
@@ -206,7 +206,7 @@ export default function Footer() {
               <Image src="/logo.png" alt="Kafira" width={118} height={46} style={{ objectFit: 'contain', display: 'block' }}/>
             </a>
 
-            <p style={{ fontFamily: '"DM Serif Display",serif', fontStyle: 'italic', fontSize: 15, color: `${C.sea}99`, lineHeight: 1.7, marginBottom: 22 }}>
+            <p style={{ fontFamily: '"DM Serif Display",serif', fontSize: 15, color: `${C.sea}99`, lineHeight: 1.7, marginBottom: 22 }}>
               Crafting journeys,<br/>not just itineraries.
             </p>
 

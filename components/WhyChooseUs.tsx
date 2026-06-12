@@ -103,7 +103,7 @@ function FeatureCard({
         fontFamily: '"Outfit", sans-serif',
         fontWeight: 700,
         fontSize: 'clamp(16px,1.6vw,19px)',
-        color: '#111111',
+        color: '#2b8f7b',
         marginBottom: 14,
         letterSpacing: '-0.01em',
       }}>
@@ -135,7 +135,7 @@ export default function WhyChooseUs() {
     <section
       ref={ref}
       style={{
-        background: '#f7f5f0',   // cream bg matching reference
+        background: '#f4f9f8',   // cream bg matching reference
         padding: 'clamp(48px,7vw,88px) clamp(20px,5vw,48px)',
       }}
     >
@@ -157,12 +157,12 @@ export default function WhyChooseUs() {
           <h2 style={{
             fontFamily: '"Outfit",sans-serif',
             fontWeight: 800,
-            fontSize: 'clamp(24px,3.5vw,40px)',
+            fontSize: 'clamp(34px,3.5vw,40px)',
             color: '#111',
             margin: 0,
             letterSpacing: '-0.02em',
           }}>
-            What Makes Us Different
+            What Makes Us <span style={{ color: '#2d8f7b' }}>Different</span>
           </h2>
         </motion.div>
 
