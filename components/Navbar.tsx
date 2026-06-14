@@ -894,7 +894,6 @@
 
 
 
-
 'use client';
 import { useEffect, useRef, useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -903,18 +902,14 @@ import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
 import DESTINATIONS, { getDestinationsByRegion } from '../data/destinations';
 import TRIPS from '../data/trips';
-// import { sizeInBytes } from 'pdf-lib';
 
-// ── Palette ────────────────────────────────────────────
 const SEA    = '#2d8f7b';
 const SEA_DK = '#1a6b58';
 const SEA_LT = '#3db89e';
 
-// ── Data ───────────────────────────────────────────────
 const INDIA_DESTS = getDestinationsByRegion('india');
 const INTL_DESTS  = getDestinationsByRegion('international');
 
-// ── Nav items (second bar) ─────────────────────────────
 type NavItem =
   | { type: 'link';     label: string; href: string }
   | { type: 'dropdown'; label: string; key: 'india' | 'international' };
@@ -922,81 +917,39 @@ type NavItem =
 const NAV_ITEMS: NavItem[] = [
   { type: 'dropdown', label: 'International Trips', key: 'international' },
   { type: 'dropdown', label: 'India Trips',         key: 'india'         },
-  { type: 'link',     label: 'Weekend Getaways',      href: '/weekend-getaways' },
-  { type: 'link',     label: 'Group Tours',         href: '/group-tour'    },
+  { type: 'link',     label: 'Weekend Getaways',    href: '/weekend-getaways' },
+  { type: 'link',     label: 'Group Tours',         href: '/group-tours'      },
 ];
 
-// ── Search result types ────────────────────────────────
 type SearchResult =
   | { kind: 'destination'; slug: string; region: string; name: string; image: string; startingPrice: number }
   | { kind: 'trip'; id: string; destinationSlug: string; region: string; name: string; image: string; discountedPrice: number; duration: string };
 
 // ═══════════════════════════════════════════════════════
-//  Mega-menu dropdown
+//  Mega-menu
 // ═══════════════════════════════════════════════════════
 function MegaMenu({ regionKey, onClose }: { regionKey: 'india' | 'international'; onClose: () => void }) {
   const router = useRouter();
   const dests  = regionKey === 'india' ? INDIA_DESTS : INTL_DESTS;
-
   return (
     <motion.div
       initial={{ opacity: 0, y: -10, scale: 0.97 }}
-      animate={{ opacity: 1, y: 0,   scale: 1    }}
-      exit={{    opacity: 0, y: -10, scale: 0.97  }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      exit={{ opacity: 0, y: -10, scale: 0.97 }}
       transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
-      style={{
-        position: 'absolute',
-        top: 'calc(100% + 8px)',
-        left: '50%',
-        transform: 'translateX(-50%)',
-        zIndex: 200,
-        background: '#fff',
-        borderRadius: 14,
-        boxShadow: '0 20px 60px rgba(0,0,0,0.14), 0 4px 16px rgba(0,0,0,0.07)',
-        padding: '20px 24px 22px',
-        minWidth: 480,
-      }}
+      style={{ position: 'absolute', top: 'calc(100% + 8px)', left: '50%', transform: 'translateX(-50%)', zIndex: 200, background: '#fff', borderRadius: 14, boxShadow: '0 20px 60px rgba(0,0,0,0.14), 0 4px 16px rgba(0,0,0,0.07)', padding: '20px 24px 22px', minWidth: 480 }}
     >
-      {/* triangle */}
-      <div style={{
-        position: 'absolute', top: -8, left: '50%',
-        transform: 'translateX(-50%)',
-        width: 0, height: 0,
-        borderLeft: '9px solid transparent',
-        borderRight: '9px solid transparent',
-        borderBottom: '9px solid #fff',
-        filter: 'drop-shadow(0 -2px 2px rgba(0,0,0,0.06))',
-      }}/>
-
-      {/* label */}
-      <div style={{
-        fontFamily: '"Outfit",sans-serif',
-        fontSize: 9, fontWeight: 700, color: SEA,
-        letterSpacing: '0.24em', textTransform: 'uppercase',
-        marginBottom: 12, paddingBottom: 10,
-        borderBottom: '1px solid rgba(0,0,0,0.07)',
-      }}>
+      <div style={{ position: 'absolute', top: -8, left: '50%', transform: 'translateX(-50%)', width: 0, height: 0, borderLeft: '9px solid transparent', borderRight: '9px solid transparent', borderBottom: '9px solid #fff', filter: 'drop-shadow(0 -2px 2px rgba(0,0,0,0.06))' }}/>
+      <div style={{ fontFamily: '"Outfit",sans-serif', fontSize: 9, fontWeight: 700, color: SEA, letterSpacing: '0.24em', textTransform: 'uppercase', marginBottom: 12, paddingBottom: 10, borderBottom: '1px solid rgba(0,0,0,0.07)' }}>
         {regionKey === 'india' ? 'India Destinations' : 'International Destinations'}
       </div>
-
-      {/* 4-col grid */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: '2px 6px' }}>
         {dests.map(d => (
-          <DestItem
-            key={d.slug}
-            name={d.name}
-            onClick={() => { router.push(`/destinations/${regionKey}/${d.slug}`); onClose(); }}
-          />
+          <DestItem key={d.slug} name={d.name} onClick={() => { router.push(`/destinations/${regionKey}/${d.slug}`); onClose(); }}/>
         ))}
       </div>
-
-      {/* view all */}
       <div style={{ marginTop: 14, paddingTop: 12, borderTop: '1px solid rgba(0,0,0,0.06)', display: 'flex', justifyContent: 'flex-end' }}>
-        <Link
-          href={`/destinations/${regionKey}`}
-          onClick={onClose}
-          style={{ fontFamily: '"Outfit",sans-serif', fontSize: 12, fontWeight: 600, color: SEA, textDecoration: 'none' }}
-        >
+        <Link href={`/destinations/${regionKey}`} onClick={onClose} style={{ fontFamily: '"Outfit",sans-serif', fontSize: 12, fontWeight: 600, color: SEA, textDecoration: 'none' }}>
           View all {regionKey === 'india' ? 'India' : 'International'} destinations →
         </Link>
       </div>
@@ -1007,20 +960,8 @@ function MegaMenu({ regionKey, onClose }: { regionKey: 'india' | 'international'
 function DestItem({ name, onClick }: { name: string; onClick: () => void }) {
   const [hov, setHov] = useState(false);
   return (
-    <div
-      onClick={onClick}
-      onMouseEnter={() => setHov(true)}
-      onMouseLeave={() => setHov(false)}
-      style={{
-        fontFamily: '"Outfit",sans-serif',
-        fontSize: 13.5, fontWeight: hov ? 600 : 400,
-        color: hov ? SEA : '#2a2a2a',
-        padding: '8px 10px', borderRadius: 7, cursor: 'pointer',
-        background: hov ? 'rgba(45,143,123,0.07)' : 'transparent',
-        transition: 'all 0.16s ease',
-        whiteSpace: 'nowrap',
-      }}
-    >
+    <div onClick={onClick} onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)}
+      style={{ fontFamily: '"Outfit",sans-serif', fontSize: 13.5, fontWeight: hov ? 600 : 400, color: hov ? SEA : '#2a2a2a', padding: '8px 10px', borderRadius: 7, cursor: 'pointer', background: hov ? 'rgba(45,143,123,0.07)' : 'transparent', transition: 'all 0.16s ease', whiteSpace: 'nowrap' }}>
       {name}
     </div>
   );
@@ -1029,25 +970,13 @@ function DestItem({ name, onClick }: { name: string; onClick: () => void }) {
 // ═══════════════════════════════════════════════════════
 //  Search dropdown
 // ═══════════════════════════════════════════════════════
-function SearchDropdown({ query, results, onSelect }: {
-  query: string;
-  results: SearchResult[];
-  onSelect: (r: SearchResult) => void;
-}) {
+function SearchDropdown({ query, results, onSelect }: { query: string; results: SearchResult[]; onSelect: (r: SearchResult) => void }) {
   if (!query.trim()) return null;
   return (
     <motion.div
-      initial={{ opacity: 0, y: -6 }}
-      animate={{ opacity: 1, y: 0  }}
-      exit={{    opacity: 0, y: -6  }}
+      initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -6 }}
       transition={{ duration: 0.16 }}
-      style={{
-        position: 'absolute', top: 'calc(100% + 6px)', left: 0, right: 0,
-        background: '#fff', borderRadius: 12,
-        boxShadow: '0 16px 50px rgba(0,0,0,0.13)',
-        overflow: 'hidden', zIndex: 300,
-        maxHeight: 360, overflowY: 'auto',
-      }}
+      style={{ position: 'absolute', top: 'calc(100% + 6px)', left: 0, right: 0, background: '#fff', borderRadius: 12, boxShadow: '0 16px 50px rgba(0,0,0,0.13)', overflow: 'hidden', zIndex: 300, maxHeight: 360, overflowY: 'auto' }}
     >
       {results.length === 0 ? (
         <div style={{ padding: '20px', textAlign: 'center' }}>
@@ -1056,20 +985,18 @@ function SearchDropdown({ query, results, onSelect }: {
           <div style={{ fontFamily: '"Outfit",sans-serif', fontSize: 11, color: '#bbb', marginTop: 3 }}>Try Himalayas, Europe, or Bali</div>
         </div>
       ) : (
-        <>
-          {(['destination','trip'] as const).map(kind => {
-            const group = results.filter(r => r.kind === kind);
-            if (!group.length) return null;
-            return (
-              <div key={kind} style={{ borderTop: kind === 'trip' ? '1px solid rgba(0,0,0,0.06)' : 'none' }}>
-                <div style={{ padding: '10px 16px 4px', fontFamily: '"Outfit",sans-serif', fontSize: 9, fontWeight: 700, color: SEA, letterSpacing: '0.2em', textTransform: 'uppercase' }}>
-                  {kind === 'destination' ? 'Destinations' : 'Trips'}
-                </div>
-                {group.map((r, i) => <SearchRow key={i} result={r} onSelect={onSelect}/>)}
+        (['destination','trip'] as const).map(kind => {
+          const group = results.filter(r => r.kind === kind);
+          if (!group.length) return null;
+          return (
+            <div key={kind} style={{ borderTop: kind === 'trip' ? '1px solid rgba(0,0,0,0.06)' : 'none' }}>
+              <div style={{ padding: '10px 16px 4px', fontFamily: '"Outfit",sans-serif', fontSize: 9, fontWeight: 700, color: SEA, letterSpacing: '0.2em', textTransform: 'uppercase' }}>
+                {kind === 'destination' ? 'Destinations' : 'Trips'}
               </div>
-            );
-          })}
-        </>
+              {group.map((r, i) => <SearchRow key={i} result={r} onSelect={onSelect}/>)}
+            </div>
+          );
+        })
       )}
     </motion.div>
   );
@@ -1078,17 +1005,8 @@ function SearchDropdown({ query, results, onSelect }: {
 function SearchRow({ result, onSelect }: { result: SearchResult; onSelect: (r: SearchResult) => void }) {
   const [hov, setHov] = useState(false);
   return (
-    <div
-      onMouseEnter={() => setHov(true)}
-      onMouseLeave={() => setHov(false)}
-      onClick={() => onSelect(result)}
-      style={{
-        display: 'flex', alignItems: 'center', gap: 11,
-        padding: '9px 16px', cursor: 'pointer',
-        background: hov ? 'rgba(45,143,123,0.06)' : 'transparent',
-        transition: 'background 0.14s',
-      }}
-    >
+    <div onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)} onClick={() => onSelect(result)}
+      style={{ display: 'flex', alignItems: 'center', gap: 11, padding: '9px 16px', cursor: 'pointer', background: hov ? 'rgba(45,143,123,0.06)' : 'transparent', transition: 'background 0.14s' }}>
       <div style={{ width: 42, height: 38, borderRadius: 7, overflow: 'hidden', flexShrink: 0, background: '#e8efec' }}>
         <img src={result.image} alt={result.name} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
           onError={e => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}/>
@@ -1103,8 +1021,13 @@ function SearchRow({ result, onSelect }: { result: SearchResult; onSelect: (r: S
             : `${result.duration} · from ₹${result.discountedPrice.toLocaleString('en-IN')}`}
         </div>
       </div>
-      <div style={{ fontFamily: '"Outfit",sans-serif', fontSize: 8, fontWeight: 700, color: SEA, background: 'rgba(45,143,123,0.09)', borderRadius: 999, padding: '2px 8px', letterSpacing: '0.08em', textTransform: 'uppercase', flexShrink: 0 }}>
-        {result.kind}
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 2, flexShrink: 0 }}>
+        <div style={{ fontFamily: '"Outfit",sans-serif', fontSize: 8, fontWeight: 700, color: SEA, background: 'rgba(45,143,123,0.09)', borderRadius: 999, padding: '2px 8px', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+          {result.kind}
+        </div>
+        {result.kind === 'trip' && (
+          <div style={{ fontFamily: '"Outfit",sans-serif', fontSize: 8, color: 'rgba(45,143,123,0.55)' }}>opens modal ↗</div>
+        )}
       </div>
     </div>
   );
@@ -1113,64 +1036,27 @@ function SearchRow({ result, onSelect }: { result: SearchResult; onSelect: (r: S
 // ═══════════════════════════════════════════════════════
 //  Second-bar nav item
 // ═══════════════════════════════════════════════════════
-function NavBarItem({ item, isOpen, onToggle, onClose, pathname }: {
-  item: NavItem; isOpen: boolean; onToggle: () => void; onClose: () => void; pathname: string;
-}) {
+function NavBarItem({ item, isOpen, onToggle, onClose, pathname }: { item: NavItem; isOpen: boolean; onToggle: () => void; onClose: () => void; pathname: string }) {
   const [hov, setHov] = useState(false);
   const isActive = item.type === 'link' && pathname === item.href;
   const lit = hov || isOpen || isActive;
-
   return (
     <div style={{ position: 'relative' }}>
       {item.type === 'link' ? (
-        <Link
-          href={item.href}
-          onMouseEnter={() => setHov(true)}
-          onMouseLeave={() => setHov(false)}
-          style={{
-            display: 'flex', alignItems: 'center',
-            padding: '0 16px', height: 44,
-            fontFamily: '"Outfit",sans-serif',
-            fontSize: 13.5, fontWeight: lit ? 700 : 500,
-            color: '#fff', textDecoration: 'none',
-            background: lit ? 'rgba(255,255,255,0.15)' : 'transparent',
-            borderBottom: isActive ? '2.5px solid rgba(255,255,255,0.9)' : '2.5px solid transparent',
-            transition: 'all 0.18s ease',
-            letterSpacing: '0.01em',
-          }}
-        >
+        <Link href={item.href} onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)}
+          style={{ display: 'flex', alignItems: 'center', padding: '0 16px', height: 44, fontFamily: '"Outfit",sans-serif', fontSize: 16, fontWeight: lit ? 700 : 500, color: '#fff', textDecoration: 'none', background: lit ? 'rgba(255,255,255,0.15)' : 'transparent', borderBottom: isActive ? '2.5px solid rgba(255,255,255,0.9)' : '2.5px solid transparent', transition: 'all 0.18s ease', letterSpacing: '0.01em' }}>
           {item.label}
         </Link>
       ) : (
         <>
-          <button
-            onClick={onToggle}
-            onMouseEnter={() => setHov(true)}
-            onMouseLeave={() => setHov(false)}
-            style={{
-              display: 'flex', alignItems: 'center', gap: 5,
-              padding: '0 16px', height: 44,
-              fontFamily: '"Outfit",sans-serif',
-              fontSize: 13.5, fontWeight: 500,
-              color: '#fff',
-              background: lit ? 'rgba(255,255,255,0.15)' : 'transparent',
-              border: 'none', cursor: 'pointer',
-              transition: 'background 0.18s ease',
-              letterSpacing: '0.01em',
-            }}
-          >
+          <button onClick={onToggle} onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)}
+            style={{ display: 'flex', alignItems: 'center', gap: 5, padding: '0 16px', height: 44, fontFamily: '"Outfit",sans-serif', fontSize: 16, fontWeight: 500, color: '#fff', background: lit ? 'rgba(255,255,255,0.15)' : 'transparent', border: 'none', cursor: 'pointer', transition: 'background 0.18s ease', letterSpacing: '0.01em' }}>
             {item.label}
-            <motion.span
-              animate={{ rotate: isOpen ? 180 : 0 }}
-              transition={{ duration: 0.20 }}
-              style={{ display: 'flex', alignItems: 'center' }}
-            >
+            <motion.span animate={{ rotate: isOpen ? 180 : 0 }} transition={{ duration: 0.20 }} style={{ display: 'flex', alignItems: 'center' }}>
               <ChevronDown size={14} color="rgba(255,255,255,0.85)"/>
             </motion.span>
           </button>
-          <AnimatePresence>
-            {isOpen && <MegaMenu regionKey={item.key} onClose={onClose}/>}
-          </AnimatePresence>
+          <AnimatePresence>{isOpen && <MegaMenu regionKey={item.key} onClose={onClose}/>}</AnimatePresence>
         </>
       )}
     </div>
@@ -1180,71 +1066,32 @@ function NavBarItem({ item, isOpen, onToggle, onClose, pathname }: {
 // ═══════════════════════════════════════════════════════
 //  Mobile drawer item
 // ═══════════════════════════════════════════════════════
-function MobileNavItem({ item, expanded, onToggle, onClose }: {
-  item: NavItem; expanded: boolean; onToggle: () => void; onClose: () => void;
-}) {
+function MobileNavItem({ item, expanded, onToggle, onClose }: { item: NavItem; expanded: boolean; onToggle: () => void; onClose: () => void }) {
   const router = useRouter();
   const dests  = item.type === 'dropdown' ? (item.key === 'india' ? INDIA_DESTS : INTL_DESTS) : [];
-
   return (
     <div style={{ borderBottom: '1px solid rgba(0,0,0,0.05)' }}>
       {item.type === 'link' ? (
-        <Link
-          href={item.href}
-          onClick={onClose}
-          style={{
-            display: 'block', padding: '15px 24px',
-            fontFamily: '"Outfit",sans-serif',
-            fontSize: 15, fontWeight: 600, color: '#1a1a1a',
-            textDecoration: 'none',
-          }}
-        >
+        <Link href={item.href} onClick={onClose} style={{ display: 'block', padding: '15px 24px', fontFamily: '"Outfit",sans-serif', fontSize: 15, fontWeight: 600, color: '#1a1a1a', textDecoration: 'none' }}>
           {item.label}
         </Link>
       ) : (
         <>
-          <button
-            onClick={onToggle}
-            style={{
-              width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-              padding: '15px 24px',
-              fontFamily: '"Outfit",sans-serif',
-              fontSize: 15, fontWeight: 600, color: '#1a1a1a',
-              background: expanded ? 'rgba(45,143,123,0.04)' : 'none',
-              border: 'none', cursor: 'pointer', textAlign: 'left',
-              transition: 'background 0.18s',
-            }}
-          >
+          <button onClick={onToggle} style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '15px 24px', fontFamily: '"Outfit",sans-serif', fontSize: 15, fontWeight: 600, color: '#1a1a1a', background: expanded ? 'rgba(45,143,123,0.04)' : 'none', border: 'none', cursor: 'pointer', textAlign: 'left', transition: 'background 0.18s' }}>
             {item.label}
             <motion.span animate={{ rotate: expanded ? 180 : 0 }} transition={{ duration: 0.22 }} style={{ display: 'flex' }}>
               <ChevronDown size={17} color="#666"/>
             </motion.span>
           </button>
-
           <AnimatePresence>
             {expanded && (
-              <motion.div
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: 'auto', opacity: 1 }}
-                exit={{    height: 0, opacity: 0 }}
-                transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
-                style={{ overflow: 'hidden', background: '#f7faf9' }}
-              >
+              <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }} style={{ overflow: 'hidden', background: '#f7faf9' }}>
                 <div style={{ padding: '6px 20px 14px', display: 'flex', flexDirection: 'column', gap: 1 }}>
                   {dests.map(d => (
-                    <button
-                      key={d.slug}
-                      onClick={() => { router.push(`/destinations/${item.key}/${d.slug}`); onClose(); }}
-                      style={{
-                        textAlign: 'left', padding: '10px 12px', borderRadius: 8,
-                        fontFamily: '"Outfit",sans-serif',
-                        fontSize: 14, fontWeight: 500, color: '#2a2a2a',
-                        background: 'none', border: 'none', cursor: 'pointer',
-                        transition: 'background 0.14s, color 0.14s',
-                      }}
+                    <button key={d.slug} onClick={() => { router.push(`/destinations/${item.key}/${d.slug}`); onClose(); }}
+                      style={{ textAlign: 'left', padding: '10px 12px', borderRadius: 8, fontFamily: '"Outfit",sans-serif', fontSize: 14, fontWeight: 500, color: '#2a2a2a', background: 'none', border: 'none', cursor: 'pointer', transition: 'background 0.14s, color 0.14s' }}
                       onMouseEnter={e => { const el = e.currentTarget as HTMLButtonElement; el.style.background = 'rgba(45,143,123,0.08)'; el.style.color = SEA; }}
-                      onMouseLeave={e => { const el = e.currentTarget as HTMLButtonElement; el.style.background = 'none'; el.style.color = '#2a2a2a'; }}
-                    >
+                      onMouseLeave={e => { const el = e.currentTarget as HTMLButtonElement; el.style.background = 'none'; el.style.color = '#2a2a2a'; }}>
                       {d.name}
                     </button>
                   ))}
@@ -1272,36 +1119,27 @@ export default function Navbar() {
   const [showSearch,    setShowSearch]    = useState(false);
   const [mobileOpen,    setMobileOpen]    = useState(false);
   const [mobileExpand,  setMobileExpand]  = useState<string | null>(null);
-  // track if we're on mobile via JS (avoids SSR mismatch)
   const [isMobile,      setIsMobile]      = useState(false);
 
   const searchRef = useRef<HTMLDivElement>(null);
   const dropRef   = useRef<HTMLDivElement>(null);
 
-  // detect mobile
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < 768);
-    check();
-    window.addEventListener('resize', check);
+    check(); window.addEventListener('resize', check);
     return () => window.removeEventListener('resize', check);
   }, []);
 
-  // scroll shadow
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 8);
     window.addEventListener('scroll', fn, { passive: true });
     return () => window.removeEventListener('scroll', fn);
   }, []);
 
-  // close everything on route change
   useEffect(() => {
-    setOpenDropdown(null);
-    setMobileOpen(false);
-    setSearchQuery('');
-    setShowSearch(false);
+    setOpenDropdown(null); setMobileOpen(false); setSearchQuery(''); setShowSearch(false);
   }, [pathname]);
 
-  // outside-click closes
   useEffect(() => {
     const fn = (e: MouseEvent) => {
       if (dropRef.current   && !dropRef.current.contains(e.target as Node))   setOpenDropdown(null);
@@ -1311,132 +1149,82 @@ export default function Navbar() {
     return () => document.removeEventListener('mousedown', fn);
   }, []);
 
-  // lock body scroll when mobile drawer open
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
   }, [mobileOpen]);
 
-  // live search
   const handleSearch = useCallback((val: string) => {
     setSearchQuery(val);
     setShowSearch(true);
     if (!val.trim()) { setSearchResults([]); return; }
     const q = val.toLowerCase();
-
     const destResults: SearchResult[] = DESTINATIONS
       .filter(d => d.name.toLowerCase().includes(q) || d.tagline.toLowerCase().includes(q))
-      .slice(0, 4)
+      .slice(0, 3)
       .map(d => ({ kind: 'destination' as const, slug: d.slug, region: d.region, name: d.name, image: d.image, startingPrice: d.startingPrice }));
-
     const tripResults: SearchResult[] = TRIPS
       .filter(t => t.name.toLowerCase().includes(q) || t.tags.some(tag => tag.toLowerCase().includes(q)) || t.state.toLowerCase().includes(q))
       .slice(0, 4)
       .map(t => ({ kind: 'trip' as const, id: t.id, destinationSlug: t.destinationSlug, region: t.region, name: t.name, image: t.image, discountedPrice: t.discountedPrice, duration: t.duration }));
-
     setSearchResults([...destResults, ...tripResults]);
   }, []);
 
+  // ── KEY FIX: trips navigate with ?trip=ID so destination page auto-opens modal ──
   const handleSelectResult = (r: SearchResult) => {
-    if (r.kind === 'destination') router.push(`/destinations/${r.region}/${r.slug}`);
-    else router.push(`/destinations/${r.region}/${r.destinationSlug}`);
+    if (r.kind === 'destination') {
+      router.push(`/destinations/${r.region}/${r.slug}`);
+    } else {
+      router.push(`/destinations/${r.region}/${r.destinationSlug}?trip=${r.id}`);
+    }
     setSearchQuery(''); setShowSearch(false);
   };
 
-  // ── Render ──────────────────────────────────────────
   return (
     <>
-      <header style={{
-        position: 'sticky', top: 0, zIndex: 1000,
-        boxShadow: scrolled ? '0 2px 20px rgba(0,0,0,0.10)' : 'none',
-        transition: 'box-shadow 0.3s ease',
-      }}>
-
-        {/* ══ ROW 1: white bar ══════════════════════════ */}
-        <div style={{
-          background: '#ffffff',
-          borderBottom: '1px solid rgba(0,0,0,0.07)',
-          padding: '0 clamp(16px,3vw,40px)',
-          height: 64,
-          display: 'flex', alignItems: 'center', gap: 20,
-        }}>
-
-          {/* LOGO */}
+      <header style={{ position: 'sticky', top: 0, zIndex: 1000, boxShadow: scrolled ? '0 2px 20px rgba(0,0,0,0.10)' : 'none', transition: 'box-shadow 0.3s ease' }}>
+        {/* ROW 1 */}
+        <div style={{ background: '#ffffff', borderBottom: '1px solid rgba(0,0,0,0.07)', padding: '0 clamp(16px,3vw,40px)', height: 64, display: 'flex', alignItems: 'center', gap: 20 }}>
           <Link href="/" style={{ flexShrink: 0, textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
-            <img
-              src="/kafira-logo.png"
-              alt="Kafira Travels"
-              style={{ width: isMobile ? 80 : 94, height: isMobile ? 36 : 44, objectFit: 'cover', borderRadius: 8 }}
-            />
+            <img src="/kafira-logo.png" alt="Kafira Travels" style={{ width: isMobile ? 80 : 94, height: isMobile ? 36 : 44, objectFit: 'cover', borderRadius: 8 }}/>
           </Link>
 
-          {/* SEARCH BAR */}
+          {/* Search */}
           <div ref={searchRef} style={{ flex: 1, maxWidth: isMobile ? 200 : 380, position: 'relative' }}>
-            <div style={{
-              display: 'flex', alignItems: 'center', gap: 8,
-              background: '#f4f6f5',
-              border: `1.5px solid ${showSearch ? SEA_LT : 'transparent'}`,
-              borderRadius: 999,
-              padding: '0 14px', height: 38,
-              transition: 'border-color 0.22s, box-shadow 0.22s',
-              boxShadow: showSearch ? `0 0 0 3px rgba(45,143,123,0.12)` : 'none',
-            }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, background: '#f4f6f5', border: `1.5px solid ${showSearch ? SEA_LT : 'transparent'}`, borderRadius: 999, padding: '0 14px', height: 38, transition: 'border-color 0.22s, box-shadow 0.22s', boxShadow: showSearch ? `0 0 0 3px rgba(45,143,123,0.12)` : 'none' }}>
               <Search size={14} color={showSearch ? SEA : '#888'} style={{ flexShrink: 0 }}/>
-              <input
-                type="text"
-                placeholder="Where do you want to go?"
-                value={searchQuery}
+              <input type="text" placeholder="Where do you want to go?" value={searchQuery}
                 onChange={e => handleSearch(e.target.value)}
                 onFocus={() => setShowSearch(true)}
-                style={{
-                  flex: 1, border: 'none', background: 'transparent',
-                  fontFamily: '"Outfit",sans-serif', fontSize: 13, color: '#1a1a1a', outline: 'none',
-                }}
+                style={{ flex: 1, border: 'none', background: 'transparent', fontFamily: '"Outfit",sans-serif', fontSize: 13, color: '#1a1a1a', outline: 'none' }}
               />
               <AnimatePresence>
                 {searchQuery && (
-                  <motion.button
-                    initial={{ opacity:0, scale:0.7 }} animate={{ opacity:1, scale:1 }} exit={{ opacity:0, scale:0.7 }}
-                    transition={{ duration:0.14 }}
+                  <motion.button initial={{ opacity:0, scale:0.7 }} animate={{ opacity:1, scale:1 }} exit={{ opacity:0, scale:0.7 }} transition={{ duration:0.14 }}
                     onClick={() => { setSearchQuery(''); setSearchResults([]); }}
-                    style={{ background:'none', border:'none', cursor:'pointer', padding:0, display:'flex', alignItems:'center' }}
-                  >
+                    style={{ background:'none', border:'none', cursor:'pointer', padding:0, display:'flex', alignItems:'center' }}>
                     <X size={13} color="#aaa"/>
                   </motion.button>
                 )}
               </AnimatePresence>
             </div>
             <AnimatePresence>
-              {showSearch && (
-                <SearchDropdown query={searchQuery} results={searchResults} onSelect={handleSelectResult}/>
-              )}
+              {showSearch && <SearchDropdown query={searchQuery} results={searchResults} onSelect={handleSelectResult}/>}
             </AnimatePresence>
           </div>
 
-          {/* SPACER — pushes right-side items to the right */}
           <div style={{ flex: 1 }}/>
 
-          {/* TOP-RIGHT LINKS — desktop only */}
+          {/* Desktop links */}
           {!isMobile && (
             <nav style={{ display: 'flex', alignItems: 'center', gap: 2 }}>
               {(['Home', 'About Us', 'Blogs', 'Contact Us', 'Payments'] as const).map(label => {
                 const href = label === 'Home' ? '/' : `/${label.toLowerCase().replace(/ /g,'-')}`;
                 return (
-                  <Link
-                    key={label}
-                    href={href}
-                    style={{
-                      fontFamily: '"Outfit",sans-serif',
-                      fontSize: 13, fontWeight: 500,
-                      color: pathname === href ? SEA : '#2a2a2a',
-                      textDecoration: 'none',
-                      padding: '6px 11px', borderRadius: 8,
-                      transition: 'color 0.18s, background 0.18s',
-                      whiteSpace: 'nowrap',
-                    }}
+                  <Link key={label} href={href}
+                    style={{ fontFamily: '"Outfit",sans-serif', fontSize: 16, fontWeight: 500, color: pathname === href ? SEA : '#2a2a2a', textDecoration: 'none', padding: '6px 11px', borderRadius: 8, transition: 'color 0.18s, background 0.18s', whiteSpace: 'nowrap' }}
                     onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.color = SEA; el.style.background = 'rgba(45,143,123,0.06)'; }}
-                    onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.color = pathname === href ? SEA : '#2a2a2a'; el.style.background = 'transparent'; }}
-                  >
+                    onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.color = pathname === href ? SEA : '#2a2a2a'; el.style.background = 'transparent'; }}>
                     {label}
                   </Link>
                 );
@@ -1444,62 +1232,26 @@ export default function Navbar() {
             </nav>
           )}
 
-          {/* PHONE CTA — desktop only */}
+          {/* Desktop phone CTA */}
           {!isMobile && (
-            <motion.a
-              href="tel:+919253289347"
-              whileHover={{ scale: 1.04 }}
-              whileTap={{ scale: 0.97 }}
-              style={{
-                display: 'flex', alignItems: 'center', gap: 7,
-                padding: '9px 18px', borderRadius: 999,
-                background: `linear-gradient(135deg,${SEA},${SEA_DK})`,
-                color: '#fff',
-                fontFamily: '"Outfit",sans-serif',
-                fontSize: 13, fontWeight: 700,
-                textDecoration: 'none',
-                boxShadow: `0 4px 14px rgba(45,143,123,0.35)`,
-                flexShrink: 0, whiteSpace: 'nowrap',
-              }}
-            >
+            <motion.a href="tel:+919253289347" whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}
+              style={{ display: 'flex', alignItems: 'center', gap: 7, padding: '9px 18px', borderRadius: 999, background: `linear-gradient(135deg,${SEA},${SEA_DK})`, color: '#fff', fontFamily: '"Outfit",sans-serif', fontSize: 16, fontWeight: 700, textDecoration: 'none', boxShadow: `0 4px 14px rgba(45,143,123,0.35)`, flexShrink: 0, whiteSpace: 'nowrap' }}>
               <Phone size={13}/> +91 92532 89347
             </motion.a>
           )}
 
-          {/* HAMBURGER — mobile only, always visible */}
+          {/* Mobile hamburger */}
           {isMobile && (
-            <motion.button
-              onClick={() => setMobileOpen(v => !v)}
-              whileTap={{ scale: 0.92 }}
-              style={{
-                background: 'none', border: 'none', cursor: 'pointer',
-                padding: '4px',
-                display: 'flex', flexDirection: 'column',
-                alignItems: 'center', justifyContent: 'center',
-                gap: 3, flexShrink: 0,
-                borderRadius: 8,
-              }}
-              aria-label="Open menu"
-            >
+            <motion.button onClick={() => setMobileOpen(v => !v)} whileTap={{ scale: 0.92 }}
+              style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '4px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 3, flexShrink: 0, borderRadius: 8 }}
+              aria-label="Open menu">
               <AnimatePresence mode="wait">
                 {mobileOpen ? (
-                  <motion.div
-                    key="close"
-                    initial={{ opacity: 0, rotate: -90 }}
-                    animate={{ opacity: 1, rotate: 0 }}
-                    exit={{    opacity: 0, rotate: 90 }}
-                    transition={{ duration: 0.18 }}
-                  >
+                  <motion.div key="close" initial={{ opacity:0, rotate:-90 }} animate={{ opacity:1, rotate:0 }} exit={{ opacity:0, rotate:90 }} transition={{ duration:0.18 }}>
                     <X size={24} color="#1a1a1a"/>
                   </motion.div>
                 ) : (
-                  <motion.div
-                    key="open"
-                    initial={{ opacity: 0, rotate: 90 }}
-                    animate={{ opacity: 1, rotate: 0 }}
-                    exit={{    opacity: 0, rotate: -90 }}
-                    transition={{ duration: 0.18 }}
-                  >
+                  <motion.div key="open" initial={{ opacity:0, rotate:90 }} animate={{ opacity:1, rotate:0 }} exit={{ opacity:0, rotate:-90 }} transition={{ duration:0.18 }}>
                     <Menu size={24} color="#1a1a1a"/>
                   </motion.div>
                 )}
@@ -1508,21 +1260,11 @@ export default function Navbar() {
           )}
         </div>
 
-        {/* ══ ROW 2: teal nav bar — desktop only ════════ */}
+        {/* ROW 2: teal bar — desktop only */}
         {!isMobile && (
-          <div
-            ref={dropRef}
-            style={{
-              background: SEA,
-              height: 44,
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              gap: 0, position: 'relative',
-            }}
-          >
+          <div ref={dropRef} style={{ background: SEA, height: 44, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 0, position: 'relative' }}>
             {NAV_ITEMS.map(item => (
-              <NavBarItem
-                key={item.label}
-                item={item}
+              <NavBarItem key={item.label} item={item}
                 isOpen={item.type === 'dropdown' && openDropdown === item.key}
                 onToggle={() => { if (item.type === 'dropdown') setOpenDropdown(p => p === item.key ? null : item.key); }}
                 onClose={() => setOpenDropdown(null)}
@@ -1533,103 +1275,44 @@ export default function Navbar() {
         )}
       </header>
 
-      {/* ══ MOBILE DRAWER ══════════════════════════════ */}
+      {/* MOBILE DRAWER */}
       <AnimatePresence>
         {mobileOpen && (
           <>
-            {/* backdrop */}
-            <motion.div
-              key="backdrop"
-              initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-              transition={{ duration: 0.22 }}
+            <motion.div key="backdrop" initial={{ opacity:0 }} animate={{ opacity:1 }} exit={{ opacity:0 }} transition={{ duration:0.22 }}
               onClick={() => setMobileOpen(false)}
-              style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.42)', zIndex: 1100 }}
-            />
-
-            {/* panel */}
-            <motion.div
-              key="drawer"
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{    x: '100%' }}
-              transition={{ duration: 0.30, ease: [0.22, 1, 0.36, 1] }}
-              style={{
-                position: 'fixed', top: 0, right: 0, bottom: 0,
-                width: 'min(300px,82vw)',
-                background: '#ffffff',
-                zIndex: 1200,
-                overflowY: 'auto',
-                boxShadow: '-10px 0 48px rgba(0,0,0,0.18)',
-                display: 'flex', flexDirection: 'column',
-              }}
-            >
-              {/* drawer header */}
-              <div style={{
-                padding: '0 20px', height: 64,
-                display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-                borderBottom: '1px solid rgba(0,0,0,0.07)',
-                flexShrink: 0,
-              }}>
-                <Link href="/" onClick={() => setMobileOpen(false)} style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
-                  <img src="/kafira-logo.png" alt="Kafira Travels" style={{ height: 32, width: 'auto', objectFit: 'contain' }}/>
+              style={{ position:'fixed', inset:0, background:'rgba(0,0,0,0.42)', zIndex:1100 }}/>
+            <motion.div key="drawer" initial={{ x:'100%' }} animate={{ x:0 }} exit={{ x:'100%' }} transition={{ duration:0.30, ease:[0.22,1,0.36,1] }}
+              style={{ position:'fixed', top:0, right:0, bottom:0, width:'min(300px,82vw)', background:'#ffffff', zIndex:1200, overflowY:'auto', boxShadow:'-10px 0 48px rgba(0,0,0,0.18)', display:'flex', flexDirection:'column' }}>
+              <div style={{ padding:'0 20px', height:64, display:'flex', alignItems:'center', justifyContent:'space-between', borderBottom:'1px solid rgba(0,0,0,0.07)', flexShrink:0 }}>
+                <Link href="/" onClick={() => setMobileOpen(false)} style={{ textDecoration:'none', display:'flex', alignItems:'center' }}>
+                  <img src="/kafira-logo.png" alt="Kafira Travels" style={{ height:32, width:'auto', objectFit:'contain' }}/>
                 </Link>
-                <button
-                  onClick={() => setMobileOpen(false)}
-                  style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 6, display: 'flex', alignItems: 'center' }}
-                >
+                <button onClick={() => setMobileOpen(false)} style={{ background:'none', border:'none', cursor:'pointer', padding:6, display:'flex', alignItems:'center' }}>
                   <X size={22} color="#444"/>
                 </button>
               </div>
-
-              {/* nav items */}
-              <div style={{ flex: 1, overflowY: 'auto' }}>
+              <div style={{ flex:1, overflowY:'auto' }}>
                 {NAV_ITEMS.map(item => (
-                  <MobileNavItem
-                    key={item.label}
-                    item={item}
+                  <MobileNavItem key={item.label} item={item}
                     expanded={mobileExpand === item.label}
                     onToggle={() => setMobileExpand(v => v === item.label ? null : item.label)}
-                    onClose={() => { setMobileOpen(false); setMobileExpand(null); }}
-                  />
+                    onClose={() => { setMobileOpen(false); setMobileExpand(null); }}/>
                 ))}
-
-                {/* extra links in drawer */}
-                <div style={{ borderTop: '1px solid rgba(0,0,0,0.07)', marginTop: 8 }}>
-                  {(['Home', 'About Us', 'Contact Us', 'Payments'] as const).map(label => {
+                <div style={{ borderTop:'1px solid rgba(0,0,0,0.07)', marginTop:8 }}>
+                  {(['Home','About Us','Contact Us','Payments'] as const).map(label => {
                     const href = label === 'Home' ? '/' : `/${label.toLowerCase().replace(/ /g,'-')}`;
                     return (
-                      <Link
-                        key={label}
-                        href={href}
-                        onClick={() => setMobileOpen(false)}
-                        style={{
-                          display: 'block', padding: '14px 24px',
-                          fontFamily: '"Outfit",sans-serif',
-                          fontSize: 14.5, fontWeight: 500, color: '#444',
-                          textDecoration: 'none',
-                          borderBottom: '1px solid rgba(0,0,0,0.05)',
-                        }}
-                      >
+                      <Link key={label} href={href} onClick={() => setMobileOpen(false)}
+                        style={{ display:'block', padding:'14px 24px', fontFamily:'"Outfit",sans-serif', fontSize:14.5, fontWeight:500, color:'#444', textDecoration:'none', borderBottom:'1px solid rgba(0,0,0,0.05)' }}>
                         {label}
                       </Link>
                     );
                   })}
                 </div>
               </div>
-
-              {/* phone CTA pinned at bottom */}
-              <div style={{ padding: '16px 20px 28px', flexShrink: 0, borderTop: '1px solid rgba(0,0,0,0.07)' }}>
-                <a
-                  href="tel:+919253289347"
-                  style={{
-                    display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8,
-                    padding: '13px', borderRadius: 12,
-                    background: `linear-gradient(135deg,${SEA},${SEA_DK})`,
-                    color: '#fff', textDecoration: 'none',
-                    fontFamily: '"Outfit",sans-serif', fontSize: 14, fontWeight: 700,
-                    boxShadow: `0 4px 16px rgba(45,143,123,0.35)`,
-                  }}
-                >
+              <div style={{ padding:'16px 20px 28px', flexShrink:0, borderTop:'1px solid rgba(0,0,0,0.07)' }}>
+                <a href="tel:+919253289347" style={{ display:'flex', alignItems:'center', justifyContent:'center', gap:8, padding:'13px', borderRadius:12, background:`linear-gradient(135deg,${SEA},${SEA_DK})`, color:'#fff', textDecoration:'none', fontFamily:'"Outfit",sans-serif', fontSize:14, fontWeight:700, boxShadow:`0 4px 16px rgba(45,143,123,0.35)` }}>
                   <Phone size={16}/> +91-9253289347
                 </a>
               </div>

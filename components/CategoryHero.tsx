@@ -126,7 +126,7 @@ export default function CategoryHero({
               fontFamily: '"Outfit",sans-serif',
               fontSize: 10.5,
               fontWeight: 700,
-              color: SEA_LT,
+              color: "#fff",
               letterSpacing: "0.28em",
               textTransform: "uppercase",
             }}
@@ -149,7 +149,7 @@ export default function CategoryHero({
           }}
         >
           {title}{" "}
-          <span style={{ color: SEA_LT }}>{highlight}</span>
+          <span style={{ color: "#fff" }}>{highlight}</span>
         </h1>
 
         {/* subtitle */}

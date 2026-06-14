@@ -39,8 +39,8 @@ export default function AboutStory() {
   return (
     <section
       ref={ref}
-      style={{ fontFamily: "var(--font-montserrat), Montserrat, sans-serif" }}
-      className="w-full bg-[#f5f0e8] pt-20 pb-24"
+      style={{ fontFamily: "var(--font-montserrat), Montserrat, sans-serif", paddingTop: "2rem", paddingBottom: "2rem" }}
+      className="w-full bg-[#f5f0e8]"
     >
       {/* Single centred column — inline styles used as override guarantee */}
       <div

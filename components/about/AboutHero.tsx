@@ -38,7 +38,7 @@ export default function AboutHero() {
     >
       {/* Parallax image */}
       <img
-        src="/about-hero.png"
+        src="/about-hero-2.jpg"
         alt="Two travelers laughing outdoors"
         className="about-hero-img absolute inset-0 w-full h-[120%] object-cover object-center"
       />

@@ -92,7 +92,7 @@ export default function RegionHero({
       </div>
 
       {/* ── SEARCH BAR — floats over banner bottom edge ── */}
-      <div style={{
+      {/* <div style={{
         maxWidth: 1100,
         margin: '0 auto',
         padding: '0 clamp(16px,4vw,40px)',
@@ -114,7 +114,7 @@ export default function RegionHero({
             overflow: 'hidden',
           }}
         >
-          {/* destination field */}
+        
           <SearchField
             icon={<MapPin size={15} color={SEA}/>}
             label="Where do you want to go?"
@@ -123,7 +123,7 @@ export default function RegionHero({
             onChange={setDest}
             grow
           />
-          {/* dates field */}
+    
           <SearchField
             icon={<Calendar size={15} color={SEA}/>}
             label="Dates"
@@ -131,7 +131,7 @@ export default function RegionHero({
             placeholder="DD-MM-YYYY"
             readOnly
           />
-          {/* guests field */}
+        
           <SearchField
             icon={<Users size={15} color={SEA}/>}
             label="Guests"
@@ -139,7 +139,7 @@ export default function RegionHero({
             placeholder="2 Persons"
             readOnly
           />
-          {/* search button */}
+
           <button style={{
             display: 'flex', alignItems: 'center', justifyContent: 'center',
             background: `linear-gradient(135deg,${SEA},${SEA_DK})`,
@@ -157,7 +157,7 @@ export default function RegionHero({
             <Search size={17} color="#fff"/>
           </button>
         </motion.div>
-      </div>
+      </div> */}
     </div>
   );
 }

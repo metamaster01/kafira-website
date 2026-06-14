@@ -1231,6 +1231,7 @@ import { Search, MapPin, X, TrendingUp } from "lucide-react";
 import { useRouter } from "next/navigation";
 import DESTINATIONS, { getDestinationsByRegion } from "../data/destinations";
 import TRIPS from "../data/trips";
+import type { Trip } from "../data/types";
 
 // ── Palette ────────────────────────────────────────────
 const SEA    = "#2d8f7b";
@@ -1241,12 +1242,10 @@ const SEA_BD = "rgba(45,143,123,0.30)";
 
 const TRENDING = ["Rajasthan", "Manali", "Kerala", "Bali", "Leh"];
 
-// ── Search result types — identical to Navbar ──────────
 type SearchResult =
   | { kind: "destination"; slug: string; region: string; name: string; image: string; startingPrice: number }
   | { kind: "trip"; id: string; destinationSlug: string; region: string; name: string; image: string; discountedPrice: number; duration: string };
 
-// ── Responsive hook ────────────────────────────────────
 function useIsMobile(bp = 768) {
   const [v, setV] = useState(false);
   useEffect(() => {
@@ -1258,7 +1257,6 @@ function useIsMobile(bp = 768) {
   return v;
 }
 
-// ── Search result row — mirrors Navbar's SearchRow ─────
 function SearchRow({ result, onSelect }: { result: SearchResult; onSelect: (r: SearchResult) => void }) {
   const [hov, setHov] = useState(false);
   return (
@@ -1270,80 +1268,52 @@ function SearchRow({ result, onSelect }: { result: SearchResult; onSelect: (r: S
       onMouseLeave={() => setHov(false)}
       onClick={() => onSelect(result)}
       style={{
-        display: "flex",
-        alignItems: "center",
-        gap: 11,
-        padding: "9px 14px",
-        cursor: "pointer",
+        display: "flex", alignItems: "center", gap: 11,
+        padding: "9px 14px", cursor: "pointer",
         background: hov ? "rgba(45,143,123,0.08)" : "transparent",
-        transition: "background 0.18s",
-        margin: "0 4px",
-        borderRadius: 10,
+        transition: "background 0.18s", margin: "0 4px", borderRadius: 10,
       }}
     >
-      {/* Thumbnail */}
-      <div style={{
-        width: 48, height: 42, borderRadius: 8, overflow: "hidden",
-        background: "#0d2821", flexShrink: 0,
-      }}>
-        <img
-          src={result.image}
-          alt={result.name}
+      <div style={{ width: 48, height: 42, borderRadius: 8, overflow: "hidden", background: "#0d2821", flexShrink: 0 }}>
+        <img src={result.image} alt={result.name}
           style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
           onError={e => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
         />
       </div>
-
-      {/* Info */}
       <div style={{ flex: 1, minWidth: 0 }}>
-        <div style={{
-          fontFamily: '"Outfit", sans-serif',
-          fontSize: 13, fontWeight: 600, color: "#e0f4f0",
-          whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis",
-          marginBottom: 2,
-        }}>
+        <div style={{ fontFamily: '"Outfit",sans-serif', fontSize: 13, fontWeight: 600, color: "#e0f4f0", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", marginBottom: 2 }}>
           {result.name}
         </div>
-        <div style={{
-          fontFamily: '"Outfit", sans-serif',
-          fontSize: 10.5, color: "rgba(180,230,220,0.5)",
-          display: "flex", gap: 6, alignItems: "center",
-        }}>
+        <div style={{ fontFamily: '"Outfit",sans-serif', fontSize: 10.5, color: "rgba(180,230,220,0.5)", display: "flex", gap: 6, alignItems: "center" }}>
           <MapPin size={9} style={{ color: SEA_LT, flexShrink: 0 }} />
           {result.kind === "destination" ? (
             <span>{result.region === "india" ? "India" : "International"} · from ₹{result.startingPrice?.toLocaleString("en-IN")}</span>
           ) : (
             <>
-              <span style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
-                {result.duration}
-              </span>
+              <span style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{result.duration}</span>
               <span style={{ flexShrink: 0, color: "rgba(180,230,220,0.3)" }}>·</span>
               <span style={{ flexShrink: 0 }}>from ₹{result.discountedPrice.toLocaleString("en-IN")}</span>
             </>
           )}
         </div>
       </div>
-
-      {/* Kind badge */}
-      <div style={{
-        fontFamily: '"Outfit", sans-serif',
-        fontSize: 8, fontWeight: 700,
-        color: SEA, background: "rgba(45,143,123,0.09)",
-        borderRadius: 999, padding: "2px 8px",
-        letterSpacing: "0.08em", textTransform: "uppercase",
-        flexShrink: 0,
-      }}>
-        {result.kind}
+      {/* badge — shows "trip" or "destination" + a small modal hint for trips */}
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 3, flexShrink: 0 }}>
+        <div style={{ fontFamily: '"Outfit",sans-serif', fontSize: 8, fontWeight: 700, color: SEA, background: "rgba(45,143,123,0.09)", borderRadius: 999, padding: "2px 8px", letterSpacing: "0.08em", textTransform: "uppercase" }}>
+          {result.kind}
+        </div>
+        {result.kind === "trip" && (
+          <div style={{ fontFamily: '"Outfit",sans-serif', fontSize: 8, color: "rgba(61,184,158,0.55)", letterSpacing: "0.04em" }}>
+            tap to open ↗
+          </div>
+        )}
       </div>
     </motion.div>
   );
 }
 
-// ── Search Dropdown — mirrors Navbar's SearchDropdown ──
 function SearchDropdown({ query, results, onSelect }: {
-  query: string;
-  results: SearchResult[];
-  onSelect: (r: SearchResult) => void;
+  query: string; results: SearchResult[]; onSelect: (r: SearchResult) => void;
 }) {
   if (!query.trim()) return null;
   return (
@@ -1355,60 +1325,40 @@ function SearchDropdown({ query, results, onSelect }: {
       style={{
         position: "absolute", top: "100%", left: 0, right: 0, zIndex: 50,
         background: "rgba(8,22,18,0.97)",
-        backdropFilter: "blur(32px)",
-        WebkitBackdropFilter: "blur(32px)",
-        border: `1.5px solid ${SEA_BD}`,
-        borderTop: "none",
-        borderRadius: "0 0 18px 18px",
-        overflow: "hidden",
-        boxShadow: "0 28px 70px rgba(0,0,0,0.6)",
-        padding: "6px 0 10px",
+        backdropFilter: "blur(32px)", WebkitBackdropFilter: "blur(32px)",
+        border: `1.5px solid ${SEA_BD}`, borderTop: "none",
+        borderRadius: "0 0 18px 18px", overflow: "hidden",
+        boxShadow: "0 28px 70px rgba(0,0,0,0.6)", padding: "6px 0 10px",
       }}
     >
       {results.length === 0 ? (
         <div style={{ padding: "20px", textAlign: "center" }}>
           <div style={{ fontSize: 20, marginBottom: 6 }}>🔍</div>
-          <div style={{ fontFamily: '"Outfit",sans-serif', fontSize: 13, fontWeight: 500, color: "rgba(180,230,220,0.5)" }}>
-            No results for "{query}"
-          </div>
-          <div style={{ fontFamily: '"Outfit",sans-serif', fontSize: 11, color: "rgba(180,230,220,0.28)", marginTop: 4 }}>
-            Try Himalayas, Europe, or Bali
-          </div>
+          <div style={{ fontFamily: '"Outfit",sans-serif', fontSize: 13, fontWeight: 500, color: "rgba(180,230,220,0.5)" }}>No results for "{query}"</div>
+          <div style={{ fontFamily: '"Outfit",sans-serif', fontSize: 11, color: "rgba(180,230,220,0.28)", marginTop: 4 }}>Try Himalayas, Europe, or Bali</div>
         </div>
       ) : (
-        <>
-          {(["destination", "trip"] as const).map(kind => {
-            const group = results.filter(r => r.kind === kind);
-            if (!group.length) return null;
-            return (
-              <div key={kind} style={{ borderTop: kind === "trip" ? "1px solid rgba(45,143,123,0.1)" : "none" }}>
-                <div style={{
-                  padding: "8px 18px 4px",
-                  fontFamily: '"Outfit",sans-serif', fontSize: 9, fontWeight: 700,
-                  color: SEA_LT, letterSpacing: "0.2em", textTransform: "uppercase",
-                }}>
-                  {kind === "destination" ? "Destinations" : "Trips"}
-                </div>
-                {group.map((r, i) => (
-                  <SearchRow key={i} result={r} onSelect={onSelect} />
-                ))}
+        (["destination", "trip"] as const).map(kind => {
+          const group = results.filter(r => r.kind === kind);
+          if (!group.length) return null;
+          return (
+            <div key={kind} style={{ borderTop: kind === "trip" ? "1px solid rgba(45,143,123,0.1)" : "none" }}>
+              <div style={{ padding: "8px 18px 4px", fontFamily: '"Outfit",sans-serif', fontSize: 9, fontWeight: 700, color: SEA_LT, letterSpacing: "0.2em", textTransform: "uppercase" }}>
+                {kind === "destination" ? "Destinations" : "Trips"}
               </div>
-            );
-          })}
-        </>
+              {group.map((r, i) => <SearchRow key={i} result={r} onSelect={onSelect} />)}
+            </div>
+          );
+        })
       )}
     </motion.div>
   );
 }
 
-// ═══════════════════════════════════════════════════════
-//  MAIN HERO SECTION
-// ═══════════════════════════════════════════════════════
 export default function HeroSection() {
   const router    = useRouter();
   const videoRef  = useRef<HTMLVideoElement>(null);
   const searchRef = useRef<HTMLDivElement>(null);
-  const gsapRef   = useRef<any>(null);
 
   const [ready,    setReady]    = useState(false);
   const [sFocus,   setSFocus]   = useState(false);
@@ -1417,48 +1367,26 @@ export default function HeroSection() {
   const [showDrop, setShowDrop] = useState(false);
   const isMobile = useIsMobile(768);
 
-  // ── Load GSAP letter animations ───────────────────
   useEffect(() => {
     const loadGsap = async () => {
       try {
         const mod = await import("gsap");
         const gsap = mod.default || (mod as any).gsap || mod;
-        gsapRef.current = gsap;
-
         if (!isMobile) {
-          const particles = document.querySelectorAll(".hero-particle");
-          particles.forEach((p, i) => {
-            gsap.to(p, {
-              y: -18 - i * 6,
-              x: (i % 2 === 0 ? 1 : -1) * (8 + i * 3),
-              duration: 3.5 + i * 0.7,
-              repeat: -1, yoyo: true,
-              ease: "sine.inOut", delay: i * 0.4,
-            });
+          document.querySelectorAll(".hero-particle").forEach((p, i) => {
+            gsap.to(p, { y: -18 - i * 6, x: (i % 2 === 0 ? 1 : -1) * (8 + i * 3), duration: 3.5 + i * 0.7, repeat: -1, yoyo: true, ease: "sine.inOut", delay: i * 0.4 });
           });
         }
-
-        const letters = document.querySelectorAll(".hero-letter");
-        letters.forEach((el, i) => {
-          gsap.fromTo(el,
-            { opacity: 0, y: 40, rotateX: -30 },
-            { opacity: 1, y: 0, rotateX: 0, duration: 0.8, delay: 0.3 + i * 0.04, ease: "back.out(1.4)" }
-          );
+        document.querySelectorAll(".hero-letter").forEach((el, i) => {
+          gsap.fromTo(el, { opacity: 0, y: 40, rotateX: -30 }, { opacity: 1, y: 0, rotateX: 0, duration: 0.8, delay: 0.3 + i * 0.04, ease: "back.out(1.4)" });
         });
-      } catch (_) {
-        // CSS animations handle fallback
-      }
+      } catch (_) {}
     };
     if (ready) loadGsap();
   }, [ready, isMobile]);
 
-  // ── Ready ─────────────────────────────────────────
-  useEffect(() => {
-    const t = setTimeout(() => setReady(true), 100);
-    return () => clearTimeout(t);
-  }, []);
+  useEffect(() => { const t = setTimeout(() => setReady(true), 100); return () => clearTimeout(t); }, []);
 
-  // ── Video autoplay ────────────────────────────────
   useEffect(() => {
     const vid = videoRef.current; if (!vid) return;
     vid.muted = true; vid.playsInline = true;
@@ -1466,388 +1394,179 @@ export default function HeroSection() {
     vid.readyState >= 2 ? play() : vid.addEventListener("canplay", play, { once: true });
   }, []);
 
-  // ── Live search — identical logic to Navbar ───────
   const handleSearch = useCallback((val: string) => {
     setDest(val);
     setShowDrop(true);
     if (!val.trim()) { setResults([]); return; }
     const q = val.toLowerCase();
-
     const destResults: SearchResult[] = DESTINATIONS
       .filter(d => d.name.toLowerCase().includes(q) || d.tagline.toLowerCase().includes(q))
-      .slice(0, 4)
-      .map(d => ({
-        kind: "destination" as const,
-        slug: d.slug,
-        region: d.region,
-        name: d.name,
-        image: d.image,
-        startingPrice: d.startingPrice,
-      }));
-
+      .slice(0, 3)
+      .map(d => ({ kind: "destination" as const, slug: d.slug, region: d.region, name: d.name, image: d.image, startingPrice: d.startingPrice }));
     const tripResults: SearchResult[] = TRIPS
-      .filter(t =>
-        t.name.toLowerCase().includes(q) ||
-        t.tags.some((tag: string) => tag.toLowerCase().includes(q)) ||
-        t.state.toLowerCase().includes(q)
-      )
+      .filter(t => t.name.toLowerCase().includes(q) || t.tags.some((tag: string) => tag.toLowerCase().includes(q)) || t.state.toLowerCase().includes(q))
       .slice(0, 4)
-      .map(t => ({
-        kind: "trip" as const,
-        id: t.id,
-        destinationSlug: t.destinationSlug,
-        region: t.region,
-        name: t.name,
-        image: t.image,
-        discountedPrice: t.discountedPrice,
-        duration: t.duration,
-      }));
-
+      .map(t => ({ kind: "trip" as const, id: t.id, destinationSlug: t.destinationSlug, region: t.region, name: t.name, image: t.image, discountedPrice: t.discountedPrice, duration: t.duration }));
     setResults([...destResults, ...tripResults]);
   }, []);
 
-  // ── Select result ─────────────────────────────────
-  // Both destinations AND trips navigate to the parent destination page.
-  // e.g. "Spiti Valley" trip (destinationSlug: "himalayas") → /destinations/india/himalayas
+  // ── KEY FIX: trips navigate to destination page WITH ?trip=ID
+  // The destination page reads this param and auto-opens TripModal ──
   const handleSelectResult = (r: SearchResult) => {
     if (r.kind === "destination") {
       router.push(`/destinations/${r.region}/${r.slug}`);
     } else {
-      router.push(`/destinations/${r.region}/${r.destinationSlug}`);
+      // Navigate to the destination page and signal which trip to open
+      router.push(`/destinations/${r.region}/${r.destinationSlug}?trip=${r.id}`);
     }
-    setDest("");
-    setResults([]);
-    setShowDrop(false);
+    setDest(""); setResults([]); setShowDrop(false);
   };
 
-  // ── Outside-click closes dropdown ─────────────────
   useEffect(() => {
     const fn = (e: MouseEvent) => {
-      if (searchRef.current && !searchRef.current.contains(e.target as Node)) {
-        setShowDrop(false);
-      }
+      if (searchRef.current && !searchRef.current.contains(e.target as Node)) setShowDrop(false);
     };
     document.addEventListener("mousedown", fn);
     return () => document.removeEventListener("mousedown", fn);
   }, []);
 
-  // ── Heights ───────────────────────────────────────
   const sectionHeight = isMobile ? "56svh" : "100svh";
   const sectionMinH   = isMobile ? 360 : 680;
 
   return (
-    <>
-      <section
-        className="relative w-full overflow-hidden"
-        style={{ height: sectionHeight, minHeight: sectionMinH }}
-      >
-        {/* ── VIDEO / BG LAYER ── */}
-        <div className="absolute inset-0 w-full h-full">
-          <div className="absolute inset-0" style={{ background: "linear-gradient(145deg,#071a16 0%,#0c2620 50%,#071a16 100%)", zIndex: 0 }} />
+    <section className="relative w-full overflow-hidden" style={{ height: sectionHeight, minHeight: sectionMinH }}>
+      {/* BG */}
+      <div className="absolute inset-0 w-full h-full">
+        <div className="absolute inset-0" style={{ background: "linear-gradient(145deg,#071a16 0%,#0c2620 50%,#071a16 100%)", zIndex: 0 }} />
+        {!isMobile && [
+          { w: 420, h: 420, top: "-100px", left: "-60px", opacity: 0.14 },
+          { w: 320, h: 320, top: "30%", right: "10%", opacity: 0.10 },
+          { w: 200, h: 200, bottom: "10%", left: "20%", opacity: 0.08 },
+        ].map((p, i) => (
+          <div key={i} className="hero-particle" style={{ position: "absolute", zIndex: 1, width: p.w, height: p.h, borderRadius: "50%", background: `radial-gradient(circle, rgba(45,143,123,${p.opacity}) 0%, transparent 65%)`, top: (p as any).top, left: (p as any).left, right: (p as any).right, bottom: (p as any).bottom, pointerEvents: "none" }} />
+        ))}
+        <video ref={videoRef} className="absolute inset-0 w-full h-full object-cover" autoPlay muted loop playsInline preload="auto" poster="/hero-poster.jpg"
+          style={{ zIndex: 2, opacity: ready ? 1 : 0, transition: "opacity 1.6s ease", filter: isMobile ? "brightness(0.75) saturate(1.1)" : "brightness(0.9) saturate(1.05)" }}>
+          <source src="/new-video-3.mp4" type="video/mp4" />
+        </video>
+      </div>
 
-          {/* Floating ambient orbs — desktop only */}
-          {!isMobile && (
-            <>
-              {[
-                { w: 420, h: 420, top: "-100px", left: "-60px", opacity: 0.14 },
-                { w: 320, h: 320, top: "30%", right: "10%", opacity: 0.10 },
-                { w: 200, h: 200, bottom: "10%", left: "20%", opacity: 0.08 },
-              ].map((p, i) => (
-                <div
-                  key={i}
-                  className="hero-particle"
-                  style={{
-                    position: "absolute", zIndex: 1,
-                    width: p.w, height: p.h, borderRadius: "50%",
-                    background: `radial-gradient(circle, rgba(45,143,123,${p.opacity}) 0%, transparent 65%)`,
-                    top: (p as any).top, left: (p as any).left,
-                    right: (p as any).right, bottom: (p as any).bottom,
-                    pointerEvents: "none",
-                  }}
-                />
+      {/* overlays */}
+      <div className="absolute inset-0" style={{ zIndex: 3, background: isMobile ? "rgba(5,18,14,0.52)" : "rgba(5,18,14,0.38)" }} />
+      <div className="absolute inset-0" style={{ zIndex: 4, background: "linear-gradient(to top, rgba(5,18,14,0.82) 0%, rgba(5,18,14,0.18) 40%, transparent 70%)" }} />
+      <div className="absolute inset-0" style={{ zIndex: 4, background: "linear-gradient(to bottom, rgba(5,18,14,0.30) 0%, transparent 22%)" }} />
+      {!isMobile && <div className="absolute inset-0" style={{ zIndex: 4, background: "radial-gradient(ellipse 60% 80% at 50% 60%, rgba(45,143,123,0.07) 0%, transparent 70%)" }} />}
+
+      {/* CONTENT */}
+      <div className="relative w-full h-full" style={{ zIndex: 10, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: isMobile ? "flex-end" : "center", paddingBottom: isMobile ? 28 : 0, paddingTop: isMobile ? 0 : 64 }}>
+        {/* Title */}
+        <div style={{ textAlign: "center", marginBottom: isMobile ? 16 : 28, padding: isMobile ? "0 20px" : 0 }}>
+          <motion.div initial={{ opacity: 0, y: 12 }} animate={ready ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 12, marginBottom: isMobile ? 10 : 16 }}>
+            <div style={{ width: 32, height: 1, background: `linear-gradient(to right, transparent, ${SEA})` }} />
+            <span style={{ fontFamily: '"Outfit",sans-serif', fontSize: isMobile ? 12 : 16, fontWeight: 900, letterSpacing: "0.26em", textTransform: "uppercase", color: SEA_LT }}>Kafira Travels</span>
+            <div style={{ width: 32, height: 1, background: `linear-gradient(to left, transparent, ${SEA})` }} />
+          </motion.div>
+          <div style={{ perspective: "600px", perspectiveOrigin: "50% 50%" }}>
+            <h1 style={{ fontFamily: '"Cormorant Garamond",serif', fontWeight: 600, fontSize: isMobile ? "clamp(30px,9vw,42px)" : "clamp(52px,6vw,88px)", lineHeight: isMobile ? 1.12 : 1.05, color: "#edf8f5", letterSpacing: isMobile ? "-0.01em" : "-0.02em", margin: 0, padding: 0 }}>
+              {["Where Will", "Your Story Begin?"].map((line, li) => (
+                <span key={li} style={{ display: "block" }}>
+                  {line.split("").map((char, ci) => (
+                    <span key={`${li}-${ci}`} className="hero-letter" style={{ display: "inline-block", opacity: ready ? undefined : 0, color: line === "Your Story Begin?" && char !== " " && ci >= 5 && ci <= 9 ? SEA_LT : "#edf8f5" }}>
+                      {char === " " ? "\u00A0" : char}
+                    </span>
+                  ))}
+                </span>
               ))}
-            </>
-          )}
-
-          <video
-            ref={videoRef}
-            className="absolute inset-0 w-full h-full object-cover"
-            autoPlay muted loop playsInline preload="auto" poster="/hero-poster.jpg"
-            style={{
-              zIndex: 2,
-              opacity: ready ? 1 : 0,
-              transition: "opacity 1.6s ease",
-              filter: isMobile ? "brightness(0.75) saturate(1.1)" : "brightness(0.9) saturate(1.05)",
-            }}
-          >
-            <source src="/new-video-3.mp4" type="video/mp4" />
-          </video>
+            </h1>
+          </div>
         </div>
 
-        {/* ── GRADIENT OVERLAYS ── */}
-        <div className="absolute inset-0" style={{ zIndex: 3, background: isMobile ? "rgba(5,18,14,0.52)" : "rgba(5,18,14,0.38)" }} />
-        <div className="absolute inset-0" style={{ zIndex: 4, background: "linear-gradient(to top, rgba(5,18,14,0.82) 0%, rgba(5,18,14,0.18) 40%, transparent 70%)" }} />
-        <div className="absolute inset-0" style={{ zIndex: 4, background: "linear-gradient(to bottom, rgba(5,18,14,0.30) 0%, transparent 22%)" }} />
-        {!isMobile && (
-          <div className="absolute inset-0" style={{ zIndex: 4, background: "radial-gradient(ellipse 60% 80% at 50% 60%, rgba(45,143,123,0.07) 0%, transparent 70%)" }} />
-        )}
-
-        {/* ── CONTENT — centered ── */}
-        <div
-          className="relative w-full h-full"
-          style={{
-            zIndex: 10,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: isMobile ? "flex-end" : "center",
-            paddingBottom: isMobile ? 28 : 0,
-            paddingTop: isMobile ? 0 : 64,
-          }}
-        >
-          {/* ── TITLE BLOCK ── */}
-          <div style={{ textAlign: "center", marginBottom: isMobile ? 16 : 28, padding: isMobile ? "0 20px" : 0 }}>
-            {/* Eyebrow */}
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={ready ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-              style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 12, marginBottom: isMobile ? 10 : 16 }}
-            >
-              <div style={{ width: 32, height: 1, background: `linear-gradient(to right, transparent, ${SEA})` }} />
-              <span style={{ fontFamily: '"Outfit", sans-serif', fontSize: isMobile ? 12 : 16, fontWeight: 900, letterSpacing: "0.26em", textTransform: "uppercase", color: SEA_LT }}>
-                Kafira Travels
-              </span>
-              <div style={{ width: 32, height: 1, background: `linear-gradient(to left, transparent, ${SEA})` }} />
-            </motion.div>
-
-            {/* Main Title */}
-            <div style={{ perspective: "600px", perspectiveOrigin: "50% 50%" }}>
-              <h1 style={{
-                fontFamily: '"Cormorant Garamond", serif',
-                fontWeight: 600,
-                fontSize: isMobile ? "clamp(30px, 9vw, 42px)" : "clamp(52px, 6vw, 88px)",
-                lineHeight: isMobile ? 1.12 : 1.05,
-                color: "#edf8f5",
-                letterSpacing: isMobile ? "-0.01em" : "-0.02em",
-                margin: 0, padding: 0,
-              }}>
-                {["Where Will", "Your Story Begin?"].map((line, li) => (
-                  <span key={li} style={{ display: "block" }}>
-                    {line.split("").map((char, ci) => (
-                      <span
-                        key={`${li}-${ci}`}
-                        className="hero-letter"
-                        style={{
-                          display: "inline-block",
-                          opacity: ready ? undefined : 0,
-                          color:
-                            line === "Your Story Begin?" && char !== " " && ci >= 5 && ci <= 9
-                              ? SEA_LT
-                              : "#edf8f5",
-                        }}
-                      >
-                        {char === " " ? "\u00A0" : char}
-                      </span>
-                    ))}
-                  </span>
-                ))}
-              </h1>
-            </div>
-          </div>
-
-          {/* ── SEARCH BAR ── */}
-          <motion.div
-            initial={{ opacity: 0, y: 22 }}
-            animate={ready ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.75, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
-            style={{
-              width: "100%",
-              maxWidth: isMobile ? "calc(100% - 40px)" : 600,
-              padding: isMobile ? "0 20px" : 0,
-              boxSizing: isMobile ? "border-box" : undefined,
-            }}
-          >
-            <div ref={searchRef} style={{ position: "relative" }}>
-
-              {/* Input wrapper */}
-              <div style={{
-                display: "flex",
-                alignItems: "stretch",
-                background: sFocus ? "rgba(8,24,20,0.88)" : "rgba(8,24,20,0.72)",
-                border: `1.5px solid ${sFocus ? "rgba(45,143,123,0.55)" : "rgba(45,143,123,0.22)"}`,
-                borderRadius: showDrop && results.length > 0 ? "18px 18px 0 0" : 18,
-                backdropFilter: "blur(28px)",
-                WebkitBackdropFilter: "blur(28px)",
-                overflow: "hidden",
-                boxShadow: sFocus
-                  ? "0 0 0 3px rgba(45,143,123,0.12), 0 20px 60px rgba(0,0,0,0.5)"
-                  : "0 12px 50px rgba(0,0,0,0.38)",
-                transition: "all 0.3s cubic-bezier(0.22, 1, 0.36, 1)",
-                height: isMobile ? 50 : 58,
-              }}>
-                {/* Icon */}
-                <div style={{ display: "flex", alignItems: "center", paddingLeft: 16, color: sFocus ? SEA_LT : "rgba(61,184,158,0.5)", flexShrink: 0, transition: "color 0.25s" }}>
-                  <MapPin size={isMobile ? 15 : 17} />
-                </div>
-
-                {/* Input */}
-                <input
-                  type="text"
-                  placeholder="Search destinations, tours…"
-                  value={dest}
-                  onChange={e => handleSearch(e.target.value)}
-                  onFocus={() => { setSFocus(true); if (dest) setShowDrop(true); }}
-                  onBlur={() => setSFocus(false)}
-                  style={{
-                    flex: 1,
-                    background: "transparent",
-                    border: "none",
-                    outline: "none",
-                    color: "#e0f4f0",
-                    fontFamily: '"Outfit", sans-serif',
-                    fontSize: isMobile ? 13 : 15,
-                    fontWeight: 400,
-                    padding: isMobile ? "0 8px" : "0 12px",
-                    caretColor: SEA_LT,
-                  }}
-                />
-
-                {/* Clear button */}
-                <AnimatePresence>
-                  {dest && (
-                    <motion.button
-                      initial={{ opacity: 0, scale: 0.7 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0, scale: 0.7 }}
-                      transition={{ duration: 0.18 }}
-                      onClick={() => { setDest(""); setResults([]); setShowDrop(false); }}
-                      style={{ background: "none", border: "none", cursor: "pointer", padding: "0 8px", color: "rgba(180,230,220,0.35)", display: "flex", alignItems: "center", flexShrink: 0 }}
-                    >
-                      <X size={13} />
-                    </motion.button>
-                  )}
-                </AnimatePresence>
-
-                {/* Search CTA */}
-                <button
-                  style={{
-                    margin: isMobile ? 5 : 6,
-                    padding: isMobile ? "0 14px" : "0 20px",
-                    borderRadius: 13,
-                    flexShrink: 0,
-                    background: `linear-gradient(135deg, ${SEA} 0%, ${SEA_DK} 100%)`,
-                    color: "#fff",
-                    fontFamily: '"Outfit", sans-serif',
-                    fontWeight: 700,
-                    fontSize: isMobile ? 12 : 13,
-                    cursor: "pointer",
-                    border: "none",
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 6,
-                    transition: "all 0.22s ease",
-                    boxShadow: "0 4px 18px rgba(45,143,123,0.40)",
-                    letterSpacing: "0.02em",
-                    whiteSpace: "nowrap",
-                  }}
-                  onMouseEnter={e => {
-                    const el = e.currentTarget as HTMLButtonElement;
-                    el.style.transform = "scale(1.04) translateY(-1px)";
-                    el.style.boxShadow = "0 8px 28px rgba(45,143,123,0.55)";
-                  }}
-                  onMouseLeave={e => {
-                    const el = e.currentTarget as HTMLButtonElement;
-                    el.style.transform = "scale(1) translateY(0)";
-                    el.style.boxShadow = "0 4px 18px rgba(45,143,123,0.40)";
-                  }}
-                >
-                  <Search size={isMobile ? 13 : 14} />
-                  Explore
-                </button>
+        {/* Search */}
+        <motion.div initial={{ opacity: 0, y: 22 }} animate={ready ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.75, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
+          style={{ width: "100%", maxWidth: isMobile ? "calc(100% - 40px)" : 600, padding: isMobile ? "0 20px" : 0, boxSizing: isMobile ? "border-box" : undefined }}>
+          <div ref={searchRef} style={{ position: "relative" }}>
+            <div style={{
+              display: "flex", alignItems: "stretch",
+              background: sFocus ? "rgba(8,24,20,0.88)" : "rgba(8,24,20,0.72)",
+              border: `1.5px solid ${sFocus ? "rgba(45,143,123,0.55)" : "rgba(45,143,123,0.22)"}`,
+              borderRadius: showDrop && results.length > 0 ? "18px 18px 0 0" : 18,
+              backdropFilter: "blur(28px)", WebkitBackdropFilter: "blur(28px)", overflow: "hidden",
+              boxShadow: sFocus ? "0 0 0 3px rgba(45,143,123,0.12), 0 20px 60px rgba(0,0,0,0.5)" : "0 12px 50px rgba(0,0,0,0.38)",
+              transition: "all 0.3s cubic-bezier(0.22,1,0.36,1)", height: isMobile ? 50 : 58,
+            }}>
+              <div style={{ display: "flex", alignItems: "center", paddingLeft: 16, color: sFocus ? SEA_LT : "rgba(61,184,158,0.5)", flexShrink: 0, transition: "color 0.25s" }}>
+                <MapPin size={isMobile ? 15 : 17} />
               </div>
-
-              {/* ── Search Dropdown ── */}
+              <input type="text" placeholder="Search destinations, tours…" value={dest}
+                onChange={e => handleSearch(e.target.value)}
+                onFocus={() => { setSFocus(true); if (dest) setShowDrop(true); }}
+                onBlur={() => setSFocus(false)}
+                style={{ flex: 1, background: "transparent", border: "none", outline: "none", color: "#e0f4f0", fontFamily: '"Outfit",sans-serif', fontSize: isMobile ? 13 : 15, fontWeight: 400, padding: isMobile ? "0 8px" : "0 12px", caretColor: SEA_LT }}
+              />
               <AnimatePresence>
-                {showDrop && dest.trim() && (
-                  <SearchDropdown
-                    query={dest}
-                    results={results}
-                    onSelect={handleSelectResult}
-                  />
+                {dest && (
+                  <motion.button initial={{ opacity: 0, scale: 0.7 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.7 }} transition={{ duration: 0.18 }}
+                    onClick={() => { setDest(""); setResults([]); setShowDrop(false); }}
+                    style={{ background: "none", border: "none", cursor: "pointer", padding: "0 8px", color: "rgba(180,230,220,0.35)", display: "flex", alignItems: "center", flexShrink: 0 }}>
+                    <X size={13} />
+                  </motion.button>
                 )}
               </AnimatePresence>
+              <button
+                style={{ margin: isMobile ? 5 : 6, padding: isMobile ? "0 14px" : "0 20px", borderRadius: 13, flexShrink: 0, background: `linear-gradient(135deg,${SEA},${SEA_DK})`, color: "#fff", fontFamily: '"Outfit",sans-serif', fontWeight: 700, fontSize: isMobile ? 12 : 13, cursor: "pointer", border: "none", display: "flex", alignItems: "center", gap: 6, transition: "all 0.22s ease", boxShadow: "0 4px 18px rgba(45,143,123,0.40)", letterSpacing: "0.02em", whiteSpace: "nowrap" }}
+                onMouseEnter={e => { const el = e.currentTarget as HTMLButtonElement; el.style.transform = "scale(1.04) translateY(-1px)"; el.style.boxShadow = "0 8px 28px rgba(45,143,123,0.55)"; }}
+                onMouseLeave={e => { const el = e.currentTarget as HTMLButtonElement; el.style.transform = "scale(1) translateY(0)"; el.style.boxShadow = "0 4px 18px rgba(45,143,123,0.40)"; }}
+              >
+                <Search size={isMobile ? 13 : 14} /> Explore
+              </button>
             </div>
 
-            {/* ── Trending pills ── */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={ready ? { opacity: 1 } : {}}
-              transition={{ duration: 0.6, delay: 0.8 }}
-              style={{
-                display: "flex", alignItems: "center", gap: 7,
-                marginTop: 12, flexWrap: "wrap", justifyContent: "center",
-              }}
-            >
-              <TrendingUp size={10} style={{ color: SEA_LT }} />
-              <span style={{ fontSize: 14, fontFamily: '"Outfit",sans-serif', fontWeight: 500, color: "rgba(180,230,220,0.38)" }}>
-                Trending:
-              </span>
-              {(isMobile ? TRENDING.slice(0, 4) : TRENDING).map((t, i) => (
-                <motion.button
-                  key={t}
-                  initial={{ opacity: 0, scale: 0.85 }}
-                  animate={ready ? { opacity: 1, scale: 1 } : {}}
-                  transition={{ duration: 0.35, delay: 0.85 + i * 0.06, ease: "backOut" }}
-                  whileHover={{ scale: 1.06, backgroundColor: "rgba(45,143,123,0.22)" }}
-                  whileTap={{ scale: 0.97 }}
-                  onClick={() => handleSearch(t)}
-                  style={{
-                    padding: "4px 12px", borderRadius: 999,
-                    fontSize: 14, fontFamily: '"Outfit",sans-serif', fontWeight: 500,
-                    cursor: "pointer", background: SEA_BG,
-                    color: "rgba(61,184,158,0.72)", border: `1px solid ${SEA_BD}`,
-                    transition: "background 0.2s, color 0.2s",
-                  }}
-                >
-                  {t}
-                </motion.button>
-              ))}
-            </motion.div>
-          </motion.div>
-        </div>
+            <AnimatePresence>
+              {showDrop && dest.trim() && (
+                <SearchDropdown query={dest} results={results} onSelect={handleSelectResult} />
+              )}
+            </AnimatePresence>
+          </div>
 
-        {/* ── Scroll indicator — desktop only ── */}
-        {!isMobile && ready && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 0.4 }}
-            transition={{ delay: 1.5, duration: 0.8 }}
-            style={{
-              position: "absolute", bottom: 28,
-              left: "50%", transform: "translateX(-50%)",
-              display: "flex", flexDirection: "column", alignItems: "center", gap: 6,
-              zIndex: 20, pointerEvents: "none",
-            }}
-          >
-            <span style={{ fontSize: 9, fontFamily: '"Outfit",sans-serif', fontWeight: 600, color: "rgba(180,230,220,0.5)", letterSpacing: "0.22em", textTransform: "uppercase" }}>
-              Scroll
-            </span>
-            <div style={{ width: 20, height: 34, borderRadius: 10, border: "1px solid rgba(45,143,123,0.35)", display: "flex", justifyContent: "center", paddingTop: 6 }}>
-              <div style={{ width: 3, height: 6, borderRadius: 2, background: SEA_LT, animation: "scrollDot 1.6s ease-in-out infinite" }} />
-            </div>
+          {/* Trending */}
+          <motion.div initial={{ opacity: 0 }} animate={ready ? { opacity: 1 } : {}} transition={{ duration: 0.6, delay: 0.8 }}
+            style={{ display: "flex", alignItems: "center", gap: 7, marginTop: 12, flexWrap: "wrap", justifyContent: "center" }}>
+            <TrendingUp size={10} style={{ color: SEA_LT }} />
+            <span style={{ fontSize: 13, fontFamily: '"Outfit",sans-serif', fontWeight: 500, color: "rgba(180,230,220,0.38)" }}>Trending:</span>
+            {(isMobile ? TRENDING.slice(0, 4) : TRENDING).map((t, i) => (
+              <motion.button key={t}
+                initial={{ opacity: 0, scale: 0.85 }} animate={ready ? { opacity: 1, scale: 1 } : {}}
+                transition={{ duration: 0.35, delay: 0.85 + i * 0.06, ease: "backOut" }}
+                whileHover={{ scale: 1.06, backgroundColor: "rgba(45,143,123,0.22)" }} whileTap={{ scale: 0.97 }}
+                onClick={() => handleSearch(t)}
+                style={{ padding: "4px 12px", borderRadius: 999, fontSize: 13, fontFamily: '"Outfit",sans-serif', fontWeight: 500, cursor: "pointer", background: SEA_BG, color: "rgba(61,184,158,0.72)", border: `1px solid ${SEA_BD}`, transition: "background 0.2s, color 0.2s" }}>
+                {t}
+              </motion.button>
+            ))}
           </motion.div>
-        )}
+        </motion.div>
+      </div>
 
-        <style>{`
-          @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap');
-          @keyframes scrollDot {
-            0%   { transform: translateY(0); opacity: 1; }
-            75%  { transform: translateY(10px); opacity: 0; }
-            100% { transform: translateY(0); opacity: 0; }
-          }
-        `}</style>
-      </section>
-    </>
+      {/* Scroll indicator */}
+      {!isMobile && ready && (
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 0.4 }} transition={{ delay: 1.5, duration: 0.8 }}
+          style={{ position: "absolute", bottom: 28, left: "50%", transform: "translateX(-50%)", display: "flex", flexDirection: "column", alignItems: "center", gap: 6, zIndex: 20, pointerEvents: "none" }}>
+          <span style={{ fontSize: 9, fontFamily: '"Outfit",sans-serif', fontWeight: 600, color: "rgba(180,230,220,0.5)", letterSpacing: "0.22em", textTransform: "uppercase" }}>Scroll</span>
+          <div style={{ width: 20, height: 34, borderRadius: 10, border: "1px solid rgba(45,143,123,0.35)", display: "flex", justifyContent: "center", paddingTop: 6 }}>
+            <div style={{ width: 3, height: 6, borderRadius: 2, background: SEA_LT, animation: "scrollDot 1.6s ease-in-out infinite" }} />
+          </div>
+        </motion.div>
+      )}
+
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap');
+        @keyframes scrollDot {
+          0%   { transform: translateY(0); opacity: 1; }
+          75%  { transform: translateY(10px); opacity: 0; }
+          100% { transform: translateY(0); opacity: 0; }
+        }
+      `}</style>
+    </section>
   );
 }

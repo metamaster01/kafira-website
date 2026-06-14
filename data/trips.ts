@@ -918,4 +918,11 @@ export const getTripsByMonth = (month: string) =>
   month === "All" ? TRIPS : TRIPS.filter((t) => t.monthTags.includes(month));
 
 /** Single trip by id */
-export const getTripById = (id: string) => TRIPS.find((t) => t.id === id);
+// export const getTripById = (id: string) => TRIPS.find((t) => t.id === id);
+
+
+
+export function getTripById(id: string): Trip | undefined {
+  return TRIPS.find(t => t.id === id);
+}
+ 
