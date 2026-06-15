@@ -1,24 +1,24 @@
 'use client'
 
 // app/admin/blogs/page.tsx
-// Blog list — status badge, edit / archive / delete per row
 
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import {
-  Plus, Pencil, Archive, Trash2,
-  Loader2, AlertCircle, Star,
-} from 'lucide-react'
-import {
-  adminGetAllBlogs, adminArchiveBlog,
-  adminDeleteBlog, type AdminBlogRow,
-} from '@/lib/admin-blogs'
+import { Plus, Pencil, Archive, Trash2, Loader2, AlertCircle, Star } from 'lucide-react'
+import { adminGetAllBlogs, adminArchiveBlog, adminDeleteBlog, type AdminBlogRow } from '@/lib/admin-blogs'
 
-const STATUS_STYLES: Record<string, { bg: string; color: string; border: string; label: string }> = {
-  published: { bg: '#f0faf6', color: '#1a6b3c', border: '#b2dfcb', label: 'Published' },
-  draft:     { bg: '#fffbeb', color: '#92400e', border: '#fde68a', label: 'Draft'     },
-  archived:  { bg: '#f9fafb', color: '#6b7280', border: '#e5e7eb', label: 'Archived'  },
+const SEA    = '#2d8f7b'
+const SEA_BG = 'rgba(45,143,123,0.08)'
+const SEA_BD = 'rgba(45,143,123,0.18)'
+const TEXT   = '#0f2720'
+const SUB    = '#2d5a52'
+const MUTED  = '#6b9e94'
+
+const STATUS: Record<string, { bg: string; color: string; border: string; label: string }> = {
+  published: { bg: 'rgba(45,143,123,0.10)', color: '#1a6b58', border: 'rgba(45,143,123,0.28)', label: 'Published' },
+  draft:     { bg: '#fffbeb',               color: '#92400e', border: '#fde68a',                label: 'Draft'     },
+  archived:  { bg: '#f9fafb',               color: '#6b7280', border: '#e5e7eb',                label: 'Archived'  },
 }
 
 export default function AdminBlogsPage() {
@@ -29,19 +29,16 @@ export default function AdminBlogsPage() {
   const [confirm,  setConfirm]  = useState<string | null>(null)
 
   async function load() {
-    setLoading(true)
-    setError(null)
-    const data = await adminGetAllBlogs()
-    setBlogs(data)
+    setLoading(true); setError(null)
+    setBlogs(await adminGetAllBlogs())
     setLoading(false)
   }
-
   useEffect(() => { load() }, [])
 
   async function handleArchive(id: string) {
     try {
       await adminArchiveBlog(id)
-      setBlogs((prev) => prev.map((b) => b.id === id ? { ...b, status: 'archived' } : b))
+      setBlogs((p) => p.map((b) => b.id === id ? { ...b, status: 'archived' as const } : b))
     } catch (e: any) { setError(e.message) }
   }
 
@@ -49,7 +46,7 @@ export default function AdminBlogsPage() {
     setDeleting(id)
     try {
       await adminDeleteBlog(id)
-      setBlogs((prev) => prev.filter((b) => b.id !== id))
+      setBlogs((p) => p.filter((b) => b.id !== id))
     } catch (e: any) { setError(e.message) }
     finally { setDeleting(null); setConfirm(null) }
   }
@@ -57,99 +54,131 @@ export default function AdminBlogsPage() {
   const published = blogs.filter((b) => b.status === 'published').length
 
   return (
-    <div className="p-8">
+    <main style={{ padding: 'clamp(24px,4vw,40px)', fontFamily: '"Outfit", sans-serif', minHeight: '100vh' }}>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap');
+        .blog-row { transition: background 0.15s; }
+        .blog-row:hover { background: #f4f9f6 !important; }
+        .action-btn { transition: background 0.15s, color 0.15s; }
+      `}</style>
 
-      {/* Header */}
-      <div className="flex items-center justify-between mb-8">
+      {/* ── Header ── */}
+      <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 16, marginBottom: 32 }}>
         <div>
-          <h1 className="text-2xl font-700 text-gray-900">Blog Posts</h1>
-          <p className="mt-1 text-sm text-gray-500 font-500">
-            {blogs.length} total &middot; {published} published
+          <h1 style={{ fontFamily: '"Outfit", sans-serif', fontWeight: 800, fontSize: 'clamp(22px,3vw,30px)', color: TEXT, margin: '0 0 6px', letterSpacing: '-0.02em' }}>
+            Blog Posts
+          </h1>
+          <p style={{ fontFamily: '"Outfit", sans-serif', fontSize: 13, fontWeight: 500, color: MUTED, margin: 0 }}>
+            {blogs.length} total · {published} published
           </p>
         </div>
         <Link
           href="/admin/blogs/new"
-          className="flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-600 text-white transition-opacity hover:opacity-90"
-          style={{ background: '#2e8b57' }}
+          style={{
+            display: 'inline-flex', alignItems: 'center', gap: 8,
+            background: SEA, color: '#fff',
+            borderRadius: 14, padding: '11px 20px',
+            fontFamily: '"Outfit", sans-serif', fontSize: 13, fontWeight: 700,
+            textDecoration: 'none', flexShrink: 0,
+            boxShadow: '0 4px 14px rgba(45,143,123,0.28)',
+            transition: 'opacity 0.2s',
+          }}
+          onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.88')}
+          onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}
         >
-          <Plus className="h-4 w-4" />
-          New Blog Post
+          <Plus size={15} /> New Blog Post
         </Link>
       </div>
 
-      {/* Error */}
+      {/* ── Error ── */}
       {error && (
-        <div className="mb-6 flex items-center gap-3 rounded-xl border px-4 py-3 text-sm text-red-600"
-          style={{ background: '#fff5f5', borderColor: '#fecaca' }}>
-          <AlertCircle className="h-4 w-4 shrink-0" />
-          {error}
+        <div style={{
+          display: 'flex', alignItems: 'center', gap: 10,
+          background: '#fff5f5', border: '1px solid #fecaca',
+          borderRadius: 14, padding: '12px 16px', marginBottom: 24,
+          fontFamily: '"Outfit", sans-serif', fontSize: 13, color: '#dc2626',
+        }}>
+          <AlertCircle size={15} style={{ flexShrink: 0 }} /> {error}
         </div>
       )}
 
-      {/* Table */}
-      <div className="rounded-2xl border bg-white overflow-hidden" style={{ borderColor: '#d4eddf' }}>
+      {/* ── Table card ── */}
+      <div style={{
+        background: '#fff', borderRadius: 20,
+        border: `1px solid ${SEA_BD}`,
+        overflow: 'hidden',
+        boxShadow: '0 4px 24px rgba(15,39,32,0.05)',
+      }}>
+
         {loading ? (
-          <div className="flex items-center justify-center py-24 text-gray-400">
-            <Loader2 className="h-6 w-6 animate-spin" style={{ color: '#2e8b57' }} />
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '80px 0' }}>
+            <Loader2 size={24} style={{ color: SEA, animation: 'spin 1s linear infinite' }} />
           </div>
         ) : blogs.length === 0 ? (
-          <div className="py-24 text-center">
-            <p className="text-sm text-gray-400 mb-4">No blog posts yet</p>
-            <Link
-              href="/admin/blogs/new"
-              className="inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm font-600 text-white"
-              style={{ background: '#2e8b57' }}
-            >
-              <Plus className="h-4 w-4" /> Create first post
+          <div style={{ textAlign: 'center', padding: '80px 24px' }}>
+            <p style={{ fontFamily: '"Outfit", sans-serif', fontSize: 14, color: MUTED, marginBottom: 20 }}>No blog posts yet</p>
+            <Link href="/admin/blogs/new" style={{
+              display: 'inline-flex', alignItems: 'center', gap: 6,
+              background: SEA, color: '#fff', borderRadius: 12, padding: '10px 20px',
+              fontFamily: '"Outfit", sans-serif', fontSize: 13, fontWeight: 700, textDecoration: 'none',
+            }}>
+              <Plus size={14} /> Create first post
             </Link>
           </div>
         ) : (
-          <table className="w-full text-sm">
+          <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 13 }}>
             <thead>
-              <tr className="border-b" style={{ background: '#f4f9f6', borderColor: '#d4eddf' }}>
+              <tr style={{ background: '#f4f9f6', borderBottom: `1px solid ${SEA_BD}` }}>
                 {['Post', 'Status', 'Tags', 'Author', 'Date', ''].map((h, i) => (
-                  <th
-                    key={i}
-                    className={`px-5 py-3.5 text-left text-xs font-600 uppercase tracking-wider text-gray-500
-                      ${i === 2 ? 'hidden md:table-cell' : ''}
-                      ${i === 3 || i === 4 ? 'hidden lg:table-cell' : ''}
-                      ${i === 5 ? 'text-right' : ''}
-                    `}
-                  >
+                  <th key={i} style={{
+                    padding: '13px 16px', textAlign: i === 5 ? 'right' : 'left',
+                    fontFamily: '"Outfit", sans-serif', fontSize: 10, fontWeight: 700,
+                    color: MUTED, letterSpacing: '0.12em', textTransform: 'uppercase',
+                    display: i === 2 ? undefined : i === 3 || i === 4 ? undefined : undefined,
+                  }}>
                     {h}
                   </th>
                 ))}
               </tr>
             </thead>
-            <tbody className="divide-y" style={{ borderColor: '#f0faf6' }}>
-              {blogs.map((blog) => {
-                const st = STATUS_STYLES[blog.status] ?? STATUS_STYLES.draft
+            <tbody>
+              {blogs.map((blog, idx) => {
+                const st = STATUS[blog.status] ?? STATUS.draft
                 return (
-                  <tr key={blog.id} className="transition-colors hover:bg-[#f9fdfb]">
-
+                  <tr
+                    key={blog.id}
+                    className="blog-row"
+                    style={{ borderBottom: idx < blogs.length - 1 ? `1px solid ${SEA_BG}` : 'none', background: '#fff' }}
+                  >
                     {/* Post info */}
-                    <td className="px-5 py-4">
-                      <div className="flex items-center gap-3">
-                        <div className="relative h-11 w-16 shrink-0 overflow-hidden rounded-lg"
-                          style={{ background: '#e6f5ed' }}>
+                    <td style={{ padding: '14px 16px' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+                        <div style={{
+                          position: 'relative', width: 64, height: 44,
+                          borderRadius: 10, overflow: 'hidden', flexShrink: 0,
+                          background: SEA_BG,
+                        }}>
                           {blog.cover_image_url ? (
-                            <Image src={blog.cover_image_url} alt={blog.title}
-                              fill className="object-cover" unoptimized />
+                            <Image src={blog.cover_image_url} alt={blog.title} fill unoptimized style={{ objectFit: 'cover' }} />
                           ) : (
-                            <div className="absolute inset-0"
-                              style={{ background: 'linear-gradient(135deg,#e6f5ed,#b2dfcb)' }} />
+                            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg,rgba(45,143,123,0.2),rgba(45,143,123,0.05))' }} />
                           )}
                         </div>
-                        <div className="min-w-0">
-                          <div className="flex items-center gap-2">
-                            <p className="font-600 text-gray-900 truncate max-w-[260px]">
+                        <div style={{ minWidth: 0 }}>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                            <p style={{
+                              fontFamily: '"Outfit", sans-serif', fontWeight: 700, fontSize: 13,
+                              color: TEXT, margin: 0,
+                              overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis', maxWidth: 260,
+                            }}>
                               {blog.title}
                             </p>
-                            {blog.is_featured && (
-                              <Star className="h-3.5 w-3.5 shrink-0 fill-amber-400 text-amber-400" />
-                            )}
+                            {blog.is_featured && <Star size={12} style={{ color: '#f59e0b', fill: '#f59e0b', flexShrink: 0 }} />}
                           </div>
-                          <p className="text-xs text-gray-400 mt-0.5 truncate max-w-[260px]">
+                          <p style={{
+                            fontFamily: '"Outfit", sans-serif', fontSize: 11, color: MUTED, margin: '3px 0 0',
+                            overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis', maxWidth: 260,
+                          }}>
                             /blogs/{blog.slug}
                           </p>
                         </div>
@@ -157,83 +186,113 @@ export default function AdminBlogsPage() {
                     </td>
 
                     {/* Status */}
-                    <td className="px-4 py-4">
-                      <span
-                        className="inline-block rounded-full border px-2.5 py-0.5 text-xs font-600 capitalize"
-                        style={{ background: st.bg, color: st.color, borderColor: st.border }}
-                      >
+                    <td style={{ padding: '14px 16px' }}>
+                      <span style={{
+                        display: 'inline-block', borderRadius: 999,
+                        border: `1px solid ${st.border}`,
+                        background: st.bg, color: st.color,
+                        padding: '3px 12px',
+                        fontFamily: '"Outfit", sans-serif', fontSize: 11, fontWeight: 700,
+                      }}>
                         {st.label}
                       </span>
                     </td>
 
                     {/* Tags */}
-                    <td className="px-4 py-4 hidden md:table-cell">
-                      <div className="flex flex-wrap gap-1">
+                    <td style={{ padding: '14px 16px' }}>
+                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 4 }}>
                         {blog.blog_tags.slice(0, 2).map((bt, i) => (
-                          <span key={i}
-                            className="rounded-full px-2 py-0.5 text-xs font-500"
-                            style={{ background: '#e6f5ed', color: '#1a6b3c' }}>
+                          <span key={i} style={{
+                            background: SEA_BG, borderRadius: 999,
+                            padding: '2px 10px',
+                            fontFamily: '"Outfit", sans-serif', fontSize: 11, fontWeight: 600, color: SUB,
+                          }}>
                             {bt.tag?.name}
                           </span>
                         ))}
                         {blog.blog_tags.length > 2 && (
-                          <span className="text-xs text-gray-400">+{blog.blog_tags.length - 2}</span>
+                          <span style={{ fontFamily: '"Outfit", sans-serif', fontSize: 11, color: MUTED }}>
+                            +{blog.blog_tags.length - 2}
+                          </span>
                         )}
                       </div>
                     </td>
 
                     {/* Author */}
-                    <td className="px-4 py-4 hidden lg:table-cell text-gray-600 font-500">
+                    <td style={{ padding: '14px 16px', fontFamily: '"Outfit", sans-serif', fontSize: 13, color: SUB, fontWeight: 500 }}>
                       {blog.author?.full_name ?? '—'}
                     </td>
 
                     {/* Date */}
-                    <td className="px-4 py-4 hidden lg:table-cell text-gray-500">
-                      {new Date(blog.published_at ?? blog.created_at).toLocaleDateString('en-IN', {
-                        day: 'numeric', month: 'short', year: 'numeric',
-                      })}
+                    <td style={{ padding: '14px 16px', fontFamily: '"Outfit", sans-serif', fontSize: 12, color: MUTED }}>
+                      {new Date(blog.published_at ?? blog.created_at).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}
                     </td>
 
                     {/* Actions */}
-                    <td className="px-4 py-4">
-                      <div className="flex items-center justify-end gap-1">
+                    <td style={{ padding: '14px 16px' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: 4 }}>
 
-                        <Link href={`/admin/blogs/${blog.id}`}
-                          className="flex h-8 w-8 items-center justify-center rounded-lg text-gray-400 transition-colors hover:text-[#2e8b57]"
-                          style={{ }} title="Edit"
-                          onMouseEnter={(e) => (e.currentTarget.style.background = '#e6f5ed')}
-                          onMouseLeave={(e) => (e.currentTarget.style.background = 'transparent')}
+                        <Link href={`/admin/blogs/${blog.id}`} title="Edit"
+                          className="action-btn"
+                          style={{
+                            width: 32, height: 32, borderRadius: 10,
+                            display: 'flex', alignItems: 'center', justifyContent: 'center',
+                            color: MUTED, textDecoration: 'none',
+                          }}
+                          onMouseEnter={(e) => { e.currentTarget.style.background = SEA_BG; e.currentTarget.style.color = SEA }}
+                          onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = MUTED }}
                         >
-                          <Pencil className="h-3.5 w-3.5" />
+                          <Pencil size={14} />
                         </Link>
 
                         {blog.status !== 'archived' && (
-                          <button onClick={() => handleArchive(blog.id)}
-                            className="flex h-8 w-8 items-center justify-center rounded-lg text-gray-400 transition-colors hover:bg-amber-50 hover:text-amber-600"
-                            title="Archive">
-                            <Archive className="h-3.5 w-3.5" />
+                          <button onClick={() => handleArchive(blog.id)} title="Archive"
+                            className="action-btn"
+                            style={{
+                              width: 32, height: 32, borderRadius: 10, border: 'none',
+                              display: 'flex', alignItems: 'center', justifyContent: 'center',
+                              background: 'transparent', color: MUTED, cursor: 'pointer',
+                            }}
+                            onMouseEnter={(e) => { e.currentTarget.style.background = '#fffbeb'; e.currentTarget.style.color = '#d97706' }}
+                            onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = MUTED }}
+                          >
+                            <Archive size={14} />
                           </button>
                         )}
 
                         {confirm === blog.id ? (
-                          <div className="flex items-center gap-1">
+                          <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
                             <button onClick={() => handleDelete(blog.id)} disabled={deleting === blog.id}
-                              className="rounded-lg bg-red-600 px-2.5 py-1 text-xs font-600 text-white hover:bg-red-700 disabled:opacity-60 transition-colors">
-                              {deleting === blog.id
-                                ? <Loader2 className="h-3 w-3 animate-spin" />
-                                : 'Confirm'}
+                              style={{
+                                borderRadius: 8, border: 'none', background: '#dc2626', color: '#fff',
+                                padding: '5px 12px', cursor: 'pointer',
+                                fontFamily: '"Outfit", sans-serif', fontSize: 11, fontWeight: 700,
+                                opacity: deleting === blog.id ? 0.6 : 1,
+                                display: 'flex', alignItems: 'center', gap: 4,
+                              }}>
+                              {deleting === blog.id ? <Loader2 size={11} style={{ animation: 'spin 1s linear infinite' }} /> : 'Confirm'}
                             </button>
                             <button onClick={() => setConfirm(null)}
-                              className="rounded-lg border px-2.5 py-1 text-xs text-gray-500 hover:bg-gray-50 transition-colors"
-                              style={{ borderColor: '#e2e8f0' }}>
+                              style={{
+                                borderRadius: 8, border: `1px solid ${SEA_BD}`, background: '#fff',
+                                color: MUTED, padding: '5px 12px', cursor: 'pointer',
+                                fontFamily: '"Outfit", sans-serif', fontSize: 11, fontWeight: 600,
+                              }}>
                               Cancel
                             </button>
                           </div>
                         ) : (
-                          <button onClick={() => setConfirm(blog.id)}
-                            className="flex h-8 w-8 items-center justify-center rounded-lg text-gray-400 transition-colors hover:bg-red-50 hover:text-red-600"
-                            title="Delete">
-                            <Trash2 className="h-3.5 w-3.5" />
+                          <button onClick={() => setConfirm(blog.id)} title="Delete"
+                            className="action-btn"
+                            style={{
+                              width: 32, height: 32, borderRadius: 10, border: 'none',
+                              display: 'flex', alignItems: 'center', justifyContent: 'center',
+                              background: 'transparent', color: MUTED, cursor: 'pointer',
+                            }}
+                            onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(220,38,38,0.08)'; e.currentTarget.style.color = '#dc2626' }}
+                            onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = MUTED }}
+                          >
+                            <Trash2 size={14} />
                           </button>
                         )}
                       </div>
@@ -245,6 +304,7 @@ export default function AdminBlogsPage() {
           </table>
         )}
       </div>
-    </div>
+      <style>{`@keyframes spin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }`}</style>
+    </main>
   )
 }

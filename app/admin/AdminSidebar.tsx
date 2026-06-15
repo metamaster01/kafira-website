@@ -1,12 +1,18 @@
 'use client'
 
 // app/admin/AdminSidebar.tsx
-// Blogs-only nav — Case Studies / Contact removed (tables don't exist)
 
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 import { BookOpen, LogOut } from 'lucide-react'
 import { createBrowserClient } from '@supabase/ssr'
+
+const SEA    = '#2d8f7b'
+const SEA_BG = 'rgba(45,143,123,0.10)'
+const SEA_BD = 'rgba(45,143,123,0.18)'
+const TEXT   = '#0f2720'
+const SUB    = '#2d5a52'
+const MUTED  = '#6b9e94'
 
 const NAV = [
   { label: 'Blogs', href: '/admin/blogs', icon: BookOpen },
@@ -28,46 +34,61 @@ export default function AdminSidebar() {
   }
 
   return (
-    <aside
-      className="w-56 shrink-0 flex flex-col border-r min-h-screen"
-      style={{ background: '#ffffff', borderColor: '#d4eddf' }}
-    >
+    <aside style={{
+      width: 220, flexShrink: 0,
+      display: 'flex', flexDirection: 'column',
+      minHeight: '100vh',
+      background: '#ffffff',
+      borderRight: `1px solid ${SEA_BD}`,
+      fontFamily: '"Outfit", sans-serif',
+    }}>
+
       {/* Brand */}
-      <div
-        className="flex items-center gap-3 px-5 py-5 border-b"
-        style={{ borderColor: '#d4eddf' }}
-      >
-        <div
-          className="flex h-9 w-9 items-center justify-center rounded-xl text-white text-base font-700"
-          style={{ background: '#2e8b57' }}
-        >
+      <div style={{
+        display: 'flex', alignItems: 'center', gap: 12,
+        padding: '20px 20px',
+        borderBottom: `1px solid ${SEA_BD}`,
+      }}>
+        <div style={{
+          width: 38, height: 38, borderRadius: 12,
+          background: SEA, color: '#fff',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          fontSize: 18, fontWeight: 800, flexShrink: 0,
+          boxShadow: '0 4px 12px rgba(45,143,123,0.25)',
+        }}>
           K
         </div>
-        <div className="min-w-0">
-          <p className="text-sm font-700 text-gray-900 leading-none">Kafira</p>
-          <p className="text-[10px] font-500 mt-0.5" style={{ color: '#2e8b57' }}>Admin Panel</p>
+        <div style={{ minWidth: 0 }}>
+          <p style={{ fontFamily: '"Outfit", sans-serif', fontSize: 14, fontWeight: 800, color: TEXT, margin: 0, lineHeight: 1.2 }}>
+            Kafira
+          </p>
+          <p style={{ fontFamily: '"Outfit", sans-serif', fontSize: 10, fontWeight: 600, color: SEA, margin: 0, marginTop: 2, letterSpacing: '0.06em', textTransform: 'uppercase' }}>
+            Admin Panel
+          </p>
         </div>
       </div>
 
       {/* Nav */}
-      <nav className="flex-1 px-3 py-4 space-y-0.5">
+      <nav style={{ flex: 1, padding: '12px 10px', display: 'flex', flexDirection: 'column', gap: 2 }}>
         {NAV.map(({ label, href, icon: Icon }) => {
           const active = pathname.startsWith(href)
           return (
             <Link
               key={href}
               href={href}
-              className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-600 transition-colors"
-              style={
-                active
-                  ? { background: '#e6f5ed', color: '#1a6b3c' }
-                  : { color: '#6b7280' }
-              }
+              style={{
+                display: 'flex', alignItems: 'center', gap: 10,
+                padding: '10px 12px', borderRadius: 12,
+                fontFamily: '"Outfit", sans-serif', fontSize: 13, fontWeight: 600,
+                textDecoration: 'none',
+                background: active ? SEA_BG : 'transparent',
+                color: active ? SUB : MUTED,
+                transition: 'background 0.15s, color 0.15s',
+              }}
+              onMouseEnter={(e) => { if (!active) e.currentTarget.style.background = 'rgba(45,143,123,0.05)' }}
+              onMouseLeave={(e) => { if (!active) e.currentTarget.style.background = 'transparent' }}
             >
-              <Icon
-                className="h-4 w-4"
-                style={{ color: active ? '#2e8b57' : '#9ca3af' }}
-              />
+              <Icon size={16} style={{ color: active ? SEA : MUTED, flexShrink: 0 }} />
               {label}
             </Link>
           )
@@ -75,12 +96,20 @@ export default function AdminSidebar() {
       </nav>
 
       {/* Sign out */}
-      <div className="px-3 py-4 border-t" style={{ borderColor: '#d4eddf' }}>
+      <div style={{ padding: '10px 10px 16px', borderTop: `1px solid ${SEA_BD}` }}>
         <button
           onClick={handleLogout}
-          className="flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-600 text-gray-500 transition-colors hover:bg-red-50 hover:text-red-600"
+          style={{
+            width: '100%', display: 'flex', alignItems: 'center', gap: 10,
+            padding: '10px 12px', borderRadius: 12, border: 'none',
+            background: 'transparent', cursor: 'pointer',
+            fontFamily: '"Outfit", sans-serif', fontSize: 13, fontWeight: 600,
+            color: MUTED, transition: 'background 0.15s, color 0.15s',
+          }}
+          onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(239,68,68,0.08)'; e.currentTarget.style.color = '#dc2626' }}
+          onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = MUTED }}
         >
-          <LogOut className="h-4 w-4" />
+          <LogOut size={16} style={{ flexShrink: 0 }} />
           Sign Out
         </button>
       </div>

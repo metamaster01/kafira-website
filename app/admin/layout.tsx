@@ -9,6 +9,10 @@ import AdminSidebar from './AdminSidebar'
 
 export const metadata = {
   title: 'Admin | Kafira Travels',
+  robots: {
+    index: false,
+    follow: false,
+  }
 }
 
 export default async function AdminLayout({ children }: { children: React.ReactNode }) {
