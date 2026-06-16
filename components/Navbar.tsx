@@ -915,10 +915,10 @@ type NavItem =
   | { type: 'dropdown'; label: string; key: 'india' | 'international' };
 
 const NAV_ITEMS: NavItem[] = [
-  { type: 'dropdown', label: 'International Trips', key: 'international' },
-  { type: 'dropdown', label: 'India Trips',         key: 'india'         },
+  { type: 'link', label: 'International Trips', href: '/destinations/international' },
+  { type: 'link', label: 'India Trips',         href: '/destinations/india'         },
   { type: 'link',     label: 'Weekend Getaways',    href: '/weekend-getaways' },
-  { type: 'link',     label: 'Group Tours',         href: '/group-tours'      },
+  { type: 'link',     label: 'Group Tours',         href: '/group-tour'      },
 ];
 
 type SearchResult =
@@ -1044,7 +1044,7 @@ function NavBarItem({ item, isOpen, onToggle, onClose, pathname }: { item: NavIt
     <div style={{ position: 'relative' }}>
       {item.type === 'link' ? (
         <Link href={item.href} onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)}
-          style={{ display: 'flex', alignItems: 'center', padding: '0 16px', height: 44, fontFamily: '"Outfit",sans-serif', fontSize: 16, fontWeight: lit ? 700 : 500, color: '#fff', textDecoration: 'none', background: lit ? 'rgba(255,255,255,0.15)' : 'transparent', borderBottom: isActive ? '2.5px solid rgba(255,255,255,0.9)' : '2.5px solid transparent', transition: 'all 0.18s ease', letterSpacing: '0.01em' }}>
+          style={{ display: 'flex', alignItems: 'center', padding: '0 16px', height: 44, fontFamily: '"Outfit",sans-serif', fontSize: 16, fontWeight: lit ? 700 : 500, color: '#fff', textDecoration: 'none', background: lit ? 'rgba(255,255,255,0.15)' : 'transparent', borderBottom: isActive ? '2.5px solid rgba(255,255,255,0.9)' : '2.5px solid transparent', transition: 'all 0.18s ease', letterSpacing: '0.01em'}}>
           {item.label}
         </Link>
       ) : (

@@ -34,12 +34,12 @@ const REGION_CONFIG: Record<RegionSlug, {
   india: {
     title: 'Explore India Packages',
     breadcrumb: 'India Trips',
-    bannerImage: '/images/banner/trip-poster.png',
+    bannerImage: '/images/banner/india-banner-2.jpg',
   },
   international: {
     title: 'Explore International Packages',
     breadcrumb: 'International Trips',
-    bannerImage: '/images/banner/trip-poster.png',
+    bannerImage: '/images/banner/international-banner-2.jpg',
   },
 };
 

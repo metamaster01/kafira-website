@@ -132,7 +132,7 @@ export default function WhyKafira() {
               aspectRatio: isMobile ? '16/10' : '4/5',
             }}>
               <img
-                src="/why-us.webp"
+                src="/why-choose-4.jpg"
                 alt="Kafira journey"
                 style={{ width:'100%', height:'100%', objectFit:'cover', display:'block' }}
                 onError={e => {

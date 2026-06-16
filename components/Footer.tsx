@@ -418,7 +418,7 @@ const COLS = [
     links: [
       { label: 'India',             href: '/destinations/india'          },
       { label: 'International',     href: '/destinations/international'  },
-      { label: 'Kerala Backwaters', href: '/destinations/india/kerala'   },
+      // { label: 'Kerala Backwaters', href: '/destinations/india/kerala'   },
       { label: 'Himalayan Escapes', href: '/destinations/india/himalayas'},
       { label: 'Meghalaya',         href: '/destinations/india/meghalaya'},
     ],
@@ -426,9 +426,11 @@ const COLS = [
   {
     title: 'Experience',
     links: [
-      { label: 'Group Tours',      href: '/group-tours'              },
+      { label: 'Group Tours',      href: '/group-tour'              },
       { label: 'Weekend Getaways', href: '/weekend-getaways'         },
-      { label: 'Indian Tours',     href: '/destinations/india'        },
+      
+      {label: 'Honeymoon Trips', href: '/contact-us'},
+      {label: 'Corporate Trips', href: '/contact-us'},
       { label: 'Adventure Trips',  href: '/contact-us'               },
     ],
   },
@@ -573,7 +575,8 @@ export default function Footer() {
           {/* contact */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 24 }}>
             {[
-              { icon: <MapPin size={12}/>, text: 'Panipat, Haryana' },
+              { icon: <MapPin size={12}/>, text: 'Office 1 : Panipat, Haryana' },
+              { icon: <MapPin size={12}/>, text: 'Office 2 : Gurugram, Haryana' },
               { icon: <Phone size={12}/>,  text: '+91 92532 89347',  href: 'tel:+919253289347'       },
               { icon: <Mail size={12}/>,   text: 'support@kafira.in', href: 'mailto:support@kafira.in' },
             ].map(({ icon, text, href }, i) =>

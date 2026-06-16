@@ -1240,7 +1240,7 @@ const SEA_LT = "#3db89e";
 const SEA_BG = "rgba(45,143,123,0.12)";
 const SEA_BD = "rgba(45,143,123,0.30)";
 
-const TRENDING = ["Rajasthan", "Manali", "Kerala", "Bali", "Leh"];
+const TRENDING = ["Himachal", "Uttrakhhand", "Meghalaya", "Kashmir", "Leh", "Spiti-expidition"];
 
 type SearchResult =
   | { kind: "destination"; slug: string; region: string; name: string; image: string; startingPrice: number }

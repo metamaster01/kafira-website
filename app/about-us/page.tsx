@@ -10,6 +10,7 @@ import MeetTeam from '@/components/about/Meetteam';
 import AboutStory from '@/components/about/AboutStory';
 import CTABanner from '@/components/CTABanner';
 import TakeABreak from '@/components/TakeABreak';
+import OfficeLocations from '@/components/about/OfficeAddress';
 
 export const metadata = {
   title: 'About Kafira — Crafting Extraordinary Journeys',
@@ -24,6 +25,7 @@ export default function AboutPage() {
       <AboutStory />
       <WhyChooseUs />
       <MeetTeam />
+      <OfficeLocations />
       <TakeABreak />
       <CTABanner />
       {/* <AboutVisionMission/> */}

@@ -26,9 +26,7 @@ export default function GroupToursPage() {
         .reduce((a, b) => Math.max(a, b), 0)
     : 0;
 
-  const minPrice = trips.length
-    ? Math.min(...trips.map((t) => t.discountedPrice))
-    : 0;
+  const minPrice = 5000;
 
   return (
     <main style={{ background: "#f7f5f0", minHeight: "100vh" }}>

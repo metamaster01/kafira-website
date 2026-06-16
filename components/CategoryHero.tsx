@@ -4,7 +4,7 @@ import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 
 const SEA    = "#2d8f7b";
-const SEA_DK = "#1a6b58";
+const SEA_DK = "#071a16";
 const SEA_LT = "#3db89e";
 
 // ─────────────────────────────────────────────────────
@@ -35,46 +35,19 @@ export default function CategoryHero({
     <div
       style={{
         position: "relative",
-        background: `linear-gradient(125deg, ${SEA} 0%, ${SEA_DK} 65%, #103a32 100%)`,
+        background: `linear-gradient(125deg,  ${SEA_DK} 5%, #071a16 100%)`,
         overflow: "hidden",
         padding: "clamp(56px,9vw,104px) clamp(20px,5vw,48px) clamp(64px,8vw,100px)",
       }}
     >
       {/* decorative blobs */}
-      <div
-        style={{
-          position: "absolute",
-          top: -80,
-          right: -60,
-          width: 320,
-          height: 320,
-          borderRadius: "50%",
-          background: "rgba(255,255,255,0.06)",
-          pointerEvents: "none",
-        }}
-      />
-      <div
-        style={{
-          position: "absolute",
-          bottom: -100,
-          left: "10%",
-          width: 260,
-          height: 260,
-          borderRadius: "50%",
-          background: "rgba(255,255,255,0.045)",
-          pointerEvents: "none",
-        }}
-      />
-      <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          opacity: 0.06,
-          background:
-            "repeating-linear-gradient(115deg, transparent 0 40px, rgba(255,255,255,0.5) 40px 41px)",
-          pointerEvents: "none",
-        }}
-      />
+       <div aria-hidden style={{ position:'absolute', inset:0, pointerEvents:'none' }}>
+          <div style={{ position:'absolute', top:'-20%', left:'10%', width:440, height:440, borderRadius:'50%', background:'radial-gradient(circle,rgba(45,143,123,0.18) 0%,transparent 65%)' }}/>
+          <div style={{ position:'absolute', bottom:'-20%', right:'8%', width:320, height:320, borderRadius:'50%', background:'radial-gradient(circle,rgba(61,184,158,0.13) 0%,transparent 65%)' }}/>
+          <div style={{ position:'absolute', top:0, left:'15%', right:'15%', height:1, background:`linear-gradient(to right,transparent,${SEA},transparent)`, opacity:0.4 }}/>
+          <div style={{ position:'absolute', bottom:0, left:0, right:0, height:1, background:`linear-gradient(to right,transparent,rgba(45,143,123,0.25),transparent)` }}/>
+        </div>
+    
 
       <motion.div
         initial={{ opacity: 0, y: 24 }}

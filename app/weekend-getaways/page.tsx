@@ -23,9 +23,10 @@ export default function WeekendGetawaysPage() {
   const maxNights = trips.length
     ? Math.max(...trips.map((t) => t.nights))
     : 0;
-  const minPrice = trips.length
-    ? Math.min(...trips.map((t) => t.discountedPrice))
-    : 0;
+  const minPrice = 5000;
+  // const minPrice = trips.length
+  //   ? Math.min(...trips.map((t) => t.discountedPrice))
+  //   : 0;
 
   return (
     <main style={{ background: "#f7f5f0", minHeight: "100vh" }}>

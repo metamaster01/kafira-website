@@ -35,17 +35,16 @@ interface TeamMember {
   role: string;
   bio: string;
   image: string;
-  social: { linkedin: string; instagram: string };
 }
 
 // ── Data ──────────────────────────────────────────────────────────────────────
 const team: TeamMember[] = [
   {
-    name: "Neeranjan (Vicky Gupta)",
+    name: "Vicky Gupta",
     role: "Founder & CEO",
-    bio: "Neeranjan founded Kafira with a vision to create meaningful travel experiences that go beyond traditional tourism. His passion for exploration and commitment to customer satisfaction continue to shape the company's journey.",
-    image: "/images/team/sarah-mitchell.jpg",
-    social: { linkedin: "https://linkedin.com/in/sarah-mitchell", instagram: "https://instagram.com/sarah.mitchell" },
+    bio: "Vicky founded Kafira with a vision to create meaningful travel experiences that go beyond traditional tourism. His passion for exploration and commitment to customer satisfaction continue to shape the company's journey.",
+    image: "/images/team/vicky-gupta.jpeg",
+    // social: { linkedin: "https://linkedin.com/in/vicky-gupta", instagram: "https://instagram.com/vicky.gupta" },
   },
   // {
   //   name: "Daniel Carter",
@@ -69,18 +68,18 @@ const team: TeamMember[] = [
   //   social: { linkedin: "https://linkedin.com/in/olivia-thompson", instagram: "https://instagram.com/olivia.thompson" },
   // },
   {
-    name: "Akanksha",
-    role: "Social Media Manager",
+    name: "Akanksha Tiwari",
+    role: "Head of Strategy and Growth",
     bio: "Akanksha helps build and nurture the Kafira travel community, connecting like-minded travelers through stories, experiences, and shared adventures.",
-    image: "/images/team/akanksha.jpg",
-    social: { linkedin: "https://linkedin.com/in/akanksha", instagram: "https://instagram.com/akanksha" },
+    image: "/images/team/akanksha.jpeg",
+    // social: { linkedin: "https://linkedin.com/in/akanksha", instagram: "https://instagram.com/akanksha" },
   },
   {
-    name: "Shruti",
-    role: "Sales Manager",
+    name: "Shruti Chouhan",
+    role: "Head of Operation",
     bio: "Shruti is dedicated to providing exceptional support before, during, and after every trip. She believes great service is the key to unforgettable travel experiences.",
-    image: "/images/team/michael-anderson.jpg",
-    social: { linkedin: "https://linkedin.com/in/michael-anderson", instagram: "https://instagram.com/michael.anderson" },
+    image: "/images/team/shruti.jpeg",
+    // social: { linkedin: "https://linkedin.com/in/michael-anderson", instagram: "https://instagram.com/michael.anderson" },
   },
 ];
 
@@ -133,20 +132,20 @@ function TeamCard({ member, index }: { member: TeamMember; index: number }) {
       </div>
 
       {/* Name */}
-      <h3 className="text-[17px] font-bold text-gray-900 mb-0.5">{member.name}</h3>
+      <h3 className="text-[17px] font-bold text-gray-900 mb-2">{member.name}</h3>
 
       {/* Role */}
       <p className="text-sm  text-gray-500 mb-3">{member.role}</p>
 
       {/* Social icons */}
-      <div className="flex items-center justify-center gap-2 mb-4">
+      {/* <div className="flex items-center justify-center gap-2 mb-4">
         <SocialLink href={member.social.linkedin} label={`${member.name} on LinkedIn`} hoverColor="hover:text-[#0A66C2] hover:border-[#0A66C2]/40">
           <LinkedInIcon className="w-[15px] h-[15px]" />
         </SocialLink>
         <SocialLink href={member.social.instagram} label={`${member.name} on Instagram`} hoverColor="hover:text-[#E1306C] hover:border-[#E1306C]/40">
           <InstagramIcon className="w-[15px] h-[15px]" />
         </SocialLink>
-      </div>
+      </div> */}
 
       {/* Bio */}
       <p className="text-[13px] text-gray-600 leading-relaxed">{member.bio}</p>
@@ -175,6 +174,7 @@ export default function MeetTeam() {
           animate={headingInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-snug"
+          style={{ fontFamily: "var(--font-montserrat), Montserrat, sans-serif", paddingBottom: "clamp(12px,3vw,24px)" }}
         >
           Meet Our Team.{" "}
           <span className="font-normal">The ideal set of extraordinary people</span>
