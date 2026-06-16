@@ -77,7 +77,7 @@
 // // //           borderBottom:'1px solid rgba(201,168,76,0.08)',
 // // //         }}>
 // // //           <div style={{ display:'flex',alignItems:'center',justifyContent:'space-between',padding:'0 40px',height:38 }}>
-// // //             <a href="tel:+919999999999" style={{ display:'flex',alignItems:'center',gap:6,color:'rgba(245,240,232,0.5)',fontSize:11,fontFamily:'Outfit,sans-serif',textDecoration:'none',transition:'color 0.2s' }}
+// // //             <a href="tel:+919999999999" style={{ display:'flex',alignItems:'center',gap:6,color:'rgba(245,240,232,0.5)',fontSize:11,fontFamily:'Inter,sans-serif',textDecoration:'none',transition:'color 0.2s' }}
 // // //               onMouseEnter={e=>((e.currentTarget as HTMLAnchorElement).style.color='#c9a84c')}
 // // //               onMouseLeave={e=>((e.currentTarget as HTMLAnchorElement).style.color='rgba(245,240,232,0.5)')}>
 // // //               <Phone size={11}/> +91 99999 99999
@@ -86,7 +86,7 @@
 // // //               Crafting journeys, not just itineraries
 // // //             </span>
 // // //             <div style={{ display:'flex',alignItems:'center',gap:20 }}>
-// // //               <button style={{ display:'flex',alignItems:'center',gap:4,background:'none',border:'none',cursor:'pointer',color:'rgba(245,240,232,0.5)',fontSize:11,fontFamily:'Outfit,sans-serif' }}>
+// // //               <button style={{ display:'flex',alignItems:'center',gap:4,background:'none',border:'none',cursor:'pointer',color:'rgba(245,240,232,0.5)',fontSize:11,fontFamily:'Inter,sans-serif' }}>
 // // //                 <Globe size={11}/> English (IN) <ChevronDown size={9}/>
 // // //               </button>
 // // //               <SocialIcons/>
@@ -134,7 +134,7 @@
 // // //                   style={{
 // // //                     display:'flex',alignItems:'center',gap:4,
 // // //                     padding:'8px 14px', borderRadius:999,
-// // //                     fontFamily:'Outfit,sans-serif',fontSize:14,fontWeight:500,
+// // //                     fontFamily:'Inter,sans-serif',fontSize:14,fontWeight:500,
 // // //                     color: dropdown === item.label ? '#c9a84c' : 'rgba(245,240,232,0.82)',
 // // //                     textDecoration:'none', transition:'color 0.25s', letterSpacing:'0.015em',
 // // //                   }}
@@ -159,7 +159,7 @@
 // // //                     {item.sub.map(s => (
 // // //                       <a key={s} href="#" style={{
 // // //                         display:'block',padding:'9px 18px',
-// // //                         fontFamily:'Outfit,sans-serif',fontSize:13,
+// // //                         fontFamily:'Inter,sans-serif',fontSize:13,
 // // //                         color:'rgba(245,240,232,0.65)',textDecoration:'none',
 // // //                         transition:'all 0.2s',
 // // //                       }}
@@ -180,7 +180,7 @@
 // // //                 padding:'8px 18px', borderRadius:999,
 // // //                 background:'rgba(37,211,102,0.1)',
 // // //                 border:'1px solid rgba(37,211,102,0.28)',
-// // //                 color:'#25d366',fontFamily:'Outfit,sans-serif',fontSize:13,fontWeight:500,
+// // //                 color:'#25d366',fontFamily:'Inter,sans-serif',fontSize:13,fontWeight:500,
 // // //                 textDecoration:'none',transition:'all 0.25s',
 // // //               }}
 // // //               onMouseEnter={e=>{const el=e.currentTarget as HTMLAnchorElement;el.style.background='rgba(37,211,102,0.2)';el.style.transform='translateY(-2px)'}}
@@ -192,7 +192,7 @@
 // // //               style={{
 // // //                 padding:'8px 20px', borderRadius:999,
 // // //                 background:'linear-gradient(135deg,#c9a84c,#8b6914)',
-// // //                 color:'#0c0a08',fontFamily:'Outfit,sans-serif',fontSize:13,fontWeight:600,
+// // //                 color:'#0c0a08',fontFamily:'Inter,sans-serif',fontSize:13,fontWeight:600,
 // // //                 textDecoration:'none',letterSpacing:'0.03em',transition:'all 0.25s',
 // // //               }}
 // // //               onMouseEnter={e=>{const el=e.currentTarget as HTMLAnchorElement;el.style.transform='translateY(-2px)';el.style.boxShadow='0 8px 22px rgba(201,168,76,0.35)'}}
@@ -217,7 +217,7 @@
 // // //               <a key={item.label} href={item.href} onClick={() => setMobileOpen(false)}
 // // //                 style={{
 // // //                   display:'block',padding:'13px 0',
-// // //                   fontFamily:'Outfit,sans-serif',fontSize:15,fontWeight:500,
+// // //                   fontFamily:'Inter,sans-serif',fontSize:15,fontWeight:500,
 // // //                   color:'rgba(245,240,232,0.8)',textDecoration:'none',
 // // //                   borderBottom:'1px solid rgba(201,168,76,0.08)',transition:'color 0.2s',
 // // //                 }}>{item.label}</a>
@@ -228,7 +228,7 @@
 // // //                 marginTop:16,padding:'12px 18px',borderRadius:12,
 // // //                 background:'rgba(37,211,102,0.1)',
 // // //                 border:'1px solid rgba(37,211,102,0.25)',
-// // //                 color:'#25d366',fontFamily:'Outfit,sans-serif',fontSize:14,textDecoration:'none',
+// // //                 color:'#25d366',fontFamily:'Inter,sans-serif',fontSize:14,textDecoration:'none',
 // // //               }}>
 // // //               <MessageCircle size={16}/> WhatsApp Us
 // // //             </a>
@@ -332,7 +332,7 @@
 // //           borderBottom:'1px solid rgba(201,168,76,0.08)',
 // //         }} className="hidden md:block">
 // //           <div style={{ display:'flex',alignItems:'center',justifyContent:'space-between',padding:'0 32px',height:36 }}>
-// //             <a href="tel:+919999999999" style={{ display:'flex',alignItems:'center',gap:5,color:'rgba(245,240,232,0.5)',fontSize:11,fontFamily:'Outfit,sans-serif',textDecoration:'none',transition:'color 0.2s' }}
+// //             <a href="tel:+919999999999" style={{ display:'flex',alignItems:'center',gap:5,color:'rgba(245,240,232,0.5)',fontSize:11,fontFamily:'Inter,sans-serif',textDecoration:'none',transition:'color 0.2s' }}
 // //               onMouseEnter={e=>((e.currentTarget as HTMLAnchorElement).style.color='#c9a84c')}
 // //               onMouseLeave={e=>((e.currentTarget as HTMLAnchorElement).style.color='rgba(245,240,232,0.5)')}>
 // //               <Phone size={11}/> +91 99999 99999
@@ -341,7 +341,7 @@
 // //               Crafting journeys, not just itineraries
 // //             </span>
 // //             <div style={{ display:'flex',alignItems:'center',gap:18 }}>
-// //               <button style={{ display:'flex',alignItems:'center',gap:4,background:'none',border:'none',cursor:'pointer',color:'rgba(245,240,232,0.5)',fontSize:11,fontFamily:'Outfit,sans-serif' }}>
+// //               <button style={{ display:'flex',alignItems:'center',gap:4,background:'none',border:'none',cursor:'pointer',color:'rgba(245,240,232,0.5)',fontSize:11,fontFamily:'Inter,sans-serif' }}>
 // //                 <Globe size={11}/> EN (IN) <ChevronDown size={9}/>
 // //               </button>
 // //               <SocialIcons size={13}/>
@@ -390,7 +390,7 @@
 // //                 onMouseLeave={() => setDropdown(null)}>
 // //                 <a href={item.href} className="underline-hover" style={{
 // //                   display:'flex',alignItems:'center',gap:4,padding:'7px 12px',borderRadius:999,
-// //                   fontFamily:'Outfit,sans-serif',fontSize:13,fontWeight:500,
+// //                   fontFamily:'Inter,sans-serif',fontSize:13,fontWeight:500,
 // //                   color: dropdown === item.label ? '#c9a84c' : 'rgba(245,240,232,0.82)',
 // //                   textDecoration:'none',transition:'color 0.25s',letterSpacing:'0.015em',
 // //                 }}>
@@ -407,7 +407,7 @@
 // //                 }}>
 // //                   <div style={{ background:'rgba(14,12,10,0.96)',border:'1px solid rgba(201,168,76,0.18)',borderRadius:13,padding:'7px 0',backdropFilter:'blur(24px)',boxShadow:'0 20px 60px rgba(0,0,0,0.55)' }}>
 // //                     {item.sub.map(s => (
-// //                       <a key={s} href="#" style={{ display:'block',padding:'8px 16px',fontFamily:'Outfit,sans-serif',fontSize:12,color:'rgba(245,240,232,0.65)',textDecoration:'none',transition:'all 0.2s' }}
+// //                       <a key={s} href="#" style={{ display:'block',padding:'8px 16px',fontFamily:'Inter,sans-serif',fontSize:12,color:'rgba(245,240,232,0.65)',textDecoration:'none',transition:'all 0.2s' }}
 // //                         onMouseEnter={e=>{const el=e.currentTarget as HTMLAnchorElement;el.style.color='#c9a84c';el.style.paddingLeft='22px';el.style.background='rgba(201,168,76,0.05)'}}
 // //                         onMouseLeave={e=>{const el=e.currentTarget as HTMLAnchorElement;el.style.color='rgba(245,240,232,0.65)';el.style.paddingLeft='16px';el.style.background='none'}}
 // //                       >{s}</a>
@@ -421,14 +421,14 @@
 // //           {/* Desktop CTAs */}
 // //           <div className="hidden lg:flex items-center" style={{ gap:10 }}>
 // //             <a href="https://wa.me/919999999999" target="_blank" rel="noopener noreferrer"
-// //               style={{ display:'flex',alignItems:'center',gap:6,padding:'7px 16px',borderRadius:999,background:'rgba(37,211,102,0.1)',border:'1px solid rgba(37,211,102,0.28)',color:'#25d366',fontFamily:'Outfit,sans-serif',fontSize:12,fontWeight:500,textDecoration:'none',transition:'all 0.25s' }}
+// //               style={{ display:'flex',alignItems:'center',gap:6,padding:'7px 16px',borderRadius:999,background:'rgba(37,211,102,0.1)',border:'1px solid rgba(37,211,102,0.28)',color:'#25d366',fontFamily:'Inter,sans-serif',fontSize:12,fontWeight:500,textDecoration:'none',transition:'all 0.25s' }}
 // //               onMouseEnter={e=>{const el=e.currentTarget as HTMLAnchorElement;el.style.background='rgba(37,211,102,0.2)';el.style.transform='translateY(-2px)'}}
 // //               onMouseLeave={e=>{const el=e.currentTarget as HTMLAnchorElement;el.style.background='rgba(37,211,102,0.1)';el.style.transform='none'}}
 // //             >
 // //               <MessageCircle size={13}/> WhatsApp Us
 // //             </a>
 // //             <a href="#tours"
-// //               style={{ padding:'7px 18px',borderRadius:999,background:'linear-gradient(135deg,#c9a84c,#8b6914)',color:'#0c0a08',fontFamily:'Outfit,sans-serif',fontSize:12,fontWeight:600,textDecoration:'none',letterSpacing:'0.03em',transition:'all 0.25s' }}
+// //               style={{ padding:'7px 18px',borderRadius:999,background:'linear-gradient(135deg,#c9a84c,#8b6914)',color:'#0c0a08',fontFamily:'Inter,sans-serif',fontSize:12,fontWeight:600,textDecoration:'none',letterSpacing:'0.03em',transition:'all 0.25s' }}
 // //               onMouseEnter={e=>{const el=e.currentTarget as HTMLAnchorElement;el.style.transform='translateY(-2px)';el.style.boxShadow='0 8px 22px rgba(201,168,76,0.35)'}}
 // //               onMouseLeave={e=>{const el=e.currentTarget as HTMLAnchorElement;el.style.transform='none';el.style.boxShadow='none'}}
 // //             >Plan a Trip</a>
@@ -466,7 +466,7 @@
 // //                   style={{
 // //                     display:'flex',alignItems:'center',justifyContent:'space-between',
 // //                     width:'100%', padding:'14px 0', background:'none', border:'none', cursor:'pointer',
-// //                     fontFamily:'Outfit,sans-serif',fontSize:15,fontWeight:500,
+// //                     fontFamily:'Inter,sans-serif',fontSize:15,fontWeight:500,
 // //                     color: openSub===item.label ? '#c9a84c' : 'rgba(245,240,232,0.82)',
 // //                     transition:'color 0.2s',
 // //                     textAlign:'left',
@@ -488,7 +488,7 @@
 // //                   <div style={{ paddingBottom:10, paddingLeft:12, display:'flex', flexWrap:'wrap', gap:6 }}>
 // //                     {item.sub.map(s => (
 // //                       <a key={s} href="#" onClick={() => setMobileOpen(false)}
-// //                         style={{ padding:'5px 12px',borderRadius:999,fontSize:12,fontFamily:'Outfit,sans-serif',color:'rgba(201,168,76,0.7)',background:'rgba(201,168,76,0.07)',border:'1px solid rgba(201,168,76,0.12)',textDecoration:'none',transition:'all 0.2s' }}
+// //                         style={{ padding:'5px 12px',borderRadius:999,fontSize:12,fontFamily:'Inter,sans-serif',color:'rgba(201,168,76,0.7)',background:'rgba(201,168,76,0.07)',border:'1px solid rgba(201,168,76,0.12)',textDecoration:'none',transition:'all 0.2s' }}
 // //                         onMouseEnter={e=>{(e.currentTarget as HTMLAnchorElement).style.background='rgba(201,168,76,0.15)'}}
 // //                         onMouseLeave={e=>{(e.currentTarget as HTMLAnchorElement).style.background='rgba(201,168,76,0.07)'}}
 // //                       >{s}</a>
@@ -500,13 +500,13 @@
 
 // //             {/* Plan a Trip CTA */}
 // //             <a href="#tours" onClick={() => setMobileOpen(false)}
-// //               style={{ display:'block',marginTop:20,padding:'14px',borderRadius:14,background:'linear-gradient(135deg,#c9a84c,#8b6914)',color:'#0c0a08',fontFamily:'Outfit,sans-serif',fontSize:14,fontWeight:700,textDecoration:'none',textAlign:'center',letterSpacing:'0.04em' }}>
+// //               style={{ display:'block',marginTop:20,padding:'14px',borderRadius:14,background:'linear-gradient(135deg,#c9a84c,#8b6914)',color:'#0c0a08',fontFamily:'Inter,sans-serif',fontSize:14,fontWeight:700,textDecoration:'none',textAlign:'center',letterSpacing:'0.04em' }}>
 // //               Plan a Trip
 // //             </a>
 
 // //             {/* Bottom: phone + social */}
 // //             <div style={{ display:'flex',alignItems:'center',justifyContent:'space-between',marginTop:20,paddingTop:16,borderTop:'1px solid rgba(201,168,76,0.08)' }}>
-// //               <a href="tel:+919999999999" style={{ display:'flex',alignItems:'center',gap:6,color:'rgba(245,240,232,0.45)',fontSize:12,fontFamily:'Outfit,sans-serif',textDecoration:'none' }}>
+// //               <a href="tel:+919999999999" style={{ display:'flex',alignItems:'center',gap:6,color:'rgba(245,240,232,0.45)',fontSize:12,fontFamily:'Inter,sans-serif',textDecoration:'none' }}>
 // //                 <Phone size={12}/> +91 99999 99999
 // //               </a>
 // //               <SocialIcons size={15}/>
@@ -659,7 +659,7 @@
 //             <a href="tel:+919253289347" style={{
 //               display:'flex', alignItems:'center', gap:5,
 //               color:'rgba(245,240,232,0.5)', fontSize:11,
-//               fontFamily:'Outfit,sans-serif', textDecoration:'none',
+//               fontFamily:'Inter,sans-serif', textDecoration:'none',
 //               transition:'color 0.2s',
 //             }}
 //               onMouseEnter={e=>((e.currentTarget as HTMLAnchorElement).style.color=SG.sg)}
@@ -679,7 +679,7 @@
 //               <button style={{
 //                 display:'flex', alignItems:'center', gap:4,
 //                 background:'none', border:'none', cursor:'pointer',
-//                 color:'rgba(245,240,232,0.5)', fontSize:11, fontFamily:'Outfit,sans-serif',
+//                 color:'rgba(245,240,232,0.5)', fontSize:11, fontFamily:'Inter,sans-serif',
 //               }}>
 //                 <Globe size={11}/> EN (IN) <ChevronDown size={9}/>
 //               </button>
@@ -718,7 +718,7 @@
 //                   position: 'relative',
 //                   padding: '9px 18px',
 //                   borderRadius: 999,
-//                   fontFamily: 'Outfit,sans-serif',
+//                   fontFamily: 'Inter,sans-serif',
 //                   fontSize: 15,           // larger than before (was 13)
 //                   fontWeight: 600,        // bolder
 //                   letterSpacing: '0.02em',
@@ -757,7 +757,7 @@
 //                 background:'rgba(37,211,102,0.1)',
 //                 border:'1px solid rgba(37,211,102,0.28)',
 //                 color:'#25d366',
-//                 fontFamily:'Outfit,sans-serif', fontSize:13, fontWeight:500,
+//                 fontFamily:'Inter,sans-serif', fontSize:13, fontWeight:500,
 //                 textDecoration:'none', transition:'all 0.25s',
 //               }}
 //               onMouseEnter={e=>{const el=e.currentTarget as HTMLAnchorElement;el.style.background='rgba(37,211,102,0.2)';el.style.transform='translateY(-2px)';}}
@@ -772,7 +772,7 @@
 //                 padding:'9px 22px', borderRadius:999,
 //                 background: SG.sgGrad,
 //                 color:'#fff',
-//                 fontFamily:'Outfit,sans-serif', fontSize:13, fontWeight:700,
+//                 fontFamily:'Inter,sans-serif', fontSize:13, fontWeight:700,
 //                 textDecoration:'none', letterSpacing:'0.03em',
 //                 transition:'all 0.25s',
 //                 boxShadow:'0 4px 16px rgba(46,139,110,0.28)',
@@ -839,7 +839,7 @@
 //                 style={{
 //                   display:'flex', alignItems:'center', justifyContent:'space-between',
 //                   padding:'15px 0',
-//                   fontFamily:'Outfit,sans-serif', fontSize:16, fontWeight:600,
+//                   fontFamily:'Inter,sans-serif', fontSize:16, fontWeight:600,
 //                   color:'rgba(245,240,232,0.85)', textDecoration:'none',
 //                   borderBottom:`1px solid rgba(46,139,110,0.1)`,
 //                   transition:'color 0.2s, padding-left 0.2s',
@@ -859,7 +859,7 @@
 //               style={{
 //                 display:'block', marginTop:20, padding:'15px',
 //                 borderRadius:14, background:SG.sgGrad,
-//                 color:'#fff', fontFamily:'Outfit,sans-serif',
+//                 color:'#fff', fontFamily:'Inter,sans-serif',
 //                 fontSize:15, fontWeight:700, textDecoration:'none',
 //                 textAlign:'center', letterSpacing:'0.04em',
 //                 boxShadow:'0 6px 20px rgba(46,139,110,0.35)',
@@ -877,7 +877,7 @@
 //               <a href="tel:+919253289347" style={{
 //                 display:'flex', alignItems:'center', gap:6,
 //                 color:'rgba(245,240,232,0.45)', fontSize:12,
-//                 fontFamily:'Outfit,sans-serif', textDecoration:'none',
+//                 fontFamily:'Inter,sans-serif', textDecoration:'none',
 //               }}>
 //                 <Phone size={12}/> +91 92532 89347
 //               </a>
@@ -940,7 +940,7 @@ function MegaMenu({ regionKey, onClose }: { regionKey: 'india' | 'international'
       style={{ position: 'absolute', top: 'calc(100% + 8px)', left: '50%', transform: 'translateX(-50%)', zIndex: 200, background: '#fff', borderRadius: 14, boxShadow: '0 20px 60px rgba(0,0,0,0.14), 0 4px 16px rgba(0,0,0,0.07)', padding: '20px 24px 22px', minWidth: 480 }}
     >
       <div style={{ position: 'absolute', top: -8, left: '50%', transform: 'translateX(-50%)', width: 0, height: 0, borderLeft: '9px solid transparent', borderRight: '9px solid transparent', borderBottom: '9px solid #fff', filter: 'drop-shadow(0 -2px 2px rgba(0,0,0,0.06))' }}/>
-      <div style={{ fontFamily: '"Outfit",sans-serif', fontSize: 9, fontWeight: 700, color: SEA, letterSpacing: '0.24em', textTransform: 'uppercase', marginBottom: 12, paddingBottom: 10, borderBottom: '1px solid rgba(0,0,0,0.07)' }}>
+      <div style={{ fontFamily: '"Inter",sans-serif', fontSize: 9, fontWeight: 700, color: SEA, letterSpacing: '0.24em', textTransform: 'uppercase', marginBottom: 12, paddingBottom: 10, borderBottom: '1px solid rgba(0,0,0,0.07)' }}>
         {regionKey === 'india' ? 'India Destinations' : 'International Destinations'}
       </div>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: '2px 6px' }}>
@@ -949,7 +949,7 @@ function MegaMenu({ regionKey, onClose }: { regionKey: 'india' | 'international'
         ))}
       </div>
       <div style={{ marginTop: 14, paddingTop: 12, borderTop: '1px solid rgba(0,0,0,0.06)', display: 'flex', justifyContent: 'flex-end' }}>
-        <Link href={`/destinations/${regionKey}`} onClick={onClose} style={{ fontFamily: '"Outfit",sans-serif', fontSize: 12, fontWeight: 600, color: SEA, textDecoration: 'none' }}>
+        <Link href={`/destinations/${regionKey}`} onClick={onClose} style={{ fontFamily: '"Inter",sans-serif', fontSize: 12, fontWeight: 600, color: SEA, textDecoration: 'none' }}>
           View all {regionKey === 'india' ? 'India' : 'International'} destinations →
         </Link>
       </div>
@@ -961,7 +961,7 @@ function DestItem({ name, onClick }: { name: string; onClick: () => void }) {
   const [hov, setHov] = useState(false);
   return (
     <div onClick={onClick} onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)}
-      style={{ fontFamily: '"Outfit",sans-serif', fontSize: 13.5, fontWeight: hov ? 600 : 400, color: hov ? SEA : '#2a2a2a', padding: '8px 10px', borderRadius: 7, cursor: 'pointer', background: hov ? 'rgba(45,143,123,0.07)' : 'transparent', transition: 'all 0.16s ease', whiteSpace: 'nowrap' }}>
+      style={{ fontFamily: '"Inter",sans-serif', fontSize: 13.5, fontWeight: hov ? 600 : 400, color: hov ? SEA : '#2a2a2a', padding: '8px 10px', borderRadius: 7, cursor: 'pointer', background: hov ? 'rgba(45,143,123,0.07)' : 'transparent', transition: 'all 0.16s ease', whiteSpace: 'nowrap' }}>
       {name}
     </div>
   );
@@ -981,8 +981,8 @@ function SearchDropdown({ query, results, onSelect }: { query: string; results: 
       {results.length === 0 ? (
         <div style={{ padding: '20px', textAlign: 'center' }}>
           <div style={{ fontSize: 20, marginBottom: 6 }}>🔍</div>
-          <div style={{ fontFamily: '"Outfit",sans-serif', fontSize: 13, color: '#888' }}>No results for "{query}"</div>
-          <div style={{ fontFamily: '"Outfit",sans-serif', fontSize: 11, color: '#bbb', marginTop: 3 }}>Try Himalayas, Europe, or Bali</div>
+          <div style={{ fontFamily: '"Inter",sans-serif', fontSize: 13, color: '#888' }}>No results for "{query}"</div>
+          <div style={{ fontFamily: '"Inter",sans-serif', fontSize: 11, color: '#bbb', marginTop: 3 }}>Try Himalayas, Europe, or Bali</div>
         </div>
       ) : (
         (['destination','trip'] as const).map(kind => {
@@ -990,7 +990,7 @@ function SearchDropdown({ query, results, onSelect }: { query: string; results: 
           if (!group.length) return null;
           return (
             <div key={kind} style={{ borderTop: kind === 'trip' ? '1px solid rgba(0,0,0,0.06)' : 'none' }}>
-              <div style={{ padding: '10px 16px 4px', fontFamily: '"Outfit",sans-serif', fontSize: 9, fontWeight: 700, color: SEA, letterSpacing: '0.2em', textTransform: 'uppercase' }}>
+              <div style={{ padding: '10px 16px 4px', fontFamily: '"Inter",sans-serif', fontSize: 9, fontWeight: 700, color: SEA, letterSpacing: '0.2em', textTransform: 'uppercase' }}>
                 {kind === 'destination' ? 'Destinations' : 'Trips'}
               </div>
               {group.map((r, i) => <SearchRow key={i} result={r} onSelect={onSelect}/>)}
@@ -1012,21 +1012,21 @@ function SearchRow({ result, onSelect }: { result: SearchResult; onSelect: (r: S
           onError={e => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}/>
       </div>
       <div style={{ flex: 1, minWidth: 0 }}>
-        <div style={{ fontFamily: '"Outfit",sans-serif', fontSize: 13, fontWeight: 600, color: '#1a1a1a', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+        <div style={{ fontFamily: '"Inter",sans-serif', fontSize: 13, fontWeight: 600, color: '#1a1a1a', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
           {result.name}
         </div>
-        <div style={{ fontFamily: '"Outfit",sans-serif', fontSize: 10.5, color: '#888', marginTop: 1 }}>
+        <div style={{ fontFamily: '"Inter",sans-serif', fontSize: 10.5, color: '#888', marginTop: 1 }}>
           {result.kind === 'destination'
             ? `${result.region === 'india' ? 'India' : 'International'} · from ₹${result.startingPrice?.toLocaleString('en-IN')}`
             : `${result.duration} · from ₹${result.discountedPrice.toLocaleString('en-IN')}`}
         </div>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 2, flexShrink: 0 }}>
-        <div style={{ fontFamily: '"Outfit",sans-serif', fontSize: 8, fontWeight: 700, color: SEA, background: 'rgba(45,143,123,0.09)', borderRadius: 999, padding: '2px 8px', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+        <div style={{ fontFamily: '"Inter",sans-serif', fontSize: 8, fontWeight: 700, color: SEA, background: 'rgba(45,143,123,0.09)', borderRadius: 999, padding: '2px 8px', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
           {result.kind}
         </div>
         {result.kind === 'trip' && (
-          <div style={{ fontFamily: '"Outfit",sans-serif', fontSize: 8, color: 'rgba(45,143,123,0.55)' }}>opens modal ↗</div>
+          <div style={{ fontFamily: '"Inter",sans-serif', fontSize: 8, color: 'rgba(45,143,123,0.55)' }}>opens modal ↗</div>
         )}
       </div>
     </div>
@@ -1044,13 +1044,13 @@ function NavBarItem({ item, isOpen, onToggle, onClose, pathname }: { item: NavIt
     <div style={{ position: 'relative' }}>
       {item.type === 'link' ? (
         <Link href={item.href} onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)}
-          style={{ display: 'flex', alignItems: 'center', padding: '0 16px', height: 44, fontFamily: '"Outfit",sans-serif', fontSize: 16, fontWeight: lit ? 700 : 500, color: '#fff', textDecoration: 'none', background: lit ? 'rgba(255,255,255,0.15)' : 'transparent', borderBottom: isActive ? '2.5px solid rgba(255,255,255,0.9)' : '2.5px solid transparent', transition: 'all 0.18s ease', letterSpacing: '0.01em'}}>
+          style={{ display: 'flex', alignItems: 'center', padding: '0 16px', height: 44, fontFamily: '"Inter",sans-serif', fontSize: 16, fontWeight: lit ? 700 : 500, color: '#fff', textDecoration: 'none', background: lit ? 'rgba(255,255,255,0.15)' : 'transparent', borderBottom: isActive ? '2.5px solid rgba(255,255,255,0.9)' : '2.5px solid transparent', transition: 'all 0.18s ease', letterSpacing: '0.01em'}}>
           {item.label}
         </Link>
       ) : (
         <>
           <button onClick={onToggle} onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)}
-            style={{ display: 'flex', alignItems: 'center', gap: 5, padding: '0 16px', height: 44, fontFamily: '"Outfit",sans-serif', fontSize: 16, fontWeight: 500, color: '#fff', background: lit ? 'rgba(255,255,255,0.15)' : 'transparent', border: 'none', cursor: 'pointer', transition: 'background 0.18s ease', letterSpacing: '0.01em' }}>
+            style={{ display: 'flex', alignItems: 'center', gap: 5, padding: '0 16px', height: 44, fontFamily: '"Inter",sans-serif', fontSize: 16, fontWeight: 500, color: '#fff', background: lit ? 'rgba(255,255,255,0.15)' : 'transparent', border: 'none', cursor: 'pointer', transition: 'background 0.18s ease', letterSpacing: '0.01em' }}>
             {item.label}
             <motion.span animate={{ rotate: isOpen ? 180 : 0 }} transition={{ duration: 0.20 }} style={{ display: 'flex', alignItems: 'center' }}>
               <ChevronDown size={14} color="rgba(255,255,255,0.85)"/>
@@ -1072,12 +1072,12 @@ function MobileNavItem({ item, expanded, onToggle, onClose }: { item: NavItem; e
   return (
     <div style={{ borderBottom: '1px solid rgba(0,0,0,0.05)' }}>
       {item.type === 'link' ? (
-        <Link href={item.href} onClick={onClose} style={{ display: 'block', padding: '15px 24px', fontFamily: '"Outfit",sans-serif', fontSize: 15, fontWeight: 600, color: '#1a1a1a', textDecoration: 'none' }}>
+        <Link href={item.href} onClick={onClose} style={{ display: 'block', padding: '15px 24px', fontFamily: '"Inter",sans-serif', fontSize: 15, fontWeight: 600, color: '#1a1a1a', textDecoration: 'none' }}>
           {item.label}
         </Link>
       ) : (
         <>
-          <button onClick={onToggle} style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '15px 24px', fontFamily: '"Outfit",sans-serif', fontSize: 15, fontWeight: 600, color: '#1a1a1a', background: expanded ? 'rgba(45,143,123,0.04)' : 'none', border: 'none', cursor: 'pointer', textAlign: 'left', transition: 'background 0.18s' }}>
+          <button onClick={onToggle} style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '15px 24px', fontFamily: '"Inter",sans-serif', fontSize: 15, fontWeight: 600, color: '#1a1a1a', background: expanded ? 'rgba(45,143,123,0.04)' : 'none', border: 'none', cursor: 'pointer', textAlign: 'left', transition: 'background 0.18s' }}>
             {item.label}
             <motion.span animate={{ rotate: expanded ? 180 : 0 }} transition={{ duration: 0.22 }} style={{ display: 'flex' }}>
               <ChevronDown size={17} color="#666"/>
@@ -1089,7 +1089,7 @@ function MobileNavItem({ item, expanded, onToggle, onClose }: { item: NavItem; e
                 <div style={{ padding: '6px 20px 14px', display: 'flex', flexDirection: 'column', gap: 1 }}>
                   {dests.map(d => (
                     <button key={d.slug} onClick={() => { router.push(`/destinations/${item.key}/${d.slug}`); onClose(); }}
-                      style={{ textAlign: 'left', padding: '10px 12px', borderRadius: 8, fontFamily: '"Outfit",sans-serif', fontSize: 14, fontWeight: 500, color: '#2a2a2a', background: 'none', border: 'none', cursor: 'pointer', transition: 'background 0.14s, color 0.14s' }}
+                      style={{ textAlign: 'left', padding: '10px 12px', borderRadius: 8, fontFamily: '"Inter",sans-serif', fontSize: 14, fontWeight: 500, color: '#2a2a2a', background: 'none', border: 'none', cursor: 'pointer', transition: 'background 0.14s, color 0.14s' }}
                       onMouseEnter={e => { const el = e.currentTarget as HTMLButtonElement; el.style.background = 'rgba(45,143,123,0.08)'; el.style.color = SEA; }}
                       onMouseLeave={e => { const el = e.currentTarget as HTMLButtonElement; el.style.background = 'none'; el.style.color = '#2a2a2a'; }}>
                       {d.name}
@@ -1196,7 +1196,7 @@ export default function Navbar() {
               <input type="text" placeholder="Where do you want to go?" value={searchQuery}
                 onChange={e => handleSearch(e.target.value)}
                 onFocus={() => setShowSearch(true)}
-                style={{ flex: 1, border: 'none', background: 'transparent', fontFamily: '"Outfit",sans-serif', fontSize: 13, color: '#1a1a1a', outline: 'none' }}
+                style={{ flex: 1, border: 'none', background: 'transparent', fontFamily: '"Inter",sans-serif', fontSize: 13, color: '#1a1a1a', outline: 'none' }}
               />
               <AnimatePresence>
                 {searchQuery && (
@@ -1222,7 +1222,7 @@ export default function Navbar() {
                 const href = label === 'Home' ? '/' : `/${label.toLowerCase().replace(/ /g,'-')}`;
                 return (
                   <Link key={label} href={href}
-                    style={{ fontFamily: '"Outfit",sans-serif', fontSize: 16, fontWeight: 500, color: pathname === href ? SEA : '#2a2a2a', textDecoration: 'none', padding: '6px 11px', borderRadius: 8, transition: 'color 0.18s, background 0.18s', whiteSpace: 'nowrap' }}
+                    style={{ fontFamily: '"Inter",sans-serif', fontSize: 16, fontWeight: 500, color: pathname === href ? SEA : '#2a2a2a', textDecoration: 'none', padding: '6px 11px', borderRadius: 8, transition: 'color 0.18s, background 0.18s', whiteSpace: 'nowrap' }}
                     onMouseEnter={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.color = SEA; el.style.background = 'rgba(45,143,123,0.06)'; }}
                     onMouseLeave={e => { const el = e.currentTarget as HTMLAnchorElement; el.style.color = pathname === href ? SEA : '#2a2a2a'; el.style.background = 'transparent'; }}>
                     {label}
@@ -1235,7 +1235,7 @@ export default function Navbar() {
           {/* Desktop phone CTA */}
           {!isMobile && (
             <motion.a href="tel:+919253289347" whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}
-              style={{ display: 'flex', alignItems: 'center', gap: 7, padding: '9px 18px', borderRadius: 999, background: `linear-gradient(135deg,${SEA},${SEA_DK})`, color: '#fff', fontFamily: '"Outfit",sans-serif', fontSize: 16, fontWeight: 700, textDecoration: 'none', boxShadow: `0 4px 14px rgba(45,143,123,0.35)`, flexShrink: 0, whiteSpace: 'nowrap' }}>
+              style={{ display: 'flex', alignItems: 'center', gap: 7, padding: '9px 18px', borderRadius: 999, background: `linear-gradient(135deg,${SEA},${SEA_DK})`, color: '#fff', fontFamily: '"Inter",sans-serif', fontSize: 16, fontWeight: 700, textDecoration: 'none', boxShadow: `0 4px 14px rgba(45,143,123,0.35)`, flexShrink: 0, whiteSpace: 'nowrap' }}>
               <Phone size={13}/> +91 92532 89347
             </motion.a>
           )}
@@ -1304,7 +1304,7 @@ export default function Navbar() {
                     const href = label === 'Home' ? '/' : `/${label.toLowerCase().replace(/ /g,'-')}`;
                     return (
                       <Link key={label} href={href} onClick={() => setMobileOpen(false)}
-                        style={{ display:'block', padding:'14px 24px', fontFamily:'"Outfit",sans-serif', fontSize:14.5, fontWeight:500, color:'#444', textDecoration:'none', borderBottom:'1px solid rgba(0,0,0,0.05)' }}>
+                        style={{ display:'block', padding:'14px 24px', fontFamily:'"Inter",sans-serif', fontSize:14.5, fontWeight:500, color:'#444', textDecoration:'none', borderBottom:'1px solid rgba(0,0,0,0.05)' }}>
                         {label}
                       </Link>
                     );
@@ -1312,7 +1312,7 @@ export default function Navbar() {
                 </div>
               </div>
               <div style={{ padding:'16px 20px 28px', flexShrink:0, borderTop:'1px solid rgba(0,0,0,0.07)' }}>
-                <a href="tel:+919253289347" style={{ display:'flex', alignItems:'center', justifyContent:'center', gap:8, padding:'13px', borderRadius:12, background:`linear-gradient(135deg,${SEA},${SEA_DK})`, color:'#fff', textDecoration:'none', fontFamily:'"Outfit",sans-serif', fontSize:14, fontWeight:700, boxShadow:`0 4px 16px rgba(45,143,123,0.35)` }}>
+                <a href="tel:+919253289347" style={{ display:'flex', alignItems:'center', justifyContent:'center', gap:8, padding:'13px', borderRadius:12, background:`linear-gradient(135deg,${SEA},${SEA_DK})`, color:'#fff', textDecoration:'none', fontFamily:'"Inter",sans-serif', fontSize:14, fontWeight:700, boxShadow:`0 4px 16px rgba(45,143,123,0.35)` }}>
                   <Phone size={16}/> +91-9253289347
                 </a>
               </div>
@@ -1322,7 +1322,7 @@ export default function Navbar() {
       </AnimatePresence>
 
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
         * { box-sizing: border-box; }
       `}</style>
     </>

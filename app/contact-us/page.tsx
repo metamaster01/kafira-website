@@ -258,16 +258,17 @@ export default function ContactPage() {
           </div>
 
           <h1 style={{
-            fontFamily:'"Playfair Display",serif',
-            fontWeight:700,
+            fontFamily:'"Montserrat",sans-serif',
+            fontWeight:600,
             fontSize:'clamp(32px,5vw,60px)',
             lineHeight:1.1,
             color:'#e8f7f4',
-            marginBottom:14,
-            letterSpacing:'-0.01em',
+            marginBottom:10,
+            letterSpacing:'0.22em',
+            textTransform:'uppercase',
           }}>
-            Plan Your Dream Trip<br/>
-            <span style={{ color:C.seaLt }}>With Ease</span>
+            Contact{ }
+            <span style={{ color:C.seaLt }}> Us</span>
           </h1>
 
           <p style={{
@@ -275,9 +276,9 @@ export default function ContactPage() {
             fontSize:'clamp(14px,1.4vw,16px)',
             color:'rgba(180,230,220,0.62)',
             lineHeight:1.75,
-            marginBottom:28,
+            marginBottom:22,
           }}>
-            Tell us about your dream trip and our travel experts will design the perfect itinerary for your next adventure — personalised, priced fairly, and crafted with care.
+            Get in touch and take the first step toward your next unforgettable escape.
           </p>
 
           {/* trust chips */}

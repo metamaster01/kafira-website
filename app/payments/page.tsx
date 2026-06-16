@@ -186,7 +186,7 @@ function PaymentCard({
 // ═══════════════════════════════════════════════════════
 export default function PaymentsPage() {
   return (
-    <main style={{ background: "#f7f5f0", minHeight: "100vh" }}>
+    <main style={{ background: "#071a16", minHeight: "100vh" }}>
       <Navbar />
 
       <section
@@ -240,7 +240,7 @@ export default function PaymentsPage() {
               fontWeight: 800,
               fontSize: "clamp(34px,6vw,58px)",
               lineHeight: 1.08,
-              color: TEXT,
+              color: "#fff",
               margin: "0 0 16px",
               letterSpacing: "-0.025em",
             }}
@@ -253,7 +253,7 @@ export default function PaymentsPage() {
               fontFamily: '"Outfit",sans-serif',
               fontSize: "clamp(13px,1.3vw,16px)",
               fontWeight: 400,
-              color: SUB,
+              color: "#fff",
               lineHeight: 1.75,
               margin: 0,
             }}
