@@ -93,26 +93,26 @@ export default function CategoryHero({
             marginBottom: 14,
           }}
         >
-          <div style={{ height: 1.5, width: 22, background: "rgba(255,255,255,0.45)" }} />
+          <div style={{ height: 1.5, width: 22, background: "#3db89e" }} />
           <span
             style={{
               fontFamily: '"Outfit",sans-serif',
               fontSize: 10.5,
               fontWeight: 700,
-              color: "#fff",
+              color: "#3db89e",
               letterSpacing: "0.28em",
               textTransform: "uppercase",
             }}
           >
             {eyebrow}
           </span>
-          <div style={{ height: 1.5, width: 22, background: "rgba(255,255,255,0.45)" }} />
+          <div style={{ height: 1.5, width: 22, background: "#3db89e" }} />
         </div>
 
         {/* title */}
         <h1
           style={{
-            fontFamily: '"Outfit", sans-serif',
+            fontFamily: '"Playfair Display",serif',
             fontWeight: 800,
             fontSize: "clamp(32px,6vw,58px)",
             lineHeight: 1.08,
@@ -122,13 +122,13 @@ export default function CategoryHero({
           }}
         >
           {title}{" "}
-          <span style={{ color: "#fff" }}>{highlight}</span>
+          <span style={{ color: "#3db89e" }}>{highlight}</span>
         </h1>
 
         {/* subtitle */}
         <p
           style={{
-            fontFamily: '"Outfit", sans-serif',
+            fontFamily: '"Inter",sans-serif',
             fontSize: "clamp(13px,1.3vw,16px)",
             fontWeight: 400,
             color: "rgba(220,245,240,0.78)",

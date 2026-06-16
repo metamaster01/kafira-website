@@ -38,13 +38,13 @@ export default function AboutHero() {
     >
       {/* Parallax image */}
       <img
-        src="/about-hero-2.jpg"
+        src="/images/client-given-1.jpeg"
         alt="Two travelers laughing outdoors"
         className="about-hero-img absolute inset-0 w-full h-[120%] object-cover object-center"
       />
 
       {/* Transparent green tint overlay */}
-      <div className="absolute inset-0 bg-[#2d6a5a]/45" />
+      {/* <div className="absolute inset-0 bg-[#2d6a5a]/45" /> */}
 
       {/* ABOUT US heading — centred */}
       <div className="relative z-10 flex items-center justify-center h-full px-4">

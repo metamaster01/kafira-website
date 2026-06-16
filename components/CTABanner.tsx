@@ -118,7 +118,7 @@ export default function CTABanner() {
                 background: 'rgba(255,255,255,0.12)',
                 border: '1.5px solid rgba(255,255,255,0.65)',
                 color: '#ffffff',
-                fontFamily: '"Outfit", sans-serif',
+                fontFamily: '"Playfair Display",serif',
                 fontSize: 'clamp(12.5px,1.1vw,14px)',
                 fontWeight: 600,
                 textDecoration: 'none',

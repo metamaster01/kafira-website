@@ -197,8 +197,8 @@ export default function AdminLoginPage() {
   }
 
   return (
-    <main style={{ minHeight: '100vh', background: '#f4f9f6', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '24px', fontFamily: '"Outfit", sans-serif' }}>
-      <style>{`@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap');`}</style>
+    <main style={{ minHeight: '100vh', background: '#f4f9f6', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '24px', fontFamily: '"Playfair Display",serif' }}>
+      <style>{`@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&display=swap');`}</style>
 
       <div style={{ width: '100%', maxWidth: 400 }}>
 

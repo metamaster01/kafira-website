@@ -357,7 +357,7 @@ export default function BlogsClient({ featured, blogs }: Props) {
   return (
     <main style={{ background: '#ffffff', minHeight: '100vh', fontFamily: '"Outfit", sans-serif' }}>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap');
         .blog-card-img { transition: transform 0.5s ease; }
         .blog-card:hover .blog-card-img { transform: scale(1.04); }
         .blog-card { transition: box-shadow 0.3s ease; }
@@ -384,51 +384,25 @@ export default function BlogsClient({ featured, blogs }: Props) {
         <div
           style={{
             position: 'absolute', inset: 0,
-            backgroundImage: "url('/blogs-hero.jpg')",
+            backgroundImage: "url('/images/client-given-3.jpeg')",
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
           }}
         />
         {/* seagreen tint overlay */}
-        <div style={{ position: 'absolute', inset: 0, background: 'rgba(28, 90, 55, 0.58)' }} />
+        {/* <div style={{ position: 'absolute', inset: 0, background: 'rgba(28, 90, 55, 0.58)' }} /> */}
 
-        {/* centred title */}
-        <div style={{
-          position: 'absolute', inset: 0,
-          display: 'flex', flexDirection: 'column',
-          alignItems: 'center', justifyContent: 'center',
-          textAlign: 'center', padding: '0 24px',
-        }}>
-          <h1 style={{
-            fontFamily: '"Outfit", sans-serif',
-            fontWeight: 800,
-            fontSize: 'clamp(32px, 5vw, 58px)',
-            color: '#ffffff',
-            letterSpacing: '-0.02em',
-            lineHeight: 1.1,
-            margin: 0,
-          }}>
-            Kafira Travel Blogs
-          </h1>
-          <div style={{
-            marginTop: 18,
-            width: 56,
-            height: 2,
-            borderRadius: 2,
-            background: 'rgba(255,255,255,0.75)',
-          }} />
-          <p style={{
-            marginTop: 16,
-            fontFamily: '"Outfit", sans-serif',
-            fontSize: 'clamp(13px, 1.4vw, 16px)',
-            fontWeight: 400,
-            color: 'rgba(255,255,255,0.80)',
-            lineHeight: 1.7,
-            maxWidth: 480,
-          }}>
-            Stories, guides and inspiration for your next adventure
-          </p>
+        <div className="relative z-10 flex items-center justify-center h-full px-4">
+          <motion.h1
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+            style={{ fontFamily: 'Montserrat, sans-serif' }}
+            className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-[0.22em] uppercase text-center"
+          >
+            Blogs
+          </motion.h1>
         </div>
       </section>
 

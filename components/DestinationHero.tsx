@@ -48,7 +48,7 @@ export default function DestinationHero({
           style={{ maxWidth: 900, margin: '0 auto', textAlign: 'center', position: 'relative', zIndex: 1 }}
         >
           <h1 style={{
-            fontFamily: '"Outfit", sans-serif',
+            fontFamily: '"Playfair Display",serif',
             fontWeight: 800,
             fontSize: 'clamp(22px,3.6vw,38px)',
             color: '#ffffff',

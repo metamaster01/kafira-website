@@ -61,7 +61,7 @@ export default function RegionHero({
           }}
         >
           <h1 style={{
-            fontFamily: '"Outfit", sans-serif',
+            fontFamily: '"Playfair Display",serif',
             fontWeight: 800,
             fontSize: 'clamp(26px,4.5vw,46px)',
             color: '#ffffff',
@@ -75,7 +75,7 @@ export default function RegionHero({
           {/* breadcrumb */}
           <div style={{
             display: 'flex', alignItems: 'center', gap: 6,
-            fontFamily: '"Outfit", sans-serif',
+            fontFamily: '"Inter",sans-serif',
             fontSize: 12.5, fontWeight: 500,
             color: 'rgba(255,255,255,0.80)',
           }}>

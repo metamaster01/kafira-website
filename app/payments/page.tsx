@@ -236,7 +236,7 @@ export default function PaymentsPage() {
 
           <h1
             style={{
-              fontFamily: '"Outfit",sans-serif',
+              fontFamily: '"Playfair Display",serif',
               fontWeight: 800,
               fontSize: "clamp(34px,6vw,58px)",
               lineHeight: 1.08,
