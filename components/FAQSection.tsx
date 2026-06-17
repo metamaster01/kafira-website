@@ -240,10 +240,10 @@ export default function FAQSection() {
               {/* category label row */}
               <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '18px 0 10px', borderBottom: `1px solid ${C.border}`, marginBottom: 2 }}>
                 <div style={{ width: 8, height: 8, borderRadius: '50%', background: `linear-gradient(135deg,${C.seaLt},${C.sea})`, flexShrink: 0, boxShadow: `0 0 6px ${C.sea}66` }}/>
-                <span style={{ fontFamily: '"Montserrat",sans-serif', fontSize: 11, fontWeight: 700, color: C.sea, letterSpacing: '0.2em', textTransform: 'uppercase' }}>
+                <span style={{ fontFamily: '"Inter",sans-serif', fontSize: 11, fontWeight: 700, color: C.sea, letterSpacing: '0.2em' }}>
                   {active.category}
                 </span>
-                <span style={{ fontFamily: '"Montserrat",sans-serif', fontSize: 11, fontWeight: 500, color: C.muted, marginLeft: 'auto' }}>
+                <span style={{ fontFamily: '"Inter",sans-serif', fontSize: 11, fontWeight: 500, color: C.muted, marginLeft: 'auto' }}>
                   {active.items.length} questions
                 </span>
               </div>
