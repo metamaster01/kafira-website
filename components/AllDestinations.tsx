@@ -80,7 +80,7 @@ function DestAvatar({
 
       {/* label */}
       <span style={{
-        fontFamily: '"Outfit",sans-serif',
+        fontFamily: '"Inter",sans-serif',
         fontSize: 11.5, fontWeight: hov ? 600 : 500,
         color: hov ? accent : '#444',
         textAlign: 'center',
@@ -173,7 +173,7 @@ export default function AllDestinations() {
                 style={{
                   padding: '7px 20px',
                   borderRadius: 999,
-                  fontFamily: '"Outfit",sans-serif',
+                  fontFamily: '"Inter",sans-serif',
                   fontSize: 12, fontWeight: 600,
                   cursor: 'pointer',
                   transition: 'all 0.20s ease',
@@ -246,6 +246,7 @@ export default function AllDestinations() {
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Outfit:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Montserrat:wght@300;400;500;700&display=swap');
+       
       `}</style>
     </section>
   );

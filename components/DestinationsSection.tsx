@@ -1322,7 +1322,7 @@ function DestCard({
         pointerEvents: 'none',
       }}>
         <div style={{
-          fontFamily: '"Outfit", sans-serif',
+          fontFamily: '"Inter", sans-serif',
           fontSize: 9, fontWeight: 600,
           color: 'rgba(255,255,255,0.75)',
           letterSpacing: '0.16em',
@@ -1341,7 +1341,7 @@ function DestCard({
       }}>
         {/* destination name — large bold white, like reference */}
         <div style={{
-          fontFamily: '"Outfit", sans-serif',
+          fontFamily: '"Inter", sans-serif',
           fontWeight: 700,
           fontSize: 28,
           lineHeight: 1.05,
@@ -1357,9 +1357,9 @@ function DestCard({
 
         {/* price — exactly "Starting Price Rs. X/-" from reference */}
         <div style={{
-          fontFamily: '"Outfit", sans-serif',
+          fontFamily: '"Inter", sans-serif',
           fontSize: 12,
-          fontWeight: 500,
+          fontWeight: 600,
           color: 'rgba(255,255,255,0.82)',
           letterSpacing: '0.01em',
         }}>

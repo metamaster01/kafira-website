@@ -26,8 +26,8 @@ export default function DestinationsGrid({
         {/* heading */}
         <div style={{ textAlign: 'center', marginBottom: 'clamp(24px,3.5vw,40px)' }}>
           <h2 style={{
-            fontFamily: '"Outfit", sans-serif',
-            fontWeight: 800,
+            fontFamily: '"Inter", sans-serif',
+            fontWeight: 600,
             fontSize: 'clamp(20px,2.8vw,32px)',
             color: '#0f2720',
             margin: 0,
@@ -58,7 +58,7 @@ export default function DestinationsGrid({
         {destinations.length === 0 && (
           <div style={{
             textAlign: 'center', padding: '60px 20px',
-            fontFamily: '"Outfit",sans-serif', fontSize: 14, color: 'rgba(0,0,0,0.4)',
+            fontFamily: '"Montserrat",sans-serif', fontSize: 14, color: 'rgba(0,0,0,0.4)',
           }}>
             No destinations found in this region yet.
           </div>
@@ -78,6 +78,8 @@ export default function DestinationsGrid({
     }
   }
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
       `}</style>
     </section>
   );

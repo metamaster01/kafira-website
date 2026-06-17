@@ -77,7 +77,7 @@ export default function AboutProcess() {
             <span style={{ fontFamily: '"Montserrat",sans-serif', fontSize: 10, fontWeight: 700, color: C.sea, letterSpacing: '0.26em', textTransform: 'uppercase' }}>Our Process</span>
             <div style={{ height: 1, width: 28, background: `linear-gradient(to left,transparent,${C.sea})` }}/>
           </div>
-          <h2 style={{ fontFamily: '"Playfair Display",serif', fontWeight: 800, fontSize: 'clamp(28px,3.8vw,52px)', color: C.text, lineHeight: 1.1, marginBottom: 12, letterSpacing: '-0.01em' }}>
+          <h2 style={{ fontFamily: '"Inter",sans-serif', fontWeight: 800, fontSize: 'clamp(28px,3.8vw,52px)', color: C.text, lineHeight: 1.1, marginBottom: 12, letterSpacing: '-0.01em' }}>
             How We Plan <span style={{ fontStyle: 'italic', color: C.sea }}>Your Journey</span>
           </h2>
           <p style={{ fontFamily: '"Montserrat",sans-serif', fontWeight: 400, fontSize: 15, color: C.muted, maxWidth: 460, margin: '0 auto' }}>
@@ -133,8 +133,8 @@ export default function AboutProcess() {
 
                 <div>
                   <h3 style={{
-                    fontFamily: '"Playfair Display",serif',
-                    fontWeight: 700,
+                    fontFamily: '"Inter",sans-serif',
+                    fontWeight: 600,
                     fontSize: 'clamp(16px,1.8vw,20px)',
                     color: '#e8f7f4',
                     lineHeight: 1.25,

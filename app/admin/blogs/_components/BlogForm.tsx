@@ -40,7 +40,7 @@ const inp: React.CSSProperties = {
   width:'100%', boxSizing:'border-box',
   border:`1.5px solid ${SEA_BD}`, borderRadius:12,
   background:'#f7faf9', padding:'12px 14px',
-  fontFamily:'"Outfit",sans-serif', fontSize:13, color:TEXT,
+  fontFamily:'"Montserrat",sans-serif', fontSize:13, color:TEXT,
   outline:'none', transition:'border-color 0.2s, box-shadow 0.2s',
 }
 
@@ -79,8 +79,8 @@ function Card({ title, hint, children }: { title:string; hint?:string; children:
   return (
     <div style={{ background:'#fff', borderRadius:20, border:`1px solid ${SEA_BD}`, overflow:'hidden', boxShadow:'0 4px 20px rgba(15,39,32,0.04)' }}>
       <div style={{ borderBottom:`1px solid ${SEA_BD}`, padding:'16px 24px', background:'#f7faf9' }}>
-        <p style={{ fontFamily:'"Outfit",sans-serif', fontSize:13, fontWeight:700, color:TEXT, margin:0 }}>{title}</p>
-        {hint && <p style={{ fontFamily:'"Outfit",sans-serif', fontSize:11, color:MUTED, margin:'3px 0 0' }}>{hint}</p>}
+        <p style={{ fontFamily:'"Montserrat",sans-serif', fontSize:13, fontWeight:700, color:TEXT, margin:0 }}>{title}</p>
+        {hint && <p style={{ fontFamily:'"Montserrat",sans-serif', fontSize:11, color:MUTED, margin:'3px 0 0' }}>{hint}</p>}
       </div>
       <div style={{ padding:'20px 24px' }}>{children}</div>
     </div>
@@ -90,7 +90,7 @@ function Card({ title, hint, children }: { title:string; hint?:string; children:
 function Field({ label, hint, required, children }: { label:string; hint?:string; required?:boolean; children:React.ReactNode }) {
   return (
     <div style={{ display:'flex', flexDirection:'column', gap:7 }}>
-      <label style={{ fontFamily:'"Outfit",sans-serif', fontSize:12, fontWeight:700, color:SUB, letterSpacing:'0.03em' }}>
+      <label style={{ fontFamily:'"Montserrat",sans-serif', fontSize:12, fontWeight:700, color:SUB, letterSpacing:'0.03em' }}>
         {label}{required && <span style={{ color:'#dc2626', marginLeft:2 }}>*</span>}
         {hint && <span style={{ fontWeight:400, color:MUTED, marginLeft:8, fontSize:11 }}>{hint}</span>}
       </label>
@@ -143,30 +143,31 @@ export default function BlogForm({ mode, blogId, initialData={}, initialSections
   const btnPrimary: React.CSSProperties = {
     display:'inline-flex', alignItems:'center', gap:8,
     background:SEA, color:'#fff', border:'none', borderRadius:14,
-    padding:'12px 22px', fontFamily:'"Outfit",sans-serif', fontSize:13, fontWeight:700,
+    padding:'12px 22px', fontFamily:'"Inter",sans-serif', fontSize:13, fontWeight:700,
     cursor:'pointer', transition:'opacity 0.2s',
   }
   const btnSecondary: React.CSSProperties = {
     display:'inline-flex', alignItems:'center', gap:8,
     background:'#fff', color:SUB, border:`1.5px solid ${SEA_BD}`, borderRadius:14,
-    padding:'12px 22px', fontFamily:'"Outfit",sans-serif', fontSize:13, fontWeight:600,
+    padding:'12px 22px', fontFamily:'"Montserrat",sans-serif', fontSize:13, fontWeight:600,
     cursor:'pointer', transition:'background 0.15s',
   }
 
   return (
-    <form onSubmit={handleSubmit} style={{ maxWidth:860, margin:'0 auto', padding:'clamp(24px,4vw,40px)', display:'flex', flexDirection:'column', gap:24, fontFamily:'"Outfit",sans-serif' }}>
+    <form onSubmit={handleSubmit} style={{ maxWidth:860, margin:'0 auto', padding:'clamp(24px,4vw,40px)', display:'flex', flexDirection:'column', gap:24, fontFamily:'"Montserrat",sans-serif' }}>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
         @keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
       `}</style>
 
       {/* Page header */}
       <div style={{ display:'flex', alignItems:'flex-start', justifyContent:'space-between', gap:16, flexWrap:'wrap' }}>
         <div>
-          <h1 style={{ fontFamily:'"Outfit",sans-serif', fontWeight:800, fontSize:'clamp(20px,3vw,28px)', color:TEXT, margin:'0 0 6px', letterSpacing:'-0.02em' }}>
+          <h1 style={{ fontFamily:'"Inter",sans-serif', fontWeight:800, fontSize:'clamp(20px,3vw,28px)', color:TEXT, margin:'0 0 6px', letterSpacing:'-0.02em' }}>
             {mode==='new'?'New Blog Post':'Edit Blog Post'}
           </h1>
-          <p style={{ fontFamily:'"Outfit",sans-serif', fontSize:13, color:MUTED, margin:0 }}>
+          <p style={{ fontFamily:'"Montserrat",sans-serif', fontSize:13, color:MUTED, margin:0 }}>
             {mode==='new'?'Fill in the details and publish':'Update and save your changes'}
           </p>
         </div>
@@ -187,7 +188,7 @@ export default function BlogForm({ mode, blogId, initialData={}, initialSections
 
       {/* Error */}
       {error && (
-        <div style={{ background:'#fff5f5', border:'1px solid #fecaca', borderRadius:14, padding:'12px 16px', fontFamily:'"Outfit",sans-serif', fontSize:13, color:'#dc2626' }}>
+        <div style={{ background:'#fff5f5', border:'1px solid #fecaca', borderRadius:14, padding:'12px 16px', fontFamily:'"Inter",sans-serif', fontSize:13, color:'#dc2626' }}>
           {error}
         </div>
       )}
@@ -203,10 +204,10 @@ export default function BlogForm({ mode, blogId, initialData={}, initialSections
 
           <Field label="Slug" hint="Auto-generated from title">
             <div style={{ display:'flex', alignItems:'center', border:`1.5px solid ${SEA_BD}`, borderRadius:12, background:'#f7faf9', overflow:'hidden' }}>
-              <span style={{ padding:'12px 12px', fontFamily:'"Outfit",sans-serif', fontSize:12, color:MUTED, flexShrink:0 }}>/blogs/</span>
+              <span style={{ padding:'12px 12px', fontFamily:'"Montserrat",sans-serif', fontSize:12, color:MUTED, flexShrink:0 }}>/blogs/</span>
               <input type="text" value={form.slug} onChange={(e)=>setField('slug',e.target.value)}
                 placeholder="hidden-gems-south-india"
-                style={{ flex:1, border:'none', background:'transparent', padding:'12px 12px 12px 0', fontFamily:'"Outfit",sans-serif', fontSize:13, color:TEXT, outline:'none' }} />
+                style={{ flex:1, border:'none', background:'transparent', padding:'12px 12px 12px 0', fontFamily:'"Montserrat",sans-serif', fontSize:13, color:TEXT, outline:'none' }} />
             </div>
           </Field>
 
@@ -219,7 +220,7 @@ export default function BlogForm({ mode, blogId, initialData={}, initialSections
             <div style={{ display:'flex', flexDirection:'column', gap:10 }}>
               <InputEl type="url" value={form.cover_image_url} placeholder="https://… or upload below"
                 onChange={(e)=>setField('cover_image_url',e.target.value)} />
-              <label style={{ display:'inline-flex', alignItems:'center', gap:8, cursor:'pointer', border:`1.5px dashed ${SEA_BD}`, borderRadius:10, padding:'9px 16px', width:'fit-content', fontFamily:'"Outfit",sans-serif', fontSize:12, fontWeight:600, color:MUTED, transition:'color 0.15s, border-color 0.15s' }}
+              <label style={{ display:'inline-flex', alignItems:'center', gap:8, cursor:'pointer', border:`1.5px dashed ${SEA_BD}`, borderRadius:10, padding:'9px 16px', width:'fit-content', fontFamily:'"Montserrat",sans-serif', fontSize:12, fontWeight:600, color:MUTED, transition:'color 0.15s, border-color 0.15s' }}
                 onMouseEnter={(e)=>{ e.currentTarget.style.color=SEA; e.currentTarget.style.borderColor=SEA }}
                 onMouseLeave={(e)=>{ e.currentTarget.style.color=MUTED; e.currentTarget.style.borderColor=SEA_BD }}>
                 {uploading==='cover' ? <Loader2 size={14} style={{ color:SEA, animation:'spin 1s linear infinite' }} /> : <Upload size={14} />}
@@ -247,7 +248,7 @@ export default function BlogForm({ mode, blogId, initialData={}, initialSections
               <label style={{ display:'flex', alignItems:'center', gap:8, cursor:'pointer', paddingTop:10 }}>
                 <input type="checkbox" checked={form.is_featured} onChange={(e)=>setField('is_featured',e.target.checked)}
                   style={{ width:16, height:16, accentColor:SEA, cursor:'pointer' }} />
-                <span style={{ fontFamily:'"Outfit",sans-serif', fontSize:13, fontWeight:500, color:SUB }}>Mark as featured</span>
+                <span style={{ fontFamily:'"Montserrat",sans-serif', fontSize:13, fontWeight:300, color:SUB }}>Mark as featured</span>
               </label>
             </Field>
           </div>
@@ -264,7 +265,7 @@ export default function BlogForm({ mode, blogId, initialData={}, initialSections
                 style={{
                   borderRadius:999, border:`1.5px solid ${sel?SEA:SEA_BD}`,
                   background:sel?SEA:SEA_BG, color:sel?'#fff':SUB,
-                  padding:'5px 14px', fontFamily:'"Outfit",sans-serif', fontSize:12, fontWeight:600,
+                  padding:'5px 14px', fontFamily:'"Inter",sans-serif', fontSize:12, fontWeight:600,
                   cursor:'pointer', transition:'all 0.15s',
                 }}>
                 {tag.name}
@@ -278,7 +279,7 @@ export default function BlogForm({ mode, blogId, initialData={}, initialSections
             onKeyDown={(e)=>{ if(e.key==='Enter'){e.preventDefault();handleCreateTag()} }}
             style={{ flex:1 }} />
           <button type="button" onClick={handleCreateTag}
-            style={{ border:`1.5px solid ${SEA_BD}`, borderRadius:12, background:'#fff', padding:'0 18px', fontFamily:'"Outfit",sans-serif', fontSize:13, fontWeight:600, color:SUB, cursor:'pointer', flexShrink:0, transition:'background 0.15s, color 0.15s' }}
+            style={{ border:`1.5px solid ${SEA_BD}`, borderRadius:12, background:'#fff', padding:'0 18px', fontFamily:'"Inter",sans-serif', fontSize:13, fontWeight:600, color:SUB, cursor:'pointer', flexShrink:0, transition:'background 0.15s, color 0.15s' }}
             onMouseEnter={(e)=>{ e.currentTarget.style.background=SEA_BG; e.currentTarget.style.color=SEA }}
             onMouseLeave={(e)=>{ e.currentTarget.style.background='#fff'; e.currentTarget.style.color=SUB }}>
             + Add
@@ -298,7 +299,7 @@ export default function BlogForm({ mode, blogId, initialData={}, initialSections
               onImageUpload={(file,onSuccess)=>handleImageUpload(file,'sections',onSuccess,`section-${index}`)} />
           ))}
           <button type="button" onClick={addSection}
-            style={{ display:'flex', alignItems:'center', justifyContent:'center', gap:8, width:'100%', border:`1.5px dashed ${SEA_BD}`, borderRadius:14, padding:'14px', fontFamily:'"Outfit",sans-serif', fontSize:13, fontWeight:600, color:MUTED, background:'transparent', cursor:'pointer', transition:'color 0.15s, border-color 0.15s' }}
+            style={{ display:'flex', alignItems:'center', justifyContent:'center', gap:8, width:'100%', border:`1.5px dashed ${SEA_BD}`, borderRadius:14, padding:'14px', fontFamily:'"Inter",sans-serif', fontSize:13, fontWeight:600, color:MUTED, background:'transparent', cursor:'pointer', transition:'color 0.15s, border-color 0.15s' }}
             onMouseEnter={(e)=>{ e.currentTarget.style.color=SEA; e.currentTarget.style.borderColor=SEA }}
             onMouseLeave={(e)=>{ e.currentTarget.style.color=MUTED; e.currentTarget.style.borderColor=SEA_BD }}>
             <Plus size={15} /> Add Section
@@ -352,7 +353,7 @@ function SectionEditor({ index, section, total, uploading, onChange, onRemove, o
   const inp2: React.CSSProperties = {
     width:'100%', boxSizing:'border-box', border:`1.5px solid ${SEA_BD}`,
     borderRadius:10, background:'#f7faf9', padding:'10px 13px',
-    fontFamily:'"Outfit",sans-serif', fontSize:13, color:TEXT, outline:'none',
+    fontFamily:'"Inter",sans-serif', fontSize:13, color:TEXT, outline:'none',
     transition:'border-color 0.2s, box-shadow 0.2s',
   }
   const focus = (e: React.FocusEvent<any>) => { e.target.style.borderColor=SEA; e.target.style.boxShadow='0 0 0 3px rgba(45,143,123,0.10)' }
@@ -363,11 +364,11 @@ function SectionEditor({ index, section, total, uploading, onChange, onRemove, o
       {/* Header bar */}
       <div style={{ display:'flex', alignItems:'center', gap:10, padding:'10px 14px', background:'#f7faf9', borderBottom:`1px solid ${SEA_BD}` }}>
         <GripVertical size={15} style={{ color:MUTED, flexShrink:0 }} />
-        <span style={{ fontFamily:'"Outfit",sans-serif', fontSize:10, fontWeight:700, color:MUTED, letterSpacing:'0.12em', textTransform:'uppercase' }}>
+        <span style={{ fontFamily:'"Inter",sans-serif', fontSize:10, fontWeight:700, color:MUTED, letterSpacing:'0.12em', textTransform:'uppercase' }}>
           Section {index+1}
         </span>
         <select value={section.type} onChange={(e)=>onChange('type',e.target.value)}
-          style={{ marginLeft:8, border:`1px solid ${SEA_BD}`, borderRadius:8, background:'#fff', padding:'5px 10px', fontFamily:'"Outfit",sans-serif', fontSize:12, color:TEXT, outline:'none' }}>
+          style={{ marginLeft:8, border:`1px solid ${SEA_BD}`, borderRadius:8, background:'#fff', padding:'5px 10px', fontFamily:'"Inter",sans-serif', fontSize:12, color:TEXT, outline:'none' }}>
           {SECTION_TYPES.map(t=><option key={t.value} value={t.value}>{t.label}</option>)}
         </select>
         <div style={{ marginLeft:'auto', display:'flex', alignItems:'center', gap:4 }}>
@@ -408,7 +409,7 @@ function SectionEditor({ index, section, total, uploading, onChange, onRemove, o
           <div style={{ display:'flex', flexDirection:'column', gap:8 }}>
             <input type="url" value={section.image_url} onChange={(e)=>onChange('image_url',e.target.value)}
               placeholder="Image URL or upload below" style={inp2} onFocus={focus} onBlur={blur} />
-            <label style={{ display:'inline-flex', alignItems:'center', gap:7, cursor:'pointer', border:`1.5px dashed ${SEA_BD}`, borderRadius:9, padding:'7px 14px', width:'fit-content', fontFamily:'"Outfit",sans-serif', fontSize:12, fontWeight:600, color:MUTED, transition:'color 0.15s, border-color 0.15s' }}
+            <label style={{ display:'inline-flex', alignItems:'center', gap:7, cursor:'pointer', border:`1.5px dashed ${SEA_BD}`, borderRadius:9, padding:'7px 14px', width:'fit-content', fontFamily:'"Inter",sans-serif', fontSize:12, fontWeight:600, color:MUTED, transition:'color 0.15s, border-color 0.15s' }}
               onMouseEnter={(e)=>{ e.currentTarget.style.color=SEA; e.currentTarget.style.borderColor=SEA }}
               onMouseLeave={(e)=>{ e.currentTarget.style.color=MUTED; e.currentTarget.style.borderColor=SEA_BD }}>
               {uploading===`section-${index}`?<Loader2 size={13} style={{ color:SEA, animation:'spin 1s linear infinite' }}/>:<Upload size={13}/>}

@@ -355,9 +355,11 @@ export default function BlogsClient({ featured, blogs }: Props) {
   }
 
   return (
-    <main style={{ background: '#ffffff', minHeight: '100vh', fontFamily: '"Outfit", sans-serif' }}>
+    <main style={{ background: '#ffffff', minHeight: '100vh', fontFamily: '"Inter", sans-serif' }}>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;800&display=swap');
         .blog-card-img { transition: transform 0.5s ease; }
         .blog-card:hover .blog-card-img { transform: scale(1.04); }
         .blog-card { transition: box-shadow 0.3s ease; }
@@ -427,7 +429,7 @@ export default function BlogsClient({ featured, blogs }: Props) {
               border: `1.5px solid ${SEA_BD}`,
               borderRadius: 999,
               padding: '5px 16px',
-              fontFamily: '"Outfit", sans-serif',
+              fontFamily: '"Inter", sans-serif',
               fontSize: 11,
               fontWeight: 700,
               color: SEA,
@@ -457,7 +459,7 @@ export default function BlogsClient({ featured, blogs }: Props) {
                 position: 'absolute', top: 16, left: 16, zIndex: 10,
                 background: SEA, color: '#fff',
                 borderRadius: 999, padding: '4px 14px',
-                fontFamily: '"Outfit", sans-serif',
+                fontFamily: '"Inter", sans-serif',
                 fontSize: 11, fontWeight: 700,
                 letterSpacing: '0.12em', textTransform: 'uppercase',
               }}>
@@ -489,7 +491,7 @@ export default function BlogsClient({ featured, blogs }: Props) {
                     <span key={tag.id} style={{
                       background: SEA_BG, border: `1px solid ${SEA_BD}`,
                       borderRadius: 999, padding: '3px 12px',
-                      fontFamily: '"Outfit", sans-serif',
+                      fontFamily: '"Montserrat", sans-serif',
                       fontSize: 11, fontWeight: 600, color: SEA_DK,
                     }}>
                       {tag.name}
@@ -499,8 +501,8 @@ export default function BlogsClient({ featured, blogs }: Props) {
               )}
 
               <h2 style={{
-                fontFamily: '"Outfit", sans-serif',
-                fontWeight: 800,
+                fontFamily: '"Inter", sans-serif',
+                fontWeight: 600,
                 fontSize: 'clamp(22px,2.8vw,34px)',
                 color: TEXT,
                 lineHeight: 1.2,
@@ -512,9 +514,9 @@ export default function BlogsClient({ featured, blogs }: Props) {
 
               {featured.description && (
                 <p style={{
-                  fontFamily: '"Outfit", sans-serif',
+                  fontFamily: '"Montserrat", sans-serif',
                   fontSize: 'clamp(13px,1.2vw,15px)',
-                  fontWeight: 400,
+                  fontWeight: 300,
                   color: SUB,
                   lineHeight: 1.75,
                   margin: '0 0 20px',
@@ -527,7 +529,7 @@ export default function BlogsClient({ featured, blogs }: Props) {
               <div style={{
                 display: 'flex', flexWrap: 'wrap', alignItems: 'center',
                 gap: 16, marginBottom: 28,
-                fontFamily: '"Outfit", sans-serif',
+                fontFamily: '"Montserrat", sans-serif',
                 fontSize: 12, fontWeight: 500, color: MUTED,
               }}>
                 {featured.author?.full_name && (
@@ -550,7 +552,7 @@ export default function BlogsClient({ featured, blogs }: Props) {
                   alignSelf: 'flex-start',
                   background: SEA, color: '#fff',
                   borderRadius: 999, padding: '10px 24px',
-                  fontFamily: '"Outfit", sans-serif',
+                  fontFamily: '"Montserrat", sans-serif',
                   fontSize: 13, fontWeight: 700,
                   textDecoration: 'none',
                   transition: 'opacity 0.2s ease',
@@ -583,7 +585,7 @@ export default function BlogsClient({ featured, blogs }: Props) {
             display: 'inline-block',
             background: SEA_BG, border: `1.5px solid ${SEA_BD}`,
             borderRadius: 999, padding: '5px 16px',
-            fontFamily: '"Outfit", sans-serif',
+            fontFamily: '"Inter", sans-serif',
             fontSize: 11, fontWeight: 700, color: SEA,
             letterSpacing: '0.18em', textTransform: 'uppercase',
             marginBottom: 14,
@@ -591,7 +593,7 @@ export default function BlogsClient({ featured, blogs }: Props) {
             Latest Articles
           </span>
           <h2 style={{
-            fontFamily: '"Outfit", sans-serif',
+            fontFamily: '"Inter", sans-serif',
             fontWeight: 800,
             fontSize: 'clamp(26px,3.5vw,40px)',
             color: TEXT,
@@ -605,7 +607,7 @@ export default function BlogsClient({ featured, blogs }: Props) {
         </div>
 
         {blogs.length === 0 ? (
-          <p style={{ fontFamily: '"Outfit", sans-serif', color: MUTED, textAlign: 'center', fontSize: 15 }}>
+          <p style={{ fontFamily: '"Inter", sans-serif', color: MUTED, textAlign: 'center', fontSize: 15 }}>
             No articles published yet. Check back soon.
           </p>
         ) : (
@@ -671,7 +673,7 @@ function BlogCardComponent({ blog }: { blog: BlogCard }) {
               <span key={tag.id} style={{
                 background: SEA_BG, border: `1px solid ${SEA_BD}`,
                 borderRadius: 999, padding: '2px 10px',
-                fontFamily: '"Outfit", sans-serif',
+                fontFamily: '"Inter", sans-serif',
                 fontSize: 10, fontWeight: 600, color: SEA_DK,
                 letterSpacing: '0.04em',
               }}>
@@ -682,7 +684,7 @@ function BlogCardComponent({ blog }: { blog: BlogCard }) {
         )}
 
         <h3 style={{
-          fontFamily: '"Outfit", sans-serif',
+          fontFamily: '"Inter", sans-serif',
           fontWeight: 700,
           fontSize: 'clamp(15px,1.4vw,17px)',
           color: TEXT,
@@ -695,7 +697,7 @@ function BlogCardComponent({ blog }: { blog: BlogCard }) {
 
         {blog.description && (
           <p style={{
-            fontFamily: '"Outfit", sans-serif',
+            fontFamily: '"Inter", sans-serif',
             fontSize: 13,
             fontWeight: 400,
             color: SUB,
@@ -719,7 +721,7 @@ function BlogCardComponent({ blog }: { blog: BlogCard }) {
           flexWrap: 'wrap',
           alignItems: 'center',
           gap: 10,
-          fontFamily: '"Outfit", sans-serif',
+          fontFamily: '"Inter", sans-serif',
           fontSize: 11,
           fontWeight: 500,
           color: MUTED,
@@ -742,8 +744,8 @@ function BlogCardComponent({ blog }: { blog: BlogCard }) {
             style={{
               marginLeft: 'auto',
               display: 'flex', alignItems: 'center', gap: 4,
-              fontFamily: '"Outfit", sans-serif',
-              fontSize: 12, fontWeight: 700, color: SEA,
+              fontFamily: '"Montserrat", sans-serif',
+              fontSize: 12, fontWeight: 300, color: SEA,
               textDecoration: 'none',
             }}
           >

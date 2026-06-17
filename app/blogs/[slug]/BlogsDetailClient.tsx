@@ -555,9 +555,11 @@ export default function BlogDetailClient({ blog, relatedBlogs }: Props) {
   }, [toc])
 
   return (
-    <main style={{ background: '#ffffff', minHeight: '100vh', fontFamily: '"Outfit", sans-serif' }}>
+    <main style={{ background: '#ffffff', minHeight: '100vh', fontFamily: '"Inter", sans-serif' }}>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;800&display=swap');
+      
         .toc-link { transition: all 0.2s ease; }
         .toc-link:hover { color: ${SEA} !important; background: ${SEA_BG} !important; }
         .related-card { transition: box-shadow 0.3s ease, transform 0.3s ease; }
@@ -598,7 +600,7 @@ export default function BlogDetailClient({ blog, relatedBlogs }: Props) {
               background: 'rgba(255,255,255,0.82)',
               border: '1px solid rgba(255,255,255,0.40)',
               borderRadius: 999, padding: '8px 18px',
-              fontFamily: '"Outfit", sans-serif',
+              fontFamily: '"Inter", sans-serif',
               fontSize: 13, fontWeight: 600, color: TEXT,
               textDecoration: 'none', backdropFilter: 'blur(8px)',
             }}
@@ -626,7 +628,7 @@ export default function BlogDetailClient({ blog, relatedBlogs }: Props) {
                 <span key={tag.id} style={{
                   background: SEA_BG, border: `1px solid ${SEA_BD}`,
                   borderRadius: 999, padding: '4px 14px',
-                  fontFamily: '"Outfit", sans-serif',
+                  fontFamily: '"Montserrat", sans-serif',
                   fontSize: 11, fontWeight: 700, color: SEA_DK,
                   letterSpacing: '0.06em',
                 }}>
@@ -637,8 +639,8 @@ export default function BlogDetailClient({ blog, relatedBlogs }: Props) {
           )}
 
           <h1 style={{
-            fontFamily: '"Outfit", sans-serif',
-            fontWeight: 800,
+            fontFamily: '"Inter", sans-serif',
+            fontWeight: 600,
             fontSize: 'clamp(28px,4.5vw,52px)',
             color: TEXT,
             lineHeight: 1.1,
@@ -650,9 +652,9 @@ export default function BlogDetailClient({ blog, relatedBlogs }: Props) {
 
           {blog.description && (
             <p style={{
-              fontFamily: '"Outfit", sans-serif',
+              fontFamily: '"Montserrat", sans-serif',
               fontSize: 'clamp(14px,1.3vw,17px)',
-              fontWeight: 400,
+              fontWeight: 300,
               color: SUB,
               lineHeight: 1.75,
               margin: '0 0 28px',
@@ -690,12 +692,12 @@ export default function BlogDetailClient({ blog, relatedBlogs }: Props) {
                   </div>
                 )}
                 <div>
-                  <p style={{ fontFamily: '"Outfit", sans-serif', fontSize: 14, fontWeight: 700, color: TEXT, margin: 0 }}>
+                  <p style={{ fontFamily: '"Montserrat", sans-serif', fontSize: 14, fontWeight: 500, color: TEXT, margin: 0 }}>
                     {blog.author.full_name ?? 'Kafira Travels'}
                   </p>
                   {blog.author.bio && (
                     <p style={{
-                      fontFamily: '"Outfit", sans-serif', fontSize: 12, color: MUTED, margin: 0,
+                      fontFamily: '"Inter", sans-serif', fontSize: 12, color: MUTED, margin: 0,
                       overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 1, WebkitBoxOrient: 'vertical',
                     }}>
                       {blog.author.bio}
@@ -705,7 +707,7 @@ export default function BlogDetailClient({ blog, relatedBlogs }: Props) {
               </div>
             )}
 
-            <div style={{ display: 'flex', alignItems: 'center', gap: 16, fontFamily: '"Outfit", sans-serif', fontSize: 13, color: MUTED }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 16, fontFamily: '"Inter", sans-serif', fontSize: 13, color: MUTED }}>
               {blog.published_at && <span>{formatDate(blog.published_at)}</span>}
               {blog.read_time_minutes && (
                 <span style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
@@ -730,7 +732,7 @@ export default function BlogDetailClient({ blog, relatedBlogs }: Props) {
         {/* ── ARTICLE BODY ── */}
         <article style={{ flex: 1, minWidth: 0 }}>
           {blog.sections.length === 0 ? (
-            <p style={{ fontFamily: '"Outfit", sans-serif', color: MUTED }}>Content coming soon.</p>
+            <p style={{ fontFamily: '"Montserrat", sans-serif', color: MUTED }}>Content coming soon.</p>
           ) : (
             <div style={{ display: 'flex', flexDirection: 'column', gap: 56 }}>
               {blog.sections.map((section) => (
@@ -752,8 +754,8 @@ export default function BlogDetailClient({ blog, relatedBlogs }: Props) {
               {toc.length > 0 && (
                 <div>
                   <p style={{
-                    fontFamily: '"Outfit", sans-serif',
-                    fontSize: 10, fontWeight: 700, color: SEA,
+                    fontFamily: '"Montserrat", sans-serif',
+                    fontSize: 10, fontWeight: 500, color: SEA,
                     letterSpacing: '0.18em', textTransform: 'uppercase',
                     margin: '0 0 14px',
                   }}>
@@ -769,7 +771,7 @@ export default function BlogDetailClient({ blog, relatedBlogs }: Props) {
                           display: 'block',
                           padding: '8px 12px',
                           borderRadius: 10,
-                          fontFamily: '"Outfit", sans-serif',
+                          fontFamily: '"Inter", sans-serif',
                           fontSize: 13, fontWeight: 500,
                           color: activeSection === id ? SEA_DK : MUTED,
                           background: activeSection === id ? SEA_BG : 'transparent',
@@ -792,8 +794,8 @@ export default function BlogDetailClient({ blog, relatedBlogs }: Props) {
               {relatedBlogs.length > 0 && (
                 <div>
                   <p style={{
-                    fontFamily: '"Outfit", sans-serif',
-                    fontSize: 10, fontWeight: 700, color: SEA,
+                    fontFamily: '"Montserrat", sans-serif',
+                    fontSize: 10, fontWeight: 500, color: SEA,
                     letterSpacing: '0.18em', textTransform: 'uppercase',
                     margin: '0 0 14px',
                   }}>
@@ -823,8 +825,8 @@ export default function BlogDetailClient({ blog, relatedBlogs }: Props) {
                         )}
                         <div style={{ padding: '10px 12px 12px' }}>
                           <p style={{
-                            fontFamily: '"Outfit", sans-serif',
-                            fontSize: 12, fontWeight: 600, color: TEXT,
+                            fontFamily: '"Montserrat", sans-serif',
+                            fontSize: 12, fontWeight: 500, color: TEXT,
                             lineHeight: 1.45, margin: 0,
                             overflow: 'hidden', display: '-webkit-box',
                             WebkitLineClamp: 2, WebkitBoxOrient: 'vertical',
@@ -832,7 +834,7 @@ export default function BlogDetailClient({ blog, relatedBlogs }: Props) {
                             {rb.title}
                           </p>
                           {rb.read_time_minutes && (
-                            <p style={{ fontFamily: '"Outfit", sans-serif', fontSize: 10, color: MUTED, margin: '4px 0 0' }}>
+                            <p style={{ fontFamily: '"Montserrat", sans-serif', fontSize: 10, color: MUTED, margin: '4px 0 0' }}>
                               {rb.read_time_minutes} min read
                             </p>
                           )}
@@ -857,7 +859,7 @@ export default function BlogDetailClient({ blog, relatedBlogs }: Props) {
             {/* Header */}
             <div style={{ display: 'flex', alignItems: 'center', gap: 20, marginBottom: 'clamp(32px,4vw,48px)' }}>
               <h2 style={{
-                fontFamily: '"Outfit", sans-serif',
+                fontFamily: '"Inter", sans-serif',
                 fontWeight: 800, fontSize: 'clamp(22px,3vw,32px)',
                 color: TEXT, letterSpacing: '-0.02em', margin: 0, whiteSpace: 'nowrap',
               }}>
@@ -901,13 +903,13 @@ export default function BlogDetailClient({ blog, relatedBlogs }: Props) {
                       <span style={{
                         display: 'inline-block', background: SEA_BG, border: `1px solid ${SEA_BD}`,
                         borderRadius: 999, padding: '2px 10px', marginBottom: 10,
-                        fontFamily: '"Outfit", sans-serif', fontSize: 10, fontWeight: 600, color: SEA_DK,
+                        fontFamily: '"Inter", sans-serif', fontSize: 10, fontWeight: 600, color: SEA_DK,
                       }}>
                         {rb.tags[0].name}
                       </span>
                     )}
                     <h3 style={{
-                      fontFamily: '"Outfit", sans-serif',
+                      fontFamily: '"Inter", sans-serif',
                       fontWeight: 700, fontSize: 14, color: TEXT,
                       lineHeight: 1.45, margin: '0 0 12px',
                       overflow: 'hidden', display: '-webkit-box',
@@ -917,8 +919,8 @@ export default function BlogDetailClient({ blog, relatedBlogs }: Props) {
                     </h3>
                     <p style={{
                       display: 'flex', alignItems: 'center', gap: 4,
-                      fontFamily: '"Outfit", sans-serif',
-                      fontSize: 12, fontWeight: 700, color: SEA, margin: 0,
+                      fontFamily: '"Montserrat", sans-serif',
+                      fontSize: 12, fontWeight: 500, color: SEA, margin: 0,
                     }}>
                       Read More <ChevronRight size={13} />
                     </p>
@@ -965,7 +967,7 @@ function BlogSectionBlock({ section }: { section: BlogSection }) {
       {/* Heading */}
       {heading && (
         <h2 style={{
-          fontFamily: '"Outfit", sans-serif',
+          fontFamily: '"Inter", sans-serif',
           fontWeight: 800,
           fontSize: 'clamp(20px,2.6vw,30px)',
           color: TEXT,
@@ -1010,7 +1012,7 @@ function BlogSectionBlock({ section }: { section: BlogSection }) {
           margin: 0,
         }}>
           <p style={{
-            fontFamily: '"Outfit", sans-serif',
+            fontFamily: '"Inter", sans-serif',
             fontSize: 'clamp(16px,2vw,22px)',
             fontWeight: 500,
             fontStyle: 'italic',
@@ -1023,7 +1025,7 @@ function BlogSectionBlock({ section }: { section: BlogSection }) {
           {heading && (
             <cite style={{
               display: 'block', marginTop: 12,
-              fontFamily: '"Outfit", sans-serif',
+              fontFamily: '"Inter", sans-serif',
               fontSize: 13, fontWeight: 600, color: MUTED,
               fontStyle: 'normal',
             }}>
@@ -1042,8 +1044,8 @@ function BlogSectionBlock({ section }: { section: BlogSection }) {
         }}>
           {heading && (
             <p style={{
-              fontFamily: '"Outfit", sans-serif',
-              fontSize: 11, fontWeight: 700, color: SEA,
+              fontFamily: '"Montserrat", sans-serif',
+              fontSize: 11, fontWeight: 500, color: SEA,
               letterSpacing: '0.18em', textTransform: 'uppercase',
               margin: '0 0 12px',
             }}>
@@ -1062,17 +1064,17 @@ function BlogSectionBlock({ section }: { section: BlogSection }) {
 function MarkdownBody({ body }: { body: string }) {
   return (
     <div style={{
-      fontFamily: '"Outfit", sans-serif',
+      fontFamily: '"Inter", sans-serif',
       fontSize: 'clamp(14px,1.2vw,16px)',
       lineHeight: 1.85,
       color: SUB,
     }}
     className="
       prose prose-gray max-w-none
-      prose-p:font-[Outfit] prose-p:text-[#2d5a52] prose-p:leading-[1.85]
-      prose-h3:font-[Outfit] prose-h3:font-bold prose-h3:text-[#0f2720] prose-h3:tracking-tight
+      prose-p:font-[Inter] prose-p:text-[#2d5a52] prose-p:leading-[1.85]
+      prose-h3:font-[Inter] prose-h3:font-bold prose-h3:text-[#0f2720] prose-h3:tracking-tight
       prose-strong:text-[#0f2720] prose-strong:font-bold
-      prose-li:text-[#2d5a52] prose-li:font-[Outfit]
+      prose-li:text-[#2d5a52] prose-li:font-[Inter]
       prose-a:text-[#2d8f7b] prose-a:font-semibold prose-a:no-underline hover:prose-a:underline
       prose-code:text-[#0f2720] prose-code:bg-[rgba(45,143,123,0.08)] prose-code:rounded prose-code:px-1.5 prose-code:py-0.5 prose-code:text-sm
       prose-blockquote:border-[#2d8f7b] prose-blockquote:text-[#2d5a52]
@@ -1094,8 +1096,8 @@ function BlogImage({ url, alt, caption }: { url: string; alt: string; caption: s
       {caption && (
         <figcaption style={{
           marginTop: 12, textAlign: 'center',
-          fontFamily: '"Outfit", sans-serif',
-          fontSize: 12, fontWeight: 500, color: MUTED,
+          fontFamily: '"Inter", sans-serif',
+          fontSize: 12, fontWeight: 600, color: MUTED,
         }}>
           {caption}
         </figcaption>

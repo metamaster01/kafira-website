@@ -42,12 +42,12 @@
 // }: { label: string; error?: string; children: React.ReactNode }) {
 //   return (
 //     <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
-//       <label style={{ fontFamily: 'Outfit,sans-serif', fontSize: 12, fontWeight: 600, color: C.sub }}>
+//       <label style={{ fontFamily: 'Inter,sans-serif', fontSize: 12, fontWeight: 600, color: C.sub }}>
 //         {label}
 //       </label>
 //       {children}
 //       {error && (
-//         <span style={{ fontFamily: 'Outfit,sans-serif', fontSize: 11, color: '#ef4444' }}>{error}</span>
+//         <span style={{ fontFamily: 'Inter,sans-serif', fontSize: 11, color: '#ef4444' }}>{error}</span>
 //       )}
 //     </div>
 //   );
@@ -94,7 +94,7 @@
 //     padding: '10px 12px',
 //     borderRadius: 10,
 //     border: `1.5px solid ${err ? '#ef4444' : C.seaBd}`,
-//     fontFamily: 'Outfit,sans-serif',
+//     fontFamily: 'Inter,sans-serif',
 //     fontSize: 13,
 //     color: C.text,
 //     background: C.white,
@@ -118,16 +118,16 @@
 //           <MessageCircle size={18} color="#25d366"/>
 //         </div>
 //         <div>
-//           <div style={{ fontFamily: 'Outfit,sans-serif', fontWeight: 700, fontSize: 13, color: C.text }}>Quick Enquiry via WhatsApp</div>
-//           <div style={{ fontFamily: 'Outfit,sans-serif', fontSize: 11, color: C.muted }}>We respond within 2 hours</div>
+//           <div style={{ fontFamily: 'Inter,sans-serif', fontWeight: 700, fontSize: 13, color: C.text }}>Quick Enquiry via WhatsApp</div>
+//           <div style={{ fontFamily: 'Inter,sans-serif', fontSize: 11, color: C.muted }}>We respond within 2 hours</div>
 //         </div>
 //       </div>
 
 //       {/* trip chip */}
 //       <div style={{ background: C.seaBg, border: `1px solid ${C.seaBd}`, borderRadius: 12, padding: '10px 14px', marginBottom: 18, display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8, flexWrap: 'wrap' }}>
 //         <div style={{ minWidth: 0 }}>
-//           <div style={{ fontFamily: 'Outfit,sans-serif', fontWeight: 700, fontSize: 13, color: C.text, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{trip.name}</div>
-//           <div style={{ fontFamily: 'Outfit,sans-serif', fontSize: 11, color: C.muted }}>{trip.duration} · {trip.location}</div>
+//           <div style={{ fontFamily: 'Inter,sans-serif', fontWeight: 700, fontSize: 13, color: C.text, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{trip.name}</div>
+//           <div style={{ fontFamily: 'Inter,sans-serif', fontSize: 11, color: C.muted }}>{trip.duration} · {trip.location}</div>
 //         </div>
 //         <div style={{ fontFamily: 'Playfair Display,serif', fontWeight: 800, fontSize: 16, color: C.seaDk, flexShrink: 0 }}>
 //           ₹{trip.discountedPrice.toLocaleString('en-IN')}
@@ -194,7 +194,7 @@
 //             borderRadius: 12,
 //             background: 'linear-gradient(135deg,#25d366,#1da851)',
 //             color: '#fff',
-//             fontFamily: 'Outfit,sans-serif',
+//             fontFamily: 'Inter,sans-serif',
 //             fontWeight: 700,
 //             fontSize: 14,
 //             border: 'none',
@@ -213,7 +213,7 @@
 //           <MessageCircle size={17}/> Send Enquiry on WhatsApp
 //         </button>
 
-//         <p style={{ fontFamily: 'Outfit,sans-serif', fontSize: 11, color: C.muted, textAlign: 'center', lineHeight: 1.5 }}>
+//         <p style={{ fontFamily: 'Inter,sans-serif', fontSize: 11, color: C.muted, textAlign: 'center', lineHeight: 1.5 }}>
 //           Opens WhatsApp with your details pre-filled. No spam.
 //         </p>
 //       </div>
@@ -317,9 +317,9 @@
 //               <div style={{ position: 'absolute', bottom: 14, left: 18, right: 18 }}>
 //                 <div style={{ fontFamily: 'Playfair Display,serif', fontWeight: 800, fontSize: 22, color: '#fff', lineHeight: 1.15, marginBottom: 6 }}>{trip.name}</div>
 //                 <div style={{ display: 'flex', gap: 7, flexWrap: 'wrap' }}>
-//                   <span style={{ background: 'rgba(255,255,255,0.18)', backdropFilter: 'blur(8px)', borderRadius: 999, padding: '3px 10px', fontFamily: 'Outfit,sans-serif', fontSize: 10, color: '#fff', border: '1px solid rgba(255,255,255,0.18)' }}>{trip.state}</span>
-//                   <span style={{ background: DIFF_COLOR[trip.difficulty], borderRadius: 999, padding: '3px 10px', fontFamily: 'Outfit,sans-serif', fontSize: 10, fontWeight: 700, color: '#fff' }}>{trip.difficulty}</span>
-//                   <span style={{ background: `${C.sea}cc`, borderRadius: 999, padding: '3px 10px', fontFamily: 'Outfit,sans-serif', fontSize: 10, fontWeight: 700, color: '#fff', display: 'flex', alignItems: 'center', gap: 3 }}>
+//                   <span style={{ background: 'rgba(255,255,255,0.18)', backdropFilter: 'blur(8px)', borderRadius: 999, padding: '3px 10px', fontFamily: 'Inter,sans-serif', fontSize: 10, color: '#fff', border: '1px solid rgba(255,255,255,0.18)' }}>{trip.state}</span>
+//                   <span style={{ background: DIFF_COLOR[trip.difficulty], borderRadius: 999, padding: '3px 10px', fontFamily: 'Inter,sans-serif', fontSize: 10, fontWeight: 700, color: '#fff' }}>{trip.difficulty}</span>
+//                   <span style={{ background: `${C.sea}cc`, borderRadius: 999, padding: '3px 10px', fontFamily: 'Inter,sans-serif', fontSize: 10, fontWeight: 700, color: '#fff', display: 'flex', alignItems: 'center', gap: 3 }}>
 //                     <Star size={9} fill="#fff" color="#fff"/> {trip.rating} ({trip.reviews})
 //                   </span>
 //                 </div>
@@ -336,8 +336,8 @@
 //               ].map((s, i) => (
 //                 <div key={i} style={{ padding: '10px 12px', borderRight: i < 3 ? `1px solid ${C.border}` : 'none', textAlign: 'center' }}>
 //                   <div style={{ color: C.sea, display: 'flex', justifyContent: 'center', marginBottom: 2 }}>{s.icon}</div>
-//                   <div style={{ fontFamily: 'Outfit,sans-serif', fontSize: 9, color: C.muted, marginBottom: 1, textTransform: 'uppercase', letterSpacing: '0.08em' }}>{s.label}</div>
-//                   <div style={{ fontFamily: 'Outfit,sans-serif', fontSize: 11, fontWeight: 700, color: C.text, lineHeight: 1.3 }}>{s.val}</div>
+//                   <div style={{ fontFamily: 'Inter,sans-serif', fontSize: 9, color: C.muted, marginBottom: 1, textTransform: 'uppercase', letterSpacing: '0.08em' }}>{s.label}</div>
+//                   <div style={{ fontFamily: 'Inter,sans-serif', fontSize: 11, fontWeight: 700, color: C.text, lineHeight: 1.3 }}>{s.val}</div>
 //                 </div>
 //               ))}
 //             </div>
@@ -351,7 +351,7 @@
 //                   style={{
 //                     flex: 1, padding: '7px 6px',
 //                     border: 'none', cursor: 'pointer', borderRadius: 8,
-//                     fontFamily: 'Outfit,sans-serif', fontSize: 12, fontWeight: 600,
+//                     fontFamily: 'Inter,sans-serif', fontSize: 12, fontWeight: 600,
 //                     transition: 'all 0.2s',
 //                     background: tab === t.id ? `linear-gradient(135deg,${C.sea},${C.seaDk})` : 'transparent',
 //                     color: tab === t.id ? '#fff' : C.muted,
@@ -368,23 +368,23 @@
 
 //               {tab === 'overview' && (
 //                 <div style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
-//                   <p style={{ fontFamily: 'Outfit,sans-serif', fontSize: 14, color: C.sub, lineHeight: 1.78 }}>{trip.overview}</p>
+//                   <p style={{ fontFamily: 'Inter,sans-serif', fontSize: 14, color: C.sub, lineHeight: 1.78 }}>{trip.overview}</p>
 //                   <div>
-//                     <div style={{ fontFamily: 'Outfit,sans-serif', fontWeight: 700, fontSize: 10, color: C.sea, letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 10 }}>Highlights</div>
+//                     <div style={{ fontFamily: 'Inter,sans-serif', fontWeight: 700, fontSize: 10, color: C.sea, letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 10 }}>Highlights</div>
 //                     {trip.highlights.map((h, i) => (
 //                       <div key={i} style={{ display: 'flex', gap: 10, alignItems: 'flex-start', marginBottom: 7 }}>
 //                         <div style={{ width: 17, height: 17, borderRadius: '50%', background: C.seaBg, border: `1px solid ${C.seaBd}`, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: 1 }}>
 //                           <span style={{ fontSize: 7, color: C.sea }}>✦</span>
 //                         </div>
-//                         <span style={{ fontFamily: 'Outfit,sans-serif', fontSize: 13, color: C.text, lineHeight: 1.55 }}>{h}</span>
+//                         <span style={{ fontFamily: 'Inter,sans-serif', fontSize: 13, color: C.text, lineHeight: 1.55 }}>{h}</span>
 //                       </div>
 //                     ))}
 //                   </div>
 //                   <div>
-//                     <div style={{ fontFamily: 'Outfit,sans-serif', fontWeight: 700, fontSize: 10, color: C.sea, letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 8 }}>What to Carry</div>
+//                     <div style={{ fontFamily: 'Inter,sans-serif', fontWeight: 700, fontSize: 10, color: C.sea, letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 8 }}>What to Carry</div>
 //                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
 //                       {trip.thingsToCarry.map((t, i) => (
-//                         <span key={i} style={{ fontFamily: 'Outfit,sans-serif', fontSize: 11, color: C.sub, background: C.bgAlt, border: `1px solid ${C.border}`, borderRadius: 8, padding: '4px 10px' }}>{t}</span>
+//                         <span key={i} style={{ fontFamily: 'Inter,sans-serif', fontSize: 11, color: C.sub, background: C.bgAlt, border: `1px solid ${C.border}`, borderRadius: 8, padding: '4px 10px' }}>{t}</span>
 //                       ))}
 //                     </div>
 //                   </div>
@@ -396,7 +396,7 @@
 //                   {trip.itinerary.map((day, i) => (
 //                     <div key={i} style={{ display: 'flex', gap: 12, paddingBottom: 14 }}>
 //                       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', flexShrink: 0 }}>
-//                         <div style={{ width: 26, height: 26, borderRadius: '50%', background: `linear-gradient(135deg,${C.sea},${C.seaDk})`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Outfit,sans-serif', fontWeight: 700, fontSize: 10, color: '#fff', zIndex: 1 }}>
+//                         <div style={{ width: 26, height: 26, borderRadius: '50%', background: `linear-gradient(135deg,${C.sea},${C.seaDk})`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Inter,sans-serif', fontWeight: 700, fontSize: 10, color: '#fff', zIndex: 1 }}>
 //                           {day.day}
 //                         </div>
 //                         {i < trip.itinerary.length - 1 && (
@@ -404,11 +404,11 @@
 //                         )}
 //                       </div>
 //                       <div style={{ flex: 1, paddingTop: 3 }}>
-//                         <div style={{ fontFamily: 'Outfit,sans-serif', fontWeight: 700, fontSize: 13, color: C.text, marginBottom: 5 }}>{day.title}</div>
+//                         <div style={{ fontFamily: 'Inter,sans-serif', fontWeight: 700, fontSize: 13, color: C.text, marginBottom: 5 }}>{day.title}</div>
 //                         {day.activities.map((act, j) => (
 //                           <div key={j} style={{ display: 'flex', gap: 6, alignItems: 'flex-start', marginBottom: 3 }}>
 //                             <div style={{ width: 4, height: 4, borderRadius: '50%', background: C.sea, flexShrink: 0, marginTop: 5 }}/>
-//                             <span style={{ fontFamily: 'Outfit,sans-serif', fontSize: 12, color: C.sub, lineHeight: 1.5 }}>{act}</span>
+//                             <span style={{ fontFamily: 'Inter,sans-serif', fontSize: 12, color: C.sub, lineHeight: 1.5 }}>{act}</span>
 //                           </div>
 //                         ))}
 //                       </div>
@@ -422,28 +422,28 @@
 //                   <div>
 //                     <div style={{ display: 'flex', alignItems: 'center', gap: 7, marginBottom: 10 }}>
 //                       <CheckCircle2 size={15} color="#22c55e"/>
-//                       <span style={{ fontFamily: 'Outfit,sans-serif', fontWeight: 700, fontSize: 13, color: C.text }}>Inclusions</span>
+//                       <span style={{ fontFamily: 'Inter,sans-serif', fontWeight: 700, fontSize: 13, color: C.text }}>Inclusions</span>
 //                     </div>
 //                     {trip.inclusions.map((inc, i) => (
 //                       <div key={i} style={{ display: 'flex', gap: 8, alignItems: 'flex-start', marginBottom: 7 }}>
 //                         <div style={{ width: 15, height: 15, borderRadius: '50%', background: 'rgba(34,197,94,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: 1 }}>
 //                           <span style={{ fontSize: 8, color: '#22c55e' }}>✓</span>
 //                         </div>
-//                         <span style={{ fontFamily: 'Outfit,sans-serif', fontSize: 12, color: C.text, lineHeight: 1.5 }}>{inc}</span>
+//                         <span style={{ fontFamily: 'Inter,sans-serif', fontSize: 12, color: C.text, lineHeight: 1.5 }}>{inc}</span>
 //                       </div>
 //                     ))}
 //                   </div>
 //                   <div>
 //                     <div style={{ display: 'flex', alignItems: 'center', gap: 7, marginBottom: 10 }}>
 //                       <XCircle size={15} color="#ef4444"/>
-//                       <span style={{ fontFamily: 'Outfit,sans-serif', fontWeight: 700, fontSize: 13, color: C.text }}>Exclusions</span>
+//                       <span style={{ fontFamily: 'Inter,sans-serif', fontWeight: 700, fontSize: 13, color: C.text }}>Exclusions</span>
 //                     </div>
 //                     {trip.exclusions.map((exc, i) => (
 //                       <div key={i} style={{ display: 'flex', gap: 8, alignItems: 'flex-start', marginBottom: 7 }}>
 //                         <div style={{ width: 15, height: 15, borderRadius: '50%', background: 'rgba(239,68,68,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: 1 }}>
 //                           <span style={{ fontSize: 8, color: '#ef4444' }}>✕</span>
 //                         </div>
-//                         <span style={{ fontFamily: 'Outfit,sans-serif', fontSize: 12, color: C.sub, lineHeight: 1.5 }}>{exc}</span>
+//                         <span style={{ fontFamily: 'Inter,sans-serif', fontSize: 12, color: C.sub, lineHeight: 1.5 }}>{exc}</span>
 //                       </div>
 //                     ))}
 //                   </div>
@@ -452,19 +452,19 @@
 
 //               {tab === 'terms' && (
 //                 <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-//                   <p style={{ fontFamily: 'Outfit,sans-serif', fontSize: 13, color: C.muted, marginBottom: 6, lineHeight: 1.6 }}>Please read before booking:</p>
+//                   <p style={{ fontFamily: 'Inter,sans-serif', fontSize: 13, color: C.muted, marginBottom: 6, lineHeight: 1.6 }}>Please read before booking:</p>
 //                   {trip.terms.map((t, i) => (
 //                     <div key={i} style={{ display: 'flex', gap: 10, alignItems: 'flex-start', padding: '10px 12px', background: C.bgAlt, borderRadius: 10, border: `1px solid ${C.border}` }}>
-//                       <span style={{ fontFamily: 'Outfit,sans-serif', fontWeight: 700, fontSize: 10, color: C.sea, flexShrink: 0, marginTop: 1 }}>0{i + 1}</span>
-//                       <span style={{ fontFamily: 'Outfit,sans-serif', fontSize: 12, color: C.text, lineHeight: 1.6 }}>{t}</span>
+//                       <span style={{ fontFamily: 'Inter,sans-serif', fontWeight: 700, fontSize: 10, color: C.sea, flexShrink: 0, marginTop: 1 }}>0{i + 1}</span>
+//                       <span style={{ fontFamily: 'Inter,sans-serif', fontSize: 12, color: C.text, lineHeight: 1.6 }}>{t}</span>
 //                     </div>
 //                   ))}
 //                   <div style={{ marginTop: 6, padding: '12px 14px', background: C.seaBg, borderRadius: 12, border: `1px solid ${C.seaBd}` }}>
-//                     <div style={{ fontFamily: 'Outfit,sans-serif', fontWeight: 700, fontSize: 10, color: C.seaDk, marginBottom: 6 }}>MEETING & END POINTS</div>
+//                     <div style={{ fontFamily: 'Inter,sans-serif', fontWeight: 700, fontSize: 10, color: C.seaDk, marginBottom: 6 }}>MEETING & END POINTS</div>
 //                     {[{ l: 'Meet at:', v: trip.meetingPoint }, { l: 'Trip ends:', v: trip.endPoint }].map((p, i) => (
 //                       <div key={i} style={{ display: 'flex', gap: 8, alignItems: 'flex-start', marginBottom: i === 0 ? 6 : 0 }}>
-//                         <span style={{ fontFamily: 'Outfit,sans-serif', fontSize: 10, color: C.muted, minWidth: 56 }}>{p.l}</span>
-//                         <span style={{ fontFamily: 'Outfit,sans-serif', fontSize: 12, color: C.text, fontWeight: 500, lineHeight: 1.4 }}>{p.v}</span>
+//                         <span style={{ fontFamily: 'Inter,sans-serif', fontSize: 10, color: C.muted, minWidth: 56 }}>{p.l}</span>
+//                         <span style={{ fontFamily: 'Inter,sans-serif', fontSize: 12, color: C.text, fontWeight: 500, lineHeight: 1.4 }}>{p.v}</span>
 //                       </div>
 //                     ))}
 //                   </div>
@@ -487,7 +487,7 @@
 //             }}
 //           >
 //             <div style={{ fontFamily: 'Playfair Display,serif', fontWeight: 700, fontSize: 18, color: C.text, marginBottom: 4 }}>Book This Trip</div>
-//             <div style={{ fontFamily: 'Outfit,sans-serif', fontSize: 12, color: C.muted, marginBottom: 18, lineHeight: 1.5 }}>
+//             <div style={{ fontFamily: 'Inter,sans-serif', fontSize: 12, color: C.muted, marginBottom: 18, lineHeight: 1.5 }}>
 //               Fill in your details and we'll connect on WhatsApp to confirm dates.
 //             </div>
 //             <EnquiryForm trip={trip} onClose={close}/>
@@ -582,12 +582,12 @@ function Field({
 }: { label: string; error?: string; children: React.ReactNode }) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
-      <label style={{ fontFamily: 'Outfit,sans-serif', fontSize: 12, fontWeight: 600, color: C.sub }}>
+      <label style={{ fontFamily: '"Inter",sans-serif', fontSize: 12, fontWeight: 600, color: C.sub }}>
         {label}
       </label>
       {children}
       {error && (
-        <span style={{ fontFamily: 'Outfit,sans-serif', fontSize: 11, color: '#ef4444' }}>{error}</span>
+        <span style={{ fontFamily: '"Inter",sans-serif', fontSize: 11, color: '#ef4444' }}>{error}</span>
       )}
     </div>
   );
@@ -634,7 +634,7 @@ function EnquiryForm({ trip, onClose }: { trip: Trip; onClose: () => void }) {
     padding: '10px 12px',
     borderRadius: 10,
     border: `1.5px solid ${err ? '#ef4444' : C.seaBd}`,
-    fontFamily: 'Outfit,sans-serif',
+    fontFamily: '"Inter",sans-serif',
     fontSize: 13,
     color: C.text,
     background: C.white,
@@ -658,18 +658,18 @@ function EnquiryForm({ trip, onClose }: { trip: Trip; onClose: () => void }) {
           <MessageCircle size={18} color="#25d366"/>
         </div>
         <div>
-          <div style={{ fontFamily: 'Outfit,sans-serif', fontWeight: 700, fontSize: 13, color: C.text }}>Quick Enquiry via WhatsApp</div>
-          <div style={{ fontFamily: 'Outfit,sans-serif', fontSize: 11, color: C.muted }}>We respond within 2 hours</div>
+          <div style={{ fontFamily: '"Inter",sans-serif', fontWeight: 600, fontSize: 13, color: C.text }}>Quick Enquiry via WhatsApp</div>
+          <div style={{ fontFamily: '"Inter",sans-serif', fontSize: 11, color: C.muted }}>We respond within 2 hours</div>
         </div>
       </div>
 
       {/* trip chip */}
       <div style={{ background: C.seaBg, border: `1px solid ${C.seaBd}`, borderRadius: 12, padding: '10px 14px', marginBottom: 18, display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8, flexWrap: 'wrap' }}>
         <div style={{ minWidth: 0 }}>
-          <div style={{ fontFamily: 'Outfit,sans-serif', fontWeight: 700, fontSize: 13, color: C.text, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{trip.name}</div>
-          <div style={{ fontFamily: 'Outfit,sans-serif', fontSize: 11, color: C.muted }}>{trip.duration} · {trip.location}</div>
+          <div style={{ fontFamily: '"Inter",sans-serif', fontWeight: 600, fontSize: 13, color: C.text, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{trip.name}</div>
+          <div style={{ fontFamily: '"Inter",sans-serif', fontSize: 11, color: C.muted }}>{trip.duration} · {trip.location}</div>
         </div>
-        <div style={{ fontFamily: 'Playfair Display,serif', fontWeight: 800, fontSize: 16, color: C.seaDk, flexShrink: 0 }}>
+        <div style={{ fontFamily: '"Inter",sans-serif', fontWeight: 800, fontSize: 16, color: C.seaDk, flexShrink: 0 }}>
           ₹{trip.discountedPrice.toLocaleString('en-IN')}
           <span style={{ fontSize: 10, fontWeight: 400, color: C.muted }}>/pp</span>
         </div>
@@ -734,8 +734,8 @@ function EnquiryForm({ trip, onClose }: { trip: Trip; onClose: () => void }) {
             borderRadius: 12,
             background: 'linear-gradient(135deg,#25d366,#1da851)',
             color: '#fff',
-            fontFamily: 'Outfit,sans-serif',
-            fontWeight: 700,
+            fontFamily: '"Inter",sans-serif',
+            fontWeight: 600,
             fontSize: 14,
             border: 'none',
             cursor: 'pointer',
@@ -753,7 +753,7 @@ function EnquiryForm({ trip, onClose }: { trip: Trip; onClose: () => void }) {
           <MessageCircle size={17}/> Send Enquiry on WhatsApp
         </button>
 
-        <p style={{ fontFamily: 'Outfit,sans-serif', fontSize: 11, color: C.muted, textAlign: 'center', lineHeight: 1.5 }}>
+        <p style={{ fontFamily: '"Montserrat",sans-serif', fontSize: 11, color: C.muted, textAlign: 'center', lineHeight: 1.5 }}>
           Opens WhatsApp with your details pre-filled. No spam.
         </p>
       </div>
@@ -855,11 +855,11 @@ export default function TripModal({ trip, onClose }: { trip: Trip; onClose: () =
 
               {/* bottom info */}
               <div style={{ position: 'absolute', bottom: 14, left: 18, right: 18 }}>
-                <div style={{ fontFamily: 'Playfair Display,serif', fontWeight: 800, fontSize: 22, color: '#fff', lineHeight: 1.15, marginBottom: 6 }}>{trip.name}</div>
+                <div style={{ fontFamily: '"Inter", sans-serif', fontWeight: 800, fontSize: 22, color: '#fff', lineHeight: 1.15, marginBottom: 6 }}>{trip.name}</div>
                 <div style={{ display: 'flex', gap: 7, flexWrap: 'wrap' }}>
-                  <span style={{ background: 'rgba(255,255,255,0.18)', backdropFilter: 'blur(8px)', borderRadius: 999, padding: '3px 10px', fontFamily: 'Outfit,sans-serif', fontSize: 10, color: '#fff', border: '1px solid rgba(255,255,255,0.18)' }}>{trip.state}</span>
-                  <span style={{ background: DIFF_COLOR[trip.difficulty], borderRadius: 999, padding: '3px 10px', fontFamily: 'Outfit,sans-serif', fontSize: 10, fontWeight: 700, color: '#fff' }}>{trip.difficulty}</span>
-                  <span style={{ background: `${C.sea}cc`, borderRadius: 999, padding: '3px 10px', fontFamily: 'Outfit,sans-serif', fontSize: 10, fontWeight: 700, color: '#fff', display: 'flex', alignItems: 'center', gap: 3 }}>
+                  <span style={{ background: 'rgba(255,255,255,0.18)', backdropFilter: 'blur(8px)', borderRadius: 999, padding: '3px 10px', fontFamily: '"Montserrat",sans-serif', fontSize: 10, color: '#fff', border: '1px solid rgba(255,255,255,0.18)' }}>{trip.state}</span>
+                  <span style={{ background: DIFF_COLOR[trip.difficulty], borderRadius: 999, padding: '3px 10px', fontFamily: '"Montserrat",sans-serif', fontSize: 10, fontWeight: 700, color: '#fff' }}>{trip.difficulty}</span>
+                  <span style={{ background: `${C.sea}cc`, borderRadius: 999, padding: '3px 10px', fontFamily: '"Montserrat",sans-serif', fontSize: 10, fontWeight: 700, color: '#fff', display: 'flex', alignItems: 'center', gap: 3 }}>
                     <Star size={9} fill="#fff" color="#fff"/> {trip.rating} ({trip.reviews})
                   </span>
                 </div>
@@ -876,8 +876,8 @@ export default function TripModal({ trip, onClose }: { trip: Trip; onClose: () =
               ].map((s, i) => (
                 <div key={i} style={{ padding: '10px 12px', borderRight: i < 3 ? `1px solid ${C.border}` : 'none', textAlign: 'center' }}>
                   <div style={{ color: C.sea, display: 'flex', justifyContent: 'center', marginBottom: 2 }}>{s.icon}</div>
-                  <div style={{ fontFamily: 'Outfit,sans-serif', fontSize: 9, color: C.muted, marginBottom: 1, textTransform: 'uppercase', letterSpacing: '0.08em' }}>{s.label}</div>
-                  <div style={{ fontFamily: 'Outfit,sans-serif', fontSize: 11, fontWeight: 700, color: C.text, lineHeight: 1.3 }}>{s.val}</div>
+                  <div style={{ fontFamily: '"Montserrat",sans-serif', fontSize: 9, color: C.muted, marginBottom: 1, textTransform: 'uppercase', letterSpacing: '0.08em' }}>{s.label}</div>
+                  <div style={{ fontFamily: '"Montserrat",sans-serif', fontSize: 11, fontWeight: 700, color: C.text, lineHeight: 1.3 }}>{s.val}</div>
                 </div>
               ))}
             </div>
@@ -891,7 +891,7 @@ export default function TripModal({ trip, onClose }: { trip: Trip; onClose: () =
                   style={{
                     flex: 1, padding: '7px 6px',
                     border: 'none', cursor: 'pointer', borderRadius: 8,
-                    fontFamily: 'Outfit,sans-serif', fontSize: 12, fontWeight: 600,
+                    fontFamily: '"Inter",sans-serif', fontSize: 12, fontWeight: 600,
                     transition: 'all 0.2s',
                     background: tab === t.id ? `linear-gradient(135deg,${C.sea},${C.seaDk})` : 'transparent',
                     color: tab === t.id ? '#fff' : C.muted,
@@ -908,23 +908,23 @@ export default function TripModal({ trip, onClose }: { trip: Trip; onClose: () =
 
               {tab === 'overview' && (
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
-                  <p style={{ fontFamily: 'Outfit,sans-serif', fontSize: 14, color: C.sub, lineHeight: 1.78 }}>{trip.overview}</p>
+                  <p style={{ fontFamily: '"Inter",sans-serif', fontSize: 14, color: C.sub, lineHeight: 1.78 }}>{trip.overview}</p>
                   <div>
-                    <div style={{ fontFamily: 'Outfit,sans-serif', fontWeight: 700, fontSize: 10, color: C.sea, letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 10 }}>Highlights</div>
+                    <div style={{ fontFamily: 'Montserrat,sans-serif', fontWeight: 700, fontSize: 10, color: C.sea, letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 10 }}>Highlights</div>
                     {trip.highlights.map((h, i) => (
                       <div key={i} style={{ display: 'flex', gap: 10, alignItems: 'flex-start', marginBottom: 7 }}>
                         <div style={{ width: 17, height: 17, borderRadius: '50%', background: C.seaBg, border: `1px solid ${C.seaBd}`, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: 1 }}>
                           <span style={{ fontSize: 7, color: C.sea }}>✦</span>
                         </div>
-                        <span style={{ fontFamily: 'Outfit,sans-serif', fontSize: 13, color: C.text, lineHeight: 1.55 }}>{h}</span>
+                        <span style={{ fontFamily: 'Montserrat,sans-serif', fontSize: 13, color: C.text, lineHeight: 1.55 }}>{h}</span>
                       </div>
                     ))}
                   </div>
                   <div>
-                    <div style={{ fontFamily: 'Outfit,sans-serif', fontWeight: 700, fontSize: 10, color: C.sea, letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 8 }}>What to Carry</div>
+                    <div style={{ fontFamily: '"Inter",sans-serif', fontWeight: 700, fontSize: 10, color: C.sea, letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 8 }}>What to Carry</div>
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
                       {trip.thingsToCarry.map((t, i) => (
-                        <span key={i} style={{ fontFamily: 'Outfit,sans-serif', fontSize: 11, color: C.sub, background: C.bgAlt, border: `1px solid ${C.border}`, borderRadius: 8, padding: '4px 10px' }}>{t}</span>
+                        <span key={i} style={{ fontFamily: '"Montserrat",sans-serif', fontSize: 11, color: C.sub, background: C.bgAlt, border: `1px solid ${C.border}`, borderRadius: 8, padding: '4px 10px' }}>{t}</span>
                       ))}
                     </div>
                   </div>
@@ -936,7 +936,7 @@ export default function TripModal({ trip, onClose }: { trip: Trip; onClose: () =
                   {trip.itinerary.map((day, i) => (
                     <div key={i} style={{ display: 'flex', gap: 12, paddingBottom: 14 }}>
                       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', flexShrink: 0 }}>
-                        <div style={{ width: 26, height: 26, borderRadius: '50%', background: `linear-gradient(135deg,${C.sea},${C.seaDk})`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Outfit,sans-serif', fontWeight: 700, fontSize: 10, color: '#fff', zIndex: 1 }}>
+                        <div style={{ width: 26, height: 26, borderRadius: '50%', background: `linear-gradient(135deg,${C.sea},${C.seaDk})`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: '"Inter",sans-serif', fontWeight: 700, fontSize: 10, color: '#fff', zIndex: 1 }}>
                           {day.day}
                         </div>
                         {i < trip.itinerary.length - 1 && (
@@ -944,11 +944,11 @@ export default function TripModal({ trip, onClose }: { trip: Trip; onClose: () =
                         )}
                       </div>
                       <div style={{ flex: 1, paddingTop: 3 }}>
-                        <div style={{ fontFamily: 'Outfit,sans-serif', fontWeight: 700, fontSize: 13, color: C.text, marginBottom: 5 }}>{day.title}</div>
+                        <div style={{ fontFamily: '"Inter",sans-serif', fontWeight: 700, fontSize: 13, color: C.text, marginBottom: 5 }}>{day.title}</div>
                         {day.activities.map((act, j) => (
                           <div key={j} style={{ display: 'flex', gap: 6, alignItems: 'flex-start', marginBottom: 3 }}>
                             <div style={{ width: 4, height: 4, borderRadius: '50%', background: C.sea, flexShrink: 0, marginTop: 5 }}/>
-                            <span style={{ fontFamily: 'Outfit,sans-serif', fontSize: 12, color: C.sub, lineHeight: 1.5 }}>{act}</span>
+                            <span style={{ fontFamily: '"Montserrat",sans-serif', fontSize: 12, color: C.sub, lineHeight: 1.5 }}>{act}</span>
                           </div>
                         ))}
                       </div>
@@ -962,28 +962,28 @@ export default function TripModal({ trip, onClose }: { trip: Trip; onClose: () =
                   <div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 7, marginBottom: 10 }}>
                       <CheckCircle2 size={15} color="#22c55e"/>
-                      <span style={{ fontFamily: 'Outfit,sans-serif', fontWeight: 700, fontSize: 13, color: C.text }}>Inclusions</span>
+                      <span style={{ fontFamily: '"Inter",sans-serif', fontWeight: 700, fontSize: 13, color: C.text }}>Inclusions</span>
                     </div>
                     {trip.inclusions.map((inc, i) => (
                       <div key={i} style={{ display: 'flex', gap: 8, alignItems: 'flex-start', marginBottom: 7 }}>
                         <div style={{ width: 15, height: 15, borderRadius: '50%', background: 'rgba(34,197,94,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: 1 }}>
                           <span style={{ fontSize: 8, color: '#22c55e' }}>✓</span>
                         </div>
-                        <span style={{ fontFamily: 'Outfit,sans-serif', fontSize: 12, color: C.text, lineHeight: 1.5 }}>{inc}</span>
+                        <span style={{ fontFamily: '"Montserrat",sans-serif', fontSize: 12, color: C.text, lineHeight: 1.5 }}>{inc}</span>
                       </div>
                     ))}
                   </div>
                   <div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 7, marginBottom: 10 }}>
                       <XCircle size={15} color="#ef4444"/>
-                      <span style={{ fontFamily: 'Outfit,sans-serif', fontWeight: 700, fontSize: 13, color: C.text }}>Exclusions</span>
+                      <span style={{ fontFamily: '"Inter",sans-serif', fontWeight: 700, fontSize: 13, color: C.text }}>Exclusions</span>
                     </div>
                     {trip.exclusions.map((exc, i) => (
                       <div key={i} style={{ display: 'flex', gap: 8, alignItems: 'flex-start', marginBottom: 7 }}>
                         <div style={{ width: 15, height: 15, borderRadius: '50%', background: 'rgba(239,68,68,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: 1 }}>
                           <span style={{ fontSize: 8, color: '#ef4444' }}>✕</span>
                         </div>
-                        <span style={{ fontFamily: 'Outfit,sans-serif', fontSize: 12, color: C.sub, lineHeight: 1.5 }}>{exc}</span>
+                        <span style={{ fontFamily: '"Montserrat",sans-serif', fontSize: 12, color: C.sub, lineHeight: 1.5 }}>{exc}</span>
                       </div>
                     ))}
                   </div>
@@ -992,19 +992,19 @@ export default function TripModal({ trip, onClose }: { trip: Trip; onClose: () =
 
               {tab === 'terms' && (
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-                  <p style={{ fontFamily: 'Outfit,sans-serif', fontSize: 13, color: C.muted, marginBottom: 6, lineHeight: 1.6 }}>Please read before booking:</p>
+                  <p style={{ fontFamily: '"Inter",sans-serif', fontSize: 13, color: C.muted, marginBottom: 6, lineHeight: 1.6 }}>Please read before booking:</p>
                   {trip.terms.map((t, i) => (
                     <div key={i} style={{ display: 'flex', gap: 10, alignItems: 'flex-start', padding: '10px 12px', background: C.bgAlt, borderRadius: 10, border: `1px solid ${C.border}` }}>
-                      <span style={{ fontFamily: 'Outfit,sans-serif', fontWeight: 700, fontSize: 10, color: C.sea, flexShrink: 0, marginTop: 1 }}>0{i + 1}</span>
-                      <span style={{ fontFamily: 'Outfit,sans-serif', fontSize: 12, color: C.text, lineHeight: 1.6 }}>{t}</span>
+                      <span style={{ fontFamily: '"Inter",sans-serif', fontWeight: 700, fontSize: 10, color: C.sea, flexShrink: 0, marginTop: 1 }}>0{i + 1}</span>
+                      <span style={{ fontFamily: '"Montserrat",sans-serif', fontSize: 12, color: C.text, lineHeight: 1.6 }}>{t}</span>
                     </div>
                   ))}
                   <div style={{ marginTop: 6, padding: '12px 14px', background: C.seaBg, borderRadius: 12, border: `1px solid ${C.seaBd}` }}>
-                    <div style={{ fontFamily: 'Outfit,sans-serif', fontWeight: 700, fontSize: 10, color: C.seaDk, marginBottom: 6 }}>MEETING & END POINTS</div>
+                    <div style={{ fontFamily: '"Inter",sans-serif', fontWeight: 700, fontSize: 10, color: C.seaDk, marginBottom: 6 }}>MEETING & END POINTS</div>
                     {[{ l: 'Meet at:', v: trip.meetingPoint }, { l: 'Trip ends:', v: trip.endPoint }].map((p, i) => (
                       <div key={i} style={{ display: 'flex', gap: 8, alignItems: 'flex-start', marginBottom: i === 0 ? 6 : 0 }}>
-                        <span style={{ fontFamily: 'Outfit,sans-serif', fontSize: 10, color: C.muted, minWidth: 56 }}>{p.l}</span>
-                        <span style={{ fontFamily: 'Outfit,sans-serif', fontSize: 12, color: C.text, fontWeight: 500, lineHeight: 1.4 }}>{p.v}</span>
+                        <span style={{ fontFamily: '"Montserrat",sans-serif', fontSize: 10, color: C.muted, minWidth: 56 }}>{p.l}</span>
+                        <span style={{ fontFamily: '"Montserrat",sans-serif', fontSize: 12, color: C.text, fontWeight: 500, lineHeight: 1.4 }}>{p.v}</span>
                       </div>
                     ))}
                   </div>
@@ -1026,8 +1026,8 @@ export default function TripModal({ trip, onClose }: { trip: Trip; onClose: () =
               boxSizing: 'border-box',
             }}
           >
-            <div style={{ fontFamily: 'Playfair Display,serif', fontWeight: 700, fontSize: 18, color: C.text, marginBottom: 4 }}>Book This Trip</div>
-            <div style={{ fontFamily: 'Outfit,sans-serif', fontSize: 12, color: C.muted, marginBottom: 18, lineHeight: 1.5 }}>
+            <div style={{ fontFamily: '"Inter", sans-serif', fontWeight: 700, fontSize: 18, color: C.text, marginBottom: 4 }}>Book This Trip</div>
+            <div style={{ fontFamily: '"Inter",sans-serif', fontSize: 12, color: C.muted, marginBottom: 18, lineHeight: 1.5 }}>
               Fill in your details and we'll connect on WhatsApp to confirm dates.
             </div>
             <EnquiryForm trip={trip} onClose={close}/>
@@ -1037,6 +1037,8 @@ export default function TripModal({ trip, onClose }: { trip: Trip; onClose: () =
 
       {/* Responsive styles */}
       <style>{`
+      @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600;700&family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600,800&display=swap');
         /* Mobile: stack columns, panel scrolls as one */
         @media (max-width: 700px) {
           .trip-modal-panel {

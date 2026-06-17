@@ -96,9 +96,9 @@ export default function CategoryHero({
           <div style={{ height: 1.5, width: 22, background: "#3db89e" }} />
           <span
             style={{
-              fontFamily: '"Outfit",sans-serif',
+              fontFamily: '"Inter",sans-serif',
               fontSize: 10.5,
-              fontWeight: 700,
+              fontWeight: 600,
               color: "#3db89e",
               letterSpacing: "0.28em",
               textTransform: "uppercase",
@@ -112,7 +112,7 @@ export default function CategoryHero({
         {/* title */}
         <h1
           style={{
-            fontFamily: '"Playfair Display",serif',
+            fontFamily: '"Inter",sans-serif',
             fontWeight: 800,
             fontSize: "clamp(32px,6vw,58px)",
             lineHeight: 1.08,
@@ -148,9 +148,9 @@ export default function CategoryHero({
             justifyContent: "center",
             gap: 6,
             marginBottom: "clamp(28px,4vw,40px)",
-            fontFamily: '"Outfit", sans-serif',
+            fontFamily: '"Inter", sans-serif',
             fontSize: 12.5,
-            fontWeight: 500,
+            fontWeight: 600,
             color: "rgba(255,255,255,0.65)",
           }}
         >
@@ -197,8 +197,8 @@ export default function CategoryHero({
             >
               <div
                 style={{
-                  fontFamily: '"Outfit",sans-serif',
-                  fontWeight: 800,
+                  fontFamily: '"Inter",sans-serif',
+                  fontWeight: 600,
                   fontSize: "clamp(18px,2.2vw,24px)",
                   color: "#fff",
                   lineHeight: 1,
@@ -209,8 +209,8 @@ export default function CategoryHero({
               </div>
               <div
                 style={{
-                  fontFamily: '"Outfit",sans-serif',
-                  fontWeight: 500,
+                  fontFamily: '"Inter",sans-serif',
+                  fontWeight: 600,
                   fontSize: 10.5,
                   color: "rgba(220,245,240,0.65)",
                   letterSpacing: "0.06em",

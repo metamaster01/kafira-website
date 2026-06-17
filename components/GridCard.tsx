@@ -93,8 +93,8 @@ export default function GridCard({
         position: 'absolute', top: 18, left: 18, right: 60,
       }}>
         <div style={{
-          fontFamily: '"Outfit", sans-serif',
-          fontWeight: 800,
+          fontFamily: '"Inter", sans-serif',
+          fontWeight: 600,
           fontSize: 'clamp(13px,1.6vw,16px)',
           color: '#ffffff',
           textTransform: 'uppercase',
@@ -106,7 +106,7 @@ export default function GridCard({
         </div>
         {subtitle && (
           <div style={{
-            fontFamily: '"Outfit", sans-serif',
+            fontFamily: '"Montserrat", sans-serif',
             fontWeight: 500,
             fontSize: 11,
             color: 'rgba(255,255,255,0.78)',
@@ -126,7 +126,7 @@ export default function GridCard({
           background: 'rgba(0,0,0,0.55)',
           backdropFilter: 'blur(8px)',
           borderRadius: 999, padding: '4px 10px',
-          fontFamily: '"Outfit", sans-serif',
+          fontFamily: '"Inter", sans-serif',
           fontSize: 10.5, fontWeight: 600,
           color: '#fff',
           border: '1px solid rgba(255,255,255,0.15)',
@@ -148,6 +148,8 @@ export default function GridCard({
       </div>
 
       <style>{`
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@300;400;500;700&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
         @keyframes gridCardIn {
           from { opacity: 0; transform: translateY(24px); }
           to   { opacity: 1; transform: translateY(0); }

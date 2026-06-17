@@ -302,7 +302,7 @@ export default function ContactPage() {
             borderRadius:16, padding:'28px 32px', textAlign:'center', marginBottom:32,
           }}>
             <div style={{ fontSize:40, marginBottom:10 }}>🎉</div>
-            <div style={{ fontFamily:'"Playfair Display",serif', fontSize:22, color:C.text, marginBottom:6 }}>
+            <div style={{ fontFamily:'"Inter",sans-serif', fontSize:22, color:C.text, marginBottom:6 }}>
               We've received your request!
             </div>
             <div style={{ fontFamily:'"Inter",sans-serif', fontSize:14, color:C.muted, lineHeight:1.65 }}>
@@ -643,8 +643,8 @@ function SectionHead({ num, title, sub }: { num: string; title: string; sub: str
         {num}
       </div>
       <div>
-        <div style={{ fontFamily:'"Playfair Display",serif', fontWeight:700, fontSize:18, color:C.text, lineHeight:1.2 }}>{title}</div>
-        <div style={{ fontFamily:'"Inter",sans-serif', fontSize:12, color:C.muted, marginTop:2 }}>{sub}</div>
+        <div style={{ fontFamily:'"Inter",serif', fontWeight:600, fontSize:18, color:C.text, lineHeight:1.2 }}>{title}</div>
+        <div style={{ fontFamily:'"Montserrat",sans-serif', fontSize:12, color:C.muted, marginTop:2 }}>{sub}</div>
       </div>
     </div>
   );

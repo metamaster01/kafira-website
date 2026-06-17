@@ -61,8 +61,8 @@ export default function RegionHero({
           }}
         >
           <h1 style={{
-            fontFamily: '"Playfair Display",serif',
-            fontWeight: 800,
+            fontFamily: '"Inter",sans-serif',
+            fontWeight: 600,
             fontSize: 'clamp(26px,4.5vw,46px)',
             color: '#ffffff',
             margin: '0 0 10px',
@@ -185,8 +185,8 @@ function SearchField({
       <div style={{ flexShrink: 0 }}>{icon}</div>
       <div style={{ minWidth: 0, flex: 1 }}>
         <div style={{
-          fontFamily: '"Outfit",sans-serif',
-          fontSize: 9.5, fontWeight: 700,
+          fontFamily: '"Inter",sans-serif',
+          fontSize: 9.5, fontWeight: 600,
           color: '#0f2720',
           letterSpacing: '0.10em', textTransform: 'uppercase',
           marginBottom: 2,
@@ -195,7 +195,7 @@ function SearchField({
         </div>
         {readOnly ? (
           <div style={{
-            fontFamily: '"Outfit",sans-serif',
+            fontFamily: '"Inter",sans-serif',
             fontSize: 12.5, color: 'rgba(0,0,0,0.40)',
           }}>
             {placeholder}
@@ -207,7 +207,7 @@ function SearchField({
             onChange={e => onChange?.(e.target.value)}
             style={{
               border: 'none', outline: 'none', background: 'transparent',
-              fontFamily: '"Outfit",sans-serif', fontSize: 12.5,
+              fontFamily: '"Inter",sans-serif', fontSize: 12.5,
               color: '#1a1a1a', width: '100%', padding: 0,
             }}
           />

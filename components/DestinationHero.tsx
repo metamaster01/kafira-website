@@ -48,8 +48,8 @@ export default function DestinationHero({
           style={{ maxWidth: 900, margin: '0 auto', textAlign: 'center', position: 'relative', zIndex: 1 }}
         >
           <h1 style={{
-            fontFamily: '"Playfair Display",serif',
-            fontWeight: 800,
+            fontFamily: '"Inter",serif',
+            fontWeight: 600,
             fontSize: 'clamp(22px,3.6vw,38px)',
             color: '#ffffff',
             lineHeight: 1.25,
@@ -62,8 +62,8 @@ export default function DestinationHero({
           {/* breadcrumb */}
           <div style={{
             display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6, flexWrap: 'wrap',
-            fontFamily: '"Outfit", sans-serif',
-            fontSize: 12.5, fontWeight: 500,
+            fontFamily: '"Inter", sans-serif',
+            fontSize: 12.5, fontWeight: 600,
             color: 'rgba(255,255,255,0.78)',
           }}>
             {breadcrumbs.map((b, i) => (
@@ -99,8 +99,8 @@ export default function DestinationHero({
         }}
       >
         <h2 style={{
-          fontFamily: '"Outfit", sans-serif',
-          fontWeight: 800,
+          fontFamily: '"Inter", sans-serif',
+          fontWeight: 600,
           fontSize: 'clamp(18px,2.4vw,26px)',
           color: '#0f2720',
           margin: '0 0 16px',
@@ -117,7 +117,7 @@ export default function DestinationHero({
         }}>
           {paragraphs.map((p, i) => (
             <p key={i} style={{
-              fontFamily: '"Outfit", sans-serif',
+              fontFamily: '"Montserrat", sans-serif',
               fontSize: 'clamp(12.5px,1.1vw,14px)',
               color: 'rgba(15,39,32,0.55)',
               lineHeight: 1.8,
@@ -143,7 +143,7 @@ export default function DestinationHero({
               padding: '9px 22px', borderRadius: 999,
               background: `linear-gradient(135deg,${SEA},${SEA_DK})`,
               color: '#fff', border: 'none', cursor: 'pointer',
-              fontFamily: '"Outfit",sans-serif', fontSize: 12.5, fontWeight: 700,
+              fontFamily: '"Montserrat",sans-serif', fontSize: 12.5, fontWeight: 700,
               boxShadow: `0 4px 14px ${SEA}40`,
               transition: 'all 0.2s ease',
             }}

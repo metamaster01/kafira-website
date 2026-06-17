@@ -69,7 +69,7 @@ function StatItem({ stat }: { stat: typeof STATS[0] }) {
   return (
     <div ref={ref} style={{ textAlign: 'center', padding: '0 8px' }}>
       <div style={{
-        fontFamily: '"Playfair Display",serif', fontWeight: 800,
+        fontFamily: '"Inter",sans-serif', fontWeight: 600,
         fontSize: 'clamp(28px,3.5vw,44px)', lineHeight: 1,
         background: `linear-gradient(135deg,${C.seaLt},${C.seaDk})`,
         WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
@@ -119,7 +119,7 @@ function UspCard({ usp, index }: { usp: typeof USPS[0]; index: number }) {
         {usp.icon}
       </div>
       <div>
-        <div style={{ fontFamily: '"Playfair Display",serif', fontWeight: 700, fontSize: 16, color: hov ? C.text : C.sub, marginBottom: 6, transition: 'color 0.25s' }}>{usp.title}</div>
+        <div style={{ fontFamily: '"Inter",sans-serif', fontWeight: 600, fontSize: 16, color: hov ? C.text : C.sub, marginBottom: 6, transition: 'color 0.25s' }}>{usp.title}</div>
         <div style={{ fontFamily: '"Montserrat",sans-serif', fontWeight: 400, fontSize: 13, color: C.muted, lineHeight: 1.7 }}>{usp.body}</div>
       </div>
     </div>

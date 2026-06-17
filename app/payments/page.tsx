@@ -59,7 +59,7 @@ function DetailRow({
       <div style={{ minWidth: 0 }}>
         <div
           style={{
-            fontFamily: '"Outfit",sans-serif',
+            fontFamily: '"Inter",sans-serif',
             fontSize: 11,
             fontWeight: 600,
             color: MUTED,
@@ -72,7 +72,7 @@ function DetailRow({
         </div>
         <div
           style={{
-            fontFamily: '"Outfit",sans-serif',
+            fontFamily: '"Inter",sans-serif',
             fontSize: 15,
             fontWeight: 700,
             color: TEXT,
@@ -159,7 +159,7 @@ function PaymentCard({
         </div>
         <h2
           style={{
-            fontFamily: '"Outfit",sans-serif',
+            fontFamily: '"Inter",sans-serif',
             fontWeight: 800,
             fontSize: "clamp(20px,2.4vw,26px)",
             color: TEXT,
@@ -222,9 +222,9 @@ export default function PaymentsPage() {
             </div>
             <span
               style={{
-                fontFamily: '"Outfit",sans-serif',
+                fontFamily: '"Montserrat",sans-serif',
                 fontSize: 11,
-                fontWeight: 700,
+                fontWeight: 300,
                 color: SEA,
                 letterSpacing: "0.26em",
                 textTransform: "uppercase",
@@ -236,8 +236,8 @@ export default function PaymentsPage() {
 
           <h1
             style={{
-              fontFamily: '"Playfair Display",serif',
-              fontWeight: 800,
+              fontFamily: '"Inter",sans-serif',
+              fontWeight: 600,
               fontSize: "clamp(34px,6vw,58px)",
               lineHeight: 1.08,
               color: "#fff",
@@ -250,9 +250,9 @@ export default function PaymentsPage() {
 
           <p
             style={{
-              fontFamily: '"Outfit",sans-serif',
+              fontFamily: '"Montserrat",sans-serif',
               fontSize: "clamp(13px,1.3vw,16px)",
-              fontWeight: 400,
+              fontWeight: 300,
               color: "#fff",
               lineHeight: 1.75,
               margin: 0,
@@ -335,8 +335,8 @@ export default function PaymentsPage() {
               </div>
               <h3
                 style={{
-                  fontFamily: '"Outfit",sans-serif',
-                  fontWeight: 800,
+                  fontFamily: '"Inter",sans-serif',
+                  fontWeight: 600,
                   fontSize: "clamp(17px,1.8vw,21px)",
                   color: "#9f1f1f",
                   margin: 0,
@@ -367,7 +367,7 @@ export default function PaymentsPage() {
                   />
                   <p
                     style={{
-                      fontFamily: '"Outfit",sans-serif',
+                      fontFamily: '"Montserrat",sans-serif',
                       fontSize: 13,
                       color: "#7a3a3a",
                       lineHeight: 1.7,
@@ -416,7 +416,7 @@ export default function PaymentsPage() {
             </div>
             <h2
               style={{
-                fontFamily: '"Outfit",sans-serif',
+                fontFamily: '"Inter",sans-serif',
                 fontWeight: 800,
                 fontSize: "clamp(20px,2.4vw,28px)",
                 color: TEXT,
@@ -431,7 +431,7 @@ export default function PaymentsPage() {
           <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
             <p
               style={{
-                fontFamily: '"Outfit",sans-serif',
+                fontFamily: '"Montserrat",sans-serif',
                 fontSize: "clamp(13px,1.1vw,15px)",
                 color: SUB,
                 lineHeight: 1.8,
@@ -455,9 +455,9 @@ export default function PaymentsPage() {
               >
                 <div
                   style={{
-                    fontFamily: '"Outfit",sans-serif',
+                    fontFamily: '"Inter",sans-serif',
                     fontSize: 11,
-                    fontWeight: 700,
+                    fontWeight: 600,
                     color: SEA,
                     letterSpacing: "0.16em",
                     textTransform: "uppercase",
@@ -468,7 +468,7 @@ export default function PaymentsPage() {
                 </div>
                 <p
                   style={{
-                    fontFamily: '"Outfit",sans-serif',
+                    fontFamily: '"Montserrat",sans-serif',
                     fontSize: 13,
                     color: SUB,
                     lineHeight: 1.75,
@@ -491,9 +491,9 @@ export default function PaymentsPage() {
               >
                 <div
                   style={{
-                    fontFamily: '"Outfit",sans-serif',
+                    fontFamily: '"Inter",sans-serif',
                     fontSize: 11,
-                    fontWeight: 700,
+                    fontWeight: 600,
                     color: SEA,
                     letterSpacing: "0.16em",
                     textTransform: "uppercase",
@@ -504,7 +504,7 @@ export default function PaymentsPage() {
                 </div>
                 <p
                   style={{
-                    fontFamily: '"Outfit",sans-serif',
+                    fontFamily: '"Montserrat",sans-serif',
                     fontSize: 13,
                     color: SUB,
                     lineHeight: 1.75,
@@ -552,14 +552,14 @@ export default function PaymentsPage() {
                       marginTop: 1,
                       fontSize: 10,
                       fontWeight: 700,
-                      fontFamily: '"Outfit",sans-serif',
+                      fontFamily: '"Inter",sans-serif',
                     }}
                   >
                     {i + 1}
                   </div>
                   <p
                     style={{
-                      fontFamily: '"Outfit",sans-serif',
+                      fontFamily: '"Montserrat",sans-serif',
                       fontSize: 13,
                       color: TEXT,
                       lineHeight: 1.7,
@@ -580,7 +580,9 @@ export default function PaymentsPage() {
       <Footer />
 
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+      
 
         @media (max-width: 900px) {
           .payments-grid { grid-template-columns: 1fr !important; }

@@ -51,8 +51,8 @@ export default function TripsGrid({
           </h2> */}
           <h2
             style={{
-              fontFamily: '"Outfit", sans-serif',
-              fontWeight: 800,
+              fontFamily: '"Inter", sans-serif',
+              fontWeight: 600,
               fontSize: "clamp(20px,2.8vw,32px)",
               color: "#0f2720",
               margin: "0 0 8px",
@@ -92,7 +92,7 @@ export default function TripsGrid({
             style={{
               textAlign: "center",
               padding: "60px 20px",
-              fontFamily: '"Outfit",sans-serif',
+              fontFamily: '"Inter",sans-serif',
               fontSize: 14,
               color: "rgba(0,0,0,0.4)",
             }}
@@ -122,7 +122,7 @@ export default function TripsGrid({
       grid-template-columns: repeat(4, minmax(0, 1fr));
     }
   }
-        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
       `}
       </style>
     </section>

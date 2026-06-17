@@ -509,8 +509,8 @@ function FooterLink({ label, href }: { label: string; href: string }) {
       href={href}
       whileHover={{ x: 5, color: C.textAct }}
       style={{
-        fontFamily: '"Outfit",sans-serif',
-        fontSize: 13, fontWeight: 400,
+        fontFamily: '"Montserrat",sans-serif',
+        fontSize: 13, fontWeight: 300,
         color: C.textMid,
         textDecoration: 'none',
         padding: '4px 0',
