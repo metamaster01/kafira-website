@@ -28,7 +28,7 @@ export default function DestinationsGrid({
           <h2 style={{
             fontFamily: '"Inter", sans-serif',
             fontWeight: 600,
-            fontSize: 'clamp(20px,2.8vw,32px)',
+            fontSize: 'clamp(22px,2.8vw,44px)',
             color: '#0f2720',
             margin: 0,
             letterSpacing: '-0.01em',

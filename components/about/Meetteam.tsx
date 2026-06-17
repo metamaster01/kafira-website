@@ -174,10 +174,12 @@ export default function MeetTeam() {
           animate={headingInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 leading-snug"
-          style={{ fontFamily: "var(--font-montserrat), Montserrat, sans-serif", paddingBottom: "clamp(12px,3vw,24px)" }}
+          style={{ fontFamily: '"Inter", sans-serif', paddingBottom: "clamp(12px,3vw,24px)"  }}
         >
           Meet Our Team.{" "}
-          <span className="font-normal">The ideal set of extraordinary people</span>
+          <span className="font-normal" style={{ fontWeight: 600, color: "#2b8f7b" }}>
+            The ideal set of extraordinary people
+          </span>
         </motion.h2>
       </div>
 

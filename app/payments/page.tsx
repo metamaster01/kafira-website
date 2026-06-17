@@ -160,7 +160,7 @@ function PaymentCard({
         <h2
           style={{
             fontFamily: '"Inter",sans-serif',
-            fontWeight: 800,
+            fontWeight: 600,
             fontSize: "clamp(20px,2.4vw,26px)",
             color: TEXT,
             margin: 0,
@@ -238,7 +238,7 @@ export default function PaymentsPage() {
             style={{
               fontFamily: '"Inter",sans-serif',
               fontWeight: 600,
-              fontSize: "clamp(34px,6vw,58px)",
+              fontSize: 'clamp(22px,3.5vw,44px)',
               lineHeight: 1.08,
               color: "#fff",
               margin: "0 0 16px",
@@ -337,7 +337,7 @@ export default function PaymentsPage() {
                 style={{
                   fontFamily: '"Inter",sans-serif',
                   fontWeight: 600,
-                  fontSize: "clamp(17px,1.8vw,21px)",
+                  fontSize: "clamp(20px,1.8vw,21px)",
                   color: "#9f1f1f",
                   margin: 0,
                   letterSpacing: "-0.01em",
@@ -389,7 +389,7 @@ export default function PaymentsPage() {
           viewport={{ once: true, margin: "-40px" }}
           transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
           style={{
-            marginTop: "clamp(28px,4vw,48px)",
+            marginTop: "clamp(20px,3.5vw,40px)",
             background: "#ffffff",
             borderRadius: 28,
             border: "1px solid rgba(0,0,0,0.05)",
@@ -417,7 +417,7 @@ export default function PaymentsPage() {
             <h2
               style={{
                 fontFamily: '"Inter",sans-serif',
-                fontWeight: 800,
+                fontWeight: 600,
                 fontSize: "clamp(20px,2.4vw,28px)",
                 color: TEXT,
                 margin: 0,
@@ -564,7 +564,7 @@ export default function PaymentsPage() {
                       color: TEXT,
                       lineHeight: 1.7,
                       margin: 0,
-                      fontWeight: 500,
+                      fontWeight: 300,
                     }}
                   >
                     {line}

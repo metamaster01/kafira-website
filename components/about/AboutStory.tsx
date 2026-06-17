@@ -59,12 +59,12 @@ export default function AboutStory() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           style={{
-            fontFamily: "inherit",
-            fontWeight: 700,
+            fontFamily: "Inter",
+            fontWeight: 600,
             color: "#111827",
             lineHeight: 1.35,
             marginBottom: "2rem",
-            fontSize: "clamp(1.2rem, 3vw, 1.875rem)",
+            fontSize: 'clamp(22px,3.5vw,44px)',
             textAlign: "center",
           }}
         >

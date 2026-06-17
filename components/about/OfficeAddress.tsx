@@ -80,8 +80,8 @@ export default function OfficeLocations() {
         }
 
         .heading h2 {
-          font-size: clamp(2.4rem, 5vw, 4.2rem);
-          font-weight: 800;
+          font-size: clamp(22px,3.5vw,44px);
+          font-weight: 600;
           color: #0f2720;
           line-height: 1.1;
           margin-bottom: 18px;

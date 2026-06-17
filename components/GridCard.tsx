@@ -95,9 +95,9 @@ export default function GridCard({
         <div style={{
           fontFamily: '"Inter", sans-serif',
           fontWeight: 600,
-          fontSize: 'clamp(13px,1.6vw,16px)',
+          fontSize: 'clamp(18px,1.6vw,32px)',
           color: '#ffffff',
-          textTransform: 'uppercase',
+      
           letterSpacing: '0.04em',
           lineHeight: 1.25,
           textShadow: '0 2px 8px rgba(0,0,0,0.5)',
@@ -108,7 +108,7 @@ export default function GridCard({
           <div style={{
             fontFamily: '"Montserrat", sans-serif',
             fontWeight: 500,
-            fontSize: 11,
+            fontSize: 13,
             color: 'rgba(255,255,255,0.78)',
             marginTop: 4,
             letterSpacing: '0.02em',
@@ -127,7 +127,7 @@ export default function GridCard({
           backdropFilter: 'blur(8px)',
           borderRadius: 999, padding: '4px 10px',
           fontFamily: '"Inter", sans-serif',
-          fontSize: 10.5, fontWeight: 600,
+          fontSize: 13, fontWeight: 600,
           color: '#fff',
           border: '1px solid rgba(255,255,255,0.15)',
         }}>

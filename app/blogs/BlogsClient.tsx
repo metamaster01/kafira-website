@@ -586,7 +586,7 @@ export default function BlogsClient({ featured, blogs }: Props) {
             background: SEA_BG, border: `1.5px solid ${SEA_BD}`,
             borderRadius: 999, padding: '5px 16px',
             fontFamily: '"Inter", sans-serif',
-            fontSize: 11, fontWeight: 700, color: SEA,
+            fontSize: 11, fontWeight: 600, color: SEA,
             letterSpacing: '0.18em', textTransform: 'uppercase',
             marginBottom: 14,
           }}>
@@ -594,8 +594,8 @@ export default function BlogsClient({ featured, blogs }: Props) {
           </span>
           <h2 style={{
             fontFamily: '"Inter", sans-serif',
-            fontWeight: 800,
-            fontSize: 'clamp(26px,3.5vw,40px)',
+            fontWeight: 600,
+            fontSize: 'clamp(22px,3.5vw,44px)',
             color: TEXT,
             letterSpacing: '-0.02em',
             lineHeight: 1.15,
