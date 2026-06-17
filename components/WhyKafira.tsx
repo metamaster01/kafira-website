@@ -20,18 +20,38 @@ const C = {
   seaBd: 'rgba(45,143,123,0.22)',
 };
 
+// Why Choose Kafira?  ( IN BOLD, IN CAPS, AND IN CENTRE) 
+
+
+
+// Curated Group Trips  IN BOLD
+// Travel with like-minded explorers, not random crowds. 
+
+// Stress-Free Planning    IN BOLD
+// We handle the details. You make the memories.
+
+// Travel Tribe Vibes     IN BOLD
+// Meet new people, make lifelong connections. 
+
+// Moments Worth Posting     IN BOLD
+// Epic destinations, unforgettable memories, endless content.
+
 const HIGHLIGHTS = [
   {
-    title: 'Fully customised',
-    desc:  'No two Kafira trips are alike — each is built around you.',
+    title: 'Curated Group Trips',
+    desc:  'Travel with like-minded explorers, not random crowds.',
   },
   {
-    title: 'Local expertise',
-    desc:  'Our on-ground teams know every shortcut, hidden gem, and best-kept secret.',
+    title: 'Stress-Free Planning',
+    desc:  'We handle the details. You make the memories.',
   },
   {
-    title: 'End-to-end care',
-    desc:  "From first enquiry to safe return — we're with you every step.",
+    title: 'Travel Tribe Vibes',
+    desc:  "Meet new people, make lifelong connections.",
+  },
+  {
+    title: 'Moments Worth Posting',
+    desc:  "Epic destinations, unforgettable memories, endless content.",
   },
 ];
 
@@ -161,17 +181,17 @@ export default function WhyKafira() {
             {/* eyebrow */}
             <div style={{ display:'flex', alignItems:'center', gap:10, marginBottom:16 }}>
               <div style={{ height:1.5, width:24, background:`linear-gradient(to right,transparent,${C.sea})` }}/>
-              <span style={{ fontFamily:'"Outfit",sans-serif', fontSize:9.5, fontWeight:700, color:C.sea, letterSpacing:'0.26em', textTransform:'uppercase' }}>
+              <span style={{ fontFamily:'"Monsterrat",sans-serif', fontSize:9.5, fontWeight:700, color:C.sea, letterSpacing:'0.26em', textTransform:'uppercase' }}>
                 Why Choose Us
               </span>
             </div>
 
             {/* headline */}
             <h2 style={{
-              fontFamily:'"DM Serif Display",serif',
+              fontFamily:'"Inter",serif',
               fontWeight:400,
-              fontSize:'clamp(30px,3.8vw,54px)',
-              lineHeight:1.08,
+              fontSize:'clamp(24px,3.8vw,46px)',
+              lineHeight:1.02,
               color:C.text,
               margin:'0 0 18px',
               letterSpacing:'-0.01em',
@@ -182,15 +202,15 @@ export default function WhyKafira() {
 
             {/* body */}
             <p style={{
-              fontFamily:'"Outfit",sans-serif',
+              fontFamily:'"Monsterrat",sans-serif',
               fontSize:'clamp(13px,1.1vw,15px)',
-              fontWeight:400,
+              fontWeight:300,
               color:C.sub,
               lineHeight:1.80,
               margin:'0 0 30px',
               maxWidth: 480,
             }}>
-              At Kafira, every trip is personal. Since 2012, we've been building
+              At Kafira, every trip is personal. We've been building
               travel experiences that go beyond the ordinary — from remote Himalayan
               trails to royal Rajasthan forts, misty Coorg hills to Kerala's golden
               backwaters. We listen first, then plan.
@@ -219,6 +239,8 @@ export default function WhyKafira() {
 
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Monsterrat:wght@300;400;500;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
       `}</style>
     </section>
   );
@@ -239,15 +261,15 @@ function HighlightRow({ title, desc }: { title: string; desc: string }) {
       </div>
       <div>
         <div style={{
-          fontFamily:'"DM Serif Display",serif',
-          fontWeight:400, fontSize:16,
-          color:'#0e1e1b', marginBottom:3,
+          fontFamily:'"Inter",sans-serif',
+          fontWeight:700, fontSize:16,
+          color:'#0e1e1b', marginBottom:3, 
         }}>
           {title}
         </div>
         <div style={{
-          fontFamily:'"Outfit",sans-serif',
-          fontSize:13, fontWeight:400,
+          fontFamily:'"Monsterrat",sans-serif',
+          fontSize:13, fontWeight:300,
           color:'#6b9e94', lineHeight:1.62,
         }}>
           {desc}
@@ -271,7 +293,7 @@ function CTALink({
   const base: React.CSSProperties = {
     display:'inline-flex', alignItems:'center',
     padding:'12px 26px', borderRadius:999,
-    fontFamily:'"Outfit",sans-serif', fontSize:13, fontWeight:700,
+    fontFamily:'"Inter",sans-serif', fontSize:13, fontWeight:700,
     textDecoration:'none', letterSpacing:'0.02em',
     cursor:'pointer', transition:'all 0.24s ease',
     whiteSpace:'nowrap',
