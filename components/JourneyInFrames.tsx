@@ -411,7 +411,7 @@ export default function JourneyInFrames({
         <h2 style={{
           fontFamily: '"Inter",sans-serif',
           fontWeight: 600,
-          fontSize: 'clamp(22px,3.5vw,44px)',
+          fontSize: 'clamp(24px,4vw,46px)',
           color: '#111',
           margin: '0 0 8px',
           letterSpacing: '0.04em',

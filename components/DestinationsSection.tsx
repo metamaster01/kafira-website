@@ -1584,8 +1584,8 @@ export default function DestinationsSection({
             transition={{ duration:0.65, delay:0.10, ease:[0.22,1,0.36,1] }}
             style={{
               fontFamily:'"Inter", sans-serif',
-              fontWeight:800,
-              fontSize:'clamp(30px,4vw,48px)',
+              fontWeight:600,
+              fontSize: 'clamp(24px,4vw,46px)',
               lineHeight:1.04,
               color:'#ffffff',
               margin:'0 0 10px',
@@ -1605,7 +1605,7 @@ export default function DestinationsSection({
             style={{
               fontFamily:'"Montserrat", sans-serif',
               fontSize:'clamp(12px,1.1vw,14.5px)',
-              fontWeight:400,
+              fontWeight:300,
               color:'rgba(210,240,232,0.75)',
               lineHeight:1.68,
               maxWidth:420,

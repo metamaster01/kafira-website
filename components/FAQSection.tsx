@@ -202,7 +202,7 @@ export default function FAQSection() {
               <span style={{ fontFamily: '"Montserrat",sans-serif', fontSize: 10, fontWeight: 700, color: C.sea, letterSpacing: '0.26em', textTransform: 'uppercase' }}>FAQ</span>
               <div style={{ height: 1, width: 28, background: `linear-gradient(to left,transparent,${C.sea})` }}/>
             </div>
-            <h2 style={{ fontFamily: '"Inter",serif', fontWeight: 600, fontSize: 'clamp(22px,3.8vw,44px)', lineHeight: 1.08, color: C.text, marginBottom: 14, letterSpacing: '-0.01em' }}>
+            <h2 style={{ fontFamily: '"Inter",serif', fontWeight: 600, fontSize: 'clamp(24px,4vw,46px)', lineHeight: 1.08, color: C.text, marginBottom: 14, letterSpacing: '-0.01em' }}>
               Questions? We've got<br/><span style={{ color: C.sea }}>answers.</span>
             </h2>
             <p style={{ fontFamily: '"Montserrat",sans-serif', fontWeight: 300, fontSize: 15, color: C.muted, lineHeight: 1.75, maxWidth: 520, margin: '0 auto' }}>

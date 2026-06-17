@@ -150,7 +150,7 @@ export default function AllDestinations() {
 
             <h2 style={{
               fontFamily: '"Inter",sans-serif',
-              fontWeight: 700,
+              fontWeight: 600,
               fontSize: 'clamp(24px,4vw,46px)',
               color: C.text,
               lineHeight: 1.05,

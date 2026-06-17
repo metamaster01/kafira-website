@@ -182,7 +182,7 @@ export default function WhyKafira() {
               <h1 style={{
                 margin:0,
                 fontFamily:'"Inter",sans-serif',
-                fontSize:'clamp(20px,3.8vw,40px)',
+                fontSize: 'clamp(24px,4vw,46px)',
                 fontWeight:600,
                 color:C.sea,
               
