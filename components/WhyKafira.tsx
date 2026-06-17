@@ -178,31 +178,36 @@ export default function WhyKafira() {
 
           {/* ── RIGHT: text ── */}
           <div ref={headRef}>
-            {/* eyebrow */}
-            <div style={{ display:'flex', alignItems:'center', gap:10, marginBottom:16 }}>
-              <div style={{ height:1.5, width:24, background:`linear-gradient(to right,transparent,${C.sea})` }}/>
-              <span style={{ fontFamily:'"Monsterrat",sans-serif', fontSize:9.5, fontWeight:700, color:C.sea, letterSpacing:'0.26em', textTransform:'uppercase' }}>
-                Why Choose Us
-              </span>
+            <div style={{  marginBottom:16 }}>
+              <h1 style={{
+                margin:0,
+                fontFamily:'"Inter",sans-serif',
+                fontSize:'clamp(20px,3.8vw,40px)',
+                fontWeight:700,
+                color:C.sea,
+                textTransform:'uppercase',
+              }}>
+                WHY CHOOSE KAFIRA?
+              </h1>
             </div>
 
             {/* headline */}
-            <h2 style={{
-              fontFamily:'"Inter",serif',
-              fontWeight:400,
-              fontSize:'clamp(24px,3.8vw,46px)',
+            <h3 style={{
+              fontFamily:'"Montserrat",serif',
+              fontWeight:500,
+              fontSize:'clamp(12px,2.4vw,24px)',
               lineHeight:1.02,
               color:C.text,
               margin:'0 0 18px',
               letterSpacing:'-0.01em',
             }}>
-              We don't sell trips.<br/>
+              We don't sell trips.
               <span style={{  color:C.sea }}>We craft journeys.</span>
-            </h2>
+            </h3>
 
             {/* body */}
             <p style={{
-              fontFamily:'"Monsterrat",sans-serif',
+              fontFamily:'"Montserrat",sans-serif',
               fontSize:'clamp(13px,1.1vw,15px)',
               fontWeight:300,
               color:C.sub,
@@ -210,10 +215,9 @@ export default function WhyKafira() {
               margin:'0 0 30px',
               maxWidth: 480,
             }}>
-              At Kafira, every trip is personal. We've been building
-              travel experiences that go beyond the ordinary — from remote Himalayan
-              trails to royal Rajasthan forts, misty Coorg hills to Kerala's golden
-              backwaters. We listen first, then plan.
+              At Kafira, we believe travel should be affordable, effortless, and unforgettable.
+
+From curated group adventures to meaningful travel experiences, we take care of the planning so you can focus on making memories that last a lifetime.
             </p>
 
             {/* highlight list */}
@@ -225,12 +229,10 @@ export default function WhyKafira() {
 
             {/* CTA buttons */}
             <div style={{ display:'flex', gap:12, flexWrap:'wrap' }}>
-              <CTALink href="#tours" variant="solid">
+              <CTALink href="/destinations/india" variant="solid">
                 Explore Packages
               </CTALink>
-              <CTALink href="https://wa.me/919253289347" variant="outline" external>
-                Chat with us →
-              </CTALink>
+              
             </div>
           </div>
 
@@ -239,7 +241,7 @@ export default function WhyKafira() {
 
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@400;500;600;700&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Monsterrat:wght@300;400;500;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
       `}</style>
     </section>
@@ -268,7 +270,7 @@ function HighlightRow({ title, desc }: { title: string; desc: string }) {
           {title}
         </div>
         <div style={{
-          fontFamily:'"Monsterrat",sans-serif',
+          fontFamily:'"Montserrat",sans-serif',
           fontSize:13, fontWeight:300,
           color:'#6b9e94', lineHeight:1.62,
         }}>
@@ -292,8 +294,8 @@ function CTALink({
 
   const base: React.CSSProperties = {
     display:'inline-flex', alignItems:'center',
-    padding:'12px 26px', borderRadius:999,
-    fontFamily:'"Inter",sans-serif', fontSize:13, fontWeight:700,
+    padding:'14px 24px', borderRadius:999,
+    fontFamily:'"Inter",sans-serif', fontSize:16, fontWeight:400,
     textDecoration:'none', letterSpacing:'0.02em',
     cursor:'pointer', transition:'all 0.24s ease',
     whiteSpace:'nowrap',

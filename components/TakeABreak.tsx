@@ -53,9 +53,9 @@ export default function TakeABreak() {
           <circle cx="43" cy="43" r="40" fill={SEA} />
           {/* curved text */}
           <text
-            fontFamily='"Outfit",sans-serif'
+            fontFamily='"Inter",sans-serif'
             fontSize="8.2"
-            fontWeight="700"
+            fontWeight="600"
             fill="white"
             letterSpacing="2.2"
             textAnchor="middle"
@@ -93,8 +93,8 @@ export default function TakeABreak() {
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.65, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
         style={{
-          fontFamily: '"Outfit", sans-serif',
-          fontWeight: 800,
+          fontFamily: '"Inter", sans-serif',
+          fontWeight: 600,
           fontSize: 'clamp(32px,5.5vw,58px)',
           color: '#111111',
           lineHeight: 1.1,
@@ -119,8 +119,8 @@ export default function TakeABreak() {
         }}
       >
         <span style={{
-          fontFamily: '"Outfit", sans-serif',
-          fontWeight: 800,
+          fontFamily: '"Montserrat", sans-serif',
+          fontWeight: 300,
           fontSize: 'clamp(28px,5vw,52px)',
           color: '#ffffff',
           letterSpacing: '-0.02em',
@@ -136,8 +136,8 @@ export default function TakeABreak() {
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.58, delay: 0.34, ease: [0.22, 1, 0.36, 1] }}
         style={{
-          fontFamily: '"Outfit", sans-serif',
-          fontWeight: 400,
+          fontFamily: '"Montserrat", sans-serif',
+          fontWeight: 300,
           fontSize: 'clamp(13px,1.4vw,16px)',
           color: 'rgba(0,0,0,0.52)',
           lineHeight: 1.7,
@@ -148,6 +148,16 @@ export default function TakeABreak() {
         &amp; return home with 1500 stunning photos, endless memories,
         and a smile that lasts&nbsp;😄
       </motion.p>
+
+
+        <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+      `}</style>
     </section>
+
+
+
   );
 }

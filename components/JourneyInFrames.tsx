@@ -344,10 +344,10 @@ export default function JourneyInFrames({
       <section style={{ background: '#fff', padding: '40px 0 48px' }}>
         {/* header */}
         <div style={{ textAlign: 'center', padding: '0 20px', marginBottom: 28 }}>
-          <h2 style={{ fontFamily: '"Outfit",sans-serif', fontWeight: 800, fontSize: 22, letterSpacing: '0.04em', color: '#111', margin: '0 0 6px', textTransform: 'uppercase' }}>
+          <h2 style={{ fontFamily: '"Inter",sans-serif', fontWeight: 800, fontSize: 22, letterSpacing: '0.04em', color: '#111', margin: '0 0 6px', textTransform: 'uppercase' }}>
             Journey in Frames
           </h2>
-          <p style={{ fontFamily: '"Outfit",sans-serif', fontSize: 13, color: 'rgba(0,0,0,0.45)', margin: 0 }}>
+          <p style={{ fontFamily: '"Montserrat",sans-serif', fontSize: 13, color: 'rgba(0,0,0,0.45)', margin: 0 }}>
             Pictures Perfect Moments
           </p>
         </div>
@@ -409,7 +409,7 @@ export default function JourneyInFrames({
         style={{ textAlign: 'center', marginBottom: 'clamp(14px,2vw,34px)' }}
       >
         <h2 style={{
-          fontFamily: '"Outfit",sans-serif',
+          fontFamily: '"Inter",sans-serif',
           fontWeight: 800,
           fontSize: 'clamp(22px,3.5vw,38px)',
           color: '#111',
@@ -420,10 +420,10 @@ export default function JourneyInFrames({
           Journey in <span style={{ color: '#2d8f7b' }}>Frames</span>
         </h2>
         <p style={{
-          fontFamily: '"Outfit",sans-serif',
+          fontFamily: '"Montserrat",sans-serif',
           fontSize: 'clamp(13px,1.2vw,16px)',
           margin: 0,
-          fontWeight: 400,
+          fontWeight: 300,
           color: '#1a6b58',
         }}>
           Pictures Perfect Moments
@@ -523,6 +523,8 @@ export default function JourneyInFrames({
 
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
       `}</style>
     </section>
   );

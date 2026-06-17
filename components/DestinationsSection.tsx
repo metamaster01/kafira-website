@@ -1478,14 +1478,14 @@ export default function DestinationsSection({
         <div style={{ padding: '28px 20px 16px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
             <div style={{ height: 2, width: 16, background: ac, borderRadius: 2 }}/>
-            <span style={{ fontFamily: '"Outfit",sans-serif', fontSize: 9, fontWeight: 700, color: ac, letterSpacing: '0.24em', textTransform: 'uppercase' }}>
+            <span style={{ fontFamily: '"Montserrat",sans-serif', fontSize: 9, fontWeight: 300, color: ac, letterSpacing: '0.24em', textTransform: 'uppercase' }}>
               {eyebrow}
             </span>
           </div>
-          <h2 style={{ fontFamily: '"Outfit",sans-serif', fontWeight: 800, fontSize: 26, color: C.text, margin: '0 0 6px', letterSpacing: '-0.01em' }}>
+          <h2 style={{ fontFamily: '"Inter",sans-serif', fontWeight: 600, fontSize: 26, color: C.text, margin: '0 0 6px', letterSpacing: '-0.01em' }}>
             {heading}
           </h2>
-          <p style={{ fontFamily: '"Outfit",sans-serif', fontSize: 12.5, color: C.muted, margin: 0, lineHeight: 1.65 }}>
+          <p style={{ fontFamily: '"Montserrat",sans-serif', fontSize: 12.5, color: C.muted, margin: 0, lineHeight: 1.65 }}>
             {subline}
           </p>
         </div>
@@ -1583,7 +1583,7 @@ export default function DestinationsSection({
             viewport={{ once:true }}
             transition={{ duration:0.65, delay:0.10, ease:[0.22,1,0.36,1] }}
             style={{
-              fontFamily:'"Outfit", sans-serif',
+              fontFamily:'"Inter", sans-serif',
               fontWeight:800,
               fontSize:'clamp(30px,4vw,48px)',
               lineHeight:1.04,
@@ -1603,7 +1603,7 @@ export default function DestinationsSection({
             viewport={{ once:true }}
             transition={{ duration:0.60, delay:0.18, ease:[0.22,1,0.36,1] }}
             style={{
-              fontFamily:'"Outfit", sans-serif',
+              fontFamily:'"Montserrat", sans-serif',
               fontSize:'clamp(12px,1.1vw,14.5px)',
               fontWeight:400,
               color:'rgba(210,240,232,0.75)',
@@ -1631,7 +1631,7 @@ export default function DestinationsSection({
                 padding:'11px 28px', borderRadius:999,
                 background:`linear-gradient(135deg,${ac},${C.seaDk})`,
                 color:'#fff',
-                fontFamily:'"Outfit", sans-serif',
+                fontFamily:'"Inter", sans-serif',
                 fontSize:13.5, fontWeight:700,
                 textDecoration:'none',
                 boxShadow:`0 5px 16px ${ac}50`,
@@ -1758,6 +1758,8 @@ export default function DestinationsSection({
       <style>{`
         #${id} div::-webkit-scrollbar { display: none; }
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
       `}</style>
     </section>
   );

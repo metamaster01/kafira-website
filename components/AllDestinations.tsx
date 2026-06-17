@@ -140,7 +140,7 @@ export default function AllDestinations() {
             <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
               <div style={{ height: 1.5, width: 20, background: C.sea, borderRadius: 1 }}/>
               <span style={{
-                fontFamily: '"Outfit",sans-serif',
+                fontFamily: '"Inter",sans-serif',
                 fontSize: 10, fontWeight: 700, color: C.sea,
                 letterSpacing: '0.24em', textTransform: 'uppercase',
               }}>
@@ -149,9 +149,9 @@ export default function AllDestinations() {
             </div>
 
             <h2 style={{
-              fontFamily: '"Cormorant Garamond",serif',
+              fontFamily: '"Inter",sans-serif',
               fontWeight: 700,
-              fontSize: 'clamp(26px,4vw,46px)',
+              fontSize: 'clamp(24px,4vw,46px)',
               color: C.text,
               lineHeight: 1.05,
               margin: 0,
@@ -233,7 +233,7 @@ export default function AllDestinations() {
           }}
         >
           <span style={{
-            fontFamily: '"Outfit",sans-serif',
+            fontFamily: '"Montserrat",sans-serif',
             fontSize: 12, color: 'rgba(0,0,0,0.38)',
           }}>
             {shown.length} destination{shown.length !== 1 ? 's' : ''}
@@ -244,7 +244,8 @@ export default function AllDestinations() {
       </div>
 
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Outfit:wght@400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Outfit:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Montserrat:wght@300;400;500;700&display=swap');
       `}</style>
     </section>
   );

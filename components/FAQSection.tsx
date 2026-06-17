@@ -96,7 +96,7 @@ function FAQItem({ q, a, index }: { q: string; a: string; index: number }) {
         }}
       >
         <span style={{
-          fontFamily: '"Outfit",sans-serif', fontWeight: 600, fontSize: 15,
+          fontFamily: '"Inter",sans-serif', fontWeight: 600, fontSize: 15,
           color: open ? C.text : C.sub, lineHeight: 1.45, flex: 1,
           transition: 'color 0.22s',
         }}>
@@ -138,7 +138,7 @@ function FAQItem({ q, a, index }: { q: string; a: string; index: number }) {
           >
             <div style={{ paddingBottom: 22 }}>
               <p style={{
-                fontFamily: '"Outfit",sans-serif', fontWeight: 400, fontSize: 14,
+                fontFamily: '"Montserrat",sans-serif', fontWeight: 300, fontSize: 14,
                 color: C.muted, lineHeight: 1.82,
                 borderLeft: `2.5px solid ${C.sea}`, paddingLeft: 18, margin: 0,
               }}>
@@ -168,7 +168,7 @@ function CategoryTab({ label, active, onClick }: { label: string; active: boolea
       transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
       style={{
         padding: '9px 20px', borderRadius: 999, cursor: 'pointer',
-        fontFamily: '"Outfit",sans-serif', fontSize: 12, fontWeight: 600,
+        fontFamily: '"Montserrat",sans-serif', fontSize: 12, fontWeight: 400,
         letterSpacing: '0.03em', outline: 'none',
         border: active ? 'none' : `1.5px solid ${C.border}`,
       }}
@@ -202,10 +202,10 @@ export default function FAQSection() {
               <span style={{ fontFamily: '"Outfit",sans-serif', fontSize: 10, fontWeight: 700, color: C.sea, letterSpacing: '0.26em', textTransform: 'uppercase' }}>FAQ</span>
               <div style={{ height: 1, width: 28, background: `linear-gradient(to left,transparent,${C.sea})` }}/>
             </div>
-            <h2 style={{ fontFamily: '"DM Serif Display",serif', fontWeight: 400, fontSize: 'clamp(28px,3.8vw,54px)', lineHeight: 1.08, color: C.text, marginBottom: 14, letterSpacing: '-0.01em' }}>
+            <h2 style={{ fontFamily: '"Inter",serif', fontWeight: 600, fontSize: 'clamp(28px,3.8vw,54px)', lineHeight: 1.08, color: C.text, marginBottom: 14, letterSpacing: '-0.01em' }}>
               Questions? We've got<br/><span style={{ color: C.sea }}>answers.</span>
             </h2>
-            <p style={{ fontFamily: '"Outfit",sans-serif', fontWeight: 400, fontSize: 15, color: C.muted, lineHeight: 1.75, maxWidth: 520, margin: '0 auto' }}>
+            <p style={{ fontFamily: '"Montserrat",sans-serif', fontWeight: 300, fontSize: 15, color: C.muted, lineHeight: 1.75, maxWidth: 520, margin: '0 auto' }}>
               Everything you need to know about booking, traveling, and experiencing India with Kafira.
             </p>
           </div>
@@ -240,10 +240,10 @@ export default function FAQSection() {
               {/* category label row */}
               <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '18px 0 10px', borderBottom: `1px solid ${C.border}`, marginBottom: 2 }}>
                 <div style={{ width: 8, height: 8, borderRadius: '50%', background: `linear-gradient(135deg,${C.seaLt},${C.sea})`, flexShrink: 0, boxShadow: `0 0 6px ${C.sea}66` }}/>
-                <span style={{ fontFamily: '"Outfit",sans-serif', fontSize: 11, fontWeight: 700, color: C.sea, letterSpacing: '0.2em', textTransform: 'uppercase' }}>
+                <span style={{ fontFamily: '"Montserrat",sans-serif', fontSize: 11, fontWeight: 700, color: C.sea, letterSpacing: '0.2em', textTransform: 'uppercase' }}>
                   {active.category}
                 </span>
-                <span style={{ fontFamily: '"Outfit",sans-serif', fontSize: 11, fontWeight: 500, color: C.muted, marginLeft: 'auto' }}>
+                <span style={{ fontFamily: '"Montserrat",sans-serif', fontSize: 11, fontWeight: 500, color: C.muted, marginLeft: 'auto' }}>
                   {active.items.length} questions
                 </span>
               </div>
@@ -268,10 +268,10 @@ export default function FAQSection() {
 
           <div style={{ maxWidth: 1000, margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 28, position: 'relative', zIndex: 1 }}>
             <div>
-              <div style={{ fontFamily: '"DM Serif Display",serif', fontWeight: 400, fontSize: 'clamp(20px,2.6vw,34px)', color: '#e8f7f4', marginBottom: 8, lineHeight: 1.2 }}>
+              <div style={{ fontFamily: '"Inter",serif', fontWeight: 400, fontSize: 'clamp(20px,2.6vw,34px)', color: '#e8f7f4', marginBottom: 8, lineHeight: 1.2 }}>
                 Still have questions?
               </div>
-              <div style={{ fontFamily: '"Outfit",sans-serif', fontWeight: 400, fontSize: 14, color: 'rgba(180,225,218,0.75)', lineHeight: 1.65, maxWidth: 420 }}>
+              <div style={{ fontFamily: '"Montserrat",sans-serif', fontWeight: 300, fontSize: 14, color: 'rgba(180,225,218,0.75)', lineHeight: 1.65, maxWidth: 420 }}>
                 Our travel experts typically respond in under 2 hours — WhatsApp or email us directly.
               </div>
             </div>
@@ -286,7 +286,7 @@ export default function FAQSection() {
 
               <motion.a href="mailto:support@kafira.in"
                 whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.97 }}
-                style={{ padding: '12px 24px', borderRadius: 999, background: 'rgba(255,255,255,0.06)', border: '1.5px solid rgba(255,255,255,0.14)', color: 'rgba(220,245,240,0.85)', fontFamily: '"Outfit",sans-serif', fontSize: 13, fontWeight: 600, textDecoration: 'none', letterSpacing: '0.02em' }}>
+                style={{ padding: '12px 24px', borderRadius: 999, background: 'rgba(255,255,255,0.06)', border: '1.5px solid rgba(255,255,255,0.14)', color: 'rgba(220,245,240,0.85)', fontFamily: '"Montserrat",sans-serif', fontSize: 13, fontWeight: 600, textDecoration: 'none', letterSpacing: '0.02em' }}>
                 Email Us
               </motion.a>
             </div>
@@ -296,6 +296,8 @@ export default function FAQSection() {
 
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
       `}</style>
     </section>
   );

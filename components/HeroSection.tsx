@@ -1468,7 +1468,11 @@ export default function HeroSection() {
             <div style={{ width: 32, height: 1, background: `linear-gradient(to left, transparent, ${SEA})` }} />
           </motion.div>
           <div style={{ perspective: "600px", perspectiveOrigin: "50% 50%" }}>
-            <h1 style={{ fontFamily: '"Cormorant Garamond",serif', fontWeight: 600, fontSize: isMobile ? "clamp(30px,9vw,42px)" : "clamp(52px,6vw,88px)", lineHeight: isMobile ? 1.12 : 1.05, color: "#edf8f5", letterSpacing: isMobile ? "-0.01em" : "-0.02em", margin: 0, padding: 0 }}>
+
+            {/* '"Cormorant Garamond",serif' */}
+
+
+            <h1 style={{ fontFamily: '"Inter",sans-serif' , fontWeight: 600, fontSize: isMobile ? "clamp(30px,9vw,42px)" : "clamp(52px,6vw,88px)", lineHeight: isMobile ? 1.12 : 1.05, color: "#edf8f5", letterSpacing: isMobile ? "-0.01em" : "-0.02em", margin: 0, padding: 0 }}>
               {["Where Will", "Your Story Begin?"].map((line, li) => (
                 <span key={li} style={{ display: "block" }}>
                   {line.split("").map((char, ci) => (

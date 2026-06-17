@@ -568,7 +568,7 @@ export default function Footer() {
             <Image src="/logo.png" alt="Kafira" width={118} height={46} style={{ objectFit: 'contain', display: 'block' }}/>
           </a>
 
-          <p style={{ fontFamily: '"DM Serif Display",serif', fontSize: 15, color: 'rgba(45,143,123,0.7)', lineHeight: 1.7, marginBottom: 22 }}>
+          <p style={{ fontFamily: '"Inter",sans-serif', fontSize: 15, color: 'rgba(45,143,123,0.7)', lineHeight: 1.7, marginBottom: 22 }}>
             Crafting journeys,<br/>not just itineraries.
           </p>
 
@@ -582,12 +582,12 @@ export default function Footer() {
             ].map(({ icon, text, href }, i) =>
               href ? (
                 <motion.a key={i} href={href} whileHover={{ color: C.textAct }}
-                  style={{ display: 'flex', alignItems: 'flex-start', gap: 8, color: C.textMid, fontFamily: '"Outfit",sans-serif', fontSize: 12, fontWeight: 400, textDecoration: 'none', lineHeight: 1.5, transition: 'color 0.2s' }}>
+                  style={{ display: 'flex', alignItems: 'flex-start', gap: 8, color: C.textMid, fontFamily: '"Inter",sans-serif', fontSize: 12, fontWeight: 400, textDecoration: 'none', lineHeight: 1.5, transition: 'color 0.2s' }}>
                   <span style={{ color: C.sea, marginTop: 1, flexShrink: 0 }}>{icon}</span>
                   {text}
                 </motion.a>
               ) : (
-                <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 8, color: C.textMid, fontFamily: '"Outfit",sans-serif', fontSize: 12, fontWeight: 400, lineHeight: 1.5 }}>
+                <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 8, color: C.textMid, fontFamily: '"Inter",sans-serif', fontSize: 12, fontWeight: 400, lineHeight: 1.5 }}>
                   <span style={{ color: C.sea, marginTop: 1, flexShrink: 0 }}>{icon}</span>
                   {text}
                 </div>
@@ -620,7 +620,7 @@ export default function Footer() {
               transition={{ duration: 0.65, delay: 0.08 + ci * 0.06, ease: [0.22, 1, 0.36, 1] }}
             >
               <div style={{
-                fontFamily: '"Outfit",sans-serif',
+                fontFamily: '"Inter",sans-serif',
                 fontWeight: 700, fontSize: 10, color: C.sea,
                 letterSpacing: '0.22em', textTransform: 'uppercase',
                 marginBottom: 16,
@@ -645,7 +645,7 @@ export default function Footer() {
       />
       <div style={{ maxWidth: 1280, margin: '0 auto', padding: 'clamp(14px,2vw,18px) clamp(20px,4vw,40px)', position: 'relative', zIndex: 1 }}>
         <div className="footer-bottom-bar">
-          <div style={{ fontFamily: '"Outfit",sans-serif', fontSize: 11, fontWeight: 400, color: C.textLo }}>
+          <div style={{ fontFamily: '"Inter",sans-serif', fontSize: 11, fontWeight: 400, color: C.textLo }}>
             © 2015–2026 Kafira Travel Pvt. Ltd. All rights reserved.
           </div>
 
@@ -653,18 +653,18 @@ export default function Footer() {
             {['Privacy Policy', 'Terms & Conditions', 'Cookie Policy', ].map(l => (
               <motion.a key={l} href="/privacy-policy" target="_blank" rel="noopener noreferrer"
                 whileHover={{ color: C.textAct }}
-                style={{ fontFamily: '"Outfit",sans-serif', fontSize: 11, fontWeight: 400, color: C.textLo, textDecoration: 'none', transition: 'color 0.2s' }}>
+                style={{ fontFamily: '"Inter",sans-serif', fontSize: 11, fontWeight: 400, color: C.textLo, textDecoration: 'none', transition: 'color 0.2s' }}>
                 {l}
               </motion.a>
             ))}
             <Link href="/sitemap" target="_blank" rel="noopener noreferrer"
       
-              style={{ fontFamily: '"Outfit",sans-serif', fontSize: 11, fontWeight: 400, color: C.textLo, textDecoration: 'none', transition: 'color 0.2s' }}>
+              style={{ fontFamily: '"Inter",sans-serif', fontSize: 11, fontWeight: 400, color: C.textLo, textDecoration: 'none', transition: 'color 0.2s' }}>
               Sitemap
             </Link>
           </div>
 
-          <div style={{ fontFamily: '"Outfit",sans-serif', fontSize: 11, fontWeight: 400, color: C.textLo }}>
+          <div style={{ fontFamily: '"Inter",sans-serif', fontSize: 11, fontWeight: 400, color: C.textLo }}>
             Made with ❤️ by{' '}
             <Link href="https://metamaster.in" target="_blank" rel="noopener noreferrer"
               style={{ color: C.textAct, textDecoration: 'none' }}>
@@ -676,6 +676,11 @@ export default function Footer() {
 
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@400;500;600;700&display=swap');
+      
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+  
 
         /* ══════════════════════════════════════════════
            DESKTOP (> 1024px)

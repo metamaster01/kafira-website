@@ -71,8 +71,8 @@ export default function CTABanner() {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.65, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
             style={{
-              fontFamily: '"Outfit", sans-serif',
-              fontWeight: 800,
+              fontFamily: '"Inter", sans-serif',
+              fontWeight: 600,
               fontSize: isMobile ? 'clamp(20px,6vw,26px)' : 'clamp(18px,2.8vw,30px)',
               color: '#ffffff',
               lineHeight: 1.25,
@@ -89,8 +89,8 @@ export default function CTABanner() {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.60, delay: 0.20, ease: [0.22, 1, 0.36, 1] }}
             style={{
-              fontFamily: '"Outfit", sans-serif',
-              fontWeight: 400,
+              fontFamily: '"Montserrat", sans-serif',
+              fontWeight: 300,
               fontSize: 'clamp(12px,1.2vw,14.5px)',
               color: 'rgba(255,255,255,0.75)',
               lineHeight: 1.65,
@@ -118,7 +118,7 @@ export default function CTABanner() {
                 background: 'rgba(255,255,255,0.12)',
                 border: '1.5px solid rgba(255,255,255,0.65)',
                 color: '#ffffff',
-                fontFamily: '"Playfair Display",serif',
+                fontFamily: '"Inter", sans-serif',
                 fontSize: 'clamp(12.5px,1.1vw,14px)',
                 fontWeight: 600,
                 textDecoration: 'none',
@@ -193,6 +193,11 @@ export default function CTABanner() {
           50%      { transform: translateY(-10px); }
         }
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap');
+          
+      
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+    
       `}</style>
     </section>
   );

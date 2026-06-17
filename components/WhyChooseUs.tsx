@@ -100,9 +100,9 @@ function FeatureCard({
 
       {/* title */}
       <div style={{
-        fontFamily: '"Outfit", sans-serif',
+        fontFamily: '"Inter", sans-serif',
         fontWeight: 700,
-        fontSize: 'clamp(16px,1.6vw,19px)',
+        fontSize: 'clamp(22px,1.6vw,30px)',
         color: '#2b8f7b',
         marginBottom: 14,
         letterSpacing: '-0.01em',
@@ -112,8 +112,8 @@ function FeatureCard({
 
       {/* body */}
       <p style={{
-        fontFamily: '"Outfit", sans-serif',
-        fontWeight: 400,
+        fontFamily: '"Montserrat", sans-serif',
+        fontWeight: 300,
         fontSize: 'clamp(13px,1.1vw,14.5px)',
         color: 'rgba(0,0,0,0.52)',
         lineHeight: 1.75,
@@ -155,8 +155,8 @@ export default function WhyChooseUs() {
             <div style={{ height: 1.5, width: 20, background: SEA, borderRadius: 2 }}/>
           </div> */}
           <h2 style={{
-            fontFamily: '"Outfit",sans-serif',
-            fontWeight: 800,
+            fontFamily: '"Inter",sans-serif',
+            fontWeight: 600,
             fontSize: 'clamp(34px,3.5vw,40px)',
             color: '#111',
             margin: 0,
@@ -180,7 +180,9 @@ export default function WhyChooseUs() {
       </div>
 
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
+        
       `}</style>
     </section>
   );

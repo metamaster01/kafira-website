@@ -19,7 +19,7 @@ export default function OfficeLocations() {
       <div className="container">
         <div className="heading">
           <span className="sub-title">OUR LOCATIONS</span>
-          <h2>Where We Call <span></span></h2>
+          <h2>Where, We Call  <span className="highlight" style={{ color: '#2e8b7d' }}> Home</span></h2>
           <p>
             From creative brainstorming to cinematic execution, our spaces are
             where ideas evolve into unforgettable visual experiences.

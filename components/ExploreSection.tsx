@@ -405,7 +405,7 @@ function SectionHeading() {
 
       <p
         style={{
-          fontFamily: "Monsterrat,serrif",
+          fontFamily: "Montserrat,serrif",
           fontSize: 16,
           color: "#6b5e4e",
           lineHeight: 1.7,
