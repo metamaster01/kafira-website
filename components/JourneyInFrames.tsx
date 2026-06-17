@@ -344,7 +344,7 @@ export default function JourneyInFrames({
       <section style={{ background: '#fff', padding: '40px 0 48px' }}>
         {/* header */}
         <div style={{ textAlign: 'center', padding: '0 20px', marginBottom: 28 }}>
-          <h2 style={{ fontFamily: '"Inter",sans-serif', fontWeight: 800, fontSize: 22, letterSpacing: '0.04em', color: '#111', margin: '0 0 6px', textTransform: 'uppercase' }}>
+          <h2 style={{ fontFamily: '"Inter",sans-serif', fontWeight: 600, fontSize: 22, letterSpacing: '0.04em', color: '#111', margin: '0 0 6px' }}>
             Journey in Frames
           </h2>
           <p style={{ fontFamily: '"Montserrat",sans-serif', fontSize: 13, color: 'rgba(0,0,0,0.45)', margin: 0 }}>
@@ -410,12 +410,12 @@ export default function JourneyInFrames({
       >
         <h2 style={{
           fontFamily: '"Inter",sans-serif',
-          fontWeight: 800,
-          fontSize: 'clamp(22px,3.5vw,38px)',
+          fontWeight: 600,
+          fontSize: 'clamp(22px,3.5vw,44px)',
           color: '#111',
           margin: '0 0 8px',
-          letterSpacing: '0.06em',
-          textTransform: 'uppercase',
+          letterSpacing: '0.04em',
+          
         }}>
           Journey in <span style={{ color: '#2d8f7b' }}>Frames</span>
         </h2>

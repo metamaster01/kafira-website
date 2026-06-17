@@ -183,11 +183,11 @@ export default function WhyKafira() {
                 margin:0,
                 fontFamily:'"Inter",sans-serif',
                 fontSize:'clamp(20px,3.8vw,40px)',
-                fontWeight:700,
+                fontWeight:600,
                 color:C.sea,
-                textTransform:'uppercase',
+              
               }}>
-                WHY CHOOSE KAFIRA?
+                Why Choose Kafira?
               </h1>
             </div>
 
