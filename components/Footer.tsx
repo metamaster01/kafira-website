@@ -621,7 +621,7 @@ export default function Footer() {
             >
               <div style={{
                 fontFamily: '"Inter",sans-serif',
-                fontWeight: 700, fontSize: 10, color: C.sea,
+                fontWeight: 600, fontSize: 15, color: C.sea,
                 letterSpacing: '0.22em', textTransform: 'uppercase',
                 marginBottom: 16,
               }}>
