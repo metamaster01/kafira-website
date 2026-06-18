@@ -29,7 +29,7 @@ export default function DestinationsGrid({
             fontFamily: '"Inter", sans-serif',
             fontWeight: 600,
             fontSize: 'clamp(24px,4vw,46px)',
-            color: '#0f2720',
+            color: '#2d8f7b',
             margin: 0,
             letterSpacing: '-0.01em',
           }}>
@@ -58,7 +58,7 @@ export default function DestinationsGrid({
         {destinations.length === 0 && (
           <div style={{
             textAlign: 'center', padding: '60px 20px',
-            fontFamily: '"Montserrat",sans-serif', fontSize: 14, color: 'rgba(0,0,0,0.4)',
+            fontFamily: '"Montserrat",sans-serif', fontSize: 14, color: 'black',
           }}>
             No destinations found in this region yet.
           </div>
