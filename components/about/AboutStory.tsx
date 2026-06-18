@@ -83,14 +83,14 @@ export default function AboutStory() {
               ease: [0.22, 1, 0.36, 1],
             }}
             style={{
-              fontFamily: "inherit",
+              fontFamily: '"Montserrat", sans-serif',
               textAlign: "center",
               marginLeft: "auto",
               marginRight: "auto",
               lineHeight: 1.75,
               marginBottom: i < paragraphs.length - 1 ? "1.25rem" : 0,
               fontSize: highlight ? "1rem" : "clamp(0.82rem, 1.5vw, 0.94rem)",
-              fontWeight: highlight ? 600 : 400,
+              fontWeight: highlight ? 500 : 300,
               color: highlight ? "#1f2937" : "#4b5563",
               maxWidth: "840px",
             }}
@@ -99,6 +99,8 @@ export default function AboutStory() {
           </motion.p>
         ))}
       </div>
+
+      
     </section>
   );
 }
