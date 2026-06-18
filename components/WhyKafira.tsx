@@ -18,6 +18,7 @@ const C = {
   seaLt: '#3db89e',
   seaBg: 'rgba(45,143,123,0.09)',
   seaBd: 'rgba(45,143,123,0.22)',
+  seaMDK:'#0c3028',
 };
 
 // Why Choose Kafira?  ( IN BOLD, IN CAPS, AND IN CENTRE) 
@@ -178,7 +179,7 @@ export default function WhyKafira() {
 
           {/* ── RIGHT: text ── */}
           <div ref={headRef}>
-            <div style={{  marginBottom:16 }}>
+            <div style={{  marginBottom:12 }}>
               <h1 style={{
                 margin:0,
                 fontFamily:'"Inter",sans-serif',
@@ -197,12 +198,12 @@ export default function WhyKafira() {
               fontWeight:500,
               fontSize:'clamp(12px,2.4vw,24px)',
               lineHeight:1.02,
-              color:C.text,
+              color:C.seaMDK,
               margin:'0 0 18px',
               letterSpacing:'-0.01em',
             }}>
               We don't sell trips.
-              <span style={{  color:C.sea }}>We craft journeys.</span>
+              <span style={{  color:C.seaMDK }}>We craft journeys.</span>
             </h3>
 
             {/* body */}
@@ -210,7 +211,7 @@ export default function WhyKafira() {
               fontFamily:'"Montserrat",sans-serif',
               fontSize:'clamp(13px,1.1vw,15px)',
               fontWeight:300,
-              color:C.sub,
+              color:'black',
               lineHeight:1.80,
               margin:'0 0 30px',
               maxWidth: 480,
@@ -228,7 +229,7 @@ From curated group adventures to meaningful travel experiences, we take care of 
             </div>
 
             {/* CTA buttons */}
-            <div style={{ display:'flex', gap:12, flexWrap:'wrap' }}>
+            <div style={{ display:'flex', gap:8, flexWrap:'wrap' }}>
               <CTALink href="/destinations/india" variant="solid">
                 Explore Packages
               </CTALink>
@@ -251,28 +252,28 @@ From curated group adventures to meaningful travel experiences, we take care of 
 // ── Highlight row ──────────────────────────────────────
 function HighlightRow({ title, desc }: { title: string; desc: string }) {
   return (
-    <div style={{ display:'flex', alignItems:'flex-start', gap:13 }}>
+    <div style={{ display:'flex', alignItems:'flex-start', gap:8 }}>
       <div style={{
         width:32, height:32, borderRadius:9, flexShrink:0,
         background:'rgba(45,143,123,0.09)',
         border:'1.5px solid rgba(45,143,123,0.22)',
         display:'flex', alignItems:'center', justifyContent:'center',
-        color:'#2d8f7b', fontSize:13, marginTop:1,
+        color:'#0c3028', fontSize:13, marginTop:1,
       }}>
         ✦
       </div>
       <div>
         <div style={{
           fontFamily:'"Inter",sans-serif',
-          fontWeight:700, fontSize:16,
-          color:'#0e1e1b', marginBottom:3, 
+          fontWeight:600, fontSize:16,
+          color:'#0c3028', marginBottom:3, 
         }}>
           {title}
         </div>
         <div style={{
           fontFamily:'"Montserrat",sans-serif',
           fontSize:13, fontWeight:300,
-          color:'#6b9e94', lineHeight:1.62,
+          color:'black', lineHeight:1.62,
         }}>
           {desc}
         </div>

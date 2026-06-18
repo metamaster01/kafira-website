@@ -5,6 +5,7 @@ import { motion, useInView } from 'framer-motion';
 const SEA    = '#2d8f7b';
 const SEA_LT = '#3db89e';
 const SEA_BG = 'rgba(45,143,123,0.10)';
+const SEA_DK = '#1f6454';
 
 // ── Feature cards data ────────────────────────────────
 const FEATURES = [
@@ -13,7 +14,7 @@ const FEATURES = [
     body:  'Our travel specialists are more than planners — they are passionate explorers who understand what makes a journey unforgettable. From crafting personalized itineraries to providing expert recommendations, they ensure every trip is seamless, exciting, and memorable.',
     icon: (
       // Airplane SVG
-      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke={SEA_LT} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke={SEA_DK} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
         <path d="M17.8 19.2L16 11l3.5-3.5C21 6 21 4 19.5 2.5S18 2 16.5 3.5L13 7 4.8 5.2 3.5 6.5l7 3L8 12H5l-1.5 1.5 4 2 2 4L11 18l3-3.5 3 7z"/>
       </svg>
     ),
@@ -23,7 +24,7 @@ const FEATURES = [
     body:  'We collaborate with carefully selected hotels, transport providers, and local experience partners to deliver comfort, reliability, and quality at every step of your journey. Our trusted network helps create worry-free travel experiences.',
     icon: (
       // Group/people SVG
-      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke={SEA_LT} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke={SEA_DK} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
         <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
         <circle cx="9" cy="7" r="4"/>
         <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
@@ -36,7 +37,7 @@ const FEATURES = [
     body:  'We believe travel is about more than visiting places. Through local guides, cultural activities, hidden gems, and immersive experiences, we help travelers connect with destinations in meaningful and unforgettable ways.',
     icon: (
       // Luggage/camera SVG
-      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke={SEA_LT} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke={SEA_DK} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
         <rect x="1" y="3" width="15" height="13" rx="2"/>
         <path d="M16 8a3 3 0 0 1 3 3v5a3 3 0 0 1-3 3H5a3 3 0 0 1 0-6"/>
         <circle cx="8.5" cy="9.5" r="1.5"/>
@@ -102,8 +103,8 @@ function FeatureCard({
       <div style={{
         fontFamily: '"Inter", sans-serif',
         fontWeight: 700,
-        fontSize: 'clamp(22px,1.6vw,30px)',
-        color: '#2b8f7b',
+        fontSize: 'clamp(20px,1.6vw,30px)',
+        color: '#1f6454',
         marginBottom: 14,
         letterSpacing: '-0.01em',
       }}>
@@ -115,7 +116,7 @@ function FeatureCard({
         fontFamily: '"Montserrat", sans-serif',
         fontWeight: 300,
         fontSize: 'clamp(13px,1.1vw,14.5px)',
-        color: 'rgba(0,0,0,0.52)',
+        color: 'black',
         lineHeight: 1.75,
         margin: 0,
         maxWidth: 300,
@@ -158,7 +159,7 @@ export default function WhyChooseUs() {
             fontFamily: '"Inter",sans-serif',
             fontWeight: 600,
             fontSize: 'clamp(24px,4vw,46px)',
-            color: '#111',
+            color: '#2d8f7b',
             margin: 0,
             letterSpacing: '-0.02em',
           }}>

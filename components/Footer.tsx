@@ -569,7 +569,7 @@ export default function Footer() {
           </a>
 
           <p style={{ fontFamily: '"Inter",sans-serif', fontSize: 15, color: 'rgba(45,143,123,0.7)', lineHeight: 1.7, marginBottom: 22 }}>
-            Crafting journeys,<br/>not just itineraries.
+            Travel Beyond Ordinary
           </p>
 
           {/* contact */}

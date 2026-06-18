@@ -31,14 +31,14 @@ export default function TakeABreak() {
         transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
         style={{
           position: 'relative',
-          width: 86, height: 86,
+          width: 98, height: 98,
           marginBottom: 28,
         }}
       >
         {/* spinning text ring */}
         <motion.svg
           viewBox="0 0 86 86"
-          width={86} height={86}
+          width={98} height={98}
           animate={{ rotate: 360 }}
           transition={{ duration: 14, repeat: Infinity, ease: 'linear' }}
           style={{ position: 'absolute', inset: 0 }}
@@ -102,7 +102,7 @@ export default function TakeABreak() {
           marginBottom: 14,
         }}
       >
-        Take A Break
+        Escape the ordinary
       </motion.div>
 
       {/* ── "Explore Yourself" — teal filled rectangle ── */}
@@ -126,7 +126,7 @@ export default function TakeABreak() {
           letterSpacing: '-0.02em',
           lineHeight: 1.1,
         }}>
-          Explore Yourself
+           Rediscover yourself.
         </span>
       </motion.div>
 
@@ -139,14 +139,13 @@ export default function TakeABreak() {
           fontFamily: '"Montserrat", sans-serif',
           fontWeight: 300,
           fontSize: 'clamp(13px,1.4vw,16px)',
-          color: 'rgba(0,0,0,0.52)',
+          color: 'black',
           lineHeight: 1.7,
           maxWidth: 520,
           margin: 0,
         }}
       >
-        &amp; return home with 1500 stunning photos, endless memories,
-        and a smile that lasts&nbsp;😄
+        Return home with unforgettable memories, a refreshed perspective, and a smile that lasts long after the journey ends.
       </motion.p>
 
 

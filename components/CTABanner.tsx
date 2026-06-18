@@ -74,17 +74,17 @@ export default function CTABanner() {
               fontFamily: '"Inter", sans-serif',
               fontWeight: 600,
               fontSize: isMobile ? 'clamp(20px,6vw,26px)' : 'clamp(18px,2.8vw,30px)',
-              color: '#ffffff',
+              color: '#0c3028',
               lineHeight: 1.25,
               margin: '0 0 clamp(8px,1.5vw,14px)',
               letterSpacing: '-0.02em',
             }}
           >
             For more details about your<br/>
-            favourite Packages
+            Favourite Packages
           </motion.h2>
 
-          <motion.p
+          {/* <motion.p
             initial={{ opacity: 0, x: -12 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.60, delay: 0.20, ease: [0.22, 1, 0.36, 1] }}
@@ -100,12 +100,13 @@ export default function CTABanner() {
           >
             Customized itineraries, hidden gems, and seamless
             booking experiences await you.
-          </motion.p>
+          </motion.p> */}
 
           <motion.div
             initial={{ opacity: 0, y: 8 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.55, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}
+            style={{ display: 'inline-block' ,color: '#0c3028' }}
           >
             <Link
               href="/contact-us"
@@ -117,7 +118,7 @@ export default function CTABanner() {
                 borderRadius: 9,
                 background: 'rgba(255,255,255,0.12)',
                 border: '1.5px solid rgba(255,255,255,0.65)',
-                color: '#ffffff',
+                color: '#fff',
                 fontFamily: '"Inter", sans-serif',
                 fontSize: 'clamp(12.5px,1.1vw,14px)',
                 fontWeight: 600,
@@ -136,7 +137,7 @@ export default function CTABanner() {
               }}
               onMouseLeave={e => {
                 const el = e.currentTarget as HTMLAnchorElement;
-                el.style.background = 'rgba(255,255,255,0.12)';
+                el.style.background = '#0c3028';
                 el.style.borderColor = 'rgba(255,255,255,0.65)';
                 el.style.transform = 'none';
                 el.style.boxShadow = 'none';

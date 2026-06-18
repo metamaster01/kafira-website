@@ -141,7 +141,7 @@ export default function AllDestinations() {
               <div style={{ height: 1.5, width: 20, background: C.sea, borderRadius: 1 }}/>
               <span style={{
                 fontFamily: '"Inter",sans-serif',
-                fontSize: 10, fontWeight: 700, color: C.sea,
+                fontSize: 10, fontWeight: 700, color: C.text,
                 letterSpacing: '0.24em', textTransform: 'uppercase',
               }}>
                 Where to go
@@ -152,13 +152,12 @@ export default function AllDestinations() {
               fontFamily: '"Inter",sans-serif',
               fontWeight: 600,
               fontSize: 'clamp(24px,4vw,46px)',
-              color: C.text,
+              color: C.sea,
               lineHeight: 1.05,
               margin: 0,
               letterSpacing: '-0.015em',
             }}>
-              All{' '}
-              <span style={{ color: C.sea }}>Destinations</span>
+              All{' '}Destinations
             </h2>
           </div>
 

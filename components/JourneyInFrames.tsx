@@ -344,10 +344,10 @@ export default function JourneyInFrames({
       <section style={{ background: '#fff', padding: '40px 0 48px' }}>
         {/* header */}
         <div style={{ textAlign: 'center', padding: '0 20px', marginBottom: 28 }}>
-          <h2 style={{ fontFamily: '"Inter",sans-serif', fontWeight: 600, fontSize: 22, letterSpacing: '0.04em', color: '#111', margin: '0 0 6px' }}>
+          <h2 style={{ fontFamily: '"Inter",sans-serif', fontWeight: 600, fontSize: 22, letterSpacing: '0.04em', color: '#2d8f7b', margin: '0 0 6px' }}>
             Journey in Frames
           </h2>
-          <p style={{ fontFamily: '"Montserrat",sans-serif', fontSize: 13, color: 'rgba(0,0,0,0.45)', margin: 0 }}>
+          <p style={{ fontFamily: '"Montserrat",sans-serif', fontSize: 13, color: 'black', margin: 0 }}>
             Pictures Perfect Moments
           </p>
         </div>
@@ -404,15 +404,15 @@ export default function JourneyInFrames({
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: '-40px' }}
+        viewport={{ once: true, margin: '-20px' }}
         transition={{ duration: 0.60, ease: [0.22, 1, 0.36, 1] }}
-        style={{ textAlign: 'center', marginBottom: 'clamp(14px,2vw,34px)' }}
+        style={{ textAlign: 'center', marginBottom: 'clamp(8px,1.7vw,20px)' }}
       >
         <h2 style={{
           fontFamily: '"Inter",sans-serif',
           fontWeight: 600,
           fontSize: 'clamp(24px,4vw,46px)',
-          color: '#111',
+          color: '#2d8f7b',
           margin: '0 0 8px',
           letterSpacing: '0.04em',
           
@@ -424,7 +424,7 @@ export default function JourneyInFrames({
           fontSize: 'clamp(13px,1.2vw,16px)',
           margin: 0,
           fontWeight: 300,
-          color: '#1a6b58',
+          color: 'black',
         }}>
           Pictures Perfect Moments
         </p>
