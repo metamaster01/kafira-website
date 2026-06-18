@@ -106,18 +106,19 @@ export default function CTABanner() {
             initial={{ opacity: 0, y: 8 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.55, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}
-            style={{ display: 'inline-block' ,color: '#0c3028' }}
+            style={{ display: 'inline-block', color: '#0c3028' }}
           >
             <Link
               href="/contact-us"
+              className="cta-button"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: 8,
                 padding: `clamp(10px,1.3vw,13px) clamp(20px,2.5vw,28px)`,
                 borderRadius: 9,
-                background: 'rgba(255,255,255,0.12)',
-                border: '1.5px solid rgba(255,255,255,0.65)',
+                background: '#0c3028',
+                border: '1.5px solid #0c3028',
                 color: '#fff',
                 fontFamily: '"Inter", sans-serif',
                 fontSize: 'clamp(12.5px,1.1vw,14px)',
@@ -127,20 +128,6 @@ export default function CTABanner() {
                 transition: 'all 0.22s ease',
                 letterSpacing: '0.01em',
                 whiteSpace: 'nowrap',
-              }}
-              onMouseEnter={e => {
-                const el = e.currentTarget as HTMLAnchorElement;
-                el.style.background = 'rgba(255,255,255,0.22)';
-                el.style.borderColor = '#fff';
-                el.style.transform = 'translateY(-2px)';
-                el.style.boxShadow = '0 8px 24px rgba(0,0,0,0.18)';
-              }}
-              onMouseLeave={e => {
-                const el = e.currentTarget as HTMLAnchorElement;
-                el.style.background = '#0c3028';
-                el.style.borderColor = 'rgba(255,255,255,0.65)';
-                el.style.transform = 'none';
-                el.style.boxShadow = 'none';
               }}
             >
               Connect with us now
