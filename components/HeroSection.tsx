@@ -1565,6 +1565,7 @@ export default function HeroSection() {
 
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         @keyframes scrollDot {
           0%   { transform: translateY(0); opacity: 1; }
           75%  { transform: translateY(10px); opacity: 0; }
