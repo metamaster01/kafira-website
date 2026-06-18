@@ -568,7 +568,7 @@ export default function Footer() {
             <Image src="/logo.png" alt="Kafira" width={118} height={46} style={{ objectFit: 'contain', display: 'block' }}/>
           </a>
 
-          <p style={{ fontFamily: '"Inter",sans-serif', fontSize: 15, color: 'C.sea', lineHeight: 1.7, marginBottom: 22 }}>
+          <p style={{ fontFamily: '"Inter",sans-serif', fontSize: 15, color: '#2d8f7b', lineHeight: 1.7, marginBottom: 22 }}>
             Travel Beyond Ordinary
           </p>
 
@@ -621,7 +621,7 @@ export default function Footer() {
             >
               <div style={{
                 fontFamily: '"Inter",sans-serif',
-                fontWeight: 600, fontSize: 15, color: C.sea,
+                fontWeight: 600, fontSize: 13, color: C.sea,
                 letterSpacing: '0.22em', textTransform: 'uppercase',
                 marginBottom: 16,
               }}>
