@@ -129,7 +129,7 @@ export default function CategoryHero({
         <p
           style={{
             fontFamily: '"Montserrat",sans-serif',
-            fontSize: "clamp(13px,1.3vw,16px)",
+            fontSize: "clamp(11px,1.3vw,14px)",
             fontWeight: 300,
             color: "white",
             lineHeight: 1.75,

@@ -1537,14 +1537,14 @@ export default function HeroSection() {
           <motion.div initial={{ opacity: 0 }} animate={ready ? { opacity: 1 } : {}} transition={{ duration: 0.6, delay: 0.8 }}
             style={{ display: "flex", alignItems: "center", gap: 7, marginTop: 12, flexWrap: "wrap", justifyContent: "center" }}>
             <TrendingUp size={10} style={{ color: SEA_LT }} />
-            <span style={{ fontSize: 13, fontFamily: '"Inter",sans-serif', fontWeight: 500, color: "rgba(180,230,220,0.38)" }}>Trending:</span>
+            <span style={{ fontSize: 13, fontFamily: '"Inter",sans-serif', fontWeight: 500, color: "white" }}>Trending:</span>
             {(isMobile ? TRENDING.slice(0, 4) : TRENDING).map((t, i) => (
               <motion.button key={t}
                 initial={{ opacity: 0, scale: 0.85 }} animate={ready ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.35, delay: 0.85 + i * 0.06, ease: "backOut" }}
                 whileHover={{ scale: 1.06, backgroundColor: "rgba(45,143,123,0.22)" }} whileTap={{ scale: 0.97 }}
                 onClick={() => handleSearch(t)}
-                style={{ padding: "4px 12px", borderRadius: 999, fontSize: 13, fontFamily: '"Inter",sans-serif', fontWeight: 500, cursor: "pointer", background: SEA_BG, color: "rgba(61,184,158,0.72)", border: `1px solid ${SEA_BD}`, transition: "background 0.2s, color 0.2s" }}>
+                style={{ padding: "4px 12px", borderRadius: 999, fontSize: 13, fontFamily: '"Inter",sans-serif', fontWeight: 500, cursor: "pointer", background: SEA_BG, color: "white", border: `1px solid ${SEA_BD}`, transition: "background 0.2s, color 0.2s" }}>
                 {t}
               </motion.button>
             ))}
