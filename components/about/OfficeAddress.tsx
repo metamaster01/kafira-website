@@ -83,6 +83,7 @@ export default function OfficeLocations() {
           font-size: clamp(24px, 4vw, 46px);
           font-weight: 600;
           color: #0f2720;
+          font-family: "Inter", sans-serif;
           line-height: 1.1;
           margin-bottom: 18px;
           letter-spacing: -0.04em;
@@ -92,6 +93,7 @@ export default function OfficeLocations() {
           max-width: 700px;
           margin: 0 auto;
           font-size: 1.05rem;
+          font-family: "Montserrat", sans-serif;
           line-height: 1.8;
           color: #5c6764;
         }
@@ -157,6 +159,7 @@ export default function OfficeLocations() {
         }
 
         .office-card h3 {
+          font-family: "Inter", sans-serif;
           font-size: 1.45rem;
           font-weight: 700;
           color: #0f2720;
@@ -166,6 +169,7 @@ export default function OfficeLocations() {
 
         .office-label {
           display: inline-block;
+          font-family: "Inter", sans-serif;
           font-size: 0.85rem;
           font-weight: 700;
           color: #2e8b7d;
@@ -176,6 +180,7 @@ export default function OfficeLocations() {
 
         .office-card p {
           color: #5c6764;
+          font-family: "Montserrat", sans-serif;
           font-size: 1rem;
           line-height: 1.9;
           margin: 0;

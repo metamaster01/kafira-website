@@ -40,7 +40,7 @@ export default function AboutStory() {
     <section
       ref={ref}
       style={{ fontFamily: "var(--font-montserrat), Montserrat, sans-serif", paddingTop: "2rem", paddingBottom: "2rem" }}
-      className="w-full bg-[#f5f0e8]"
+      className="w-full bg-white"
     >
       {/* Single centred column — inline styles used as override guarantee */}
       <div
@@ -90,7 +90,7 @@ export default function AboutStory() {
               lineHeight: 1.75,
               marginBottom: i < paragraphs.length - 1 ? "1.25rem" : 0,
               fontSize: highlight ? "1rem" : "clamp(0.82rem, 1.5vw, 0.94rem)",
-              fontWeight: highlight ? 500 : 300,
+              fontWeight: highlight ? 700 : 600,
               color: highlight ? "#1f2937" : "#4b5563",
               maxWidth: "840px",
             }}
