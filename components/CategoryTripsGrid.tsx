@@ -51,7 +51,7 @@ export default function CategoryTripsGrid({
               fontFamily: '"Inter", sans-serif',
               fontWeight: 600,
               fontSize: 'clamp(24px,4vw,46px)',
-              color: "#0f2720",
+              color: "#2d8f7b",
               margin: "0 0 8px",
               letterSpacing: "-0.01em",
             }}
@@ -61,8 +61,8 @@ export default function CategoryTripsGrid({
           <p
             style={{
               fontFamily: '"Montserrat",sans-serif',
-              fontSize: 13,
-              color: "rgba(15,39,32,0.45)",
+              fontSize: 16,
+              color: "black",
               margin: 0,
             }}
           >

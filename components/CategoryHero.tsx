@@ -113,7 +113,7 @@ export default function CategoryHero({
         <h1
           style={{
             fontFamily: '"Inter",sans-serif',
-            fontWeight: 800,
+            fontWeight: 600,
             fontSize: "clamp(32px,6vw,58px)",
             lineHeight: 1.08,
             color: "#ffffff",
@@ -128,10 +128,10 @@ export default function CategoryHero({
         {/* subtitle */}
         <p
           style={{
-            fontFamily: '"Inter",sans-serif',
+            fontFamily: '"Montserrat",sans-serif',
             fontSize: "clamp(13px,1.3vw,16px)",
-            fontWeight: 400,
-            color: "rgba(220,245,240,0.78)",
+            fontWeight: 300,
+            color: "white",
             lineHeight: 1.75,
             maxWidth: 540,
             margin: "0 auto 22px",
@@ -223,6 +223,11 @@ export default function CategoryHero({
           ))}
         </motion.div>
       </motion.div>
+
+      <style jsx>{`
+       @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Montserrat:wght@400;500&display=swap');
+       
+      `}</style>
     </div>
   );
 }
