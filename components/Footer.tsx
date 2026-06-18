@@ -511,7 +511,7 @@ function FooterLink({ label, href }: { label: string; href: string }) {
       style={{
         fontFamily: '"Montserrat",sans-serif',
         fontSize: 13, fontWeight: 300,
-        color: C.textMid,
+        color: 'white',
         textDecoration: 'none',
         padding: '4px 0',
         display: 'block',
@@ -568,7 +568,7 @@ export default function Footer() {
             <Image src="/logo.png" alt="Kafira" width={118} height={46} style={{ objectFit: 'contain', display: 'block' }}/>
           </a>
 
-          <p style={{ fontFamily: '"Inter",sans-serif', fontSize: 15, color: 'rgba(45,143,123,0.7)', lineHeight: 1.7, marginBottom: 22 }}>
+          <p style={{ fontFamily: '"Inter",sans-serif', fontSize: 15, color: 'C.sea', lineHeight: 1.7, marginBottom: 22 }}>
             Travel Beyond Ordinary
           </p>
 
@@ -582,12 +582,12 @@ export default function Footer() {
             ].map(({ icon, text, href }, i) =>
               href ? (
                 <motion.a key={i} href={href} whileHover={{ color: C.textAct }}
-                  style={{ display: 'flex', alignItems: 'flex-start', gap: 8, color: C.textMid, fontFamily: '"Inter",sans-serif', fontSize: 12, fontWeight: 400, textDecoration: 'none', lineHeight: 1.5, transition: 'color 0.2s' }}>
+                  style={{ display: 'flex', alignItems: 'flex-start', gap: 8, color: 'white', fontFamily: '"Inter",sans-serif', fontSize: 12, fontWeight: 400, textDecoration: 'none', lineHeight: 1.5, transition: 'color 0.2s' }}>
                   <span style={{ color: C.sea, marginTop: 1, flexShrink: 0 }}>{icon}</span>
                   {text}
                 </motion.a>
               ) : (
-                <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 8, color: C.textMid, fontFamily: '"Inter",sans-serif', fontSize: 12, fontWeight: 400, lineHeight: 1.5 }}>
+                <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 8, color: 'white', fontFamily: '"Inter",sans-serif', fontSize: 12, fontWeight: 400, lineHeight: 1.5 }}>
                   <span style={{ color: C.sea, marginTop: 1, flexShrink: 0 }}>{icon}</span>
                   {text}
                 </div>
