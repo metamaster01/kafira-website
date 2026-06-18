@@ -484,7 +484,7 @@ function CounterStrip() {
             style={{
               fontFamily: "Playfair Display,serif",
               fontWeight: 800,
-              fontSize: "clamp(22px,2.5vw,32px)",
+              fontSize: 'clamp(24px,4vw,46px)',
               color: "#c9a84c",
               lineHeight: 1,
             }}

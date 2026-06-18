@@ -65,7 +65,7 @@ export default function AdminBlogsPage() {
       {/* ── Header ── */}
       <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 16, marginBottom: 32 }}>
         <div>
-          <h1 style={{ fontFamily: '"Outfit", sans-serif', fontWeight: 800, fontSize: 'clamp(22px,3vw,30px)', color: TEXT, margin: '0 0 6px', letterSpacing: '-0.02em' }}>
+          <h1 style={{ fontFamily: '"Outfit", sans-serif', fontWeight: 800, fontSize: 'clamp(24px,4vw,46px)', color: TEXT, margin: '0 0 6px', letterSpacing: '-0.02em' }}>
             Blog Posts
           </h1>
           <p style={{ fontFamily: '"Outfit", sans-serif', fontSize: 13, fontWeight: 500, color: MUTED, margin: 0 }}>

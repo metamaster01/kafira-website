@@ -75,7 +75,7 @@ const team: TeamMember[] = [
     // social: { linkedin: "https://linkedin.com/in/akanksha", instagram: "https://instagram.com/akanksha" },
   },
   {
-    name: "Shruti Chouhan",
+    name: "Shruti Chauhan",
     role: "Head of Operation",
     bio: "Shruti is dedicated to providing exceptional support before, during, and after every trip. She believes great service is the key to unforgettable travel experiences.",
     image: "/images/team/shruti.jpeg",

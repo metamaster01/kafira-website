@@ -503,7 +503,7 @@ export default function BlogsClient({ featured, blogs }: Props) {
               <h2 style={{
                 fontFamily: '"Inter", sans-serif',
                 fontWeight: 600,
-                fontSize: 'clamp(22px,2.8vw,34px)',
+                fontSize: 'clamp(16px,2.4vw,24px)',
                 color: TEXT,
                 lineHeight: 1.2,
                 letterSpacing: '-0.02em',
@@ -595,7 +595,7 @@ export default function BlogsClient({ featured, blogs }: Props) {
           <h2 style={{
             fontFamily: '"Inter", sans-serif',
             fontWeight: 600,
-            fontSize: 'clamp(22px,3.5vw,44px)',
+            fontSize: 'clamp(24px,4vw,46px)',
             color: TEXT,
             letterSpacing: '-0.02em',
             lineHeight: 1.15,

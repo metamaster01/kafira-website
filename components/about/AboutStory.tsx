@@ -64,7 +64,7 @@ export default function AboutStory() {
             color: "#111827",
             lineHeight: 1.35,
             marginBottom: "2rem",
-            fontSize: 'clamp(22px,3.5vw,44px)',
+            fontSize: 'clamp(24px,4vw,46px)',
             textAlign: "center",
           }}
         >

@@ -50,7 +50,7 @@ export default function DestinationHero({
           <h1 style={{
             fontFamily: '"Inter",serif',
             fontWeight: 600,
-            fontSize: 'clamp(22px,3.6vw,38px)',
+            fontSize: 'clamp(24px,4vw,46px)',
             color: '#ffffff',
             lineHeight: 1.25,
             margin: '0 0 12px',

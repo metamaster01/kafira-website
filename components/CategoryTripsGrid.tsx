@@ -50,7 +50,7 @@ export default function CategoryTripsGrid({
             style={{
               fontFamily: '"Inter", sans-serif',
               fontWeight: 600,
-              fontSize: "clamp(22px,3.5vw,44px)",
+              fontSize: 'clamp(24px,4vw,46px)',
               color: "#0f2720",
               margin: "0 0 8px",
               letterSpacing: "-0.01em",

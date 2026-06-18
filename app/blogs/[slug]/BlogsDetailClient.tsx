@@ -860,7 +860,7 @@ export default function BlogDetailClient({ blog, relatedBlogs }: Props) {
             <div style={{ display: 'flex', alignItems: 'center', gap: 20, marginBottom: 'clamp(32px,4vw,48px)' }}>
               <h2 style={{
                 fontFamily: '"Inter", sans-serif',
-                fontWeight: 800, fontSize: 'clamp(22px,3vw,32px)',
+                fontWeight: 800, fontSize: 'clamp(24px,4vw,46px)',
                 color: TEXT, letterSpacing: '-0.02em', margin: 0, whiteSpace: 'nowrap',
               }}>
                 More to Explore
