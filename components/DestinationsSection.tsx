@@ -1485,7 +1485,7 @@ export default function DestinationsSection({
           <h2 style={{ fontFamily: '"Inter",sans-serif', fontWeight: 600, fontSize: 26, color: C.text, margin: '0 0 6px', letterSpacing: '-0.01em' }}>
             {heading}
           </h2>
-          <p style={{ fontFamily: '"Montserrat",sans-serif', fontSize: 12.5, color: C.muted, margin: 0, lineHeight: 1.65 }}>
+          <p style={{ fontFamily: '"Montserrat",sans-serif', fontSize: 12.5, color: 'white', margin: 0, lineHeight: 1.65 }}>
             {subline}
           </p>
         </div>

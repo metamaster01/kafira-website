@@ -15,20 +15,28 @@ import { motion, useInView } from "framer-motion";
 
 const paragraphs = [
   {
-    text: "Remember when travel was simply about visiting a destination and coming back with photographs? We believed there was something more. Every journey has the power to create stories, friendships, confidence, and memories that stay with you forever.",
+    text: "Kafira began with four friends and a shared love for exploring the unknown.From missed buses and spontaneous detours to unforgettable sunsets and lifelong friendships, our travels taught us something important — the best part of any journey isn't the destination, it's the experience.",
     highlight: false,
   },
   {
-    text: "That's how Kafira was born.",
+    text: "So, we built Kafira. ",
     highlight: true,
   },
   {
-    text: "Founded by passionate travelers, Kafira was created with a simple mission — to make travel more accessible, transparent, and experience-driven. We saw a need for a travel community where people could explore the world without worrying about complicated planning, hidden surprises, or missing out on authentic experiences.",
+    text: "Not just as a travel company, but as a community for people who love exploring without the stress of planning every little detail.",
     highlight: false,
   },
   {
-    text: "Today, Kafira is more than a travel company. We are a community of explorers, dreamers, adventurers, and storytellers who believe that every trip should leave a lasting impact. Inspired by community-driven travel experiences, transparency, and meaningful connections among travelers.",
+    text: "Today, Kafira brings together solo travelers, weekend wanderers, adventure seekers, and memory collectors from different walks of life. Every trip is designed to help you discover new places, meet incredible people, step out of your comfort zone, and return home with stories you'll be telling for years.  ",
     highlight: false,
+  },
+  {
+    text: "Because at the end of the day, travel isn't about ticking destinations off a list. It's about the people, the moments, the unexpected adventures, and the memories that stay long after the trip is over.",
+    highlight: false,
+  },
+  {
+    text: "That's what Kafira is all about.",
+    highlight: true,
   },
 ];
 
