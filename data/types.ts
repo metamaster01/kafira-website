@@ -40,7 +40,7 @@ export interface TripDay {
   activities: string[];
 }
 
-export type TripCategory = "adventure" | "cultural" | "nature" | "road-trip" | "trek";
+export type TripCategory = "adventure" | "cultural" | "nature" | "road-trip" | "trek" | "wellness" | "wildlife" | "beach";
 export type TripDifficulty = "Easy" | "Moderate" | "Challenging" | "Extreme";
 
 export interface Trip {
