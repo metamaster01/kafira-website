@@ -970,7 +970,7 @@ function DestItem({ name, onClick }: { name: string; onClick: () => void }) {
 // ═══════════════════════════════════════════════════════
 //  Search dropdown
 // ═══════════════════════════════════════════════════════
-function SearchDropdown({ query, results, onSelect }: { query: string; results: SearchResult[]; onSelect: (r: SearchResult) => void }) {
+function SearchDropdown({ query, results, onSelect, isMobile }: { query: string; results: SearchResult[]; onSelect: (r: SearchResult) => void; isMobile?: boolean })  {
   if (!query.trim()) return null;
   return (
     <motion.div
@@ -993,7 +993,7 @@ function SearchDropdown({ query, results, onSelect }: { query: string; results: 
               <div style={{ padding: '10px 16px 4px', fontFamily: '"Inter",sans-serif', fontSize: 9, fontWeight: 700, color: SEA, letterSpacing: '0.2em', textTransform: 'uppercase' }}>
                 {kind === 'destination' ? 'Destinations' : 'Trips'}
               </div>
-              {group.map((r, i) => <SearchRow key={i} result={r} onSelect={onSelect}/>)}
+              {group.map((r, i) => <SearchRow key={i} result={r} onSelect={onSelect} isMobile={isMobile}/>)}
             </div>
           );
         })
@@ -1002,8 +1002,56 @@ function SearchDropdown({ query, results, onSelect }: { query: string; results: 
   );
 }
 
-function SearchRow({ result, onSelect }: { result: SearchResult; onSelect: (r: SearchResult) => void }) {
+// function SearchRow({ result, onSelect }: { result: SearchResult; onSelect: (r: SearchResult) => void }) {
+//   const [hov, setHov] = useState(false);
+//   return (
+//     <div onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)} onClick={() => onSelect(result)}
+//       style={{ display: 'flex', alignItems: 'center', gap: 11, padding: '9px 16px', cursor: 'pointer', background: hov ? 'rgba(45,143,123,0.06)' : 'transparent', transition: 'background 0.14s' }}>
+//       <div style={{ width: 42, height: 38, borderRadius: 7, overflow: 'hidden', flexShrink: 0, background: '#e8efec' }}>
+//         <img src={result.image} alt={result.name} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+//           onError={e => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}/>
+//       </div>
+//       <div style={{ flex: 1, minWidth: 0 }}>
+//         <div style={{ fontFamily: '"Inter",sans-serif', fontSize: 13, fontWeight: 600, color: '#1a1a1a', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+//           {result.name}
+//         </div>
+//         <div style={{ fontFamily: '"Inter",sans-serif', fontSize: 10.5, color: '#888', marginTop: 1 }}>
+//           {result.kind === 'destination'
+//             ? `${result.region === 'india' ? 'India' : 'International'} · from ₹${result.startingPrice?.toLocaleString('en-IN')}`
+//             : `${result.duration} · from ₹${result.discountedPrice.toLocaleString('en-IN')}`}
+//         </div>
+//       </div>
+//       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 2, flexShrink: 0 }}>
+//         <div style={{ fontFamily: '"Inter",sans-serif', fontSize: 8, fontWeight: 700, color: SEA, background: 'rgba(45,143,123,0.09)', borderRadius: 999, padding: '2px 8px', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+//           {result.kind}
+//         </div>
+//         {result.kind === 'trip' && (
+//           <div style={{ fontFamily: '"Inter",sans-serif', fontSize: 8, color: 'rgba(45,143,123,0.55)' }}>opens modal ↗</div>
+//         )}
+//       </div>
+//     </div>
+//   );
+// }
+
+
+function SearchRow({ result, onSelect, isMobile }: { result: SearchResult; onSelect: (r: SearchResult) => void; isMobile?: boolean }) {
   const [hov, setHov] = useState(false);
+
+  if (isMobile) {
+    return (
+      <div onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)} onClick={() => onSelect(result)}
+        style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '8px 14px', cursor: 'pointer', background: hov ? 'rgba(45,143,123,0.06)' : 'transparent', transition: 'background 0.14s' }}>
+        <div style={{ width: 38, height: 34, borderRadius: 6, overflow: 'hidden', flexShrink: 0, background: '#e8efec' }}>
+          <img src={result.image} alt={result.name} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+            onError={e => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}/>
+        </div>
+        <div style={{ fontFamily: '"Inter",sans-serif', fontSize: 13, fontWeight: 600, color: '#1a1a1a', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', flex: 1, minWidth: 0 }}>
+          {result.name}
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)} onClick={() => onSelect(result)}
       style={{ display: 'flex', alignItems: 'center', gap: 11, padding: '9px 16px', cursor: 'pointer', background: hov ? 'rgba(45,143,123,0.06)' : 'transparent', transition: 'background 0.14s' }}>
@@ -1032,6 +1080,7 @@ function SearchRow({ result, onSelect }: { result: SearchResult; onSelect: (r: S
     </div>
   );
 }
+
 
 // ═══════════════════════════════════════════════════════
 //  Second-bar nav item
@@ -1209,7 +1258,7 @@ export default function Navbar() {
               </AnimatePresence>
             </div>
             <AnimatePresence>
-              {showSearch && <SearchDropdown query={searchQuery} results={searchResults} onSelect={handleSelectResult}/>}
+              {showSearch && <SearchDropdown query={searchQuery} results={searchResults} onSelect={handleSelectResult} isMobile={isMobile}/>}
             </AnimatePresence>
           </div>
 
