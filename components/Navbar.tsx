@@ -1184,9 +1184,9 @@ export default function Navbar() {
     <>
       <header style={{ position: 'sticky', top: 0, zIndex: 1000, boxShadow: scrolled ? '0 2px 20px rgba(0,0,0,0.10)' : 'none', transition: 'box-shadow 0.3s ease' }}>
         {/* ROW 1 */}
-        <div style={{ background: '#ffffff', borderBottom: '1px solid rgba(0,0,0,0.07)', padding: '0 clamp(16px,3vw,40px)', height: 64, display: 'flex', alignItems: 'center', gap: 20 }}>
+        <div style={{ background: '#ffffff', borderBottom: '1px solid rgba(0,0,0,0.07)', padding: '0 clamp(10px,3vw,40px)', height: 64, display: 'flex', alignItems: 'center', gap: isMobile ? 8 : 20 }}>
           <Link href="/" style={{ flexShrink: 0, textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
-            <img src="/kafira-logo.png" alt="Kafira Travels" style={{ width: isMobile ? 80 : 94, height: isMobile ? 36 : 44, objectFit: 'cover', borderRadius: 8 }}/>
+            <img src="/kafira-logo.png" alt="Kafira Travels" style={{ width: isMobile ? 76 : 94, height: isMobile ? 34 : 44, objectFit: 'cover', borderRadius: 8 }}/>
           </Link>
 
           {/* Search */}
@@ -1243,7 +1243,7 @@ export default function Navbar() {
           {/* Mobile hamburger */}
           {isMobile && (
             <motion.button onClick={() => setMobileOpen(v => !v)} whileTap={{ scale: 0.92 }}
-              style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '4px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 3, flexShrink: 0, borderRadius: 8 }}
+              style={{ background: 'none', border: 'none', cursor: 'pointer', padding: '2px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 2, flexShrink: 0, borderRadius: 8 }}
               aria-label="Open menu">
               <AnimatePresence mode="wait">
                 {mobileOpen ? (
