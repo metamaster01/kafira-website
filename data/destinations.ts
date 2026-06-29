@@ -249,6 +249,45 @@ const DESTINATIONS: Destination[] = [
     featured: true,
   },
 
+  
+{
+  slug: "goa",
+  region: "india",
+  name: "Goa",
+  tagline: "Sun, Sand & Stories",
+  description: "Arambol's free-spirited lake hikes, Chapora Fort's Dil Chahta Hai nostalgia, South Goa's quiet Cabo de Rama coves, and nights that blur into mornings — Goa is India's most uninhibited escape.",
+  image: "/images/destinations/goa.jpg",
+  accent: "#e84545",
+  highlights: ["Arambol lake hike & shacks","Chapora Fort & cycling on Parra Road","South Goa — Cabo de Rama & Butterfly Beach"],
+  bestMonths: "Nov – Mar",
+  startingPrice: 0, tripCount: 0, featured: true,
+},
+{
+  slug: "ladakh",
+  region: "india",
+  name: "Ladakh",
+  tagline: "The Land of High Passes",
+  description: "Barren moonscapes, turquoise lakes, Buddhist monasteries perched on cliffs, and roads that test every nerve — Ladakh is India's most raw and remote Himalayan frontier.",
+  image: "/images/destinations/ladakh.jpg",
+  accent: "#3db89e",
+  highlights: ["Pangong Lake & Nubra Valley","Khardung La — world's highest motorable road","Leh Palace & Thiksey Monastery"],
+  bestMonths: "Jun – Sep",
+  startingPrice: 0, tripCount: 0, featured: true,
+},
+ 
+{
+  slug: "kerala",
+  region: "india",
+  name: "Kerala",
+  tagline: "God's Own Country",
+  description: "Tea estates in Munnar's mist, wild elephants at Periyar, Alleppey's houseboat gliding through coconut-lined backwaters, and the Arabian Sea at Kovalam — Kerala is India's most complete nature escape.",
+  image: "/images/destinations/kerala.jpg",
+  accent: "#2a9d5c",
+  highlights: ["Alleppey houseboat on the backwaters","Munnar tea estates & Eravikulam National Park","Kovalam beach & Padmanabhaswamy Temple"],
+  bestMonths: "Sep – Mar",
+  startingPrice: 0, tripCount: 0, featured: true,
+},
+
   // ── INTERNATIONAL ──────────────────────────────────────────────
 // ─── INTERNATIONAL REGIONS ───────────────────────────────────────────────────
 // Paste these into your regions.ts array
