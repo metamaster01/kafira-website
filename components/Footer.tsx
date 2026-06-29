@@ -419,7 +419,7 @@ const COLS = [
       { label: 'India',             href: '/destinations/india'          },
       { label: 'International',     href: '/destinations/international'  },
       // { label: 'Kerala Backwaters', href: '/destinations/india/kerala'   },
-      { label: 'Himalayan Escapes', href: '/destinations/india/himalayas'},
+      { label: 'Himalayan Escapes', href: '/destinations/india/himachal'   },
       { label: 'Meghalaya',         href: '/destinations/india/meghalaya'},
     ],
   },
