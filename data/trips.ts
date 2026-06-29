@@ -1719,6 +1719,171 @@ const TRIPS: Trip[] = [
       "Trip captain's route decisions final due to weather/roads",
     ],
   },
+
+
+
+  {
+  id: "harshil-valley-3days",
+  destinationSlug: "uttarakhand",
+  region: "india",
+  featured: true,
+  weekend: true,
+  groupTour: true,
+
+  name: "Harshil Valley Expedition",
+  subtitle: "Gartang Gali, Gangotri Dham & Lama Top Trek",
+  image: "/images/trips/harshil-valley.jpg",
+
+  category: "mountains",
+  difficulty: "Moderate",
+  location: "Harshil Valley, Uttarkashi",
+  state: "Uttarakhand",
+
+  duration: "2N/3D",
+  nights: 2,
+  days: 3,
+
+  months: "Oct – Mar",
+  monthTags: ["Oct", "Nov", "Dec", "Jan", "Feb", "Mar"],
+
+  groupSize: "15 – 25",
+  minAge: 16,
+
+  originalPrice: 9999,
+  discountedPrice: 8999,
+  discountLabel: "Starting ₹7,999",
+
+  rating: 4.8,
+  reviews: "1k+",
+
+  tags: [
+    "Harshil Valley",
+    "Gangotri",
+    "Gartang Gali",
+    "Lama Top",
+    "Weekend Escape",
+  ],
+
+  overview:
+    "Experience the untouched beauty of Harshil Valley with a perfect blend of culture, adventure, and spirituality. Explore the traditional Bagori village, trek across the historic 152-year-old Gartang Gali wooden bridge, seek blessings at Gangotri Dham, and witness breathtaking Himalayan views from Lama Top. A short yet unforgettable mountain escape from Delhi.",
+
+  highlights: [
+    "Explore the traditional Bagori village and local culture",
+    "Visit the historic 152-year-old Gartang Gali wooden bridge",
+    "Darshan at the sacred Gangotri Dham",
+    "Sunrise trek to Lama Top viewpoint",
+    "Scenic road journey through Uttarkashi and Harshil Valley",
+  ],
+
+  inclusions: [
+    "Delhi to Delhi transportation by AC coach",
+    "2 nights accommodation in camps, rooms, or cottages",
+    "2 breakfasts and 2 dinners",
+    "Experienced trip captain throughout the journey",
+    "All required permits",
+    "Driver allowance, toll taxes, and state taxes",
+  ],
+
+  exclusions: [
+    "Meals apart from those mentioned in inclusions",
+    "Travel insurance",
+    "Personal expenses such as porterage, tips, and laundry",
+    "Entry fees and optional activity charges",
+    "Room heaters or tickets unless specifically included",
+    "Cost of snow chains or 4×4 vehicles during heavy snowfall",
+    "Expenses due to natural calamities, weather conditions, riots, landslides, or roadblocks",
+    "GST (5%)",
+    "Anything not mentioned under inclusions",
+  ],
+
+  itinerary: [
+    {
+      day: 1,
+      title: "Delhi to Harshil Valley",
+      activities: [
+        "Depart from Delhi from the pre-decided pickup point",
+        "Overnight journey towards Harshil Valley",
+        "Ice-breaking session with fellow travellers",
+        "Introduction and fun activities during the journey",
+      ],
+    },
+
+    {
+      day: 2,
+      title: "Uttarkashi & Bagori Village Exploration",
+      activities: [
+        "Reach Harshil Valley by afternoon (around 2–3 PM)",
+        "Check-in and freshen up at the hotel",
+        "Evening walk to Bagori village",
+        "Experience local traditions, culture, architecture, and handicrafts",
+        "Dinner and overnight stay in Harshil",
+      ],
+    },
+
+    {
+      day: 3,
+      title: "Gartang Gali & Gangotri Dham",
+      activities: [
+        "Breakfast at the hotel",
+        "Travel to Gartang Gali",
+        "2 km one-side trek to the historic wooden bridge",
+        "Explore the 152-year-old structure",
+        "Drive to Gangotri Dham",
+        "Lunch at Gangotri (self-sponsored)",
+        "Temple visit and leisure time",
+        "Return to Harshil for dinner and overnight stay",
+      ],
+    },
+
+    {
+      day: 4,
+      title: "Lama Top Trek & Return to Delhi",
+      activities: [
+        "Early morning hike to Lama Top (2.5 km)",
+        "Enjoy panoramic views of Harshil Valley",
+        "Return to the hotel for breakfast",
+        "Check-out from the property",
+        "Begin the journey back to Delhi",
+        "Lunch and dinner en route (self-sponsored)",
+        "Overnight travel to Delhi",
+      ],
+    },
+  ],
+
+  meetingPoint: "Pre-decided departure point in Delhi",
+  endPoint: "Delhi",
+
+  thingsToCarry: [
+    "Day backpack (20–30 L)",
+    "Down jacket or heavy winter jacket",
+    "One pair of thermals",
+    "Outdoor trekking shoes",
+    "3 quick-dry T-shirts",
+    "3 pairs of cotton socks",
+    "1 pair of woollen socks",
+    "Quick-dry towel",
+    "Gloves",
+    "Sun cap",
+    "Lip balm",
+    "Cold cream and sunscreen",
+    "1 litre water bottle",
+    "Toiletry bag",
+    "Personal medical kit",
+    "Government ID proof (Aadhar, driving license, etc.)",
+    "Travel laundry bag",
+    "Power bank",
+  ],
+
+  terms: [
+    "No refund shall be made against the initial booking amount.",
+    "50% cancellation charges apply if cancelled one week before departure.",
+    "75% cancellation charges apply on the day of departure.",
+    "Activities may change due to weather conditions or government restrictions.",
+    "No refunds will be provided for activities cancelled due to unavoidable circumstances.",
+    "GST (5%) is applicable extra.",
+    "Valid government ID proof is mandatory for all travellers.",
+  ],
+},
  
   {
     id: "kerala-grand-tour",
