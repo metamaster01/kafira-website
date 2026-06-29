@@ -421,6 +421,7 @@ const COLS = [
       // { label: 'Kerala Backwaters', href: '/destinations/india/kerala'   },
       { label: 'Himalayan Escapes', href: '/destinations/india/himachal'   },
       { label: 'Meghalaya',         href: '/destinations/india/meghalaya'},
+      { label: 'Spiti Expedition',         href: '/destinations/india/spiti'}
     ],
   },
   {
